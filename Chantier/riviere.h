@@ -1,0 +1,8 @@
+//
+// Created by barnab on 05/10/2025.
+//
+
+#ifndef PROJETLO21A25_RIVIERE_H
+#define PROJETLO21A25_RIVIERE_H
+
+#endif //PROJETLO21A25_RIVIERE_H
