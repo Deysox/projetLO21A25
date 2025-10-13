@@ -5,4 +5,8 @@
 #ifndef PROJETLO21A25_JEU_H
 #define PROJETLO21A25_JEU_H
 
+class Jeu {
+
+};
+
 #endif //PROJETLO21A25_JEU_H
