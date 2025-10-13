@@ -19,34 +19,34 @@
     - afficher les règles
 */
 
-namespace menu {
-    class Menu : public QWidget {
-        Q_OBJECT
 
-    public:
-        Menu() {
-            auto* jouer = new QPushButton("Jouer");
-            auto* regles = new QPushButton("Règles");
-            auto* ajouterJoueur = new QPushButton("Ajouter un joueur");
+class Menu : public QWidget {
+    Q_OBJECT
 
-            auto* layout = new QVBoxLayout;
-            layout->addWidget(jouer);
-            layout->addWidget(regles);
-            layout->addWidget(ajouterJoueur);
-            setLayout(layout);
+public:
+    Menu() {
+        auto* jouer = new QPushButton("Jouer");
+        auto* regles = new QPushButton("Règles");
+        auto* ajouterJoueur = new QPushButton("Ajouter un joueur");
 
-            connect(jouer, &QPushButton::clicked, []() {
-                QMessageBox::information(nullptr, "Partie", "La partie commence !");
-                });
+        auto* layout = new QVBoxLayout;
+        layout->addWidget(jouer);
+        layout->addWidget(regles);
+        layout->addWidget(ajouterJoueur);
+        setLayout(layout);
 
-            connect(regles, &QPushButton::clicked, []() {
-                QMessageBox::information(nullptr, "Règles", "Voici les règles du jeu !");
-                });
+        connect(jouer, &QPushButton::clicked, []() {
+            QMessageBox::information(nullptr, "Partie", "La partie commence !");
+            });
 
-            connect(ajouterJoueur, &QPushButton::clicked, []() {
-                QMessageBox::information(nullptr, "Joueur", "Un joueur a été ajouté !");
-                });
-        }
-    };
-}
+        connect(regles, &QPushButton::clicked, []() {
+            QMessageBox::information(nullptr, "Règles", "Voici les règles du jeu !");
+            });
+
+        connect(ajouterJoueur, &QPushButton::clicked, []() {
+            QMessageBox::information(nullptr, "Joueur", "Un joueur a été ajouté !");
+            });
+    }
+};
+
 #endif //PROJETLO21A25_MENU_H
