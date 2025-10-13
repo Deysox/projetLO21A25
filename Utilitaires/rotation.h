@@ -6,17 +6,20 @@
 #define PROJETLO21A25_ROTATION_H
 
 #include "exceptions.h"
+#include "exceptions.h"
 
 namespace Barnabe {
     class Rotation {
-        int rotation;
+        int rot;
     public:
-        Rotation(int rot) : rotation(rot) { if (rot < 0 || rot > 5) throw PlateauException("Rotation Invalide : entrez un nombre entre 0 et 5");}
+        Rotation(int r = 0);
 
         Rotation operator+(const Rotation&);
         Rotation operator-(const Rotation&);
-        Rotation operator==(const Rotation&);
-        Rotation operator!=(const Rotation&);
+        Rotation operator++();
+        Rotation operator++(int);
+        bool operator==(const Rotation&);
+        bool operator!=(const Rotation&);
     };
 }
 

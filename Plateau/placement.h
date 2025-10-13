@@ -1,9 +1,5 @@
-//
-// Created by barnab on 13/10/2025.
-//
-
-#ifndef PROJETLO21A25_PLACEUR_H
-#define PROJETLO21A25_PLACEUR_H
+#ifndef PROJETLO21A25_PLACEMENT_H
+#define PROJETLO21A25_PLACEMENT_H
 
 #include <map>
 #include <vector>
@@ -25,7 +21,7 @@ namespace Marilou {
 namespace Barnabe {
     using namespace Marilou;
 
-    class Placeur {
+    class Placement {
         Plateau* plateau;
     public:
         Placeur(const Plateau* p);
@@ -35,4 +31,4 @@ namespace Barnabe {
     };
 }
 
-#endif //PROJETLO21A25_PLACEUR_H
+#endif //PROJETLO21A25_PLACEMENT_H

@@ -8,13 +8,9 @@
 using namespace std;
 
 namespace Barnabe {
-    class PlateauException {
-        string info;
-    public:
-        explicit PlateauException(const string& s) : info(s){}
-        explicit PlateauException() : info("Erreur Plateau"){}
-        const string& get_info() const {return info;}
-    };
+    class CoordonneesException;
+    class PlateauException;
+    class PlacementException;
 }
 
 
