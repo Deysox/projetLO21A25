@@ -7,14 +7,12 @@
 
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
-#include "plateau.h"
+#include "board.h"
 using namespace std;
 
 // ===== A supprimer après =====
 namespace Marilou {
-    enum class Couleur{};
-    class Case;
-    class Tuile;
+    class Tile;
 }
 // =====
 
@@ -22,12 +20,12 @@ namespace Barnabe {
     using namespace Marilou;
 
     class Placement {
-        Plateau* plateau;
+        Board* board;
     public:
-        Placeur(const Plateau* p);
+        Placement(const Board* p);
 
-        bool peutPlacer(const Tuile&, Position, Rotation);
-        void placer(const Tuile&, Position, Rotation);
+        bool canPlace(const Tile&, Position, Rotation);
+        void place(const Tile&, Position, Rotation);
     };
 }
 
