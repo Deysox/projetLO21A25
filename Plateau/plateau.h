@@ -63,7 +63,7 @@ namespace Barnabe {
         void setCase(Position pos, const Case& c);
         void setCase(int x, int y, const Case& c);
 
-        void valide(const vector<Position>&);
+        void valide(const vector<Position>&) const;
 
         friend ostream& operator<<(ostream& f, const Plateau& p);
 
