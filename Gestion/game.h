@@ -1,5 +1,7 @@
 #ifndef PROJETLO21A25_PARTIE_H
 #define PROJETLO21A25_PARTIE_H
+
+#include <string>
 using namespace std;
 
 class Partie {
@@ -21,7 +23,7 @@ private:
 	Partie();
 	~Partie();
 	Partie(const Partie& c);
-	Partie & = operator(const Partie & c);
+	Partie & operator=(const Partie & c);
 	static Partie* instance;
 public:
 	void abandonnerPartie();
@@ -29,7 +31,7 @@ public:
 	void mancheSuivante();
 	static Partie& donneInstance() {
 		if (instance == nullptr) {
-			instance = new Jeu;
+			instance = new Jeu();
 			return *instance;
 		}
 	}

@@ -1,9 +1,19 @@
-//
-// Created by barnab on 05/10/2025.
-//
-#include <iostream>
+#include "menu.h"
+#include <QWidget>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QDebug>
+#include <QString>
+#include <QDialog>  
+#include <QLineEdit>
+#include <QLabel>
+#include <QApplication>
 
-int main() {
-    std::cout << "test" << std::endl;
-    return 0;
+int main(int argc, char* argv[])
+{
+    QApplication app(argc, argv);
+    Menu menu;
+    menu.setFixedSize(500, 400);
+    menu.show();
+    return app.exec();
 }
