@@ -19,13 +19,21 @@ namespace Marilou {
 namespace Barnabe {
     using namespace Marilou;
 
-    class Placement {
+    class BoardManager {
         Board* board;
     public:
-        Placement(const Board* p);
+        BoardManager();
+        BoardManager(const BoardManager& e);
+        ~BoardManager();
 
-        bool canPlace(const Tile&, Position, Rotation);
+        BoardManager& operator=(const BoardManager& e);
+
+        bool canPlace(const Tile&, Position, Rotation) const;
         void place(const Tile&, Position, Rotation);
+
+        void display(ostream& f, bool contour = false) const;
+
+        int boardScore() const;
     };
 }
 

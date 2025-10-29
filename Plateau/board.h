@@ -61,7 +61,7 @@ namespace Barnabe {
         unsigned int getHeight(Position pos) const;
         unsigned int getHeight(int x, int y) const;
 
-        Position findCell(const Cell&);
+        Position findCell(const Cell&) const;
 
         void setCell(Position pos, unsigned int h, const Cell& c);
         void setCell(int x, int y, unsigned int h, const Cell& c);
