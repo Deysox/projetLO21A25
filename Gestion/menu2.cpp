@@ -19,9 +19,27 @@ void Menu::afficher() {
     {
         //erreurs sans les {} car besoin d'un "scope" local pour partie
     case '1': {
-        cout << "Lancement de la partie.\n" << endl;
+        cout << "Game parameters\n";
+        cout << "Tile_count ? : ";
+        size_t tile_count = 0;
+        cin >> tile_count;
+        cout << "Variant ? : ";
+        string variant;
+        cin >> variant;
+        cout << "Difficulty ? : ";
+        string difficulty;
+        cin >> difficulty;
+        cout << "Number of players ? : ";
+        size_t nb_players = 0;
+        cin >> nb_players;
         Partie& partie = Partie::donneInstance();
-        partie.informationsPartie();
+        //add players to game
+        for (int i = 0; i < nb_players; i++) {
+            cout << "Name ?";
+            string name;
+            cin >> name;
+            partie.addPlayer(name);
+        }
         break;
     }
     case '2':
