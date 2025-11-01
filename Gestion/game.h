@@ -26,7 +26,7 @@ private:
 	string mode;
 	string difficulty;
 
-	Partie();
+	Partie(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
 	~Partie();
 	Partie(const Partie& c);
 	Partie& operator=(const Partie& c);
@@ -37,11 +37,11 @@ public:
 	void abandonnerPartie();
 	void informationsPartie();
 	void mancheSuivante();
-	static Partie& donneInstance() {
+	static Partie& donneInstance(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) {
 		if (instance == nullptr) {
-			instance = new Partie();
-			return *instance;
+			instance = new Partie(tile_count, variant, mode, difficulty, nb_players);
 		}
+		return *instance;
 	}
 	static void libereInstance() {
 		delete instance;

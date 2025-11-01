@@ -1,11 +1,12 @@
 #include "game.h"
+#include "river.h"
 #include <iostream>
 #include <vector>
 
 Partie* Partie::instance = nullptr;
 
-Partie::Partie() {
-    std::cout << "Constructeur de la partie." << std::endl;
+Partie::Partie(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
+    //penser à allouer l'espace pour la rivière
 }
 
 void Partie::displayPlayers() {

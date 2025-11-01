@@ -26,13 +26,17 @@ void Menu::afficher() {
         cout << "Variant ? : ";
         string variant;
         cin >> variant;
+        cout << "Mode ? : ";
+        string mode;
+        cin >> mode;
         cout << "Difficulty ? : ";
         string difficulty;
         cin >> difficulty;
         cout << "Number of players ? : ";
         size_t nb_players = 0;
         cin >> nb_players;
-        Partie& partie = Partie::donneInstance();
+        //penser à vérifier nb_players
+        Partie& partie = Partie::donneInstance(tile_count, variant, mode, difficulty, nb_players);
         //add players to game
         for (int i = 0; i < nb_players; i++) {
             cout << "Name ?";
