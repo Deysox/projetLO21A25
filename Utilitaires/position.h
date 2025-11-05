@@ -16,27 +16,29 @@ namespace Barnabe {
         int x() const {return posX;}
         int y() const {return posY;}
 
-        Position operator+(const Position&);
-        Position operator+(const Rotation&);
-        Position operator-(const Position&);
-        Position operator==(const Position&);
-        Position operator!=(const Position&);
+        Position operator+(const Position&) const;
+        Position operator+(const Rotation&) const;
+        Position operator-(const Position&) const;
+        bool operator==(const Position&) const;
+        bool operator!=(const Position&) const;
 
         bool estAdjacent(const Position&) const;
 
         class neighbor_iterator {
             int rot;
-            neighbor_iterator() : rot(0) {}
+            int x;
+            int y;
+            neighbor_iterator(int px, int py, int rot);
         public:
             neighbor_iterator& operator++();
-            neighbor_iterator& operator++(int);
+            neighbor_iterator operator++(int);
             Position operator*();
             bool operator!=(const neighbor_iterator&);
             bool operator==(const neighbor_iterator&);
         };
 
-        const neighbor_iterator begin() const;
-        const neighbor_iterator end() const;
+        neighbor_iterator begin() const;
+        neighbor_iterator end() const;
     };
 }
 
