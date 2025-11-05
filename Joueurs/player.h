@@ -27,5 +27,7 @@ namespace Barnabe {
     };
 }
 
+ostream& operator<<(ostream& f, const Barnabe::Player& p);
+
 
 #endif //PROJETLO21A25_JOUEUR_H
