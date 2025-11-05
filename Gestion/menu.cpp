@@ -13,15 +13,15 @@
 
 Menu::Menu(QWidget* parent) : QWidget(parent) {
     //Boutons
-    boutonLancerPartie = new QPushButton("Lancer Partie");
-    boutonReprendrePartie = new QPushButton("Reprendre Partie");
+    boutonLancerGame = new QPushButton("Lancer Game");
+    boutonReprendreGame = new QPushButton("Reprendre Game");
     boutonAfficherRegles = new QPushButton("Afficher regles");
 
     //Affichage
     QVBoxLayout* layout = new QVBoxLayout(this);
-    layout->addWidget(boutonLancerPartie);
+    layout->addWidget(boutonLancerGame);
     layout->addSpacing(15);
-    layout->addWidget(boutonReprendrePartie);
+    layout->addWidget(boutonReprendreGame);
     layout->addSpacing(15);
     layout->addWidget(boutonAfficherRegles);
     setLayout(layout);
@@ -30,8 +30,8 @@ Menu::Menu(QWidget* parent) : QWidget(parent) {
     //Connexions
     connect(boutonAfficherRegles, &QPushButton::clicked,
         this, &Menu::boutonAfficherReglesClique);
-    connect(boutonLancerPartie, &QPushButton::clicked,
-        this, &Menu::boutonLancerPartieClique);
+    connect(boutonLancerGame, &QPushButton::clicked,
+        this, &Menu::boutonLancerGameClique);
 }
 
 //Slots
@@ -45,7 +45,7 @@ void Menu::boutonAfficherReglesClique() {
         "s'ils sont correctement places selon son type.");
 }
 
-void Menu::boutonLancerPartieClique() {
-    Partie& partie = Partie::donneInstance();
-    partie.informationsPartie();
+void Menu::boutonLancerGameClique() {
+    Game& Game = Game::donneInstance();
+    Game.informationsGame();
 }

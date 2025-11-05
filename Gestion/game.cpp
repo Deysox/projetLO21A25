@@ -3,19 +3,19 @@
 #include <iostream>
 #include <vector>
 
-Partie* Partie::instance = nullptr;
+Game* Game::instance = nullptr;
 
-Partie::Partie(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
+Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
     //penser à allouer l'espace pour la rivière
 }
 
-void Partie::displayPlayers() {
+void Game::displayPlayers() {
     for (Barnabe::Player* player : players) {
         cout << player->getName() << "\n";
     }
 }
 
-void Partie::addPlayer(const string& name) {
+void Game::addPlayer(const string& name) {
     if (nb_players == nb_players_max)
     {
         //Put an exception instead
@@ -27,7 +27,7 @@ void Partie::addPlayer(const string& name) {
     }
 }
 
-Barnabe::Player* Partie::getPlayer(size_t position) {
+Barnabe::Player* Game::getPlayer(size_t position) {
     if (position < nb_players) {
         return players.at(position);
     }
@@ -37,7 +37,7 @@ Barnabe::Player* Partie::getPlayer(size_t position) {
     }
 }
 
-void Partie::informationsPartie() {
-    std::cout << "Informations de la partie." << std::endl;
+void Game::informationsGame() {
+    std::cout << "Informations de la Game." << std::endl;
 }
 

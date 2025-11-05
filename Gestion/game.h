@@ -1,5 +1,5 @@
-﻿#ifndef PROJETLO21A25_PARTIE_H
-#define PROJETLO21A25_PARTIE_H
+﻿#ifndef PROJETLO21A25_Game_H
+#define PROJETLO21A25_Game_H
 
 #include <string>
 #include "river.h"
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Partie {
+class Game {
 private:
 	//game handles lifecycle of players
 	vector<Barnabe::Player*> players;
@@ -26,24 +26,23 @@ private:
 	string mode;
 	string difficulty;
 
-	Partie(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
-	~Partie();
-	Partie(const Partie& c);
-	Partie& operator=(const Partie& c);
+	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
+	~Game();
+	Game(const Game& c);
+	Game& operator=(const Game& c);
 
 	//game instance
-	static Partie* instance;
+	static Game* instance;
 public:
-	void abandonnerPartie();
-	void informationsPartie();
-	void mancheSuivante();
-	static Partie& donneInstance(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) {
+	void abandonGame();
+	void informationsGame();
+	static Game& giveInstance(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) {
 		if (instance == nullptr) {
-			instance = new Partie(tile_count, variant, mode, difficulty, nb_players);
+			instance = new Game(tile_count, variant, mode, difficulty, nb_players);
 		}
 		return *instance;
 	}
-	static void libereInstance() {
+	static void freeInstance() {
 		delete instance;
 		instance = nullptr;
 	}
@@ -67,10 +66,10 @@ public:
 	void setTileCount(size_t t) {
 		tile_count = t;
 	}
-	const string& setVariant() const {
+	const string& getVariant() const {
 		return variant;
 	}
-	void getVariant(string s) {
+	void setVariant(string s) {
 		variant = s;
 	}
 	const string& getMode() const {
@@ -100,4 +99,4 @@ public:
 	void displayPlayers();
 };
 
-#endif //PROJETLO21A25_PARTIE_H
+#endif //PROJETLO21A25_Game_H

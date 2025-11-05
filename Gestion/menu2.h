@@ -3,7 +3,7 @@
 class Menu {
 public:
 	Menu();
-	void afficher();
+	void display();
 	//~Menu();
 private:
 };
