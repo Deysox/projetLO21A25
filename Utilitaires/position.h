@@ -40,6 +40,12 @@ namespace Barnabe {
         neighbor_iterator begin() const;
         neighbor_iterator end() const;
     };
+
+    struct PositionHasher {
+        std::size_t operator()(const Position& p) const {
+            return std::hash<int>()(p.x()) ^ (std::hash<int>()(p.y()) << 1);
+        }
+    };
 }
 
 
