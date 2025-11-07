@@ -12,7 +12,7 @@ namespace Marilou {//temporaire
 }
 namespace Amalena {
     class Pile{
-        vector <Marilou::Tile*> tuiles;
+        vector <Marilou::Tile*> tiles;
 
         Pile(vector <Marilou::Tile*> t);
         ~Pile();//friend jeu ou ctrl reflechir si op à faire : désallouer le vecteur
