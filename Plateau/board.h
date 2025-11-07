@@ -15,25 +15,19 @@ namespace Marilou {
     enum class Color{};
     class Cell;
 }
+
 // =====
 
 namespace Barnabe {
     using namespace Marilou;
 
     class Board {
-        unordered_map<Position, Cell*, PositionHasher> cells;
+        unordered_map<Position, const Cell*, PositionHasher> cells;
         unordered_map<Position, unsigned int, PositionHasher> heightmap;
         Position corner_tl;
         Position corner_br;
     public:
-        // class neighbour_const_iterator {
-        //     const Cell* current;
-        //     neighbour_const_iterator(const Cell* c);
-        // public:
-        //     neighbour_const_iterator& operator++();
-        //     const Cell& operator*();
-        //     bool operator != (neighbour_const_iterator&);
-        // };
+        class iterator;
 
         Board();
         ~Board();
@@ -41,16 +35,16 @@ namespace Barnabe {
 
         Board& operator=(const Board&);
 
-        Cell* getCell(Position pos) const;
-        Cell* getCell(int x, int y) const;
+        const Cell* getCell(Position pos) const;
+        const Cell* getCell(int x, int y) const;
 
         unsigned int getHeight(Position pos) const;
         unsigned int getHeight(int x, int y) const;
 
         Position findCell(const Cell&) const;
 
-        void setCell(Position pos, unsigned int h, const Cell& c);
-        void setCell(int x, int y, unsigned int h, const Cell& c);
+        void setCell(Position pos, unsigned int h, const Cell* c);
+        void setCell(int x, int y, unsigned int h, const Cell* c);
 
         void validPos(const vector<Position>&) const;
 

@@ -22,7 +22,7 @@ namespace Barnabe {
         return *this;
     }
 
-    Cell *Board::getCell(Position pos) const {
+    const Cell* Board::getCell(Position pos) const {
         auto search = cells.find(pos);
         if (search != cells.end()) {
             return search->second;
@@ -31,7 +31,7 @@ namespace Barnabe {
         }
     }
 
-    Cell *Board::getCell(int x, int y) const {
+    const Cell *Board::getCell(int x, int y) const {
         return getCell(Position(x,y));
     }
 
@@ -48,15 +48,22 @@ namespace Barnabe {
         return getHeight(Position(x,y));
     }
 
+    void Board::setCell(Position pos, unsigned int h, const Cell* c) {
+        cells[pos] = c;
+        heightmap[pos] = h;
+    }
 
+    void Board::setCell(int x, int y, unsigned int h, const Cell *c) {
+        setCell(Position(x,y),h,c);
+    }
 
+    void Board::validPos(const vector<Position> &) const {
+        // Nécessite le pointeur vers la tuile des cases.
+        return;
+    }
 
+}
 
-
-
-
-
-
-
-
+ostream& operator<<(ostream& f, const Barnabe::Board& p) {
+    // Nécessite l'affichage de cell
 }
