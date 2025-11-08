@@ -2,9 +2,8 @@
 
 class Menu {
 public:
-	//le constructeur affiche les options du menu
 	Menu();
-	void afficher();
+	void display();
 	//~Menu();
 private:
 };

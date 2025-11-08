@@ -4,10 +4,10 @@
 using namespace std;
 
 Menu::Menu() {
-    afficher();
+    display();
 }
 
-void Menu::afficher() {
+void Menu::display() {
     cout << "Bienvenue dans le menu de la partie\n"
         << "Que voulez-vous faire ?\n"
         << "1. Lancer une partie\n"
@@ -17,15 +17,37 @@ void Menu::afficher() {
     cin >> choix;
     switch (choix)
     {
-        //erreurs sans les {} car besoin d'un "scope" local pour partie
+        //erreurs sans les {} car besoin d'un "scope" local pour Game
     case '1': {
-        cout << "Lancement de la partie.\n" << endl;
-        Partie& partie = Partie::donneInstance();
-        partie.informationsPartie();
+        cout << "Game parameters\n";
+        cout << "Tile_count ? : ";
+        size_t tile_count = 0;
+        cin >> tile_count;
+        cout << "Variant ? : ";
+        string variant;
+        cin >> variant;
+        cout << "Mode ? : ";
+        string mode;
+        cin >> mode;
+        cout << "Difficulty ? : ";
+        string difficulty;
+        cin >> difficulty;
+        cout << "Number of players ? : ";
+        size_t nb_players = 0;
+        cin >> nb_players;
+        //penser à vérifier nb_players
+        Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
+        //add players to game
+        for (int i = 0; i < nb_players; i++) {
+            cout << "Name ?";
+            string name;
+            cin >> name;
+            game.addPlayer(name);
+        }
         break;
     }
     case '2':
-        cout << "Reprise de la partie.\n" << endl;
+        cout << "Reprise de la Game.\n" << endl;
         break;
     case '3':
         cout << "Voici les regles du jeu :\n"

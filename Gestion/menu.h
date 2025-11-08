@@ -5,8 +5,8 @@
 
 /*
     La classe Menu permet de :
-    - lancer une partie ainsi qu'en saisir les options et paramètres
-    - reprendre une partie
+    - lancer une Game ainsi qu'en saisir les options et paramètres
+    - reprendre une Game
     - ajouter des joueurs
     - afficher les règles
 */
@@ -27,14 +27,14 @@ public:
 signals:
 private slots:
 
-    void boutonLancerPartieClique();
+    void boutonLancerGameClique();
     /*
-    void boutonReprendrePartieClique();
+    void boutonReprendreGameClique();
     */
     void boutonAfficherReglesClique();
 private:
-    QPushButton* boutonLancerPartie;
-    QPushButton* boutonReprendrePartie;
+    QPushButton* boutonLancerGame;
+    QPushButton* boutonReprendreGame;
     QPushButton* boutonAfficherRegles;
 };
 

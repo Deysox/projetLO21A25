@@ -37,4 +37,6 @@ namespace Barnabe {
     };
 }
 
+ostream& operator<<(ostream& f, const Barnabe::BoardManager& c);
+
 #endif //PROJETLO21A25_PLACEMENT_H

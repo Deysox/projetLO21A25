@@ -14,6 +14,8 @@ namespace Barnabe {
     public:
         Rotation(int r = 0);
 
+        int value() const;
+
         Rotation operator+(const Rotation&);
         Rotation operator-(const Rotation&);
         Rotation operator++();

@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
@@ -20,8 +21,8 @@ namespace Barnabe {
     using namespace Marilou;
 
     class Board {
-        map<Position, Cell*> cells;
-        map<Position, unsigned int> heightmap;
+        unordered_map<Position, Cell*, PositionHasher> cells;
+        unordered_map<Position, unsigned int, PositionHasher> heightmap;
         Position corner_tl;
         Position corner_br;
     public:
@@ -52,9 +53,6 @@ namespace Barnabe {
 
         Board& operator=(const Board&);
 
-        const_case_iterator begin() const;
-        const_case_iterator end() const;
-
         Cell& getCell(Position pos) const;
         Cell& getCell(int x, int y) const;
 
@@ -71,6 +69,8 @@ namespace Barnabe {
         friend ostream& operator<<(ostream& f, const Board& p);
 
     };
+
+
 }
 
 ostream& operator<<(ostream& f, const Barnabe::Board& p);
