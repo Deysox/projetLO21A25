@@ -1,14 +1,14 @@
 #ifndef PROJETLO21A25_MENU_H
 #define PROJETLO21A25_MENU_H
 
-//classe Menu = fenêtre graphique avec des boutons et des slots
+//classe Menu = fenï¿½tre graphique avec des boutons et des slots
 
 /*
     La classe Menu permet de :
-    - lancer une Game ainsi qu'en saisir les options et paramètres
+    - lancer une Game ainsi qu'en saisir les options et paramï¿½tres
     - reprendre une Game
     - ajouter des joueurs
-    - afficher les règles
+    - afficher les rï¿½gles
 */
 
 #include <QWidget>

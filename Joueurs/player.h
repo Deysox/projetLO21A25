@@ -1,8 +1,8 @@
 #ifndef PROJETLO21A25_JOUEUR_H
 #define PROJETLO21A25_JOUEUR_H
 
-#include "board.h"
-#include "boardmanager.h"
+#include "../Plateau/board.h"
+#include "../Plateau/boardmanager.h"
 #include <string>
 
 namespace Barnabe {
@@ -20,7 +20,7 @@ namespace Barnabe {
         void setStones(int n);
         void addStones(int n);
 
-        bool placeTile(const Tile&, Position, Rotation);
+        bool playTurn(const Tile&, Position, Rotation);
 
         int score() const;
 

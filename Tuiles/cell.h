@@ -4,7 +4,7 @@
 using namespace std;
 
 namespace Marilou {
-	enum class Color { BLUE, YELLOW, RED, PURPLE, GREEN}
+	enum class Color { BLUE, YELLOW, RED, PURPLE, GREEN};
 
     class Cell{
 		int hauteur;
@@ -33,7 +33,7 @@ namespace Marilou {
 	class StoneQuarryCell : public Cell {
 		public :
 			StoneQuarryCell(int h): Cell(h) {}
-	}
+	};
 
 }
 
