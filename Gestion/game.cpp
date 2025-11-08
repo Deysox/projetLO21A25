@@ -6,7 +6,7 @@
 Game* Game::instance = nullptr;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
-    //penser à allouer l'espace pour la rivière
+    //penser ï¿½ allouer l'espace pour la riviï¿½re
 }
 
 void Game::displayPlayers() {
@@ -38,6 +38,15 @@ Barnabe::Player* Game::getPlayer(size_t position) {
 }
 
 void Game::informationsGame() {
-    std::cout << "Informations de la Game." << std::endl;
+    std::cout << "Informations Game." << std::endl;
 }
 
+void Game::nextPlayer() {
+    current_player++;
+    current_player %= nb_players;
+}
+
+void Game::nextArchitect() {
+    architect++;
+    architect %= nb_players;
+}

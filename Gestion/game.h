@@ -12,7 +12,8 @@ class Game {
 private:
 	//game handles lifecycle of players
 	vector<Barnabe::Player*> players;
-	Barnabe::Player* architect = nullptr;
+	size_t architect = 0;
+	size_t current_player = 0;
 	size_t nb_players;
 	//default value
 	size_t nb_players_max = 5;
@@ -34,7 +35,6 @@ private:
 	//game instance
 	static Game* instance;
 public:
-	void abandonGame();
 	void informationsGame();
 	static Game& giveInstance(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) {
 		if (instance == nullptr) {
@@ -84,19 +84,36 @@ public:
 	void setDifficulty(string d) {
 		difficulty = d;
 	}
-	Barnabe::Player* getArchitect() const {
+	const size_t& getArchitect() const {
 		return architect;
 	}
-	void setArchitect(Barnabe::Player* p) {
-		architect = p;
+	void setArchitect(size_t i) {
+		architect = i;
 	}
 
-	//ajouter et accéder à un joueur
+	const size_t& getCurrentPlayer() const {
+		return current_player;
+	}
+	void setCurrentPlayer(size_t i) {
+		current_player = i;
+	}
+
+	//display and access player
 	void addPlayer(const string& name);
 	Barnabe::Player* getPlayer(size_t position);
 
-	//afficher les joueurs
+	//display players
 	void displayPlayers();
+
+	//set next player and architect so that the game continues
+	void nextPlayer();
+	void nextArchitect();
+
+	//manage game, main method
+	void manageGame();
+
+	//quit and register the game
+	void abandonGame();
 };
 
 #endif //PROJETLO21A25_Game_H
