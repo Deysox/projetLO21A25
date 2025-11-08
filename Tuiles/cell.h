@@ -4,37 +4,34 @@
 using namespace std;
 
 namespace Marilou {
-	enum class Color { BLUE, YELLOW, RED, PURPLE, GREEN}
+	enum class Color { BLUE, YELLOW, RED, PURPLE, GREEN, GREY}
+	enum class Type { DISTRICT, PLACE, QUARRY }
 
-    class Cell{
-		int hauteur;
-        ~Cell();
-        Cell(const Cell& p)=delete;
-        Cell& operator=(Cell& p)=delete;
-		Cell(int h): hauteur(h) {};
-		public :
-			int getHauteur() const { return hauteur; }
-    };
-
-	class DistrictCell : public Cell {
+	class Cell{
+		Tile tile;
 		Color color;
+		Type type;
+		~Cell();
+		Cell(const Cell& p)=delete;
+		Cell& operator=(Cell& p)=delete;
 		public :
-			DistrictCell(int h, Color c): Cell(h), color(c) {}
-			Color getColor() const {return color; }
+			Cell(Tile tile, Color c, Type t): tile(tile), color(c), Type(t) {};
+			Color getColor() const { return color; }
+			Type getType() const { return type; }
+			Tile getTile() const { return tile; }
 	};
 
-	class PlaceCell : public Cell {
-		Color color;
+	class BicolorCell : public Cell{
+		Color secondaryColor;
+		int rotation;
+		~BicolorCell();
+		BicolorCell(const BicolorCell& p)=delete;
+		BicolorCell& operator=(BicolorCell& p)=delete;
 		public :
-			PlaceCell(int h, Color c): Cell(h), color(c) {}
-			Color getColor() const {return color; }
-	};
-
-	class StoneQuarryCell : public Cell {
-		public :
-			StoneQuarryCell(int h): Cell(h) {}
+			BicolorCell(Tile tile, Color c, Type t, Color sC, int r): Cell(tile,c,t), secondaryColor(sc), rotation(r) {};
+			Color getSecondaryColor() const { return secondaryColor; }
+			int getRotation() const { return rotation; }
 	}
-
 }
 
 #endif //PROJETLO21A25_CASE_H
