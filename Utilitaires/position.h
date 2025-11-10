@@ -16,11 +16,11 @@ namespace Barnabe {
         int x() const {return posX;}
         int y() const {return posY;}
 
-        Position operator+(const Position&) const;
+        Position operator+(const Position& p) const {return Position(posX + p.posX, posY+p.posY);}
         Position operator+(const Rotation&) const;
-        Position operator-(const Position&) const;
-        bool operator==(const Position&) const;
-        bool operator!=(const Position&) const;
+        Position operator-(const Position& p) const {return Position(posX - p.posX, posY - p.posY);}
+        bool operator==(const Position& p) const {return (posX == p.posX) and (posY == p.posY);}
+        bool operator!=(const Position& p) const {return !((posX == p.posX) and (posY == p.posY));}
 
         bool estAdjacent(const Position&) const;
 
@@ -28,17 +28,25 @@ namespace Barnabe {
             int rot;
             int x;
             int y;
-            neighbor_iterator(int px, int py, int rot);
+            neighbor_iterator(int px, int py, int r) : x(px),y(py),rot(r) {}
+            friend class Position;
         public:
-            neighbor_iterator& operator++();
-            neighbor_iterator operator++(int);
-            Position operator*();
-            bool operator!=(const neighbor_iterator&);
-            bool operator==(const neighbor_iterator&);
+            neighbor_iterator& operator++() {
+                rot++;
+                return *this;
+            }
+            neighbor_iterator operator++(int) {
+                int old = rot;
+                rot++;
+                return neighbor_iterator(x,y,old);
+            }
+            Position operator*(){return Position(x,y) + Rotation(rot);}
+            bool operator!=(const neighbor_iterator& c){return rot == c.rot;};
+            bool operator==(const neighbor_iterator& c) {return rot != c.rot;}
         };
 
-        neighbor_iterator begin() const;
-        neighbor_iterator end() const;
+        neighbor_iterator begin() const {return neighbor_iterator(posX,posY, 0);}
+        neighbor_iterator end() const {return neighbor_iterator(posX,posY, 6);}
     };
 
     struct PositionHasher {
