@@ -22,8 +22,7 @@ namespace Barnabe {
     using namespace Marilou;
 
     class Board {
-        unordered_map<Position, const Cell*, PositionHasher> cells;
-        unordered_map<Position, unsigned int, PositionHasher> heightmap;
+        unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher> cells;
         Position corner_tl;
         Position corner_br;
     public:
@@ -41,12 +40,12 @@ namespace Barnabe {
         unsigned int getHeight(Position pos) const;
         unsigned int getHeight(int x, int y) const;
 
-        Position findCell(const Cell&) const;
+        //Position findCell(const Cell&) const;
 
         void setCell(Position pos, unsigned int h, const Cell* c);
         void setCell(int x, int y, unsigned int h, const Cell* c);
 
-        void validPos(const vector<Position>&) const;
+        //void validPos(const vector<Position>&) const;
 
         friend ostream& operator<<(ostream& f, const Board& p);
     };

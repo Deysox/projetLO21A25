@@ -7,7 +7,6 @@ namespace Barnabe {
     Board::~Board() = default;
     Board::Board(const Board& b) {
         cells = b.cells;
-        heightmap = b.heightmap;
         corner_tl = b.corner_tl;
         corner_br = b.corner_br;
     }
@@ -15,7 +14,6 @@ namespace Barnabe {
     Board &Board::operator=(const Board &b ) {
         if (&b != this) {
             cells = b.cells;
-            heightmap = b.heightmap;
             corner_tl = b.corner_tl;
             corner_br = b.corner_br;
         }
@@ -25,7 +23,7 @@ namespace Barnabe {
     const Cell* Board::getCell(Position pos) const {
         auto search = cells.find(pos);
         if (search != cells.end()) {
-            return search->second;
+            return search->second.first;
         } else {
             return nullptr;
         }
@@ -36,9 +34,9 @@ namespace Barnabe {
     }
 
     unsigned int Board::getHeight(Position pos) const {
-        auto search = heightmap.find(pos);
-        if (search != heightmap.end()) {
-            return search->second;
+        auto search = cells.find(pos);
+        if (search != cells.end()) {
+            return search->second.second;
         } else {
             return 0;
         }
@@ -49,18 +47,13 @@ namespace Barnabe {
     }
 
     void Board::setCell(Position pos, unsigned int h, const Cell* c) {
-        cells[pos] = c;
-        heightmap[pos] = h;
+        cells[pos] = pair<const Cell*, unsigned int>(c,h);
     }
 
     void Board::setCell(int x, int y, unsigned int h, const Cell *c) {
         setCell(Position(x,y),h,c);
     }
 
-    void Board::validPos(const vector<Position> &) const {
-        // Nécessite le pointeur vers la tuile des cases.
-        return;
-    }
 
 }
 

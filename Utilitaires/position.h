@@ -40,12 +40,12 @@ namespace Barnabe {
                 rot++;
                 return neighbor_iterator(x,y,old);
             }
-            Position operator*(){return Position(x,y) + Rotation(rot);}
-            bool operator!=(const neighbor_iterator& c){return rot == c.rot;};
-            bool operator==(const neighbor_iterator& c) {return rot != c.rot;}
+            Position operator*() const {return Position(x,y) + Rotation(rot);}
+            bool operator!=(const neighbor_iterator& c) const {return rot == c.rot;};
+            bool operator==(const neighbor_iterator& c) const {return rot != c.rot;}
         };
 
-        neighbor_iterator begin() const {return neighbor_iterator(posX,posY, 0);}
+        neighbor_iterator begin() const {return {posX,posY,0};}
         neighbor_iterator end() const {return neighbor_iterator(posX,posY, 6);}
     };
 

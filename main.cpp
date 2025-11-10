@@ -1,5 +1,4 @@
-#include "menu2.h"
-#include "menu.h"
+
 #include <iostream>
 /*#include <QWidget>
 #include <QPushButton>
@@ -20,7 +19,14 @@ int main(int argc, char* argv[])
     return app.exec();
 }*/
 
+#include "Tuiles/cell.h"
+#include "Tuiles/tile.h"
+
 int main() {
-    Menu menu;
+
+    using namespace Marilou;
+
+    Cell c(nullptr, Color::GREEN, Type::DISTRICT);
+    c.displayTop(cout,2);
     return 0;
 }

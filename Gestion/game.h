@@ -2,8 +2,8 @@
 #define PROJETLO21A25_Game_H
 
 #include <string>
-#include "river.h"
-#include "player.h"
+#include "../Chantier/river.h"
+#include "../Joueurs/player.h"
 #include <vector>
 
 using namespace std;
