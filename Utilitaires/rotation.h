@@ -20,6 +20,8 @@ namespace Barnabe {
         Rotation operator-(const Rotation&);
         Rotation operator++();
         Rotation operator++(int);
+        Rotation operator--();
+        Rotation operator--(int);
         bool operator==(const Rotation&);
         bool operator!=(const Rotation&);
     };

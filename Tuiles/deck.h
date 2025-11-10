@@ -5,7 +5,7 @@
 #ifndef PROJETLO21A25_JEU_H
 #define PROJETLO21A25_JEU_H
 
-class Jeu {
+class Deck {
 
 };
 

@@ -13,13 +13,12 @@ namespace Marilou {//temporaire
 namespace Amalena {
     class River{
         vector<Marilou::Tile*> tiles;
-
-        River(vector <Marilou::Tile*> t);//friend avec ctrl?? ou jeu
+        River();//friend avec ctrl?? ou jeu
         ~River();//friend jeu ou ctrl reflechir si op à faire : désallouer le vecteur
         River(const River& f)=delete;
         River& operator=(River& f)=delete;
     public:
-        Marilou::Tile& giveTile();
+        Marilou::Tile& giveTile(size_t position);
         bool stay1()const;
         const size_t getPosition(Marilou::Tile* t) const;// et donc par repercussion le cout en pierres
         //réfléchir à qui gère les transactions + création d'une erreur si pierre insufissantes juste une cdtion
