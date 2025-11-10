@@ -5,32 +5,32 @@
 using namespace std;
 
 namespace Marilou {
-    class Tile{
-        Tile();
-        ~Tile();
-        Tile(const Tile& p)=delete;
-        Tile& operator=(Tile& p)=delete;
-    };
+	class Tile{
+		Tile();
+		~Tile();
+		Tile(const Tile& p)=delete;
+		Tile& operator=(Tile& p)=delete;
+	};
 
-	class StartingTile {
+	class StartingTile : public Tile {
 		array <Marilou::Cell*, 4> cells;
 
-        public :
+		public :
 			StartingTile(const array<Marilou::Cell*, 4>& c) : cells(c) {}
 	}
 
-		class ClassicTile {
+	class ClassicTile : public Tile {
 		array <Marilou::Cell*, 3> cells;
 
-        public :
+		public :
 			ClassicTile(const array<Marilou::Cell*, 3>& c) : cells(c) {}
 	}
 
-		class AthenaTile {
-		array <Marilou::Cell*, 2> cells;
+	class AthenaTile : public Tile{
+		Marilou::BicolorCell cell;
 
-        public :
-			AthenaTile(const array<Marilou::Cell*, 2>& c) : cells(c) {}
+		public :
+			AthenaTile(Marilou::BicolorCell c) : cell(c) {}
 	}
 }
 

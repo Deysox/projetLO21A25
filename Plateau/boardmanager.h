@@ -31,7 +31,7 @@ namespace Barnabe {
         bool canPlace(const Tile&, Position, Rotation) const;
         void place(const Tile&, Position, Rotation);
 
-        void display(ostream& f, bool contour = false) const;
+        ostream& display(ostream& f, bool contour = false) const;
 
         int boardScore() const;
     };
