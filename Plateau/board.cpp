@@ -48,15 +48,58 @@ namespace Barnabe {
 
     void Board::setCell(Position pos, unsigned int h, const Cell* c) {
         cells[pos] = pair<const Cell*, unsigned int>(c,h);
+        if (pos.x() < corner_tl.x()) corner_tl = Position(pos.x(),corner_tl.y());
+        else if (pos.x() > corner_br.x()) corner_br = Position(pos.x(),corner_br.y());
+
+        if (pos.y() > corner_tl.y()) corner_tl = Position(corner_tl.x(),pos.y());
+        else if (pos.y() < corner_br.y()) corner_br = Position(corner_br.x(),pos.y());
     }
 
     void Board::setCell(int x, int y, unsigned int h, const Cell *c) {
         setCell(Position(x,y),h,c);
     }
 
+    std::pair<Position, Position> Board::getCorners() const {
+        return {corner_tl,corner_br};
+    }
+
+    ostream& operator<<(ostream& f, const Barnabe::Board& b) {
+        string output;
+
+        Barnabe::Position ctl = b.getCorners().first;
+        Barnabe::Position cbr = b.getCorners().second;
+
+        int xindex_end = cbr.x();
+        int yindex_end = cbr.y()-1;
+
+        for (int yindex = ctl.y(); yindex >= yindex_end; yindex--) {
+            string line1;
+            string line2;
+            for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
+                if (xindex%2 == 0) {
+                    const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex);
+                    unsigned int heightToPlace = b.getHeight(xindex,yindex);
+                    line1 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    ");
+                    line2 += (cellToPlace ? cellToPlace->displayBottom() : "    ");
+                } else {
+
+                    const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex+1);
+                    line1 += (cellToPlace ? cellToPlace->displayBottom() : "    ");
+
+                    cellToPlace = b.getCell(xindex,yindex);
+                    unsigned int heightToPlace = b.getHeight(xindex,yindex);
+
+                    line2 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    ");
+                }
+            }
+            f << line1 << endl << line2 << endl;
+        }
+
+        return f;
+
+
+    }
+
 
 }
 
-ostream& operator<<(ostream& f, const Barnabe::Board& p) {
-    // Nécessite l'affichage de cell
-}

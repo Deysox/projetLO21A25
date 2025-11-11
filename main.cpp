@@ -21,12 +21,27 @@ int main(int argc, char* argv[])
 
 #include "Tuiles/cell.h"
 #include "Tuiles/tile.h"
+#include "Plateau/board.h"
+#include "Plateau/boardmanager.h"
 
 int main() {
-
     using namespace Marilou;
+    using namespace Barnabe;
 
-    Cell c(nullptr, Color::GREEN, Type::DISTRICT);
-    c.displayTop(cout,2);
+    Cell c1 = Cell(nullptr,Color::BLUE,Type::DISTRICT);
+    Cell c2 = Cell(nullptr,Color::GREEN,Type::DISTRICT);
+    Cell c3 = Cell(nullptr,Color::YELLOW,Type::PLACE);
+    Cell c4 = Cell(nullptr, Color::GREY, Type::QUARRY);
+
+    Board b;
+    b.setCell(0,0,1,&c1);
+    b.setCell(0,1,1,&c2);
+    b.setCell(-1,1,2,&c2);
+    b.setCell(1,1,3,&c3);
+    b.setCell(-1,0,1,&c4);
+    //b.setCell(-30,-10,1,&c4);
+
+    cout << b;
+
     return 0;
 }

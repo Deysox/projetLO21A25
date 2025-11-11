@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <map>
+#include <string>
 
 using namespace std;
 
@@ -32,9 +33,9 @@ namespace Marilou {
 		Type getType() const { return type; }
 		const Tile* getTile() const { return tile; }
 
-		// Fonctions d'affichage, faites par Barnabé
-		ostream& displayTop(ostream& f, unsigned int height) const;
-		ostream& displayBottom(ostream& f) const;
+		// Fonctions d'affichage, faites par Barnabés
+		string displayTop(unsigned int height) const;
+		string displayBottom() const;
 	};
 
 	class BicolorCell : public Cell{
