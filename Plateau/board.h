@@ -13,8 +13,6 @@
 #include "../Utilitaires/rotation.h"
 using namespace std;
 
-
-
 namespace Barnabe {
     using namespace Marilou;
 
