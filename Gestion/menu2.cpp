@@ -21,7 +21,7 @@ void Menu::display() {
             //erreurs sans les {} car besoin d'un "scope" local pour Game
             case '1': {
                 cout << "Game parameters\n";
-                cout << "Mode ? : Solo or Multi-player";
+                cout << "Mode ? (Solo or Multi-player)";
                 string mode;
                 cin >> mode;
                 cout << "Variant ? : ";
@@ -30,7 +30,7 @@ void Menu::display() {
                 cout << "Difficulty ? : ";
                 string difficulty;
                 cin >> difficulty;
-                cout << "Number of players ? : 1, 2, 3 or 4";
+                cout << "Number of players ? (1, 2, 3 or 4)";
                 size_t nb_players = 0;
                 cin >> nb_players;
                 while (nb_players > Game::getNbPlayersMax()) {
