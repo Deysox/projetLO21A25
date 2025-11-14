@@ -68,7 +68,8 @@ namespace Barnabe {
 
     struct PositionHasher {
         std::size_t operator()(const Position& p) const {
-            return std::hash<int>()(p.x()) ^ (std::hash<int>()(p.y()) << 1);
+            return std::hash<int>()(p.x()) ^ (std::hash<int>()(p.y()) << 1); // Fonction de hachage pour fournir
+            // un identifiant unique à chaque Position dans la unordered_map
         }
     };
 

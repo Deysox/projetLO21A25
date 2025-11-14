@@ -8,13 +8,10 @@
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
 #include "board.h"
+#include ""
+
 using namespace std;
 
-// ===== A supprimer après =====
-namespace Marilou {
-    class Tile;
-}
-// =====
 
 namespace Barnabe {
     using namespace Marilou;
