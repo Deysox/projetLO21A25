@@ -21,16 +21,16 @@ namespace Barnabe {
     }
 
     const Cell* Board::getCell(Position pos) const {
-        auto search = cells.find(pos);
+        auto search = cells.find(pos); // Recherche de l'emplacement pos dans la map
         if (search != cells.end()) {
-            return search->second.first;
+            return search->second.first; // Si l'emplacement est occupé, on renvoie la case
         } else {
-            return nullptr;
+            return nullptr; // Sinon, on renvoie nullptr
         }
     }
 
     const Cell *Board::getCell(int x, int y) const {
-        return getCell(Position(x,y));
+        return getCell(Position(x,y));  // Voir getCell(Position pos)
     }
 
     unsigned int Board::getHeight(Position pos) const {
@@ -47,7 +47,9 @@ namespace Barnabe {
     }
 
     void Board::setCell(Position pos, unsigned int h, const Cell* c) {
-        cells[pos] = pair<const Cell*, unsigned int>(c,h);
+        cells[pos] = pair<const Cell*, unsigned int>(c,h); // Actualisation de la map
+
+        // Actualisation des coins
         if (pos.x() < corner_tl.x()) corner_tl = Position(pos.x(),corner_tl.y());
         else if (pos.x() > corner_br.x()) corner_br = Position(pos.x(),corner_br.y());
 
@@ -66,21 +68,26 @@ namespace Barnabe {
     ostream& operator<<(ostream& f, const Barnabe::Board& b) {
         string output;
 
-        Barnabe::Position ctl = b.getCorners().first;
-        Barnabe::Position cbr = b.getCorners().second;
+        Position ctl = b.getCorners().first;
+        Position cbr = b.getCorners().second;
 
-        int xindex_end = cbr.x();
-        int yindex_end = cbr.y()-1;
+        int xindex_end = cbr.x(); // Le passage sur les colonnes se fait de la première à la dernière de gauche à droite
+        int yindex_end = cbr.y()-1; // Le passage sur les lignes se fait de haut en bas, avec une itération de plus que
+        // le nombre de lignes indiqué par les coordonnées. Les lignes d'affichage console sont à cheval sur plusieurs
+        // lignes du plateau hexagonal.
 
+        // A chaque itération, deux lignes de sortie console sont produites.
         for (int yindex = ctl.y(); yindex >= yindex_end; yindex--) {
-            string line1;
-            string line2;
+            string line1; // Partie haute de la ligne
+            string line2; // Partie basse de la ligne
             for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
-                if (xindex%2 == 0) {
+                if (xindex%2 == 0) { // Si le x est pair, les parties haute et basse correspondent à la même cellule
                     const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex);
                     unsigned int heightToPlace = b.getHeight(xindex,yindex);
-                    line1 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    ");
-                    line2 += (cellToPlace ? cellToPlace->displayBottom() : "    ");
+                    line1 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    "); // Ajout de la partie
+                    // haute de la cellule, si présente
+                    line2 += (cellToPlace ? cellToPlace->displayBottom() : "    "); // Ajout de la partie basse de la
+                    // cellule, si présente
                 } else {
 
                     const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex+1);

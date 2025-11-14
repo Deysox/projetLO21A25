@@ -1,12 +1,11 @@
 #include "game.h"
-#include "river.h"
 #include <iostream>
 #include <vector>
 
 Game* Game::instance = nullptr;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
-    //penser à allouer l'espace pour la rivière
+    //penser ï¿½ allouer l'espace pour la riviï¿½re
 }
 
 void Game::displayPlayers() {
