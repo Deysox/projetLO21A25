@@ -4,17 +4,32 @@
 
 #include "river.h"
 #include "pile.h"
+#include "game.h"
+
 namespace Amalena
 {
-    River::River()
+    River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile) //parmaetre du constructeur ou un attribut nb tuiles
     {
-        for (int i =0; i<(Game::getNbPlayers()+2);i++){
-            tiles.push_back(Pile::Draw());
-        }
+        River::fillriver();
+        // for (int i =0; i<(max_tiles);i++){
+        //     tiles.push_back(pile.Draw());
+        // }
+    }
+
+
+
+    void River::fillriver()
+    {
+        while (tiles.size()<max_tiles) tiles.push_back(pile.Draw());
     }
 
     Marilou::Tile& River::giveTile(size_t position)
     {
+        if (position>tiles.size()) throw std::out_of_range("position out of range dans la rivière");
+        Tile* t=tiles[position-1];
+        tiles.erase(tiles.begin()+(position-1));
+        if (stay1()) fillriver();
+        return *t;
 
     }
 
@@ -23,11 +38,20 @@ namespace Amalena
         return tiles.size()==1;
     }
 
-    const size_t River::getPosition(Marilou::Tile* t) const
+    size_t River::getPosition(const Tile* t) const
     {
-        for (std::vector<unsigned int>::const_iterator it= tiles.begin();it!=t; it++)
-        {
-
+        size_t position=0;// n'existe pas
+        for (auto it= tiles.begin() ;it!=tiles.end(); ++it)
+        {   ++position;
+            if (*it==t) return position;
         }
+        return 0;
+        //if (position==1000)throw riverException("inexistant"); OU retour d'un chiffre abérant
     }
+    River::~River()
+    {
+        cout<<"destruction river";
+        //gérer sauvegarde
+    }
+
 }
