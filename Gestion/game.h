@@ -15,6 +15,7 @@ class Game {
 private:
 	//game handles lifecycle of players
 	vector<Barnabe::Player*> players;
+	size_t architect = 0;
 	size_t current_player = 0;
 	size_t nb_players;
 	//default value
@@ -34,11 +35,8 @@ private:
 	string variant;
 	string mode;
 	string difficulty;
-	//constructeur normal
-	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
-	//rajouter un constructeur à partir des fichiers json pour reprendre les parties
 
-	//destructeur s'occupe d'aller stocker et sauvegarder les paramètres de la partie abandonnée dans un fichier json
+	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
 	~Game();
 	Game(const Game& c);
 	Game& operator=(const Game& c);
@@ -62,27 +60,53 @@ public:
 	const size_t& getNbPlayers() const {
 		return nb_players;
 	}
+	void setNbPlayers(size_t i) {
+		nb_players = i;
+	}
 	static const size_t& getNbPlayersMax() {
 		return nb_players_max;
 	}
+
 	const size_t& getTileCount() const {
 		return tile_count;
+	}
+	void setTileCount(size_t t) {
+		tile_count = t;
 	}
 	const string& getVariant() const {
 		return variant;
 	}
+	void setVariant(string s) {
+		variant = s;
+	}
 	const string& getMode() const {
 		return mode;
+	}
+	void setMode(string s) {
+		mode = s;
 	}
 	const string& getDifficulty() const {
 		return difficulty;
 	}
+	void setDifficulty(string d) {
+		difficulty = d;
+	}
+	const size_t& getArchitect() const {
+		return architect;
+	}
+	void setArchitect(size_t i) {
+		architect = i;
+	}
+
 	const size_t& getCurrentPlayer() const {
 		return current_player;
 	}
+	void setCurrentPlayer(size_t i) {
+		current_player = i;
+	}
+
 	//display and access player
 	void addPlayer(const string& name);
-
 	Barnabe::Player* getPlayer(size_t position);
 
 	//display players
@@ -90,6 +114,7 @@ public:
 
 	//set next player and architect so that the game continues
 	void nextPlayer();
+	void nextArchitect();
 
 	//main method of the game
 	void manageGame();
@@ -98,9 +123,10 @@ public:
 	void abandonGame();
 
 	//player picks a tile in the pile so that he can play
-	Tile& pickRiver();
+	void pickRiver();
 
-	void endGame();
+	//fill the river thanks to the pile
+	void fillRiver();
 };
 
 #endif //PROJETLO21A25_Game_H
