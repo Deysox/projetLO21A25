@@ -29,7 +29,7 @@ namespace Amalena {
         Marilou::Tile* Draw();//piocher  ?? creéer une facon dans piocher plusieurs ou utiliser plsrs fois méthode
     public:
         bool isEmpty() const;//création d'un getters pour état
-        friend class Game;
+        friend class controler;
         friend class river;
     };
 }
