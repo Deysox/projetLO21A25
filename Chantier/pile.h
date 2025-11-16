@@ -6,7 +6,6 @@
 #define PROJETLO21A25_PILE_H
 #include <vector>
 #include <string>
-class river;
 using namespace std;
 //using namespace Marilou;
 namespace Marilou {//temporaire
@@ -16,16 +15,18 @@ namespace Amalena {
 
     class Pile{
         vector <Marilou::Tile*> tiles;
+        explicit Pile(vector <Marilou::Tile*> t): tiles(t){};
+        ~Pile();//friend jeu ou ctrl reflechir si op à faire : désallouer le vecteur
         Pile(const Pile& p)=delete;//et si retour en arrière?
         Pile& operator=(Pile& p)=delete;//? utilisation si memo retour arrière
-        //piocher  ?? creéer une facon dans piocher plusieurs ou utiliser plsrs fois méthode
-        friend class river;
+        Marilou::Tile* Draw();//piocher  ?? creéer une facon dans piocher plusieurs ou utiliser plsrs fois méthode
     public:
         explicit Pile(vector <Marilou::Tile*> t): tiles(t){};
         bool isEmpty() const;//création d'un getters pour état
-        Marilou::Tile* Draw();
-        ~Pile();
+
+        friend class river;
     };
 }
 //opstream inutile?? on ne va pas afficher la pioche
+// iterator déjà inclu dans vector; memento??
 #endif //PROJETLO21A25_PILE_H

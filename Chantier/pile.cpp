@@ -3,31 +3,23 @@
 //
 #include "pile.h"
 #include <vector>
-#include <iostream>
 using namespace std;
 namespace Amalena
 {
     Marilou::Tile* Pile::Draw()
     {
-        if (!isEmpty())
-        {
-            //throw PileException("Empty pile");
 
-            Marilou::Tile* t = tiles.back();
-            tiles.pop_back();
-            return t;
-        }else
-        {
-            printf("pioche vide, distribution impossible");
-            return nullptr;
-        }
-    }
+        if (isEmpty()) throw PileException("Empty pile");
+
+        Marilou::Tile* t = tiles.back();
+        tiles.pop_back();
+        return t;
+    }//en admettant que les tuiles ont aléatoirement été placé dans le vecteur
+    //que pour une tuile réfléchir à verif prendre plusieur à la fois
+
     bool Pile::isEmpty()const
     {
         return tiles.empty();
-    }
-    Pile::~Pile(){
-        cout<<"destruction pile";
     }
 
 
