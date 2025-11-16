@@ -35,7 +35,7 @@ void Menu::display() {
         cout << "Number of players ? : ";
         size_t nb_players = 0;
         cin >> nb_players;
-        //penser ï¿½ vï¿½rifier nb_players
+        //penser à vérifier nb_players
         Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
         //add players to game
         for (int i = 0; i < nb_players; i++) {
