@@ -121,9 +121,6 @@ void Game::manageGame() {
             position = Barnabe::Position(x,y);
             rotation = Barnabe::Rotation(r);
             players[current_player]->playTurn(tile,position,rotation);
-            if (!players[current_player]->playTurn(tile,position,rotation)) {
-                cout << "Invalid position or rotation. \n";
-            }
         }while (!players[current_player]->playTurn(tile,position,rotation));
         //next player (nextPlayer())
         nextPlayer();
