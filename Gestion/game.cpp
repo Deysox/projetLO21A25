@@ -5,15 +5,8 @@
 
 Game* Game::instance = nullptr;
 
-static size_t nb_players_max = 4;
-
-Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : deck(new Deck()),river(new Amalena::River()),tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players), players(nb_players,nullptr) {
-    for (int i = 0; i < nb_players; i++) {
-        cout << "Name ?";
-        string name;
-        cin >> name;
-        addPlayer(name);
-    }
+Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players) {
+    //penser � allouer l'espace pour la rivi�re
 }
 
 void Game::displayPlayers() {
@@ -31,7 +24,6 @@ void Game::addPlayer(const string& name) {
     else {
         Barnabe::Player* p = new Barnabe::Player(name);
         players.push_back(p);
-        nb_players++;
     }
 }
 
@@ -46,15 +38,7 @@ Barnabe::Player* Game::getPlayer(size_t position) {
 }
 
 void Game::informationsGame() {
-    cout << "Game informations : \n";
-    cout << "Tile count : " << tile_count << "\n";
-    cout << "Mode : " << mode << "\n";
-    cout << "Difficulty : " << difficulty << "\n";
-    cout << "Number of players max : " << nb_players_max << "\n";
-    cout << "Number of players : " << nb_players << "\n";
-    for (int i =  0; i < nb_players; i++) {
-        displayPlayers();
-    }
+    std::cout << "Informations Game." << std::endl;
 }
 
 void Game::nextPlayer() {
@@ -66,19 +50,3 @@ void Game::nextArchitect() {
     architect++;
     architect %= nb_players;
 }
-
-void Game::manageGame() {
-    cout << "Start of the game ! \n";
-    cout << "Architect : " << players.at(architect)->getName() << "\n";
-    cout << "Current player : " << players.at(current_player)->getName() << "\n";
-    //display board of current player
-    //display river
-    //player picks a tile in river
-    //player adds his tile to board
-}
-
-//penser à coder fillRiver pour remplir la rivière à partir de la pioche
-//penser à coder pickTile pour choisir une tuile dans la rivière
-//game Singleton ? question de la sauvegarde...
-
-

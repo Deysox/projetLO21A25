@@ -8,63 +8,56 @@ Menu::Menu() {
 }
 
 void Menu::display() {
-    cout << "Welcome in the menu\n"
-        << "What do you want to do ?\n"
-        << "1. Launch a game\n"
-        << "2. Resumpt a game\n"
-        << "3. Display rules";
-    char choice = 'A';
-    cin >> choice;
-    while (choice != '1' &&  choice != '2' && choice != '3') {
-        switch (choice)
-        {
-            //erreurs sans les {} car besoin d'un "scope" local pour Game
-            case '1': {
-                cout << "Game parameters\n";
-                cout << "Mode ? : Solo or Multi-player";
-                string mode;
-                cin >> mode;
-                cout << "Variant ? : ";
-                string variant;
-                cin >> variant;
-                cout << "Difficulty ? : ";
-                string difficulty;
-                cin >> difficulty;
-                cout << "Number of players ? : 1, 2, 3 or 4";
-                size_t nb_players = 0;
-                cin >> nb_players;
-                while (nb_players > Game::getNbPlayersMax()) {
-                    cout << "Number must be < to " << Game::getNbPlayersMax() << ". Number of players ? : ";
-                    cin >> nb_players;
-                }
-                size_t tile_count = 0;
-                if (nb_players == 1 or nb_players == 2) {
-                    tile_count = 60;
-                }
-                else if (nb_players == 3) {
-                    tile_count = 75;
-                }
-                else if (nb_players == 4) {
-                    tile_count = 90;
-                }
-                Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
-                game.informationsGame();
-                //game.manageGame();
-                break;
-            }
-            case '2':
-                cout << "Game resumption.\n";
-                break;
-            case '3':
-                cout << "Here are the rules of the game :\n"
-                    "In this tile-laying game, players take on the role of architects who compete against each other "
-                    "by each creating a city using city tiles. Each city tile is composed of 3 "
-                    "construction hexagons, each hexagon representing a neighbourhood, a square or a quarry. "
-                    "There are several types of neighbourhood. Each neighbourhood earns victory points "
-                    "if they are correctly placed according to their type.";
-                break;
-            default:
-                cout << "Invalid choice, try again.\n";
+    cout << "Bienvenue dans le menu de la partie\n"
+        << "Que voulez-vous faire ?\n"
+        << "1. Lancer une partie\n"
+        << "2. Reprendre une partie\n"
+        << "3. Afficher les regles" << std::endl;
+    char choix = 'A';
+    cin >> choix;
+    switch (choix)
+    {
+        //erreurs sans les {} car besoin d'un "scope" local pour Game
+    case '1': {
+        cout << "Game parameters\n";
+        cout << "Tile_count ? : ";
+        size_t tile_count = 0;
+        cin >> tile_count;
+        cout << "Variant ? : ";
+        string variant;
+        cin >> variant;
+        cout << "Mode ? : ";
+        string mode;
+        cin >> mode;
+        cout << "Difficulty ? : ";
+        string difficulty;
+        cin >> difficulty;
+        cout << "Number of players ? : ";
+        size_t nb_players = 0;
+        cin >> nb_players;
+        //penser � v�rifier nb_players
+        Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
+        //add players to game
+        for (int i = 0; i < nb_players; i++) {
+            cout << "Name ?";
+            string name;
+            cin >> name;
+            game.addPlayer(name);
         }
+        break;
+    }
+    case '2':
+        cout << "Reprise de la Game.\n" << endl;
+        break;
+    case '3':
+        cout << "Voici les regles du jeu :\n"
+            "Dans ce jeu de pose de tuiles, les joueurs prennent le role d'architectes qui s'affrontent "
+            "en creant chacun une cite a l'aide de tuiles cite. Chaque tuile cite est composee de 3 "
+            "hexagones construction, chaque hexagone representant un quartier, une place ou une carriere. "
+            "Il existe plusieurs types de quartier. Chaque quartier rapporte des points de victoire "
+            "s'ils sont correctement places selon son type." << endl;
+        break;
+    default:
+        cout << "Choix invalide.\n" << endl;
     }
 }
