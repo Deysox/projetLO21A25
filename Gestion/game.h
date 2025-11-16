@@ -116,11 +116,17 @@ public:
 	void nextPlayer();
 	void nextArchitect();
 
-	//manage game, main method
+	//main method of the game
 	void manageGame();
 
 	//quit and register the game
 	void abandonGame();
+
+	//player picks a tile in the pile so that he can play
+	void pickRiver();
+
+	//fill the river thanks to the pile
+	void fillRiver();
 };
 
 #endif //PROJETLO21A25_Game_H
