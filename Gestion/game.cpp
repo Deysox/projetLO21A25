@@ -106,19 +106,22 @@ void Game::manageGame() {
         int x = 0;
         int y = 0;
         int r = 0;
-        cout << "Choose a position on your board where you want to put the tile : ";
-        cout << "x ? : ";
-        cin >> x;
-        cout << "y ? : ";
-        cin >> y;
-        cout << "Choose the rotation of the tile, r : ";
-        cin >> r;
-        Barnabe::Position position = Barnabe::Position(x, y);
-        Barnabe::Rotation rotation = Barnabe::Rotation(r);
+        Barnabe::Position position;
+        Barnabe::Rotation rotation;
         //check if the position and rotation are valid, loop while not valid
-
-        //player actually places the tile on the board w/ place()
-
+        //if valid, places his tile on his board
+        do {
+            cout << "Choose a position on your board where you want to put the tile : ";
+            cout << "x ? : ";
+            cin >> x;
+            cout << "y ? : ";
+            cin >> y;
+            cout << "Choose the rotation of the tile, r : ";
+            cin >> r;
+            position = Barnabe::Position(x,y);
+            rotation = Barnabe::Rotation(r);
+            players[current_player]->playTurn(tile,position,rotation);
+        }while (!players[current_player]->playTurn(tile,position,rotation));
         //next player (nextPlayer())
         nextPlayer();
     }
