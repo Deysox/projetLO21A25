@@ -12,7 +12,14 @@ namespace Marilou {//temporaire
     class Tile;
 }
 namespace Amalena {
+    class PileException
+    {
+        string info;
+    public:
+        PileException(string info):info(info){}
+        const string& getInfo()const{return info;}
 
+    };
     class Pile{
         vector <Marilou::Tile*> tiles;
         explicit Pile(vector <Marilou::Tile*> t): tiles(t){};
@@ -21,9 +28,8 @@ namespace Amalena {
         Pile& operator=(Pile& p)=delete;//? utilisation si memo retour arrière
         Marilou::Tile* Draw();//piocher  ?? creéer une facon dans piocher plusieurs ou utiliser plsrs fois méthode
     public:
-        explicit Pile(vector <Marilou::Tile*> t): tiles(t){};
         bool isEmpty() const;//création d'un getters pour état
-
+        friend class Game;
         friend class river;
     };
 }
