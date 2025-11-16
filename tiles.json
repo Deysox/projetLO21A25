@@ -1,6 +1,6 @@
 [
   {
-    "id" :1,
+    "id" : 1,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Bleu",
@@ -10,7 +10,7 @@
     "Couleur 3": ""
   },
   {
-    "id" :2,
+    "id " :  2,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -20,7 +20,7 @@
     "Couleur 3": "Rouge"
   },
   {
-    "id" :3,
+    "id" :  3,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Rouge",
@@ -29,7 +29,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :4,
+  { "id" :4 ,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -38,7 +38,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :5,
+  { "id" : 5,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -47,7 +47,7 @@
     "Type 3": "Place",
     "Couleur 3": "Violet"
   },
-  { "id" :6,
+  { "id" : 6,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Vert",
@@ -56,7 +56,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :7,
+  { "id" : 7,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Rouge",
@@ -65,7 +65,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :8,
+  { "id" :8 ,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Bleu",
@@ -74,7 +74,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :9,
+  { "id" :9 ,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Rouge",
@@ -83,7 +83,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :10,
+  { "id" :10 ,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -92,7 +92,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :11,
+  { "id" : 11,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -101,7 +101,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Violet"
   },
-  { "id" :12,
+  { "id" :12 ,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -110,7 +110,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :13,
+  { "id" : 13,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -119,7 +119,7 @@
     "Type 3": "Place",
     "Couleur 3": "Vert"
   },
-  { "id" :14,
+  { "id" :14 ,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Bleu",
@@ -128,7 +128,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :15,
+  { "id" :15 ,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -137,7 +137,7 @@
     "Type 3": "Place",
     "Couleur 3": "Bleue"
   },
-  { "id" :16,
+  { "id" : 16,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -146,7 +146,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Violet"
   },
-  { "id" :17,
+  { "id" :17 ,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -155,7 +155,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Violet"
   },
-  { "id" :18,
+  { "id" : 18,
     "Nb Joueurs": "4",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -164,7 +164,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :19,
+  { "id" : 19,
     "Nb Joueurs": "4",
     "Type 1": "Place",
     "Couleur 1": "Violet",
@@ -173,7 +173,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :20,
+  { "id" : 20,
     "Nb Joueurs": "4",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -182,7 +182,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Rouge"
   },
-  { "id" :21,
+  { "id" : 21,
     "Nb Joueurs": "4",
     "Type 1": "Place",
     "Couleur 1": "Rouge",
@@ -191,7 +191,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :22,
+  { "id" : 22,
     "Nb Joueurs": "4",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -200,7 +200,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :23,
+  { "id" : 23,
     "Nb Joueurs": "4",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -209,7 +209,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Rouge"
   },
-  { "id" :24,
+  { "id" : 24,
     "Nb Joueurs": "4",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -218,7 +218,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :25,
+  { "id" : 25,
     "Nb Joueurs": "4",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -227,7 +227,7 @@
     "Type 3": "Place",
     "Couleur 3": "Vert"
   },
-  { "id" :26,
+  { "id" : 26,
     "Nb Joueurs": "4",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -236,7 +236,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :27,
+  { "id" : 27,
     "Nb Joueurs": "4",
     "Type 1": "Quartier",
     "Couleur 1": "Vert",
@@ -245,7 +245,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :28,
+  { "id" : 28,
     "Nb Joueurs": "4",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -254,7 +254,7 @@
     "Type 3": "Place",
     "Couleur 3": "Bleu"
   },
-  { "id" :29,
+  { "id" : 29,
     "Nb Joueurs": "4",
     "Type 1": "Place",
     "Couleur 1": "Jaune",
@@ -263,7 +263,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Violet"
   },
-  { "id" :30,
+  { "id" : 30,
     "Nb Joueurs": "3",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -272,7 +272,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :31,
+  { "id" : 31,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -281,7 +281,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :32,
+  { "id" : 32,
     "Nb Joueurs": "3",
     "Type 1": "Place",
     "Couleur 1": "Bleu",
@@ -290,7 +290,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :33,
+  { "id" : 33,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -299,7 +299,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Vert"
   },
-  { "id" :34,
+  { "id" :34 ,
     "Nb Joueurs": "3",
     "Type 1": "Place",
     "Couleur 1": "Vert",
@@ -308,7 +308,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Rouge"
   },
-  { "id" :35,
+  { "id" : 35,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -317,7 +317,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :36,
+  { "id" : 36,
     "Nb Joueurs": "3",
     "Type 1": "Quartier",
     "Couleur 1": "Rouge",
@@ -326,7 +326,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :37,
+  { "id" :37 ,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -335,7 +335,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :38,
+  { "id" : 38,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -344,7 +344,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :39,
+  { "id" :39 ,
     "Nb Joueurs": "3",
     "Type 1": "Place",
     "Couleur 1": "Violet",
@@ -353,7 +353,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :40,
+  { "id" :40 ,
     "Nb Joueurs": "3",
     "Type 1": "Place",
     "Couleur 1": "Rouge",
@@ -362,7 +362,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :41,
+  { "id" : 41,
     "Nb Joueurs": "3",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -371,7 +371,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :42,
+  { "id" : 42,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -380,7 +380,7 @@
     "Type 3": "Carriere",
     "Couleur 3": ""
   },
-  { "id" :43,
+  { "id" : 43,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
@@ -389,7 +389,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Rouge"
   },
-  { "id" :44,
+  { "id" : 44,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Violet",
@@ -398,7 +398,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :45,
+  { "id" : 45,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Rouge",
@@ -407,7 +407,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :46,
+  { "id" : 46,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Vert",
@@ -416,7 +416,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :47,
+  { "id" : 47,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -425,7 +425,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :48,
+  { "id" : 48,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -434,7 +434,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :49,
+  { "id" : 49,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -443,7 +443,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :50,
+  { "id" : 50,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Violet",
@@ -452,7 +452,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :51,
+  { "id" : 51,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Rouge",
@@ -461,7 +461,7 @@
     "Type 3": "Place",
     "Couleur 3": "Jaune"
   },
-  { "id" :52,
+  { "id" : 52,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -470,7 +470,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Jaune"
   },
-  { "id" :53,
+  { "id" : 53,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -479,7 +479,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Vert"
   },
-  { "id" :54,
+  { "id" : 54,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Vert",
@@ -488,7 +488,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :55,
+  { "id" : 55,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Bleu",
@@ -497,7 +497,7 @@
     "Type 3": "Place",
     "Couleur 3": "Jaune"
   },
-  { "id" :56,
+  { "id" : 56,
     "Nb Joueurs": "2",
     "Type 1": "Place",
     "Couleur 1": "Rouge",
@@ -506,7 +506,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :57,
+  { "id" :57 ,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -515,7 +515,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :58,
+  { "id" : 58,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Violet",
@@ -524,7 +524,7 @@
     "Type 3": "Quartier",
     "Couleur 3": "Bleu"
   },
-  { "id" :59,
+  { "id" : 59,
     "Nb Joueurs": "2",
     "Type 1": "Carrière",
     "Couleur 1": "",
@@ -533,7 +533,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :60,
+  { "id" : 60,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Violet",
@@ -542,7 +542,7 @@
     "Type 3": "Carrière",
     "Couleur 3": ""
   },
-  { "id" :61,
+  { "id" : 61,
     "Nb Joueurs": "2",
     "Type 1": "Quartier",
     "Couleur 1": "Jaune",
