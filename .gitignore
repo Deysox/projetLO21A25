@@ -11,3 +11,5 @@ qrc_*.cpp
 
 debug/
 release/
+
+CMakeLists.txt
