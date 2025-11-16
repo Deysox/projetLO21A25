@@ -6,9 +6,7 @@
 #define PROJETLO21A25_JEU_H
 
 class Deck {
-public:
-    //temporary constructor, but to change in the future
-    Deck();
+
 };
 
 #endif //PROJETLO21A25_JEU_H

@@ -1,6 +1,6 @@
-#ifndef PROJETLO21A25_MENU_H
+/*#ifndef PROJETLO21A25_MENU_H
 #define PROJETLO21A25_MENU_H
-/*
+
 //classe Menu = fen�tre graphique avec des boutons et des slots
 
 
@@ -37,7 +37,6 @@ private:
     QPushButton* boutonReprendreGame;
     QPushButton* boutonAfficherRegles;
 };
-*/
 
-#endif //PROJETLO21A25_MENU_H
 
+#endif //PROJETLO21A25_MENU_H */
