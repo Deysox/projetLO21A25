@@ -8,14 +8,14 @@ Game* Game::instance = nullptr;
 size_t nb_players_max = 4;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
-//deck(new Deck()),
-//pile(new Amalena::Pile()),
-river(new Amalena::River()),
 tile_count(tile_count),
 variant(variant),
 mode(mode),
 difficulty(difficulty),
 nb_players(nb_players),
+//deck(new Deck()),
+//pile(new Amalena::Pile()),
+river(new Amalena::River(nb_players+2,*pile)),
 players(nb_players,nullptr) {
     for (int i = 0; i < nb_players; i++) {
         cout << "Name ?";
@@ -71,7 +71,6 @@ void Game::nextPlayer() {
     current_player %= nb_players;
 }
 
-
 Tile& Game::pickRiver() {
     //diplaying of river and the position of the tiles
     cout << "River : " << river;
@@ -111,7 +110,7 @@ void Game::manageGame() {
         //check if the position and rotation are valid, loop while not valid
         //if valid, places his tile on his board
         do {
-            cout << "Choose a position on your board where you want to put the tile : ";
+            cout << "Choose a position (x,y) on your board where you want to put the tile : ";
             cout << "x ? : ";
             cin >> x;
             cout << "y ? : ";

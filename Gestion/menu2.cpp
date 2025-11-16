@@ -8,14 +8,14 @@ Menu::Menu() {
 }
 
 void Menu::display() {
-    cout << "Welcome in the menu\n"
-        << "What do you want to do ?\n"
-        << "1. Launch a game\n"
-        << "2. Resumpt a game\n"
-        << "3. Display rules";
     char choice = 'A';
-    cin >> choice;
-    while (choice != '1' &&  choice != '2' && choice != '3') {
+    do {
+        cout << "Welcome in the menu\n"
+            << "What do you want to do ?\n"
+            << "1. Launch a game\n"
+            << "2. Resume a game\n"
+            << "3. Display rules";
+        cin >> choice;
         switch (choice)
         {
             //erreurs sans les {} car besoin d'un "scope" local pour Game
@@ -66,5 +66,6 @@ void Menu::display() {
             default:
                 cout << "Invalid choice, try again.\n";
         }
-    }
+    }while (!(choice=='1' or choice=='2' or choice=='3'));
 }
+
