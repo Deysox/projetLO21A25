@@ -7,17 +7,7 @@ Game* Game::instance = nullptr;
 
 static size_t nb_players_max = 4;
 
-Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
-//how to choose and fill vector of tiles for the pile ?
-//pile(new Amalena::Pile()),
-deck(new Deck()),
-river(new Amalena::River()),
-tile_count(tile_count),
-variant(variant),
-mode(mode),
-difficulty(difficulty),
-nb_players(nb_players),
-players(nb_players,nullptr) {
+Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) : deck(new Deck()),river(new Amalena::River()),tile_count(tile_count), variant(variant), mode(mode), difficulty(difficulty), nb_players(nb_players), players(nb_players,nullptr) {
     for (int i = 0; i < nb_players; i++) {
         cout << "Name ?";
         string name;
@@ -77,39 +67,18 @@ void Game::nextArchitect() {
     architect %= nb_players;
 }
 
-/* River :
-1 player : 4 tiles
-2 players : 4 tiles
-3 players : 5 tiles
-4 players : 6 tiles
-*/
-
-void Game::fillRiver() {
-    //pick in the pile to file the river
-}
-
-void Game::pickRiver() {
-    //player clicks on a tile to acknowledge the cost of the tile using getPosition()
-    //player picks a tile in the river using river.giveTile()
-    //getStones() to acknowledge if he can buy the tile
-    //setStones() to modify the amont of stones he's got left
-}
-
-//must be a loop : until  river.stay1() AND pile.isEmpty()
 void Game::manageGame() {
     cout << "Start of the game ! \n";
     cout << "Architect : " << players.at(architect)->getName() << "\n";
     cout << "Current player : " << players.at(current_player)->getName() << "\n";
     //display board of current player
     //display river
-    //player picks a tile in river (pickRiver())
+    //player picks a tile in river
     //player adds his tile to board
-    //next player (nextPlayer())
-    //if stay1 in river :
-        //fill River (fillRiver())
-        //next architect (nextArchitect())
 }
 
-
+//penser à coder fillRiver pour remplir la rivière à partir de la pioche
+//penser à coder pickTile pour choisir une tuile dans la rivière
+//game Singleton ? question de la sauvegarde...
 
 
