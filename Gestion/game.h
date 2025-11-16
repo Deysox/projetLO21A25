@@ -4,7 +4,10 @@
 #include <string>
 #include "river.h"
 #include "player.h"
+#include "pile.h"
 #include <vector>
+
+#include "deck.h"
 
 using namespace std;
 
@@ -16,10 +19,16 @@ private:
 	size_t current_player = 0;
 	size_t nb_players;
 	//default value
-	size_t nb_players_max = 5;
+	static size_t nb_players_max;
 
 	//game handles river, river created when game starts
 	Amalena::River* river = nullptr;
+
+	//game handles pile, pile created when game starts
+	Amalena::Pile* pile = nullptr;
+
+	//game handles deck
+	Deck* deck = nullptr;
 
 	//parameters from Menu
 	size_t tile_count;
@@ -54,12 +63,10 @@ public:
 	void setNbPlayers(size_t i) {
 		nb_players = i;
 	}
-	const size_t& getNbPlayersMax() const {
+	static const size_t& getNbPlayersMax() {
 		return nb_players_max;
 	}
-	void setNbPlayersMax(size_t i) {
-		nb_players_max = i;
-	}
+
 	const size_t& getTileCount() const {
 		return tile_count;
 	}
