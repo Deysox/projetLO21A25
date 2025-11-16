@@ -3,13 +3,14 @@
 #include <iostream>
 #include <vector>
 
-//static attributs
 Game* Game::instance = nullptr;
-size_t nb_players_max = 4;
+
+static size_t nb_players_max = 4;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
-//deck(new Deck()),
+//how to choose and fill vector of tiles for the pile ?
 //pile(new Amalena::Pile()),
+deck(new Deck()),
 river(new Amalena::River()),
 tile_count(tile_count),
 variant(variant),
@@ -71,59 +72,44 @@ void Game::nextPlayer() {
     current_player %= nb_players;
 }
 
-
-Tile& Game::pickRiver() {
-    //diplaying of river and the position of the tiles
-    cout << "River : " << river;
-    //player says that he wants a tile at a certain position
-    cout << "\n";
-    cout << "Write the position of the tile you want : ";
-    int position = 0;
-    cin >> position;
-    //getStones() to acknowledge if he can buy the tile ==> loop while player.getStones() < position
-    while (players[current_player]->getStones() < position) {
-        cout << "You don't have enough stones, select another position : ";
-        cin >> position;
-    }
-    //player actually picks the tile in the river using river.giveTile()
-    Tile& chosen_tile = river->giveTile(position);
-    //setStones() to modify the amont of stones he's got left
-    players[current_player]->setStones(players[current_player]->getStones() - position);
-    return chosen_tile;
+void Game::nextArchitect() {
+    architect++;
+    architect %= nb_players;
 }
-//rmq : the fonction that displays the river must also display the position of the tiles
 
-//must be a loop : until  !river.stay1() OR !pile.isEmpty()
+/* River :
+1 player : 4 tiles
+2 players : 4 tiles
+3 players : 5 tiles
+4 players : 6 tiles
+*/
+
+void Game::fillRiver() {
+    //pick in the pile to file the river
+}
+
+void Game::pickRiver() {
+    //player clicks on a tile to acknowledge the cost of the tile using getPosition()
+    //player picks a tile in the river using river.giveTile()
+    //getStones() to acknowledge if he can buy the tile
+    //setStones() to modify the amont of stones he's got left
+}
+
+//must be a loop : until  river.stay1() AND pile.isEmpty()
 void Game::manageGame() {
     cout << "Start of the game ! \n";
-    while (!(river->stay1() && pile->isEmpty())) {
-        cout << "Current player : " << players.at(current_player)->getName() << "\n";
-        //display current player and his board w/ display function of player from class Player
-        cout << players[current_player];
-        //player picks a tile in river w/ pickRiver()
-        Tile& tile =  pickRiver();
-        //player choose the position and the rotation so that he can place the tile on his board
-        int x = 0;
-        int y = 0;
-        int r = 0;
-        cout << "Choose a position on your board where you want to put the tile : ";
-        cout << "x ? : ";
-        cin >> x;
-        cout << "y ? : ";
-        cin >> y;
-        cout << "Choose the rotation of the tile, r : ";
-        cin >> r;
-        Barnabe::Position position = Barnabe::Position(x, y);
-        Barnabe::Rotation rotation = Barnabe::Rotation(r);
-        //check if the position and rotation are valid, loop while not valid
-
-        //player actually places the tile on the board w/ place()
-
-        //next player (nextPlayer())
-        nextPlayer();
-    }
+    cout << "Architect : " << players.at(architect)->getName() << "\n";
+    cout << "Current player : " << players.at(current_player)->getName() << "\n";
+    //display board of current player
+    //display river
+    //player picks a tile in river (pickRiver())
+    //player adds his tile to board
+    //next player (nextPlayer())
+    //if stay1 in river :
+        //fill River (fillRiver())
+        //next architect (nextArchitect())
 }
 
-void Game::endGame() {
-    //displaying of each player's score thanks to method of Player
-}
+
+
+
