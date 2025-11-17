@@ -8,7 +8,6 @@
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
 #include "board.h"
-#include ""
 
 using namespace std;
 
