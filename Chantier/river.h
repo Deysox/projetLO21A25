@@ -6,23 +6,29 @@
 #define PROJETLO21A25_RIVER_H
 #include <vector>
 #include <iostream>
+#include "tile.h"
+#include "game.h"
+#include "pile.h"
 using namespace std;
-namespace Marilou {//temporaire
-    class Tile;
-}
+using namespace Marilou;
+
+
 namespace Amalena {
     class River{
-        vector<Marilou::Tile*> tiles;
-        River();//friend avec ctrl?? ou jeu
-        ~River();//friend jeu ou ctrl reflechir si op à faire : désallouer le vecteur
+        vector<Tile*> tiles;
+        int max_tiles;
+        Pile& pile;
+
         River(const River& f)=delete;
         River& operator=(River& f)=delete;
+        void fillriver();
     public:
-        Marilou::Tile& giveTile(size_t position);
+        Tile& giveTile(size_t position);
         bool stay1()const;
-        const size_t getPosition(Marilou::Tile* t) const;// et donc par repercussion le cout en pierres
-        //réfléchir à qui gère les transactions + création d'une erreur si pierre insufissantes juste une cdtion
-        //??alimenter s'auto alimente qd reste 1
+        size_t getPosition(const Tile* t) const;
+        River( size_t nb, Pile& pile);
+        River(const vector<Tile*> tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
+        ~River();;
     };
 }
 ostream& operator<<(ostream& f, const Amalena::River& r);
