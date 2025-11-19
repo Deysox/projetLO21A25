@@ -126,7 +126,7 @@ namespace Barnabe {
         friend ostream& operator<<(ostream& f, const Board& p);
 
     };
-
+    string lenStringInt(int x);
     ostream& operator<<(ostream& f, const Board& p);
 
 }

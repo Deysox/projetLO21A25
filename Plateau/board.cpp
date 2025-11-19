@@ -76,10 +76,20 @@ namespace Barnabe {
         // le nombre de lignes indiqué par les coordonnées. Les lignes d'affichage console sont à cheval sur plusieurs
         // lignes du plateau hexagonal.
 
+        output += "    ";
+        for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
+            output += lenStringInt(xindex);
+        }
+        f << output << endl;
+
         // A chaque itération, deux lignes de sortie console sont produites.
         for (int yindex = ctl.y(); yindex >= yindex_end; yindex--) {
             string line1; // Partie haute de la ligne
             string line2; // Partie basse de la ligne
+
+            line2 += lenStringInt(yindex);
+            line1 += "    ";
+
             for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
                 if (xindex%2 == 0) { // Si le x est pair, les parties haute et basse correspondent à la même cellule
                     const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex);
@@ -104,6 +114,29 @@ namespace Barnabe {
 
         return f;
 
+
+    }
+
+    string lenStringInt(int x) {
+        string output = to_string(x);
+
+        //cout << output.length() << endl;
+        switch (output.length()) {
+            case 4:
+                break;
+            case 3:
+                output = " "+output;
+                break;
+            case 2:
+                output = " "+output+" ";
+                break;
+            case 1:
+                output = "  "+output+" ";
+                break;
+            default:
+                throw;
+        }
+        return output;
 
     }
 

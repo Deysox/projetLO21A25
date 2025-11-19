@@ -12,27 +12,15 @@ include_directories(Tuiles)
 include_directories(Utilitaires)
 
 add_executable(projetLO21A25
-        Chantier/pile.cpp
-        Chantier/pile.h
-        Chantier/river.cpp
-        Chantier/river.h
         Console/console.cpp
         Console/console.h
-        Gestion/game.cpp
-        Gestion/game.h
-        Gestion/menu.cpp
-        Gestion/menu.h
-        Gestion/menu2.cpp
-        Gestion/menu2.h
         Joueurs/player.cpp
         Joueurs/player.h
         Joueurs/score.cpp
         Joueurs/score.h
-        Joueurs/stone.cpp
-        Joueurs/stone.h
+        Plateau/boardmanager.h
         Plateau/board.cpp
         Plateau/board.h
-        Plateau/boardmanager.h
         Tuiles/cell.cpp
         Tuiles/cell.h
         Tuiles/deck.cpp
@@ -42,4 +30,6 @@ add_executable(projetLO21A25
         Utilitaires/exceptions.h
         Utilitaires/position.h
         Utilitaires/rotation.h
-        main.cpp)
+        main.cpp
+        Utilitaires/position.cpp
+        Plateau/boardmanager.cpp)
