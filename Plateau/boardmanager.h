@@ -15,24 +15,70 @@ using namespace std;
 namespace Barnabe {
     using namespace Marilou;
 
+
+    /*
+     * Classe de gestion du plateau d'Akropolis par un joueur humain.
+     * Le BoardManager agit comme une passerelle entre le Player et le Board.
+     *
+     */
     class BoardManager {
         Board* board;
     public:
+        /*
+         * Constructeur de la classe BoardManager.
+         * Initialise un plateau possédant une tuile de départ.
+         */
         BoardManager();
+        /*
+         * Constructeur par recopie de la classe Board.
+         */
         BoardManager(const BoardManager& e);
+        /*
+         * Destructeur de la classe Board.
+         * Désalloue l'espace octroyé au plateau.
+         */
         ~BoardManager();
 
+        /*
+         * Opérateur d'affectation du BoardManager
+         */
         BoardManager& operator=(const BoardManager& e);
 
-        bool canPlace(const Tile&, Position, Rotation) const;
-        void place(const Tile&, Position, Rotation);
 
-        ostream& display(ostream& f, bool contour = false) const;
+        /*
+         * Vérifie si une tuile peut être placée à la position souhaitée en argument.
+         * @param t Un pointeur const vers une tuile à placer dans le plateau.
+         * @param p La position de la tuile pivot dans le plateau
+         * @param r La rotation de la tuile autour de la tuile pivot
+         * @return true si la tuile peut être placée, false sinon.
+         */
+        bool canPlace(const Tile* t, Position p, Rotation r) const;
 
+        /*
+         * Place la tuile à la position/rotation souhaitée dans le plateau.
+         * Lève une exception si c'est impossible.
+         * @param t Un pointeur const vers une tuile à placer dans le plateau.
+         * @param p La position de la tuile pivot dans le plateau
+         * @param r La rotation de la tuile autour de la tuile pivot
+         */
+        void place(const Tile* t, Position p, Rotation r);
+
+
+        /*
+         * Renvoie le score associé au plateau.
+         * @return int Score
+         */
         int boardScore() const;
+
+        friend ostream& operator<<(ostream& f, const BoardManager& c);
     };
+
+    ostream& operator<<(ostream& f, BoardManager& c);
+
+
+    //class BoardManagerArchitect : public BoardManager;
 }
 
-ostream& operator<<(ostream& f, const Barnabe::BoardManager& c);
+
 
 #endif //PROJETLO21A25_PLACEMENT_H

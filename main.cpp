@@ -39,6 +39,11 @@ int main() {
     b.setCell(-1,1,2,&c2);
     b.setCell(1,1,3,&c3);
     b.setCell(-1,0,1,&c4);
+    b.setCell(2,1,1,&c2);
+    b.setCell(2,2,2,&c2);
+    b.setCell(0,-1,3,&c2);
+    b.setCell(0,-2,3,&c3);
+    b.setCell(-1,-2,1,&c4);
     //b.setCell(-30,-10,1,&c4);
 
     cout << b;
