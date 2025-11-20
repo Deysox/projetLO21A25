@@ -17,10 +17,14 @@ namespace Marilou {
 	static std::map<Color, string> akroColorCodes = {{Color::BLUE, "h"},{Color::RED, "c"},{Color::GREEN, "j"},{Color::YELLOW, "m"},{Color::GREY, "_"},{Color::PURPLE, "t"}};
 	static std::map<Type, string> akroTypeCodes = {{Type::DISTRICT, "Q"},{Type::PLACE, "P"},{Type::QUARRY, "C"}};
 
+	//I added those maps that I use in deck.cpp
+	static std::map<std::string, Color> stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
+	static std::map<std::string, Type> stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
+
+
 	class Tile;
 
 	class Cell{
-
 
 		const Tile* tile;
 		Color color;

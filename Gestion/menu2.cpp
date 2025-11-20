@@ -39,17 +39,17 @@ void Menu::display() {
                 }
                 size_t tile_count = 0;
                 if (nb_players == 1 or nb_players == 2) {
-                    tile_count = 60;
+                    tile_count = 37;
                 }
                 else if (nb_players == 3) {
-                    tile_count = 75;
+                    tile_count = 49;
                 }
                 else if (nb_players == 4) {
-                    tile_count = 90;
+                    tile_count = 61;
                 }
                 Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
                 game.informationsGame();
-                //game.manageGame();
+                game.manageGame();
                 break;
             }
             case '2':
