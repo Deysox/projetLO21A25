@@ -34,7 +34,7 @@ river(new Amalena::River(nb_players+2,*pile))
 //free of players, river, pile, deck
 //think of saving of information in order to resume games
 Game::~Game(){
-    for (Barnabe::Player* p: players) {
+    for (auto& p: players) {
         delete p;
     }
     delete river;
@@ -43,7 +43,7 @@ Game::~Game(){
 }
 
 void Game::displayPlayers() {
-    for (Barnabe::Player* player : players) {
+    for (auto player : players) {
         cout << player->getName() << "\n";
     }
 }

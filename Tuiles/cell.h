@@ -56,5 +56,4 @@ namespace Marilou {
 }
 
 
-
 #endif //PROJETLO21A25_CASE_H
