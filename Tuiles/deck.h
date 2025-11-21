@@ -23,8 +23,9 @@ private :
 public:
     //constructor which constructs the tiles from json file
     Deck();
-    const std::vector<Marilou::Tile*>& getTiles() const{return tiles;
-    }
+    //Deck frees the tiles
+    ~Deck();
+    const vector<Marilou::Tile*>& getTiles() const{return tiles;}
 };
 
 #endif //PROJETLO21A25_JEU_H

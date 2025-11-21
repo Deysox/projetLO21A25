@@ -21,7 +21,7 @@ deck(new Deck()),
 pile(new Amalena::Pile(deck->getTiles())),
 river(new Amalena::River(nb_players+2,*pile))
 {
-    //reserve much better that init w/ nullptr
+    //reserve much better that init w/ nullptr because of push_back that would add after the nullptrs
     players.reserve(nb_players);
     for (size_t i = 0; i < nb_players; i++) {
         cout << "Name ?";
@@ -29,6 +29,17 @@ river(new Amalena::River(nb_players+2,*pile))
         cin >> name;
         addPlayer(name);
     }
+}
+
+//free of players, river, pile, deck
+//think of saving of information in order to resume games
+Game::~Game(){
+    for (Barnabe::Player* p: players) {
+        delete p;
+    }
+    delete river;
+    delete pile;
+    delete deck;
 }
 
 void Game::displayPlayers() {

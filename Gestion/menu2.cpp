@@ -19,10 +19,10 @@ void Menu::display() {
         cin >> choice;
         switch (choice)
         {
-            //erreurs sans les {} car besoin d'un "scope" local pour Game
+            //errors w/out {} because need of a local scope
             case '1': {
                 cout << "Game parameters\n";
-                cout << "Mode ? (Solo or Multi-player)";
+                cout << "Mode ? (solo or multi-player)";
                 string mode;
                 cin >> mode;
                 cout << "Variant ? : ";
@@ -51,6 +51,8 @@ void Menu::display() {
                 Game& game = Game::giveInstance(tile_count, variant, mode, difficulty, nb_players);
                 game.informationsGame();
                 game.manageGame();
+                game.endGame();
+                Game::freeInstance();
                 break;
             }
             case '2':

@@ -23,6 +23,8 @@ Deck::Deck() {
         string color2 = " ";
         string type3 = " ";
         string color3 = " ";
+        //reservation of space for tiles' vector
+        tiles.reserve(data.size());
         for (const auto& tile : data) {
             id = tile["id"];
             nb_players = tile["Nb Players"];
@@ -44,5 +46,11 @@ Deck::Deck() {
         }
     } else {
         cout << "Error w/ file." << endl;
+    }
+}
+
+Deck::~Deck() {
+    for (Marilou::Tile* t : tiles) {
+        delete t;
     }
 }
