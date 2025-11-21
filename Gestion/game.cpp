@@ -21,8 +21,9 @@ deck(new Deck()),
 pile(new Amalena::Pile(deck->getTiles())),
 river(new Amalena::River(nb_players+2,*pile))
 {
+    //reserve much better that init w/ nullptr
     players.reserve(nb_players);
-    for (int i = 0; i < nb_players; i++) {
+    for (size_t i = 0; i < nb_players; i++) {
         cout << "Name ?";
         string name;
         cin >> name;

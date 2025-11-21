@@ -14,7 +14,8 @@ void Menu::display() {
             << "What do you want to do ?\n"
             << "1. Launch a game\n"
             << "2. Resume a game\n"
-            << "3. Display rules";
+            << "3. Display rules\n"
+            << "Your answer :";
         cin >> choice;
         switch (choice)
         {
