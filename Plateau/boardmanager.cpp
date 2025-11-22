@@ -58,6 +58,13 @@ namespace Barnabe {
     }
 
 
+    void BoardManager::place(const Tile *t, Position p, Rotation r) {
+        if (!canPlace(t,p,r)) throw;// Exception à changer
+        // Placement ici (en attente du taf de Marilou)
+    }
+
+
+
 
 
 
