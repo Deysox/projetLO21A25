@@ -8,7 +8,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-Deck::Deck() {
+Deck::Deck(int nb_players_game) {
     ifstream fichier("tiles.json");
     if (fichier.is_open()){
         json data;
@@ -26,30 +26,32 @@ Deck::Deck() {
         //reservation of space for tiles' vector
         tiles.reserve(data.size());
         for (const auto& tile : data) {
-            id = tile["id"];
             nb_players = tile["Nb Players"];
             nb_players_int = stoi(nb_players);
-            type1 = tile["Type 1"];
-            type2 = tile["Type 2"];
-            type3 = tile["Type 3"];
-            color1 = tile["Color 1"];
-            color2 = tile["Color 2"];
-            color3 = tile["Color 3"];
-            //creation of tile
-            array <Marilou::Cell*, 3> game_cells;
-            for (auto& c : game_cells) {
-                c = nullptr;
+            if (nb_players_int == nb_players_game) {
+                id = tile["id"];
+                type1 = tile["Type 1"];
+                type2 = tile["Type 2"];
+                type3 = tile["Type 3"];
+                color1 = tile["Color 1"];
+                color2 = tile["Color 2"];
+                color3 = tile["Color 3"];
+                //creation of tile
+                array <Marilou::Cell*, 3> game_cells;
+                for (auto& c : game_cells) {
+                    c = nullptr;
+                }
+                Marilou::ClassicTile* game_tile = new Marilou::ClassicTile(game_cells);
+                //creation of cells that belong to the tile
+                Marilou::Cell* cell1 = new Marilou::Cell(game_tile, Marilou::stringToColor[color1], Marilou::stringToType[type1]);
+                game_cells[0] = cell1;
+                Marilou::Cell* cell2 = new Marilou::Cell(game_tile, Marilou::stringToColor[color2], Marilou::stringToType[type2]);
+                game_cells[1] = cell2;
+                Marilou::Cell* cell3 = new Marilou::Cell(game_tile, Marilou::stringToColor[color3], Marilou::stringToType[type3]);
+                game_cells[2] = cell3;
+                //add tile to the deck
+                tiles.push_back(game_tile);
             }
-            Marilou::ClassicTile* game_tile = new Marilou::ClassicTile(game_cells);
-            //creation of cells that belong to the tile
-            Marilou::Cell* cell1 = new Marilou::Cell(game_tile, Marilou::stringToColor[color1], Marilou::stringToType[type1]);
-            game_cells[0] = cell1;
-            Marilou::Cell* cell2 = new Marilou::Cell(game_tile, Marilou::stringToColor[color2], Marilou::stringToType[type2]);
-            game_cells[1] = cell2;
-            Marilou::Cell* cell3 = new Marilou::Cell(game_tile, Marilou::stringToColor[color3], Marilou::stringToType[type3]);
-            game_cells[2] = cell3;
-            //add tile to the deck
-            tiles.push_back(game_tile);
         }
     } else {
         cout << "Error w/ file." << endl;

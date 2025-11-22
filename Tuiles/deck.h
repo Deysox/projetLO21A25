@@ -22,7 +22,7 @@ private :
     vector <Marilou::Tile*> tiles;
 public:
     //constructor which constructs the tiles from json file
-    Deck();
+    Deck(int nb_players_game);
     //Deck frees the tiles
     ~Deck();
     const vector<Marilou::Tile*>& getTiles() const{return tiles;}
