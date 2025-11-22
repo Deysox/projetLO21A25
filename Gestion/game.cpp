@@ -1,3 +1,7 @@
+//
+// Created by elobo on 20/11/2025.
+//
+
 #include "game.h"
 #include "river.h"
 #include <iostream>
@@ -5,7 +9,7 @@
 
 //static attributs
 Game* Game::instance = nullptr;
-size_t nb_players_max = 4;
+size_t Game::nb_players_max = 4;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
 tile_count(tile_count),
@@ -13,11 +17,13 @@ variant(variant),
 mode(mode),
 difficulty(difficulty),
 nb_players(nb_players),
-//deck(new Deck()),
-//pile(new Amalena::Pile()),
-river(new Amalena::River(nb_players+2,*pile)),
-players(nb_players,nullptr) {
-    for (int i = 0; i < nb_players; i++) {
+deck(new Deck()),
+pile(new Amalena::Pile(deck->getTiles())),
+river(new Amalena::River(nb_players+2,*pile))
+{
+    //reserve much better that init w/ nullptr because of push_back that would add after the nullptrs
+    players.reserve(nb_players);
+    for (size_t i = 0; i < nb_players; i++) {
         cout << "Name ?";
         string name;
         cin >> name;
@@ -25,8 +31,19 @@ players(nb_players,nullptr) {
     }
 }
 
+//free of players, river, pile, deck
+//think of saving of information in order to resume games
+Game::~Game(){
+    for (auto& p: players) {
+        delete p;
+    }
+    delete river;
+    delete pile;
+    delete deck;
+}
+
 void Game::displayPlayers() {
-    for (Barnabe::Player* player : players) {
+    for (auto player : players) {
         cout << player->getName() << "\n";
     }
 }
@@ -51,6 +68,7 @@ Barnabe::Player* Game::getPlayer(size_t position) {
     else {
         //Put an exception instead
         cout << "Invalid position.";
+        return nullptr;
     }
 }
 
@@ -105,10 +123,11 @@ void Game::manageGame() {
         int x = 0;
         int y = 0;
         int r = 0;
-        Barnabe::Position position;
+        Barnabe::Position pos;
         Barnabe::Rotation rotation;
         //check if the position and rotation are valid, loop while not valid
         //if valid, places his tile on his board
+        bool validMove = false;
         do {
             cout << "Choose a position (x,y) on your board where you want to put the tile : ";
             cout << "x ? : ";
@@ -117,13 +136,13 @@ void Game::manageGame() {
             cin >> y;
             cout << "Choose the rotation of the tile, r : ";
             cin >> r;
-            position = Barnabe::Position(x,y);
+            pos = Barnabe::Position(x,y);
             rotation = Barnabe::Rotation(r);
-            players[current_player]->playTurn(tile,position,rotation);
-            if (!players[current_player]->playTurn(tile,position,rotation)) {
+            validMove = players[current_player]->playTurn(tile, pos, rotation);
+            if (!validMove) {
                 cout << "Invalid position or rotation. \n";
             }
-        }while (!players[current_player]->playTurn(tile,position,rotation));
+        }while (!validMove);
         //next player (nextPlayer())
         nextPlayer();
     }
