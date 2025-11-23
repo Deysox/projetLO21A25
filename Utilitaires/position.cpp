@@ -2,9 +2,9 @@
 // Created by barnab on 05/11/2025.
 //
 #include "position.h"
+#include "rotation.h"
 
 namespace Barnabe {
-    // Incorrect, à revoir
     Position Position::operator+(const Rotation& r) const {
         Position output;
         int parity = posX%2; // Les coordonnées voisines changent selon la parité de x

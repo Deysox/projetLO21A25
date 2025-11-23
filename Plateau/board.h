@@ -14,7 +14,7 @@
 using namespace std;
 
 namespace Barnabe {
-    using namespace Marilou;
+    //using namespace Marilou;
 
     /*
      * Modélise un plateau de joueur du jeu Akropolis.

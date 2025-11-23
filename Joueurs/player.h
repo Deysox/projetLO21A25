@@ -20,7 +20,7 @@ namespace Barnabe {
         void setStones(int n);
         void addStones(int n);
 
-        bool playTurn(const Tile&, Position, Rotation);
+        bool playTurn(const Barnabe::Tile&, Position, Rotation);
 
         int score() const;
 

@@ -7,6 +7,10 @@
 
 using namespace std;
 using json = nlohmann::json;
+/*using Tile = Barnabe::Tile;
+using Cell = Barnabe::Cell;
+using ClassicTile = Barnabe::ClassicTile;*/
+using namespace Barnabe;
 
 Deck::Deck() {
     ifstream fichier("tiles.json");
@@ -36,17 +40,17 @@ Deck::Deck() {
             color2 = tile["Color 2"];
             color3 = tile["Color 3"];
             //creation of tile
-            array <Marilou::Cell*, 3> game_cells;
+            array <Cell*, 3> game_cells;
             for (auto& c : game_cells) {
                 c = nullptr;
             }
-            Marilou::ClassicTile* game_tile = new Marilou::ClassicTile(game_cells);
+            ClassicTile* game_tile = new ClassicTile(game_cells);
             //creation of cells that belong to the tile
-            Marilou::Cell* cell1 = new Marilou::Cell(game_tile, Marilou::stringToColor[color1], Marilou::stringToType[type1]);
+            Cell* cell1 = new Cell(game_tile, stringToColor[color1], stringToType[type1]);
             game_cells[0] = cell1;
-            Marilou::Cell* cell2 = new Marilou::Cell(game_tile, Marilou::stringToColor[color2], Marilou::stringToType[type2]);
+            Cell* cell2 = new Cell(game_tile, stringToColor[color2], stringToType[type2]);
             game_cells[1] = cell2;
-            Marilou::Cell* cell3 = new Marilou::Cell(game_tile, Marilou::stringToColor[color3], Marilou::stringToType[type3]);
+            Cell* cell3 = new Cell(game_tile, stringToColor[color3], stringToType[type3]);
             game_cells[2] = cell3;
             //add tile to the deck
             tiles.push_back(game_tile);
