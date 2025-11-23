@@ -92,7 +92,7 @@ namespace Barnabe {
 
             for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
                 if (xindex%2 == 0) { // Si le x est pair, les parties haute et basse correspondent à la même cellule
-                    const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex);
+                    const Cell* cellToPlace = b.getCell(xindex,yindex);
                     unsigned int heightToPlace = b.getHeight(xindex,yindex);
                     line1 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    "); // Ajout de la partie
                     // haute de la cellule, si présente
@@ -100,7 +100,7 @@ namespace Barnabe {
                     // cellule, si présente
                 } else {
 
-                    const Marilou::Cell* cellToPlace = b.getCell(xindex,yindex+1);
+                    const Cell* cellToPlace = b.getCell(xindex,yindex+1);
                     line1 += (cellToPlace ? cellToPlace->displayBottom() : "    ");
 
                     cellToPlace = b.getCell(xindex,yindex);
@@ -111,10 +111,7 @@ namespace Barnabe {
             }
             f << line1 << endl << line2 << endl;
         }
-
         return f;
-
-
     }
 
     string lenStringInt(int x) {

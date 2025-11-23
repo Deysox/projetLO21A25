@@ -6,6 +6,7 @@
 #include <string>
 
 #include "rotation.h"
+#include "position.h"
 
 using namespace std;
 
@@ -70,15 +71,17 @@ namespace Barnabe {
 	class Tile;
 
 	class Cell{
-
-
 		const Tile* tile;
 		Color color;
 		Type type;
 
 	public:
 		Cell(const Tile* tile, Color c, Type t): tile(tile), color(c), type(t) {}
-		Cell(const Cell& c);
+
+		Cell(const Cell& c) = delete;
+		Cell& operator=(const Cell& c)= delete;
+
+
 		Color getColor() const { return color; }
 		Color getEffectiveColor(const Rotation& r) const { return color; }
 		Type getType() const { return type; }
@@ -94,14 +97,17 @@ namespace Barnabe {
 		Rotation rotation;
 
 	public :
-		BicolorCell(const Tile* tile, Color c, Type t, Color sC, int r): Cell(tile,c,t), secondaryColor(sC), rotation(r) {};
-		BicolorCell(const BicolorCell& c);
-		~BicolorCell();
+		BicolorCell(const Tile* tile, Color c, Type t, Color sC, Rotation r): Cell(tile,c,t), secondaryColor(sC), rotation(r) {};
+
+		BicolorCell(const BicolorCell& c) = delete;
+		BicolorCell& operator=(const BicolorCell& c)= delete;
+
 		Color getSecondaryColor() const { return secondaryColor; }
 		Rotation getRotation() const { return rotation; }
+		void setRotation(Rotation r) { rotation = r;}
 	};
 }
-}
+
 
 
 #endif //PROJETLO21A25_CASE_H

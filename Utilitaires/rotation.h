@@ -6,7 +6,6 @@
 #define PROJETLO21A25_ROTATION_H
 
 #include "exceptions.h"
-#include "position.h"
 
 namespace Barnabe {
 

@@ -25,28 +25,19 @@ int main(int argc, char* argv[])
 #include "Plateau/boardmanager.h"
 
 int main() {
-    using namespace Marilou;
     using namespace Barnabe;
 
-    Cell c1 = Cell(nullptr,Color::BLUE,Type::DISTRICT);
-    Cell c2 = Cell(nullptr,Color::GREEN,Type::DISTRICT);
-    Cell c3 = Cell(nullptr,Color::YELLOW,Type::PLACE);
-    Cell c4 = Cell(nullptr, Color::GREY, Type::QUARRY);
+    BoardManager bm;
 
-    Board b;
-    b.setCell(0,0,1,&c1);
-    b.setCell(0,1,1,&c2);
-    b.setCell(-1,1,2,&c2);
-    b.setCell(1,1,3,&c3);
-    b.setCell(-1,0,1,&c4);
-    b.setCell(2,1,1,&c2);
-    b.setCell(2,2,2,&c2);
-    b.setCell(0,-1,3,&c2);
-    b.setCell(0,-2,3,&c3);
-    b.setCell(-1,-2,1,&c4);
-    //b.setCell(-30,-10,1,&c4);
 
-    cout << b;
+    ClassicTile* st = new ClassicTile(Color::RED,Type::DISTRICT,Color::GREY,Type::QUARRY,Color::GREEN,Type::DISTRICT);
+
+    bm.place(st,Position(1,1),0);
+    bm.place(st,Position(0,1),1);
+
+    bm.place(st,Position(10,10),4,true);
+
+    cout << bm;
 
     return 0;
 }
