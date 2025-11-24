@@ -1,4 +1,4 @@
-#include "menu.h"
+/*#include "menu.h"
 #include "game.h"
 #include <QWidget>
 #include <QPushButton>
@@ -48,4 +48,4 @@ void Menu::boutonAfficherReglesClique() {
 void Menu::boutonLancerGameClique() {
     Game& Game = Game::donneInstance();
     Game.informationsGame();
-}
+}*/

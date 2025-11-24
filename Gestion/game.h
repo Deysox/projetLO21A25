@@ -19,14 +19,14 @@ private:
 	//default value
 	static size_t nb_players_max;
 
-	//game handles river, river created when game starts
-	Amalena::River* river = nullptr;
+	//game handles deck
+	Deck* deck = nullptr;
 
 	//game handles pile, pile created when game starts
 	Amalena::Pile* pile = nullptr;
 
-	//game handles deck
-	Deck* deck = nullptr;
+	//game handles river, river created when game starts
+	Amalena::River* river = nullptr;
 
 	//parameters from Menu
 	size_t tile_count;

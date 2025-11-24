@@ -112,8 +112,8 @@ namespace Barnabe {
                 return neighbor_iterator(x,y,old);
             }
             Position operator*() const {return Position(x,y) + Rotation(rot);}
-            bool operator!=(const neighbor_iterator& c) const {return rot == c.rot;};
-            bool operator==(const neighbor_iterator& c) const {return rot != c.rot;}
+            bool operator!=(const neighbor_iterator& c) const {return rot != c.rot;};
+            bool operator==(const neighbor_iterator& c) const {return rot == c.rot;}
         };
 
         /*
