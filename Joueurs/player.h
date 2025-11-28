@@ -25,9 +25,20 @@ namespace Barnabe {
         int score() const;
 
     };
+
+    enum class Difficulty {EASY = 0, MEDIUM = 1, HARD = 2};
+
+    class Architect : public Player {
+        Difficulty difficulty;
+    public:
+
+    };
+
+
+    ostream& operator<<(ostream& f, const Barnabe::Player& p);
 }
 
-ostream& operator<<(ostream& f, const Barnabe::Player& p);
+
 
 
 #endif //PROJETLO21A25_JOUEUR_H
