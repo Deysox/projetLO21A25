@@ -23,6 +23,7 @@ namespace Barnabe {
 
     BoardManager::~BoardManager() {
         delete board;
+        delete startingTile;
     }
 
     bool BoardManager::canPlace(const Tile *t, Position p, Rotation r, bool adjacentIgnore) const {

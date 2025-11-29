@@ -22,7 +22,13 @@ namespace Barnabe {
      *
      */
     class BoardManager {
+        /*
+         * Plateau associé au BoardManager sur lequel il réalise les opérations.
+         */
         Board* board;
+        /*
+         * Attribut correspondant à la tuile de départ créée lors de l'initialisation du plateau.
+         */
         StartingTile* startingTile;
     public:
         /*
@@ -36,7 +42,7 @@ namespace Barnabe {
         BoardManager(const BoardManager& e);
         /*
          * Destructeur de la classe Board.
-         * Désalloue l'espace octroyé au plateau.
+         * Désalloue l'espace octroyé au plateau et à la tuile de départ
          */
         ~BoardManager();
 
