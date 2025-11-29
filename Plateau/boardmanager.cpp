@@ -26,7 +26,7 @@ namespace Barnabe {
         delete startingTile;
     }
 
-    bool BoardManager::canPlace(const ClassicTile *t, Position p, Rotation r, bool adjacentIgnore) const {
+    bool BoardManager::canPlace(const Tile *t, Position p, Rotation r, bool adjacentIgnore) const {
         const vector<const Cell*>* cells = t->getCells();
         vector<Position> positions = t->calculatePositions(p,r);
 
@@ -60,7 +60,7 @@ namespace Barnabe {
         return false;
     }
 
-    void BoardManager::place(const ClassicTile *t, Position p, Rotation r, bool adjacentIgnore) {
+    void BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
         if (!canPlace(t,p,r, adjacentIgnore)) throw;// Exception à changer
         const vector<const Cell*>* cells = t->getCells();
         vector<Position> positions = t->calculatePositions(p,r);

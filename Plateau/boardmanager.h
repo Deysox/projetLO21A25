@@ -59,7 +59,7 @@ namespace Barnabe {
          * @param r La rotation de la tuile autour de la tuile pivot
          * @return true si la tuile peut être placée, false sinon.
          */
-        bool canPlace(const ClassicTile* t, Position p, Rotation r, bool adjacentIgnore = false) const;
+        bool canPlace(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false) const;
 
         /*
          * Place la tuile à la position/rotation souhaitée dans le plateau.
@@ -68,7 +68,7 @@ namespace Barnabe {
          * @param p La position de la tuile pivot dans le plateau
          * @param r La rotation de la tuile autour de la tuile pivot
          */
-        void place(const ClassicTile* t, Position p, Rotation r, bool adjacentIgnore = false);
+        void place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 
 
         /*
