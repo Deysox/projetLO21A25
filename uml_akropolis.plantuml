@@ -1,0 +1,93 @@
+@startuml
+class Cell {
+    - id : int 
+    - color : Color 
+    - type : Type
+    + Cell(int, Color, Type)
+    + getColor() : Color {const}
+    + getEffectiveColor(const Rotation&) : Color {const}
+    + getType() : Color {const}
+    + getID() : id {const}
+    + displayTop(unsigned int) : string const
+    + displayBottom() : string {const}
+}
+
+class BicolorCell {
+    - secondaryColor : Color
+    - rotation : Rotation
+    + BicolorCell(int, Color, Type, Color, Rotation)
+    + getSecondaryColor() : Color {const}
+    + getRotation() : Rotation {const}
+    + setRotation(Rotation)
+}
+
+BicolorCell --> Cell
+
+
+abstract Tile {
+    # {static} id : int
+    # cells : vector<const Cell*>*
+    + Tile()
+    + \~Tile()
+    + getSize() : unsigned int {const}
+    + getCells() : const vector<const Cell*>* {const}
+    + {abstract} calculatePositions(Position, Rotation) : vector<Position>
+
+}
+
+class StartingTile {
+    + StartingTile()
+    + calculatePositions(Position, Rotation) : vector<Position>
+}
+class ClassicTile {
+    + ClassicTile()
+    + calculatePositions(Position, Rotation) : vector<Position>
+}
+class AthenaTile {
+    - BicolorCell* cell;
+    + AthenaTile()
+    + calculatePositions(Position, Rotation) : vector<Position>
+}
+
+StartingTile --> Tile
+ClassicTile --> Tile
+AthenaTile --> Tile
+
+Tile "1" *-- "1.." Cell
+
+
+
+class Board {
+    - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
+    - corner_tl : Position
+    - corner_bl : Position
+    + Board()
+    + \~Board()
+    + Board(const Board&)
+    + operator=(const Board&) : Board&
+    + getCell(Position) : const Cell* {const}
+    + getCell(int, int) : const Cell* {const}
+    + getHeight(Position) : unsigned int {const}
+    + getHeight(int, int) : unsigned int {const}
+    + setCell(Position, unsigned int, const Cell*)
+    + setCell(int, int, unsigned int, const Cell*)
+    + getCorners() : pair<Position, Position> {const}
+}
+
+Board "*" o-- "*" Cell 
+
+class BoardManager {
+    - board : Board*
+    - startingTile : StartingTile*
+    + BoardManager()
+    + \~BoardManager()
+    + BoardManager(const BoardManager&)
+    + operator=(const BoardManager&) : BoardManager&
+    + getBoard() : const Board* {const}
+    + place(const Tile*, Position, Rotation, bool)
+}
+
+BoardManager "1" *-- "1" Board
+BoardManager *-- "1" StartingTile
+
+@enduml
