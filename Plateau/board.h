@@ -34,7 +34,52 @@ namespace Barnabe {
         Position corner_tl;
         Position corner_br;
     public:
-        class iterator;
+        class iterator {
+            int xindex;
+            int yindex;
+            Position corner_tl;
+            Position corner_br;
+            const Board* board;
+            bool end;
+            iterator(const Board* b, Position ctl, Position cbr, int x, int y, bool e) : board(b), corner_tl(ctl), corner_br(cbr), xindex(x), yindex(y), end(e) {
+
+            };
+            friend class Board;
+        public:
+            iterator& operator++() {
+                do {
+                    xindex++;
+                    if (xindex > corner_br.x()) {
+                        xindex = corner_tl.x();
+                        yindex--;
+                    }
+
+                } while (!board->getCell(xindex,yindex));
+
+                if (yindex < corner_tl.y()) end = true;
+
+                return *this;
+            }
+            iterator operator++(int) {
+                iterator old = {board, corner_tl,corner_br,xindex,yindex,end};
+                ++(*this);
+                return old;
+            }
+            pair<Position,const Cell*> operator*() const {
+                if (end) throw; // A modifier
+
+                return {Position(xindex,yindex),board->getCell(xindex,yindex)};
+            }
+            bool operator==(const iterator& c) const {
+                if (end && end==c.end) return true;
+
+                return (xindex == c.xindex && yindex == c.yindex);
+            }
+            bool operator!=(const iterator & c) const {
+                return !(*this == c);
+            }
+
+        };
         iterator begin() const;
         iterator end() const;
 

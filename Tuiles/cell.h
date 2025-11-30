@@ -5,8 +5,8 @@
 #include <map>
 #include <string>
 
-#include "rotation.h"
-#include "position.h"
+#include "../Utilitaires/rotation.h"
+#include "../Utilitaires/position.h"
 
 using namespace std;
 
@@ -83,13 +83,13 @@ namespace Barnabe {
 
 
 		Color getColor() const { return color; }
-		Color getEffectiveColor(const Rotation& r) const { return color; }
+		virtual Color getEffectiveColor(const Rotation& r) const { return color; }
 		Type getType() const { return type; }
 		const Tile* getTile() const { return tile; }
 
 		// Fonctions d'affichage, faites par Barnabés
-		string displayTop(unsigned int height) const;
-		string displayBottom() const;
+		virtual string displayTop(unsigned int height) const;
+		virtual string displayBottom() const;
 	};
 
 	class BicolorCell : public Cell{
