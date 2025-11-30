@@ -31,8 +31,12 @@ int main() {
     Eloise::Deck d(2);
 
     const vector<ClassicTile*> vec = d.getTiles();
+
+    int i = 1;
     for (auto it = vec.begin(); it != vec.end(); it++) {
+        cout << i++ << endl;
         cout << *(*it);
+
     }
 
 
