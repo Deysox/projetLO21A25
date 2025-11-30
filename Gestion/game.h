@@ -13,7 +13,7 @@ using namespace std;
 class Game {
 private:
 	//game handles lifecycle of players
-	vector<Barnabe::Player*> players;
+	vector<Player*> players;
 	size_t current_player = 0;
 	size_t nb_players;
 	//default value
@@ -33,6 +33,7 @@ private:
 	string variant;
 	string mode;
 	string difficulty;
+
 	//constructeur normal
 	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
 	//rajouter un constructeur à partir des fichiers json pour reprendre les parties
@@ -82,7 +83,7 @@ public:
 	//display and access player
 	void addPlayer(const string& name);
 
-	Barnabe::Player* getPlayer(size_t position);
+	Player* getPlayer(size_t position);
 
 	//display players
 	void displayPlayers();
@@ -97,7 +98,7 @@ public:
 	void abandonGame();
 
 	//player picks a tile in the pile so that he can play
-	Tile& pickRiver();
+	ClassicTile& pickRiver();
 
 	void endGame();
 };

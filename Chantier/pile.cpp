@@ -1,19 +1,17 @@
-//
-// Created by barnab on 05/10/2025.
-//
+
 #include "pile.h"
 #include <vector>
 #include <iostream>
 using namespace std;
 namespace Amalena
 {
-    Marilou::Tile* Pile::Draw()
+    Barnabe::ClassicTile* Pile::Draw()
     {
         if (!isEmpty())
         {
             //throw PileException("Empty pile");
 
-            Marilou::Tile* t = tiles.back();
+            Barnabe::ClassicTile* t = tiles.back();
             tiles.pop_back();
             return t;
         }else
@@ -22,6 +20,11 @@ namespace Amalena
             return nullptr;
         }
     }
+
+    Pile::Pile(Deck& d): deck(d), tiles(d.getTiles())
+    {
+    }
+
     bool Pile::isEmpty()const
     {
         return tiles.empty();

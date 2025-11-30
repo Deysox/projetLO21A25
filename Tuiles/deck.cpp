@@ -4,15 +4,16 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <string>
+#include "cell.h"
 
 using namespace std;
 using json = nlohmann::json;
 /*using Tile = Barnabe::Tile;
 using Cell = Barnabe::Cell;
 using ClassicTile = Barnabe::ClassicTile;*/
-using namespace Barnabe;
+using namespace Marilou;
 
-Deck::Deck() {
+Deck::Deck(int nb_players_game) {
     ifstream fichier("tiles.json");
     if (fichier.is_open()){
         json data;
@@ -46,11 +47,11 @@ Deck::Deck() {
             }
             ClassicTile* game_tile = new ClassicTile(game_cells);
             //creation of cells that belong to the tile
-            Cell* cell1 = new Cell(game_tile, stringToColor[color1], stringToType[type1]);
+            Cell* cell1 = new Cell(game_tile, Marilou::stringToColor[color1], Marilou::stringToType[type1]);
             game_cells[0] = cell1;
-            Cell* cell2 = new Cell(game_tile, stringToColor[color2], stringToType[type2]);
+            Cell* cell2 = new Cell(game_tile, Marilou::stringToColor[color2], Marilou::stringToType[type2]);
             game_cells[1] = cell2;
-            Cell* cell3 = new Cell(game_tile, stringToColor[color3], stringToType[type3]);
+            Cell* cell3 = new Cell(game_tile, Marilou::stringToColor[color3], Marilou::stringToType[type3]);
             game_cells[2] = cell3;
             //add tile to the deck
             tiles.push_back(game_tile);

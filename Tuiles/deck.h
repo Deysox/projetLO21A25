@@ -20,13 +20,13 @@ using Tile = Barnabe::Tile;
 class Deck {
 private :
     //tiles from json
-    vector <Tile*> tiles;
+    vector <Barnabe::ClassicTile*> tiles;
 public:
     //constructor which constructs the tiles from json file
-    Deck();
+    Deck(int nb_players_game);
     //Deck frees the tiles
     ~Deck();
-    const vector<Tile*>& getTiles() const{return tiles;}
+    const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
 };
 
 #endif //PROJETLO21A25_JEU_H

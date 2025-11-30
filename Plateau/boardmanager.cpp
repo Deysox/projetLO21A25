@@ -58,10 +58,7 @@ namespace Barnabe {
         }
 
         return false;
-
-
     }
-
 
     void BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
         if (!canPlace(t,p,r, adjacentIgnore)) throw;// Exception à changer
