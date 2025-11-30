@@ -58,20 +58,13 @@ namespace Barnabe {
         const Board* getBoard() const {return board;}
 
         /*
-         * Vérifie si une tuile peut être placée à la position souhaitée en argument.
-         * @param t Un pointeur const vers une tuile à placer dans le plateau.
-         * @param p La position de la tuile pivot dans le plateau
-         * @param r La rotation de la tuile autour de la tuile pivot
-         * @return true si la tuile peut être placée, false sinon.
-         */
-        bool canPlace(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false) const;
-
-        /*
          * Place la tuile à la position/rotation souhaitée dans le plateau.
          * Lève une exception si c'est impossible.
          * @param t Un pointeur const vers une tuile à placer dans le plateau.
          * @param p La position de la tuile pivot dans le plateau
          * @param r La rotation de la tuile autour de la tuile pivot
+         * @param adjacentIgnore Si est à true, la contrainte d'adjacence de la tuile placée avec le reste du plateau
+         * sera ignorée.
          */
         void place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 

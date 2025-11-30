@@ -2,19 +2,21 @@
 
 
 namespace Barnabe {
+    int Tile::id = 0;
+
     Tile::~Tile() {
         for (auto it = cells->begin(); it != cells->end(); it++) {
-            delete *it;
+            delete *it; // Désallocation des cases
         }
-        delete cells;
+        delete cells; // Désallocation du vecteur
     }
 
 
     StartingTile::StartingTile() {
-        cells->push_back(new Cell(this, Color::BLUE, Type::PLACE));
-        cells->push_back(new Cell(this, Color::GREY, Type::QUARRY));
-        cells->push_back(new Cell(this, Color::GREY, Type::QUARRY));
-        cells->push_back(new Cell(this, Color::GREY, Type::QUARRY));
+        cells->push_back(new Cell(id, Color::BLUE, Type::PLACE));
+        cells->push_back(new Cell(id, Color::GREY, Type::QUARRY));
+        cells->push_back(new Cell(id, Color::GREY, Type::QUARRY));
+        cells->push_back(new Cell(id, Color::GREY, Type::QUARRY));
     }
 
     std::vector<Position> StartingTile::calculatePositions(Position p, Rotation r) const {
@@ -25,9 +27,9 @@ namespace Barnabe {
     }
 
     ClassicTile::ClassicTile(Color c1, Type t1, Color c2, Type t2, Color c3, Type t3) {
-        cells->push_back(new Cell(this,c1,t1));
-        cells->push_back(new Cell(this,c2,t2));
-        cells->push_back(new Cell(this,c3,t3));
+        cells->push_back(new Cell(id,c1,t1));
+        cells->push_back(new Cell(id,c2,t2));
+        cells->push_back(new Cell(id,c3,t3));
     }
 
     std::vector<Position> ClassicTile::calculatePositions(Position p, Rotation r) const {
@@ -48,7 +50,7 @@ namespace Barnabe {
 
 
     AthenaTile::AthenaTile(Color c1, Color c2, Type t) {
-        cell = new BicolorCell(this,c1,t,c2,0);
+        cell = new BicolorCell(id,c1,t,c2,0);
         cells->push_back(cell);
     }
 

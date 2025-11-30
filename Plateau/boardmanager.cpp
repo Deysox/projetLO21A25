@@ -2,6 +2,7 @@
 // Created by barnab on 17/11/2025.
 //
 #include "boardmanager.h"
+#include "exceptions.h"
 
 namespace Barnabe {
     BoardManager::BoardManager() : board(new Board()) {
@@ -16,8 +17,10 @@ namespace Barnabe {
     }
 
     BoardManager& BoardManager::operator=(const BoardManager& e) {
-        board = new Board();
-        *board = *(e.board);
+        if (&e != this) {
+            board = new Board();
+            *board = *(e.board);
+        }
         return *this;
     }
 
@@ -26,50 +29,64 @@ namespace Barnabe {
         delete startingTile;
     }
 
-    bool BoardManager::canPlace(const Tile *t, Position p, Rotation r, bool adjacentIgnore) const {
-        const vector<const Cell*>* cells = t->getCells();
-        vector<Position> positions = t->calculatePositions(p,r);
-
-        Position initialPos = positions[0];
-        const Cell* initialCell = board->getCell(initialPos);
-        unsigned int initialHeight = board->getHeight(initialPos);
-
-        if (initialCell) {
-            bool sameTiletest = false;
-            for (auto it = positions.begin(); it != positions.end(); it++ ) {
-                if (board->getHeight(*it) != initialHeight) return false;
-                if (board->getCell(*it)->getTile() != initialCell->getTile()) sameTiletest = true;
-            }
-
-
-        } else {
-            for (auto it = positions.begin(); it != positions.end(); it++ ) {
-                if (board->getCell(*it) != nullptr) return false;
-            }
-        }
-
-        if (adjacentIgnore) {
-            return true;
-        }
-        for (auto it = positions.begin(); it != positions.end(); it++ ) {
-            for (auto it_pos = it->begin(); it_pos != it->end(); it_pos++) {
-                if (board->getCell(*it_pos) != nullptr) return true;
-            }
-        }
-
-        return false;
-    }
 
     void BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
-        if (!canPlace(t,p,r, adjacentIgnore)) throw;// Exception à changer
-        const vector<const Cell*>* cells = t->getCells();
-        vector<Position> positions = t->calculatePositions(p,r);
+        vector<Position> positions = t->calculatePositions(p,r); // Calcul des positions à vérifier
 
-        unsigned int height = board->getHeight(positions[0])+1;
+        Position initialPos = positions[0]; // Position initiale utilisée comme base de comparaison
+        const Cell* initialCell = board->getCell(initialPos); // Cellule initiale
+        unsigned int initialHeight = board->getHeight(initialPos); // Hauteur initiale
+
+
+        if (initialCell) { // S'il y a déjà une cellule dans la position intiale
+            int initialID = initialCell->getID();
+            bool sameTiletest = false;
+            for (auto it = positions.begin(); it != positions.end(); it++ ) { // Parcours des positions
+                // Si l'une des cases recouvertes a une hauteur différente de la hauteur initiale, on renvoie
+                // une exception
+                if (board->getHeight(*it) != initialHeight)
+                    throw PlacementException("Les cases recouvertes ne sont pas de la même hauteur");
+
+                // Si l'une des cases recouvertes a un ID différent de la case initiale, on passe le booléen à true.
+                // La contrainte de recouvrement est alors validée.
+                if (board->getCell(*it)->getID() != initialID) sameTiletest = true;
+            }
+
+            //  =====/!\ Same tile test un peu bancal et pas très extensible /!\=====
+            // Si la contrainte de recouvrement n'est pas validée, on lève une exception
+            if (!sameTiletest)
+                throw PlacementException("Les cases recouvertes appartiennent toutes à la même tuile");
+
+
+        } else { // Si l'emplacement de la position initiale est vide
+            for (auto it = positions.begin(); it != positions.end(); it++ ) { // Parcours des positions
+                if (board->getCell(*it) != nullptr) // Si l'un des emplacements n'est pas vide, le placement est
+                    // invalide
+                    throw PlacementException("Les cases recouvertes ne sont pas de la même hauteur");
+            }
+        }
+
+        if (!adjacentIgnore) {
+            bool adjacentTest = false;
+            for (auto it = positions.begin(); it != positions.end(); it++ ) { // Parcours des positions
+                for (auto it_pos = it->begin(); it_pos != it->end(); it_pos++) {
+                    // Parcours des voisins de chaque position
+                    if (board->getCell(*it_pos) != nullptr) // Si l'une des positions a un emplacement voisin non-vide
+                        // le placement est correct
+                        adjacentTest = true;
+                }
+            }
+            if (!adjacentTest)
+                throw PlacementException("La tuile n'est pas adjacente au reste du plateau");
+        }
+
+        const vector<const Cell*>* cells = t->getCells(); // Obtention des cases à placer
+
+        unsigned int height = board->getHeight(positions[0])+1; // Hauteur à appliquer
 
         int i = 0;
         for (auto it = cells->begin(); it != cells->end(); it++) {
-            board->setCell(positions[i],height,*it);
+            board->setCell(positions[i],height,*it); // Placement des cases dans le plateau
             i++;
         }
     }

@@ -27,7 +27,8 @@ namespace Marilou {
 namespace Barnabe {
     string Cell::displayTop(unsigned int height) const {
         string output;
-        output = type != Type::PLACE ? "\033[0;3" : "\033[7;3";
+        // Mode d'affichage, entre normal et inversé selon le type de quartier
+        output = type == Type::PLACE ? "\033[7;3" : "\033[0;3";
         output += ansiColorCodes[color] + "m";
         output += "/" + to_string(height) + akroTypeCodes[type] + "\\";
 
@@ -37,7 +38,8 @@ namespace Barnabe {
 
     string Cell::displayBottom() const {
         string output;
-        output = type != Type::PLACE ? "\033[0;3" : "\033[7;3";
+        // Mode d'affichage, entre normal et inversé selon le type de quartier
+        output = type == Type::PLACE ? "\033[7;3" : "\033[0;3";
         output += ansiColorCodes[color] + "m";
         output += "\\" + akroColorCodes[color] + + "_/";
 

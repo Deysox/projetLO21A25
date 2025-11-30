@@ -41,18 +41,48 @@ namespace Marilou {
 
 namespace Barnabe {
 
+	/*
+	 * Classe abstraite représentant une tuile de Akropolis.
+	 *
+	 */
 	class Tile{
 	protected:
+		/*
+		 * Attribut statique servant à créer des identifiants pour les cases, permettant de connaître la tuile
+		 * associée à une case.
+		 * S'incrémente à chaque appel au constructeur.
+		 */
+		static int id;
+		/*
+		 * Pointeur vers un vecteur contenant les pointeurs vers les cellules qui composent la tuile.
+		 */
 		std::vector<const Cell*>* cells;
 
 	public:
-		Tile() : cells(new std::vector<const Cell*>()) {}
+		Tile() : cells(new std::vector<const Cell*>()) {id++;}
 		~Tile();
 		Tile(const Tile& p)=delete;
 		Tile& operator=(Tile& p)=delete;
 
+		/*
+		 * Accesseur en lecture de la taille de la tuile en termes de nombres de cases.
+		 * @return unsigned int
+		 */
 		unsigned int getSize() const {return cells->size();};
+		/*
+		 * Accesseur en lecture du vecteur contenant les vecteurs vers les cellules.
+		 * @return const std::vector<const Cell*>*
+		 */
 		const std::vector<const Cell*>* getCells() const {return cells;}
+		/*
+		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une
+		 * rotation données. Cette méthode est virtuelle pure, car cette méthode dépend de l'implémentation concrète de
+		 * la tuile. C'est cette méthode définit la forme de la tuile.
+		 * @param p Position de la tuile dans un éventuel plateau
+		 * @param r Rotation de la tuile par rapport à une tuile "pivot", la première du vecteur cells par convention.
+ 		 * @return Vecteur de positions de la même taille que cells. La position i de ce vecteur correspond à la
+ 		 * position calculée de la case d'indice i dans l'attribut cells.
+		 */
 		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const = 0;
 
 

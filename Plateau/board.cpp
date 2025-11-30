@@ -37,9 +37,9 @@ namespace Barnabe {
         auto search = cells.find(pos);
         if (search != cells.end()) {
             return search->second.second;
-        } else {
-            return 0;
         }
+        return 0;
+
     }
 
     unsigned int Board::getHeight(int x, int y) const {
