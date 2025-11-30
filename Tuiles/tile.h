@@ -69,7 +69,13 @@ namespace Barnabe {
 	public :
 		ClassicTile(Color c1, Type t1, Color c2, Type t2, Color c3, Type t3);
 		std::vector<Position> calculatePositions(Position p, Rotation r) const;
+
+		friend ostream& operator<<(ostream& f, ClassicTile& c);
+
+
 	};
+
+	ostream& operator<<(ostream& f, ClassicTile& c);
 
 	class AthenaTile : public Tile {
 	BicolorCell* cell;

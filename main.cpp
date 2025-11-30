@@ -23,21 +23,20 @@ int main(int argc, char* argv[])
 #include "Tuiles/tile.h"
 #include "Plateau/board.h"
 #include "Plateau/boardmanager.h"
+#include "deck.h"
 
 int main() {
     using namespace Barnabe;
 
-    BoardManager bm;
+    Eloise::Deck d(2);
+
+    const vector<ClassicTile*> vec = d.getTiles();
+    for (auto it = vec.begin(); it != vec.end(); it++) {
+        cout << *(*it);
+    }
 
 
-    ClassicTile* st = new ClassicTile(Color::RED,Type::DISTRICT,Color::GREY,Type::QUARRY,Color::GREEN,Type::DISTRICT);
 
-    bm.place(st,Position(1,1),0);
-    bm.place(st,Position(0,1),1);
-
-    bm.place(st,Position(10,10),4,true);
-
-    cout << bm;
 
     return 0;
 }

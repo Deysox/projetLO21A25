@@ -51,6 +51,11 @@ namespace Barnabe {
          */
         BoardManager& operator=(const BoardManager& e);
 
+        /*
+         * Renvoie un pointeur vers le plateau géré par le BoardManager
+         * @return Pointeur vers plateau
+         */
+        const Board* getBoard() const {return board;}
 
         /*
          * Vérifie si une tuile peut être placée à la position souhaitée en argument.
@@ -71,11 +76,6 @@ namespace Barnabe {
         void place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 
 
-        /*
-         * Renvoie le score associé au plateau.
-         * @return int Score
-         */
-        int boardScore() const;
 
         friend ostream& operator<<(ostream& f, const BoardManager& c);
     };

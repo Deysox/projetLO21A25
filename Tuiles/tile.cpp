@@ -36,6 +36,17 @@ namespace Barnabe {
             p+(Rotation(1)+r)};
     }
 
+    ostream& operator<<(ostream& f, ClassicTile& c) {
+        vector<const Cell*> cells_vector = *(c.cells);
+        f << cells_vector[0]->displayTop(1) << endl;
+        f << cells_vector[0]->displayBottom() << cells_vector[1]->displayTop(1) << endl;
+        f << cells_vector[2]->displayTop(1) << cells_vector[1]->displayBottom() << endl;
+        f << cells_vector[2]->displayBottom() << endl;
+        return f;
+
+    }
+
+
     AthenaTile::AthenaTile(Color c1, Color c2, Type t) {
         cell = new BicolorCell(this,c1,t,c2,0);
         cells->push_back(cell);

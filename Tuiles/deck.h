@@ -12,21 +12,27 @@
 #include "tile.h"
 #include "cell.h"
 
-using namespace std;
-using json = nlohmann::json;
-using Tile = Barnabe::Tile;
+namespace Eloise {
+    using namespace std;
+    using json = nlohmann::json;
+    using namespace Barnabe;
 
-//deck handles lifecycle of tiles
-class Deck {
-private :
-    //tiles from json
-    vector <Barnabe::ClassicTile*> tiles;
-public:
-    //constructor which constructs the tiles from json file
-    Deck(int nb_players_game);
-    //Deck frees the tiles
-    ~Deck();
-    const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
-};
+    //deck handles lifecycle of tiles
+    class Deck {
+    public:
+        static map<string, Color> stringToColor;
+        static map<string, Type> stringToType;
+    private :
+        //tiles from json
+        vector <Barnabe::ClassicTile*> tiles;
+    public:
+        //constructor which constructs the tiles from json file
+        Deck(int nb_players_game);
+        //Deck frees the tiles
+        ~Deck();
+        const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
+    };
+}
+
 
 #endif //PROJETLO21A25_JEU_H
