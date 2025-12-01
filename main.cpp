@@ -24,6 +24,7 @@ int main(int argc, char* argv[])
 #include "Plateau/board.h"
 #include "Plateau/boardmanager.h"
 #include "deck.h"
+#include "pile.h"
 
 int main() {
     using namespace Barnabe;
@@ -38,7 +39,7 @@ int main() {
         cout << *(*it);
 
     }
-
+    Amalena::Pile p(d);
     int c = 0;
     BoardManager bm;
     c += bm.place(vec[0],Position(1,1),Rotation(0));
