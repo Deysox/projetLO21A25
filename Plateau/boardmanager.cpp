@@ -30,8 +30,10 @@ namespace Barnabe {
     }
 
 
-    void BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
+    int BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
         vector<Position> positions = t->calculatePositions(p,r); // Calcul des positions à vérifier
+
+        int stoneCount = 0;
 
         Position initialPos = positions[0]; // Position initiale utilisée comme base de comparaison
         const Cell* initialCell = board->getCell(initialPos); // Cellule initiale
@@ -50,6 +52,8 @@ namespace Barnabe {
                 // Si l'une des cases recouvertes a un ID différent de la case initiale, on passe le booléen à true.
                 // La contrainte de recouvrement est alors validée.
                 if (board->getCell(*it)->getID() != initialID) sameTiletest = true;
+
+                if (board->getCell(*it)->getType() == Type::QUARRY) stoneCount++;
             }
 
             //  =====/!\ Same tile test un peu bancal et pas très extensible /!\=====
@@ -80,15 +84,17 @@ namespace Barnabe {
                 throw PlacementException("La tuile n'est pas adjacente au reste du plateau");
         }
 
-        const vector<const Cell*>* cells = t->getCells(); // Obtention des cases à placer
+
 
         unsigned int height = board->getHeight(positions[0])+1; // Hauteur à appliquer
 
         int i = 0;
-        for (auto it = cells->begin(); it != cells->end(); it++) {
+        for (auto it = t->begin(); it != t->end(); it++) {
             board->setCell(positions[i],height,*it); // Placement des cases dans le plateau
             i++;
         }
+
+        return stoneCount;
     }
 
     ostream& operator<<(ostream& f, const BoardManager& c) {

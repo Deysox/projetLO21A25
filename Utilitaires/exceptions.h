@@ -22,6 +22,20 @@ namespace Barnabe {
 
         }
     };
+
+    class TileException : public exception {
+        string message_;
+    public:
+        explicit TileException(const string& message) : message_(message) {}
+        TileException() : message_("Erreur lors du placement de la tuile sur le plateau") {}
+
+        const char* what() const throw()
+        {
+
+            return message_.c_str();
+
+        }
+    };
 }
 
 
