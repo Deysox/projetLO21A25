@@ -65,6 +65,7 @@ namespace Barnabe {
          * @param r La rotation de la tuile autour de la tuile pivot
          * @param adjacentIgnore Si est à true, la contrainte d'adjacence de la tuile placée avec le reste du plateau
          * sera ignorée.
+         * @returns Nombre de pierres obtenues par le joueur par recouvrement de carrières
          */
         int place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 

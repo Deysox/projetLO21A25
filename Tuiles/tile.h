@@ -60,7 +60,7 @@ namespace Barnabe {
 
 	public:
 		Tile() {id++;}
-		~Tile();
+		virtual ~Tile();
 		Tile(const Tile& p)=delete;
 		Tile& operator=(Tile& p)=delete;
 
