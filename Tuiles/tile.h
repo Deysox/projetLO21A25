@@ -56,10 +56,10 @@ namespace Barnabe {
 		/*
 		 * Pointeur vers un vecteur contenant les pointeurs vers les cellules qui composent la tuile.
 		 */
-		std::vector<const Cell*>* cells;
+		std::vector<const Cell*> cells;
 
 	public:
-		Tile() : cells(new std::vector<const Cell*>()) {id++;}
+		Tile() {id++;}
 		~Tile();
 		Tile(const Tile& p)=delete;
 		Tile& operator=(Tile& p)=delete;
@@ -68,12 +68,13 @@ namespace Barnabe {
 		 * Accesseur en lecture de la taille de la tuile en termes de nombres de cases.
 		 * @return unsigned int
 		 */
-		unsigned int getSize() const {return cells->size();};
-		/*
-		 * Accesseur en lecture du vecteur contenant les vecteurs vers les cellules.
-		 * @return const std::vector<const Cell*>*
-		 */
-		const std::vector<const Cell*>* getCells() const {return cells;}
+		unsigned int getSize() const {return cells.size();};
+
+		const Cell* getCell(int i) const {
+			if (i >= getSize()) throw TileException("Indice de la cellule incorrect");
+			return cells[i];
+		}
+
 		/*
 		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une
 		 * rotation données. Cette méthode est virtuelle pure, car cette méthode dépend de l'implémentation concrète de
@@ -84,6 +85,34 @@ namespace Barnabe {
  		 * position calculée de la case d'indice i dans l'attribut cells.
 		 */
 		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const = 0;
+
+		class const_iterator {
+			vector<const Cell*>::const_iterator vec_iterator;
+			friend class Tile;
+			explicit const_iterator(vector<const Cell*>::const_iterator def) : vec_iterator(def) {}
+		public:
+			const_iterator& operator++() {
+				vec_iterator++;
+				return *this;
+			}
+			const_iterator operator++(int) {
+				const_iterator old = *this;
+				vec_iterator++;
+				return old;
+			}
+			const Cell* operator*() const {
+				return *vec_iterator;
+			}
+			bool operator==(const const_iterator & e) const {
+				return vec_iterator == e.vec_iterator;
+			}
+			bool operator!=(const const_iterator & e) const {
+				return vec_iterator != e.vec_iterator;
+			}
+		};
+
+		const_iterator begin() const {return const_iterator(cells.begin());}
+		const_iterator end() const {return const_iterator(cells.end());}
 
 
 	};

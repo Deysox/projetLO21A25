@@ -80,12 +80,12 @@ namespace Barnabe {
                 throw PlacementException("La tuile n'est pas adjacente au reste du plateau");
         }
 
-        const vector<const Cell*>* cells = t->getCells(); // Obtention des cases à placer
+
 
         unsigned int height = board->getHeight(positions[0])+1; // Hauteur à appliquer
 
         int i = 0;
-        for (auto it = cells->begin(); it != cells->end(); it++) {
+        for (auto it = t->begin(); it != t->end(); it++) {
             board->setCell(positions[i],height,*it); // Placement des cases dans le plateau
             i++;
         }
