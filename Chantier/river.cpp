@@ -20,10 +20,10 @@ namespace Amalena
         while (tiles.size()<max_tiles) tiles.push_back(pile.Draw());
     }
 
-    Barnabe::ClassicTile& River::giveTile(size_t position)
+    Barnabe::Tile& River::giveTile(size_t position)
     {
         if (position>tiles.size()) throw std::out_of_range("position out of range dans la rivière");
-        ClassicTile* t=tiles[position-1];
+        Tile* t=tiles[position-1];
         tiles.erase(tiles.begin()+(position-1));
         if (stay1()) fillriver();
         return *t;
@@ -35,7 +35,7 @@ namespace Amalena
         return tiles.size()==1;
     }
 
-    size_t River::getPosition(const ClassicTile* t) const
+    size_t River::getPosition(const Tile* t) const
     {
         size_t position=0;// n'existe pas
         for (auto it= tiles.begin() ;it!=tiles.end(); ++it)

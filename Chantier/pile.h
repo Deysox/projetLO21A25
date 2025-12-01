@@ -12,7 +12,7 @@ using namespace std;
 namespace Amalena {
 
     class Pile{
-        vector <Barnabe::ClassicTile*> tiles;
+        vector <Barnabe::Tile*> tiles;
         Eloise::Deck& deck;
         Pile(const Pile& p):deck(p.deck), tiles(p.tiles){}; //et si retour en arrière?
         Pile& operator=(Pile& p)=delete;//? utilisation si memo retour arrière
@@ -22,9 +22,9 @@ namespace Amalena {
         //initialisation à voir comment est constitué le deck en type de donné pour créer tiles
         explicit Pile(Eloise::Deck& d); //gérer aléatoire à faire
         //après sauvegarde
-        explicit Pile(Eloise::Deck& d,vector <Barnabe::ClassicTile*>& t): deck(d),tiles(t){};
+        explicit Pile(Eloise::Deck& d,vector <Barnabe::Tile*>& t): deck(d),tiles(t){};
         bool isEmpty() const;//création d'un getters pour état
-        Barnabe::ClassicTile* Draw();
+        Barnabe::Tile* Draw();
         ~Pile();
     };
 }

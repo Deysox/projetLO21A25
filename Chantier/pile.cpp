@@ -7,13 +7,13 @@
 using namespace std;
 namespace Amalena
 {
-    Barnabe::ClassicTile* Pile::Draw()
+    Barnabe::Tile* Pile::Draw()
     {
         if (!isEmpty())
         {
             //throw PileException("Empty pile");
 
-            Barnabe::ClassicTile* t = tiles.back();
+            Barnabe::Tile* t = tiles.back();
             tiles.pop_back();
             return t;
         }else
@@ -25,7 +25,11 @@ namespace Amalena
 
     Pile::Pile(Eloise::Deck& d): deck(d)
     {
-        tiles=d.getTiles();
+        tiles={};
+        //tiles=d.getTiles();//proposition à réétudier
+        for (auto t : d.getTiles()) {
+            tiles.push_back(static_cast<Barnabe::Tile*>(t));
+        }
         //utilisation de l'algorithme de mélange aléatoire pour randomiser l'ordre des tuiles
         //source :https://en.cppreference.com/w/cpp/algorithm/random_shuffle.html
         std::random_device rd;

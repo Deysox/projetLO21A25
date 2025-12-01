@@ -10,7 +10,7 @@ using namespace Barnabe;
 
 namespace Amalena {
     class River{
-        vector<ClassicTile*> tiles;
+        vector<Tile*> tiles;
         int max_tiles;
         Pile& pile;
 
@@ -18,11 +18,11 @@ namespace Amalena {
         River& operator=(River& f)=delete;
         void fillriver();
     public:
-        ClassicTile& giveTile(size_t position);
+        Tile& giveTile(size_t position);
         bool stay1()const;
-        size_t getPosition(const ClassicTile* t) const;
+        size_t getPosition(const Tile* t) const;
         River(size_t nb, Pile& pile);
-        River(vector<ClassicTile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
+        River(vector<Tile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
         ~River();
     };
 }
