@@ -66,7 +66,7 @@ namespace Barnabe {
          * @param adjacentIgnore Si est à true, la contrainte d'adjacence de la tuile placée avec le reste du plateau
          * sera ignorée.
          */
-        void place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
+        int place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 
 
 

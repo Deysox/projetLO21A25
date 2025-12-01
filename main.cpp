@@ -39,6 +39,13 @@ int main() {
 
     }
 
+    BoardManager bm;
+    bm.place(vec[0],Position(1,1),Rotation(0));
+    bm.place(vec[1],Position(0,2),Rotation(4));
+    bm.place(vec[2],Position(0,1),Rotation(0));
+
+    cout << bm;
+
 
 
 

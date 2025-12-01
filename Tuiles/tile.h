@@ -86,29 +86,33 @@ namespace Barnabe {
 		 */
 		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const = 0;
 
-		class const_iterator {
-			vector<const Cell*>::const_iterator vec_iterator;
+		// class const_iterator {
+		// 	vector<const Cell*>::const_iterator vec_iterator;
+		// 	friend class Tile;
+		// 	explicit const_iterator(vector<const Cell*>::const_iterator def) : vec_iterator(def) {}
+		// public:
+		// 	const_iterator& operator++() {
+		// 		vec_iterator++;
+		// 		return *this;
+		// 	}
+		// 	const_iterator operator++(int) {
+		// 		const_iterator old = *this;
+		// 		vec_iterator++;
+		// 		return old;
+		// 	}
+		// 	const Cell* operator*() const {
+		// 		return *vec_iterator;
+		// 	}
+		// 	bool operator==(const const_iterator & e) const {
+		// 		return vec_iterator == e.vec_iterator;
+		// 	}
+		// 	bool operator!=(const const_iterator & e) const {
+		// 		return vec_iterator != e.vec_iterator;
+		// 	}
+		// };
+
+		class const_iterator : public vector<const Cell*>::const_iterator {
 			friend class Tile;
-			explicit const_iterator(vector<const Cell*>::const_iterator def) : vec_iterator(def) {}
-		public:
-			const_iterator& operator++() {
-				vec_iterator++;
-				return *this;
-			}
-			const_iterator operator++(int) {
-				const_iterator old = *this;
-				vec_iterator++;
-				return old;
-			}
-			const Cell* operator*() const {
-				return *vec_iterator;
-			}
-			bool operator==(const const_iterator & e) const {
-				return vec_iterator == e.vec_iterator;
-			}
-			bool operator!=(const const_iterator & e) const {
-				return vec_iterator != e.vec_iterator;
-			}
 		};
 
 		const_iterator begin() const {return const_iterator(cells.begin());}
