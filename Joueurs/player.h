@@ -21,10 +21,11 @@ namespace Barnabe {
         const BoardManager& getBoard() const;
         void setStones(int n);
         void addStones(int n);
-        bool playTurn(const ClassicTile&);
+        void playTurn(const Tile&);
         //int score() const;
     };
 
+    //solo variant
     enum class Difficulty {EASY = 0, MEDIUM = 1, HARD = 2};
 
     class Architect : public Player {
@@ -34,8 +35,6 @@ namespace Barnabe {
     };
     ostream& operator<<(ostream& f, const Player& p);
 }
-
-
 
 
 #endif //PROJETLO21A25_JOUEUR_H

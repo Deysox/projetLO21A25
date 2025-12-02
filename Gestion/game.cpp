@@ -2,9 +2,9 @@
 // Created by elobo on 20/11/2025.
 //
 
-#include "game.h"
-#include "river.h"
+#include "../Chantier/river.h"
 #include <iostream>
+#include "game.h"
 #include <vector>
 
 //static attributs
@@ -17,12 +17,10 @@ variant(variant),
 mode(mode),
 difficulty(difficulty),
 nb_players(nb_players),
-deck(new Deck(nb_players)),
+deck(new Eloise::Deck(nb_players)),
 pile(new Amalena::Pile(*deck)),
 river(new Amalena::River(nb_players+2,*pile))
 {
-    //reserve much better that init w/ nullptr because of push_back that would add after the nullptrs
-    players.reserve(nb_players);
     for (size_t i = 0; i < nb_players; i++) {
         cout << "Name ?";
         string name;
@@ -57,7 +55,6 @@ void Game::addPlayer(const string& name) {
     else {
         Barnabe::Player* p = new Barnabe::Player(name);
         players.push_back(p);
-        nb_players++;
     }
 }
 
@@ -89,7 +86,7 @@ void Game::nextPlayer() {
     current_player %= nb_players;
 }
 
-ClassicTile& Game::pickRiver() {
+Tile& Game::pickRiver() {
     //diplaying of river and the position of the tiles
     cout << "River : " << river;
     //player says that he wants a tile at a certain position
@@ -103,7 +100,7 @@ ClassicTile& Game::pickRiver() {
         cin >> position;
     }
     //player actually picks the tile in the river using river.giveTile()
-    Barnabe::ClassicTile& chosen_tile = river->giveTile(position);
+    Barnabe::Tile& chosen_tile = river->giveTile(position);
     //setStones() to modify the amont of stones he's got left
     players[current_player]->setStones(players[current_player]->getStones() - position);
     return chosen_tile;
@@ -112,8 +109,8 @@ ClassicTile& Game::pickRiver() {
 void Game::manageGame() {
     cout << "Start of the game ! \n";
     while (!(river->stay1() && pile->isEmpty())) {
-        cout << "Current player : " << players.at(current_player);
-        Barnabe::ClassicTile& tile = pickRiver();
+        cout << "Current player : " << *players.at(current_player);
+        Barnabe::Tile& tile = pickRiver();
         players.at(current_player)->playTurn(tile);
         nextPlayer();
     }

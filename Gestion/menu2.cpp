@@ -9,7 +9,8 @@ Menu::Menu() {
 
 void Menu::display() {
     char choice = 'A';
-    do {
+    while (1) {
+            do {
         cout << "Welcome in the menu\n"
             << "What do you want to do ?\n"
             << "1. Launch a game\n"
@@ -70,5 +71,6 @@ void Menu::display() {
                 cout << "Invalid choice, try again.\n";
         }
     }while (!(choice=='1' or choice=='2' or choice=='3'));
+    }
 }
 

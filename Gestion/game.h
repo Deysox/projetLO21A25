@@ -2,11 +2,11 @@
 #define PROJETLO21A25_Game_H
 
 #include <string>
-#include "river.h"
-#include "player.h"
-#include "pile.h"
+#include "../Chantier/river.h"
+#include "../Joueurs/player.h"
+#include "../Chantier/pile.h"
 #include <vector>
-#include "deck.h"
+#include "../Tuiles/deck.h"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ private:
 	static size_t nb_players_max;
 
 	//game handles deck
-	Deck* deck = nullptr;
+	Eloise::Deck* deck = nullptr;
 
 	//game handles pile, pile created when game starts
 	Amalena::Pile* pile = nullptr;
@@ -83,7 +83,7 @@ public:
 	//display and access player
 	void addPlayer(const string& name);
 
-	Player* getPlayer(size_t position);
+	Barnabe::Player* getPlayer(size_t position);
 
 	//display players
 	void displayPlayers();
@@ -98,9 +98,8 @@ public:
 	void abandonGame();
 
 	//player picks a tile in the pile so that he can play
-	ClassicTile& pickRiver();
+	Tile& pickRiver();
 
 	void endGame();
 };
-
 #endif //PROJETLO21A25_Game_H

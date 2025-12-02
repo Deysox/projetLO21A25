@@ -35,29 +35,23 @@ namespace Barnabe {
     }
 
     //method called by Game
-    bool Player::playTurn(const ClassicTile& tile) {
+    //canPlace no longer exists
+    //exception
+    void Player::playTurn(const Tile& tile) {
         int x = 0;
         int y = 0;
         int r = 0;
         Position pos;
         Rotation rotation;
-        bool validMove = false;
-        do {
-            cout << "Choose a position (x,y) on your board where you want to put the tile : ";
-            cout << "x ? : ";
-            cin >> x;
-            cout << "y ? : ";
-            cin >> y;
-            cout << "Choose the rotation of the tile (1 to 5), r : ";
-            cin >> r;
-            pos = Position(x,y);
-            rotation = Rotation(r);
-            validMove = board.canPlace(&tile,pos,rotation);
-            if (!validMove) {
-                cout << "Invalid position or rotation. \n";
-            }
-        }while (!validMove);
-        board.place(&tile,pos,rotation);
+        cout << "Choose a position (x,y) on your board where you want to put the tile : ";
+        cout << "x ? : ";
+        cin >> x;
+        cout << "y ? : ";
+        cin >> y;
+        cout << "Choose the rotation of the tile (1 to 5), r : ";
+        cin >> r;
+        pos = Position(x,y);
+        addStones(board.place(&tile,pos,rotation));
         cout << board << endl;
     }
 }
