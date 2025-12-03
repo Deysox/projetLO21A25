@@ -60,7 +60,7 @@ namespace Amalena {
             return RiverIterator(tiles.end());
         }
     };
+    //pb car river pas const...
+    ostream& operator<<(ostream& f, River& r);
 }
-ostream& operator<<(ostream& f, const Amalena::River& r);
-ostream& operator<<(ostream& f, const Amalena::River& r);
 #endif //PROJETLO21A25_RIVER_H

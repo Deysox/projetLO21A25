@@ -71,21 +71,21 @@ void Game::nextPlayer() {
 
 Tile& Game::pickRiver() {
     //diplaying of river and the position of the tiles
-    cout << "River : " << river;
+    cout << *river;
     //player says that he wants a tile at a certain position
     cout << "\n";
-    cout << "Write the position of the tile you want : ";
+    cout << "Write the position of the tile you want (first tile at position 1) : ";
     int position = 0;
     cin >> position;
     //getStones() to acknowledge if he can buy the tile ==> loop while player.getStones() < position
-    while (players[current_player]->getStones() < position) {
+    while (players[current_player]->getStones() < position - 1) {
         cout << "You don't have enough stones, select another position : ";
         cin >> position;
     }
     //player actually picks the tile in the river using river.giveTile()
     Barnabe::Tile& chosen_tile = river->giveTile(position);
     //setStones() to modify the amont of stones he's got left
-    players[current_player]->setStones(players[current_player]->getStones() - position);
+    players[current_player]->setStones(players[current_player]->getStones() - (position - 1));
     return chosen_tile;
 }
 
@@ -93,7 +93,7 @@ Tile& Game::pickRiver() {
 void Game::manageGame() {
     cout << "Start of the game ! \n";
     for (size_t i = 0; i < nb_players; i++) {
-        cout << "Name ?";
+        cout << "Name ? :";
         string name;
         cin >> name;
         addPlayer(name);
@@ -109,7 +109,7 @@ void Game::manageGame() {
 //mode solo :
 void Game::manageSoloGame(int difficulty) {
     cout << "Start of the solo game ! \n";
-    cout << "What is your name ?";
+    cout << "What is your name ? :";
     string name;
     cin >> name;
     addPlayer(name);
@@ -153,7 +153,7 @@ void Game::manageSoloGame(int difficulty) {
         }
         //turn of the player
         else {
-            cout << "Your turn !";
+            cout << "Your turn !"  << "\n";
             cout << *players.at(current_player) << "\n";
             int stones_before = players.at(0)->getStones();
             Tile& tile = pickRiver();
