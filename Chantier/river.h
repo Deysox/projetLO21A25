@@ -24,7 +24,43 @@ namespace Amalena {
         River(size_t nb, Pile& pile);
         River(vector<Tile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
         ~River();
+    private:
+        class RiverIterator {
+            std::vector<Tile*>::iterator current;
+            friend class River;
+            RiverIterator(const std::vector<Tile*>::iterator& it)
+                : current(it) {}
+        public:
+            // ++prefixe
+            RiverIterator& operator++() {
+                ++current;
+                return *this;
+            }
+
+            RiverIterator& operator--() {
+                --current;
+                return *this;
+            }
+
+            bool operator!=(const RiverIterator& other) const {
+                return current != other.current;
+            }
+
+            Tile& operator*() {
+                return **current;
+            }
+        };
+
+    public:
+        RiverIterator begin() {
+            return RiverIterator(tiles.begin());
+        }
+
+        RiverIterator end() {
+            return RiverIterator(tiles.end());
+        }
     };
 }
+ostream& operator<<(ostream& f, const Amalena::River& r);
 ostream& operator<<(ostream& f, const Amalena::River& r);
 #endif //PROJETLO21A25_RIVER_H

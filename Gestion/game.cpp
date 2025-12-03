@@ -1,32 +1,27 @@
 //
+// Created by elobo on 02/12/2025.
+//
+
+//
 // Created by elobo on 20/11/2025.
 //
 
+#include "game.h"
 #include "../Chantier/river.h"
 #include <iostream>
-#include "game.h"
 #include <vector>
+#include "../Tuiles/deck.h"
 
 //static attributs
 Game* Game::instance = nullptr;
 size_t Game::nb_players_max = 4;
 
-Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
-tile_count(tile_count),
-//variant(variant),
-//mode(mode),
-//difficulty(difficulty),
+Game::Game(size_t nb_players) :
 nb_players(nb_players),
 deck(new Eloise::Deck(nb_players)),
 pile(new Amalena::Pile(*deck)),
 river(new Amalena::River(nb_players+2,*pile))
 {
-    for (size_t i = 0; i < nb_players; i++) {
-        cout << "Name ?";
-        string name;
-        cin >> name;
-        addPlayer(name);
-    }
 }
 
 //free of players, river, pile, deck
@@ -53,7 +48,7 @@ void Game::addPlayer(const string& name) {
         cout << "Can't add an additionnal player, you have reached the maximum.";
     }
     else {
-        Barnabe::Player* p = new Barnabe::Player(name);
+        Player* p = new Player(name);
         players.push_back(p);
     }
 }
@@ -67,16 +62,6 @@ Player* Game::getPlayer(size_t position) {
         cout << "Invalid position.";
         return nullptr;
     }
-}
-
-void Game::informationsGame() {
-    cout << "Game informations : \n";
-    cout << "Tile count : " << tile_count << "\n";
-    //cout << "Mode : " << mode << "\n";
-    //cout << "Difficulty : " << difficulty << "\n";
-    cout << "Number of players max : " << nb_players_max << "\n";
-    cout << "Number of players : " << nb_players << "\n";
-    displayPlayers();
 }
 
 void Game::nextPlayer() {
@@ -104,13 +89,80 @@ Tile& Game::pickRiver() {
     return chosen_tile;
 }
 
+//mode multi-player
 void Game::manageGame() {
     cout << "Start of the game ! \n";
+    for (size_t i = 0; i < nb_players; i++) {
+        cout << "Name ?";
+        string name;
+        cin >> name;
+        addPlayer(name);
+    }
     while (!(river->stay1() && pile->isEmpty())) {
         cout << "Current player : " << *players.at(current_player);
-        Barnabe::Tile& tile = pickRiver();
+        Tile& tile = pickRiver();
         players.at(current_player)->playTurn(tile);
         nextPlayer();
+    }
+}
+
+//mode solo :
+void Game::manageSoloGame(int difficulty) {
+    cout << "Start of the solo game ! \n";
+    cout << "What is your name ?";
+    string name;
+    cin >> name;
+    addPlayer(name);
+    //creation of the architect
+    Player* architect = new Architect("Architect",difficulty);
+    players.push_back(architect);
+    while (!(river->stay1() && pile->isEmpty())) {
+       //turn of the architect
+        if (current_player != 0) {
+            cout << "Architect's turn!\n";
+            cout << "Stones : " << players.at(current_player)->getStones() << "\n";
+            Tile* chosen_tile_ptr = nullptr;
+            int chosen_pos = -1;
+            int pos = 0;
+
+            for (auto& t : *river) {
+                for (const Cell* cell : t) {
+                    if (cell->getType() == Type::PLACE) {
+                        chosen_tile_ptr = &t;
+                        chosen_pos = pos;
+                        break;
+                    }
+                }
+                if (chosen_tile_ptr) break;
+                ++pos;
+            }
+            if (!chosen_tile_ptr && !river->stay1()) {
+                chosen_tile_ptr = &*river->begin();
+                chosen_pos = 0;
+            }
+
+            // Vérifie que la tuile existe avant de l'utiliser
+            if (chosen_tile_ptr) {
+                cout << "Architect took the tile " << chosen_pos << "\n";
+                players.at(1)->addStones(-chosen_pos);
+                players.at(1)->playTurn(*chosen_tile_ptr);
+            } else {
+                cout << "Architect can't play.\n";
+            }
+            nextPlayer();
+        }
+        //turn of the player
+        else {
+            cout << "Your turn !";
+            cout << *players.at(current_player) << "\n";
+            int stones_before = players.at(0)->getStones();
+            Tile& tile = pickRiver();
+            int stones_after = players.at(0)->getStones();
+            //player gives the stones he lost picking the tile to the architect
+            players.at(1)->addStones(stones_after - stones_before);
+            players.at(0)->playTurn(tile);
+            nextPlayer();
+        }
     }
 }
 

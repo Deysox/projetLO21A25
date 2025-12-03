@@ -28,28 +28,23 @@ private:
 	//game handles river, river created when game starts
 	Amalena::River* river = nullptr;
 
-	//parameters from Menu
-	size_t tile_count;
-	/*string variant;
-	string mode;
-	string difficulty;*/
-
 	//constructeur normal
-	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
+	Game(size_t nb_players);
 	//rajouter un constructeur à partir des fichiers json pour reprendre les parties
 
 	//destructeur s'occupe d'aller stocker et sauvegarder les paramètres de la partie abandonnée dans un fichier json
 	~Game();
-	Game(const Game& c);
-	Game& operator=(const Game& c);
+
+	//singleton donc delete
+	Game(const Game& c) = delete;
+	Game& operator=(const Game& c) = delete;
 
 	//game instance
 	static Game* instance;
 public:
-	void informationsGame();
-	static Game& giveInstance(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) {
+	static Game& giveInstance(size_t nb_players) {
 		if (instance == nullptr) {
-			instance = new Game(tile_count, variant, mode, difficulty, nb_players);
+			instance = new Game(nb_players);
 		}
 		return *instance;
 	}
@@ -65,18 +60,7 @@ public:
 	static const size_t& getNbPlayersMax() {
 		return nb_players_max;
 	}
-	const size_t& getTileCount() const {
-		return tile_count;
-	}
-	/*const string& getVariant() const {
-		return variant;
-	}
-	const string& getMode() const {
-		return mode;
-	}
-	const string& getDifficulty() const {
-		return difficulty;
-	}*/
+
 	const size_t& getCurrentPlayer() const {
 		return current_player;
 	}
@@ -93,6 +77,9 @@ public:
 
 	//main method of the game
 	void manageGame();
+
+	//main method if solo game
+	void manageSoloGame(int difficulty);
 
 	//quit and register the game
 	void abandonGame();

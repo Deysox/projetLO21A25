@@ -34,24 +34,40 @@ namespace Barnabe {
         return f;
     }
 
-    //method called by Game
-    //canPlace no longer exists
-    //exception
     void Player::playTurn(const Tile& tile) {
-        int x = 0;
-        int y = 0;
-        int r = 0;
-        Position pos;
-        Rotation rotation;
-        cout << "Choose a position (x,y) on your board where you want to put the tile : ";
-        cout << "x ? : ";
-        cin >> x;
-        cout << "y ? : ";
-        cin >> y;
-        cout << "Choose the rotation of the tile (1 to 5), r : ";
-        cin >> r;
-        pos = Position(x,y);
-        addStones(board.place(&tile,pos,rotation));
+        bool placed = false;
+        while (!placed) {
+            int x = 0, y = 0, r = 0;
+            cout << "Choose a position (x,y) on your board where you want to put the tile :\n";
+            cout << "x ? : "; cin >> x;
+            cout << "y ? : "; cin >> y;
+            cout << "Choose the rotation of the tile (0 to 5), r : "; cin >> r;
+            Position pos(x,y);
+            Rotation rotation(r);
+            try {
+                addStones(board.place(&tile, pos, rotation));
+                placed = true;
+            }
+            catch(const PlacementException& pe) {
+                cout << "Error : " << pe.what() << "\n";
+            }
+            catch(const TileException& te) {
+                cout << "Error : " << te.what() << "\n";
+            }
+        }
         cout << board << endl;
+    }
+
+    void Architect::playTurn(const Tile& t) {
+        architect_tiles.push_back(const_cast<Tile*>(&t));
+        //score based on the difficulty level
+        /*switch (difficulty) {
+            case 1:
+                break;
+            case 2:1
+                break;
+            case 3:
+                break;
+        }*/
     }
 }

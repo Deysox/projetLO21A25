@@ -15,24 +15,27 @@ namespace Barnabe {
         int stones;
     public:
         Player(const string& s);
-        ~Player();
+        virtual ~Player();
         const string& getName() const;
         int getStones() const;
         const BoardManager& getBoard() const;
         void setStones(int n);
         void addStones(int n);
-        void playTurn(const Tile&);
+        virtual void playTurn(const Tile&);
         //int score() const;
     };
 
     //solo variant
-    enum class Difficulty {EASY = 0, MEDIUM = 1, HARD = 2};
-
     class Architect : public Player {
-        Difficulty difficulty;
+        int difficulty;
+        vector <Tile*> architect_tiles;
     public:
+        Architect(const std::string& name, int d)
+            : Player(name), difficulty(d) {}
 
+        void playTurn(const Tile& t) override;
     };
+
     ostream& operator<<(ostream& f, const Player& p);
 }
 
