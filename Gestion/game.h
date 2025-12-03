@@ -30,9 +30,9 @@ private:
 
 	//parameters from Menu
 	size_t tile_count;
-	string variant;
+	/*string variant;
 	string mode;
-	string difficulty;
+	string difficulty;*/
 
 	//constructeur normal
 	Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players);
@@ -68,7 +68,7 @@ public:
 	const size_t& getTileCount() const {
 		return tile_count;
 	}
-	const string& getVariant() const {
+	/*const string& getVariant() const {
 		return variant;
 	}
 	const string& getMode() const {
@@ -76,14 +76,14 @@ public:
 	}
 	const string& getDifficulty() const {
 		return difficulty;
-	}
+	}*/
 	const size_t& getCurrentPlayer() const {
 		return current_player;
 	}
 	//display and access player
 	void addPlayer(const string& name);
 
-	Barnabe::Player* getPlayer(size_t position);
+	Player* getPlayer(size_t position);
 
 	//display players
 	void displayPlayers();

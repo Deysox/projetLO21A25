@@ -13,9 +13,9 @@ size_t Game::nb_players_max = 4;
 
 Game::Game(size_t tile_count, string variant, string mode, string difficulty, size_t nb_players) :
 tile_count(tile_count),
-variant(variant),
-mode(mode),
-difficulty(difficulty),
+//variant(variant),
+//mode(mode),
+//difficulty(difficulty),
 nb_players(nb_players),
 deck(new Eloise::Deck(nb_players)),
 pile(new Amalena::Pile(*deck)),
@@ -72,13 +72,11 @@ Player* Game::getPlayer(size_t position) {
 void Game::informationsGame() {
     cout << "Game informations : \n";
     cout << "Tile count : " << tile_count << "\n";
-    cout << "Mode : " << mode << "\n";
-    cout << "Difficulty : " << difficulty << "\n";
+    //cout << "Mode : " << mode << "\n";
+    //cout << "Difficulty : " << difficulty << "\n";
     cout << "Number of players max : " << nb_players_max << "\n";
     cout << "Number of players : " << nb_players << "\n";
-    for (int i =  0; i < nb_players; i++) {
-        displayPlayers();
-    }
+    displayPlayers();
 }
 
 void Game::nextPlayer() {
