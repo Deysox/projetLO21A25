@@ -4,6 +4,9 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+
+#include "deck.h"
+#include "tile.h"
 using namespace std;
 namespace Amalena
 {

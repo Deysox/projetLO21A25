@@ -4,9 +4,14 @@
 #define PROJETLO21A25_PILE_H
 #include <vector>
 #include <string>
-#include "Deck.h"
+
+#include "deck.h"
+#include "tile.h"
+
+
 class river;
 using namespace std;
+
 
 
 namespace Amalena {
