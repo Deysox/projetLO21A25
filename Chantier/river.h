@@ -6,16 +6,11 @@
 #include "pile.h"
 using namespace std;
 using namespace Barnabe;
-
-
 namespace Amalena {
     class River{
         vector<Tile*> tiles;
         int max_tiles;
         Pile& pile;
-
-        River(const River& r):tiles(r.tiles), max_tiles(r.max_tiles), pile(r.pile){};
-        River& operator=(River& f)=delete;
         void fillriver();
     public:
         Tile& giveTile(size_t position);
@@ -24,6 +19,8 @@ namespace Amalena {
         River(size_t nb, Pile& pile);
         River(vector<Tile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
         ~River();
+        River(const River& r):tiles(r.tiles), max_tiles(r.max_tiles), pile(r.pile){};
+        River& operator=(River& f);
     private:
         class RiverIterator {
             std::vector<Tile*>::iterator current;
@@ -60,7 +57,8 @@ namespace Amalena {
             return RiverIterator(tiles.end());
         }
     };
-    //pb car river pas const...
-    ostream& operator<<(ostream& f, River& r);
+
+    ostream& operator<<(ostream& f, River r);
 }
+
 #endif //PROJETLO21A25_RIVER_H
