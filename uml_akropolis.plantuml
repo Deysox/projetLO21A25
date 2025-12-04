@@ -90,4 +90,26 @@ class BoardManager {
 BoardManager "1" *-- "1" Board
 BoardManager *-- "1" StartingTile
 
+class River{
+    - tiles : vector<Tile*>
+    - pile : Pile&
+    - fillriver() : void
+    + River(nb :size_t, pile : Pile&)
+    + operator=(f : River&)
+    +River (r : const River&)
+    +~River()
+    + giveTile(t : const Tile*)  : size_t {const}
+
+}
+River o-- "1..*" Tile
+class Pile{
+    - tiles : vector<Tile*>
+    - deck : Deck&
+    + Pile (d: deck, t: vector<Tile*>)
+    +~Pile()
+    + isempty() : bool {const}
+    + Draw() :Tile*
+
+}
+Pile o-- "1..*" Tile
 @enduml
