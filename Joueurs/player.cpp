@@ -35,6 +35,7 @@ namespace Barnabe {
     }
 
     void Player::playTurn(const Tile& tile) {
+        cout << "\n" << board << endl;
         bool placed = false;
         while (!placed) {
             int x = 0, y = 0, r = 0;
