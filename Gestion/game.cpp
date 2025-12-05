@@ -148,8 +148,8 @@ void Game::manageSoloGame(int difficulty) {
             cout << "Architect's turn!\n";
             cout << "Stones : " << players.at(current_player)->getStones() << "\n";
             Tile* chosen_tile_ptr = nullptr;
-            int chosen_pos = -1;
-            int pos = 0;
+            int chosen_pos = 0;
+            int pos = 1;
 
             for (auto& t : *river) {
                 for (const Cell* cell : t) {
