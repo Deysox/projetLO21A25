@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
-#include "../Joueur/Player.h"
+#include "../Joueurs/Player.h"
 
 //static attributs
 Game* Game::instance = nullptr;
