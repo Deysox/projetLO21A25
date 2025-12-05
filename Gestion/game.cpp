@@ -162,7 +162,7 @@ void Game::manageSoloGame(int difficulty) {
                 if (chosen_tile_ptr) break;
                 ++pos;
             }
-            if (!chosen_tile_ptr && !river->stay1()) {
+            if (!chosen_tile_ptr) {
                 chosen_tile_ptr = &*river->begin();
                 chosen_pos = 0;
             }
