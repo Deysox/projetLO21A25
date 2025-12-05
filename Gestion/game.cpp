@@ -148,7 +148,7 @@ void Game::manageSoloGame(int difficulty) {
             cout << "Architect's turn!\n";
             cout << "Stones : " << players.at(current_player)->getStones() << "\n";
             Tile* chosen_tile_ptr = nullptr;
-            int chosen_pos = 0;
+            int chosen_pos = 1;
             int pos = 1;
 
             for (auto& t : *river) {
@@ -162,14 +162,15 @@ void Game::manageSoloGame(int difficulty) {
                 if (chosen_tile_ptr) break;
                 ++pos;
             }
-            if (!chosen_tile_ptr) {
+            if (!chosen_tile_ptr || (chosen_pos - 1) > players.at(current_player)->getStones()) {
                 chosen_tile_ptr = &*river->begin();
-                chosen_pos = 0;
+                chosen_pos = 1;
             }
 
-            // Vérifie que la tuile existe avant de l'utiliser
+            //tile verification before using it
             if (chosen_tile_ptr) {
                 cout << "Architect took the tile " << chosen_pos << "\n";
+                river->giveTile(chosen_pos);
                 players.at(1)->addStones(-chosen_pos);
                 players.at(1)->playTurn(*chosen_tile_ptr);
             } else {
