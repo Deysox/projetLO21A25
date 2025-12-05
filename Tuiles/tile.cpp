@@ -38,10 +38,10 @@ namespace Barnabe {
     }
 
     ostream& operator<<(ostream& f, ClassicTile& c) {
-        f << c.getCell(0)->displayTop(1) << endl;
-        f << c.getCell(0)->displayBottom() << c.getCell(1)->displayTop(1) << endl;
-        f << c.getCell(2)->displayTop(1) << c.getCell(1)->displayBottom() << endl;
-        f << c.getCell(2)->displayBottom() << endl;
+        f << c.getCell(1)->displayTop(1) << endl;
+        f << c.getCell(1)->displayBottom() << c.getCell(2)->displayTop(1) << endl;
+        f << c.getCell(0)->displayTop(1) << c.getCell(2)->displayBottom() << endl;
+        f << c.getCell(0)->displayBottom() << endl;
         return f;
 
     }

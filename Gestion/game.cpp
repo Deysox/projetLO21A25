@@ -11,7 +11,8 @@
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
-#include "../Joueurs/Player.h"
+#include "../Joueurs/player.h"
+
 
 //static attributs
 Game* Game::instance = nullptr;
@@ -94,7 +95,7 @@ Tile& Game::pickRiver() {
 void Game::manageGame() {
     cout << "Start of the game ! \n";
     for (size_t i = 0; i < nb_players; i++) {
-        cout << "Name ? :";
+        cout << "Name of player " << to_string(i) << " :";
         string name;
         cin >> name;
         addPlayer(name);

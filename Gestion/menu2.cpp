@@ -15,18 +15,28 @@ void Menu::display() {
     char choice = 'A';
     while (1) {
             do {
-            cout << "Welcome in the menu\n"
-                << "What do you want to do ?\n"
-                << "1. Launch a game\n"
-                << "2. Resume a game\n"
-                << "3. Display rules\n"
-                << "Your answer :";
+                cout << R"(        __                                   ___
+       /\ \                                 /\_ \    __
+   __  \ \ \/'\   _ __   ___   _____     ___\//\ \  /\_\    ____
+ /'__`\ \ \ , <  /\`'__\/ __`\/\ '__`\  / __`\\ \ \ \/\ \  /',__\
+/\ \L\.\_\ \ \\`\\ \ \//\ \L\ \ \ \L\ \/\ \L\ \\_\ \_\ \ \/\__, `\
+\ \__/.\_\\ \_\ \_\ \_\\ \____/\ \ ,__/\ \____//\____\\ \_\/\____/
+ \/__/\/_/ \/_/\/_/\/_/ \/___/  \ \ \/  \/___/ \/____/ \/_/\/___/
+                                 \ \_\
+                                  \/_/)" << endl;
+                cout << "Marilou, Eloïse, Amalena & Barnabé" << endl << endl;
+                cout << "Welcome in the menu\n"
+                    << "What do you want to do ?\n"
+                    << "1. Launch a game\n"
+                    << "2. Resume a game\n"
+                    << "3. Display rules\n"
+                    << "Your answer : ";
             cin >> choice;
             switch (choice)
             {
                 //errors w/out {} because need of a local scope
                 case '1': {
-                    cout << "Number of players ? (1, 2, 3 or 4)";
+                    cout << "Number of players ? (1, 2, 3 or 4) ";
                     size_t nb_players = 0;
                     cin >> nb_players;
                     while (nb_players > Game::getNbPlayersMax()) {

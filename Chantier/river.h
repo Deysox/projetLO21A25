@@ -58,7 +58,9 @@ namespace Amalena {
         }
     };
 
-    ostream& operator<<(ostream& f, River r);
+
 }
+ostream& operator<<(ostream& f, Amalena::River& r);
+
 
 #endif //PROJETLO21A25_RIVER_H

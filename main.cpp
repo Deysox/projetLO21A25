@@ -25,32 +25,13 @@ int main(int argc, char* argv[])
 #include "Plateau/boardmanager.h"
 #include "deck.h"
 #include "pile.h"
+#include "menu2.h"
+#include "river.h"
 
 int main() {
     using namespace Barnabe;
 
-    Eloise::Deck d(2);
-
-    const vector<ClassicTile*> vec = d.getTiles();
-
-    int i = 1;
-    for (auto it = vec.begin(); it != vec.end(); it++) {
-        cout << i++ << endl;
-        cout << *(*it);
-
-    }
-    Amalena::Pile p(d);
-    int c = 0;
-    BoardManager bm;
-    c += bm.place(vec[0],Position(1,1),Rotation(0));
-    c += bm.place(vec[1],Position(0,2),Rotation(4));
-    c += bm.place(vec[2],Position(0,1),Rotation(0));
-
-    cout << bm;
-    cout << c;
-
-
-
+    Menu menu;
 
     return 0;
 }

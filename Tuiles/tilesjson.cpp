@@ -11,7 +11,7 @@ using namespace std;
 using json = nlohmann::json;
 
 void read_file() {
-    ifstream fichier("tiles.json");
+    ifstream fichier("../tiles.json");
     if (fichier.is_open()){
         json data;
         fichier >> data;

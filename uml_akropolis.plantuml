@@ -32,6 +32,8 @@ abstract Tile {
     + getSize() : unsigned int {const}
     + getCells() : const vector<const Cell*>* {const}
     + {abstract} calculatePositions(Position, Rotation) : vector<Position>
+    + begin() : iterator {const}
+    + end() : iterator {const}
 
 }
 

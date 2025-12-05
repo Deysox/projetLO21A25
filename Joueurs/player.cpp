@@ -30,7 +30,7 @@ namespace Barnabe {
     }
 
     ostream& operator<<(ostream& f, const Barnabe::Player& p) {
-        f << "name : " << p.getName() << "\n" << "stones : " << p.getStones() << "\n" << "board : " << p.getBoard() << endl;
+        f << "Player " << p.getName() << endl << "Stones : " << p.getStones() << endl << "board : " << endl << p.getBoard() << endl;
         return f;
     }
 
@@ -39,9 +39,9 @@ namespace Barnabe {
         bool placed = false;
         while (!placed) {
             int x = 0, y = 0, r = 0;
-            cout << "Choose a position (x,y) on your board where you want to put the tile :\n";
-            cout << "x ? : "; cin >> x;
-            cout << "y ? : "; cin >> y;
+            cout << "Choose a position (x,y) on your board where you want to put the tile." << endl;
+            cout << "x : "; cin >> x;
+            cout << "y : "; cin >> y;
             cout << "Choose the rotation of the tile (0 to 5), r : "; cin >> r;
             Position pos(x,y);
             Rotation rotation(r);
