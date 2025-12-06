@@ -169,7 +169,6 @@ namespace Barnabe {
     }
 
     Player <|-- Architect
-    }
 
 class Game {
     - players : vector<Player*>
