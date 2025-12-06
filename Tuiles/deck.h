@@ -30,7 +30,7 @@ namespace Eloise {
         Deck(int nb_players_game);
         //Deck frees the tiles
         ~Deck();
-        //const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
+        const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
     };
 }
 

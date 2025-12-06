@@ -72,6 +72,8 @@ namespace Eloise {
     }
 
     Tile& Game::pickRiver() {
+        using namespace Amalena;
+
         //diplaying of river and the position of the tiles
         cout << *river;
         //player says that he wants a tile at a certain position

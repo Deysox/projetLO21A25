@@ -31,7 +31,8 @@ int main(int argc, char* argv[])
 int main() {
     using namespace Barnabe;
 
-    Menu menu;
+    Eloise::Menu menu;
+
 
     return 0;
 }
