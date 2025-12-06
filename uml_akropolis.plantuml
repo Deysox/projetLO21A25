@@ -246,6 +246,70 @@ Game *-- "1" Deck
 Game *-- "1" Pile
 Game *-- "1" River
 
+namespace Marilou {
+
+    class ScoreVariants {
+        + habitations : bool
+        + marches : bool
+        + casernes : bool
+        + temples : bool
+        + jardins : bool
+    }
+
+    abstract class Score {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScorePierre {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    abstract class ScoreCouleur {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreBleu {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreJaune {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreRouge {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreViolet {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreVert {
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    class ScoreGeneral {
+        - couleurs : List<ScoreCouleur*>
+        - scorePierre : ScorePierre
+        + ScoreGeneral()
+        + compute(player : Eloise::Player, variants : ScoreVariants) : int
+    }
+
+    Score <|-- ScorePierre
+    Score <|-- ScoreCouleur
+    Score <|-- ScoreGeneral
+
+    ScoreCouleur <|-- ScoreBleu
+    ScoreCouleur <|-- ScoreJaune
+    ScoreCouleur <|-- ScoreRouge
+    ScoreCouleur <|-- ScoreViolet
+    ScoreCouleur <|-- ScoreVert
+
+    ScoreGeneral o-- ScoreCouleur
+    ScoreGeneral o-- ScorePierre
+}
+
+Marilou.Score ..> Eloise.Player
 
 
 @enduml
