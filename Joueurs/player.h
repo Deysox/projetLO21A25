@@ -7,6 +7,7 @@
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
 #include <string>
+#include <QWidget>
 
 //attribut stones à changer ==> mettre un attribut de type ScoreGeneral
 namespace Barnabe {
@@ -26,6 +27,7 @@ namespace Barnabe {
         void setStones(int n);
         void addStones(int n);
         virtual void playTurn(const Tile&);
+        void Player::playTurnQt(const Tile& tile, QWidget* parent);
         //int score() const;
     };
 

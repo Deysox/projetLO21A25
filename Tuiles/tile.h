@@ -3,6 +3,7 @@
 #include <array>
 #include <vector>
 #include "cell.h"
+#include <sstream>
 
 using namespace std;
 
@@ -74,6 +75,11 @@ namespace Barnabe {
 			if (i >= getSize()) throw TileException("Indice de la cellule incorrect");
 			return cells[i];
 		}
+
+		//for Qt adaptation but to be modified
+		string typeToString(Type t);
+
+		string toString();
 
 		/*
 		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une

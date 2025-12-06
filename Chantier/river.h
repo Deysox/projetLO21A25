@@ -21,6 +21,11 @@ namespace Amalena {
         ~River();
         River(const River& r):tiles(r.tiles), max_tiles(r.max_tiles), pile(r.pile){};
         River& operator=(River& f);
+        string toString() const;
+        size_t getSize() const {
+            return tiles.size();
+        }
+        const vector<Tile*>& getTiles() const { return tiles; }
     private:
         class RiverIterator {
             std::vector<Tile*>::iterator current;

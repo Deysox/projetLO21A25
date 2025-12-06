@@ -33,7 +33,7 @@ private:
 	//rajouter un constructeur à partir des fichiers json pour reprendre les parties
 
 	//destructeur s'occupe d'aller stocker et sauvegarder les paramètres de la partie abandonnée dans un fichier json
-	~Game();
+	virtual ~Game();
 
 	//singleton donc delete
 	Game(const Game& c) = delete;
