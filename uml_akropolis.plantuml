@@ -1,191 +1,213 @@
 @startuml
-class Cell {
-    - id : int 
-    - color : Color 
-    - type : Type
-    + Cell(int, Color, Type)
-    + getColor() : Color {const}
-    + getEffectiveColor(const Rotation&) : Color {const}
-    + getType() : Color {const}
-    + getID() : id {const}
-    + displayTop(unsigned int) : string const
-    + displayBottom() : string {const}
-}
-
-class BicolorCell {
-    - secondaryColor : Color
-    - rotation : Rotation
-    + BicolorCell(int, Color, Type, Color, Rotation)
-    + getSecondaryColor() : Color {const}
-    + getRotation() : Rotation {const}
-    + setRotation(Rotation)
-}
-
-BicolorCell --> Cell
-
-
-abstract Tile {
-    # {static} id : int
-    # cells : vector<const Cell*>*
-    + Tile()
-    + \~Tile()
-    + getSize() : unsigned int {const}
-    + getCells() : const vector<const Cell*>* {const}
-    + {abstract} calculatePositions(Position, Rotation) : vector<Position>
-    + begin() : iterator {const}
-    + end() : iterator {const}
-
-}
-
-class StartingTile {
-    + StartingTile()
-    + calculatePositions(Position, Rotation) : vector<Position>
-}
-class ClassicTile {
-    + ClassicTile()
-    + calculatePositions(Position, Rotation) : vector<Position>
-}
-class AthenaTile {
-    - BicolorCell* cell;
-    + AthenaTile()
-    + calculatePositions(Position, Rotation) : vector<Position>
-}
-
-StartingTile --> Tile
-ClassicTile --> Tile
-AthenaTile --> Tile
-
-Tile "1" *-- "1.." Cell
 
 
 
-class Board {
-    - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
-    - corner_tl : Position
-    - corner_bl : Position
-    + Board()
-    + \~Board()
-    + Board(const Board&)
-    + operator=(const Board&) : Board&
-    + getCell(Position) : const Cell* {const}
-    + getCell(int, int) : const Cell* {const}
-    + getHeight(Position) : unsigned int {const}
-    + getHeight(int, int) : unsigned int {const}
-    + setCell(Position, unsigned int, const Cell*)
-    + setCell(int, int, unsigned int, const Cell*)
-    + getCorners() : pair<Position, Position> {const}
-}
 
-Board "*" o-- "*" Cell 
-
-class BoardManager {
-    - board : Board*
-    - startingTile : StartingTile*
-    + BoardManager()
-    + \~BoardManager()
-    + BoardManager(const BoardManager&)
-    + operator=(const BoardManager&) : BoardManager&
-    + getBoard() : const Board* {const}
-    + place(const Tile*, Position, Rotation, bool)
-}
-
-BoardManager "1" *-- "1" Board
-BoardManager *-- "1" StartingTile
-
-class River{
-    - tiles : vector<Tile*>
-    - pile : Pile&
-    - fillriver() : void
-    + River(nb :size_t, pile : Pile&)
-    + operator=(f : River&)
-    +River (r : const River&)
-    +~River()
-    + giveTile(t : const Tile*)  : size_t {const}
-
-}
-River o-- "1..*" Tile
-class Pile{
-    - tiles : vector<Tile*>
-    - deck : Deck&
-    + Pile (d: deck, t: vector<Tile*>)
-    +~Pile()
-    + isempty() : bool {const}
-    + Draw() :Tile*
-
-}
-Pile o-- "1..*" Tile
 
 namespace Barnabe {
+      class Cell {
+          - id : int
+          - color : Color
+          - type : Type
+          + Cell(int, Color, Type)
+          + getColor() : Color {const}
+          + getEffectiveColor(const Rotation&) : Color {const}
+          + getType() : Color {const}
+          + getID() : id {const}
+          + displayTop(unsigned int) : string const
+          + displayBottom() : string {const}
+      }
 
-    class BoardManager
+      class BicolorCell {
+          - secondaryColor : Color
+          - rotation : Rotation
+          + BicolorCell(int, Color, Type, Color, Rotation)
+          + getSecondaryColor() : Color {const}
+          + getRotation() : Rotation {const}
+          + setRotation(Rotation)
+      }
 
-    class Player {
-        - static stones_distribution : size_t
-        - name : string
-        - board : BoardManager
-        - stones : int
+      BicolorCell --> Cell
 
-        + Player(s : string)
-        + ~Player()
-        + getName() : const string&
-        + getStones() : int
-        + getBoard() : const BoardManager&
-        + setBoard(b : BoardManager)
-        + setStones(n : int)
-        + addStones(n : int)
-        + playTurn(t : Tile) <<virtual>>
-    }
 
-    Player *-- "1" BoardManager
+      abstract Tile {
+          # {static} id : int
+          # cells : vector<const Cell*>*
+          + Tile()
+          + \~Tile()
+          + getSize() : unsigned int {const}
+          + getCells() : const vector<const Cell*>* {const}
+          + {abstract} calculatePositions(Position, Rotation) : vector<Position>
+          + begin() : iterator {const}
+          + end() : iterator {const}
 
-    class Architect {
-        - difficulty : int
-        - architect_tiles : vector<Tile*>
+      }
 
-        + Architect(name : string, d : int)
-        + playTurn(t : Tile) <<override>>
-    }
+      class StartingTile {
+          + StartingTile()
+          + calculatePositions(Position, Rotation) : vector<Position>
+      }
+      class ClassicTile {
+          + ClassicTile()
+          + calculatePositions(Position, Rotation) : vector<Position>
+      }
+      class AthenaTile {
+          - BicolorCell* cell;
+          + AthenaTile()
+          + calculatePositions(Position, Rotation) : vector<Position>
+      }
 
-    Player <|-- Architect
+      StartingTile --> Tile
+      ClassicTile --> Tile
+      AthenaTile --> Tile
 
-class Game {
-    - players : vector<Player*>
-    - current_player : size_t
-    - nb_players : size_t
-    - static nb_players_max : size_t
+      Tile "1" *-- "1.." Cell
 
-    - deck : Eloise::Deck*
-    - pile : Amalena::Pile*
-    - river : Amalena::River*
 
-    - Game(nb_players : size_t)
-    - ~Game()
 
-    - Game(Game) = delete
-    - operator=(Game) = delete
+      class Board {
+          - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
+          - corner_tl : Position
+          - corner_bl : Position
+          + Board()
+          + \~Board()
+          + Board(const Board&)
+          + operator=(const Board&) : Board&
+          + getCell(Position) : const Cell* {const}
+          + getCell(int, int) : const Cell* {const}
+          + getHeight(Position) : unsigned int {const}
+          + getHeight(int, int) : unsigned int {const}
+          + setCell(Position, unsigned int, const Cell*)
+          + setCell(int, int, unsigned int, const Cell*)
+          + getCorners() : pair<Position, Position> {const}
+      }
 
-    - static instance : Game*
+      Board "*" o-- "*" Cell
 
-    + static giveInstance(nb_players : size_t) : Game&
-    + static freeInstance() : void
-    + getNbPlayers() : const size_t&
-    + static getNbPlayersMax() : const size_t&
-    + getCurrentPlayer() : const size_t&
-    + addPlayer(name : string) : void
-    + getPlayer(position : size_t) : Player*
-    + displayPlayers() : void
-    + nextPlayer() : void
-    + manageGame() : void
-    + manageSoloGame(difficulty : int) : void
-    + abandonGame() : void
-    + pickRiver() : Tile&
-    + endGame() : void
+      class BoardManager {
+          - board : Board*
+          - startingTile : StartingTile*
+          + BoardManager()
+          + \~BoardManager()
+          + BoardManager(const BoardManager&)
+          + operator=(const BoardManager&) : BoardManager&
+          + getBoard() : const Board* {const}
+          + place(const Tile*, Position, Rotation, bool)
+      }
+
+      BoardManager "1" *-- "1" Board
+      BoardManager *-- "1" StartingTile
+
+
+
 }
 
-Game *-- "1..*"
-Game *-- "1"
-Game *-- "1"
-Game *-- "1"
+namespace Amalena {
+    class River{
+        - tiles : vector<Tile*>
+        - pile : Pile&
+        - fillriver() : void
+        + River(nb :size_t, pile : Pile&)
+        + operator=(f : River&)
+        +River (r : const River&)
+        +~River()
+        + giveTile(t : const Tile*)  : size_t {const}
+
+    }
+    River o-- "1..*" Tile
+    class Pile{
+        - tiles : vector<Tile*>
+        - deck : Deck&
+        + Pile (d: deck, t: vector<Tile*>)
+        +~Pile()
+        + isempty() : bool {const}
+        + Draw() :Tile*
+
+    }
+    Pile o-- "1..*" Tile
+
+}
+
+namespace Eloise {
+    class Player {
+            - static stones_distribution : size_t
+            - name : string
+            - board : BoardManager
+            - stones : int
+
+            + Player(s : string)
+            + ~Player()
+            + getName() : const string&
+            + getStones() : int
+            + getBoard() : const BoardManager&
+            + setBoard(b : BoardManager)
+            + setStones(n : int)
+            + addStones(n : int)
+            + playTurn(t : Tile) <<virtual>>
+        }
+
+        Player *-- "1" BoardManager
+
+        class Architect {
+            - difficulty : int
+            - architect_tiles : vector<Tile*>
+
+            + Architect(name : string, d : int)
+            + playTurn(t : Tile) <<override>>
+        }
+
+        Player <|-- Architect
+
+    class Deck {
+       + {static} stringToColor : map<string, Color>
+       + {static} stringToType : map<string, Color>
+       - tiles : vector<ClassicTile*>
+       + Deck()
+       + ~Deck()
+
+    }
+
+    class Game {
+        - players : vector<Player*>
+        - current_player : size_t
+        - nb_players : size_t
+        - static nb_players_max : size_t
+
+        - deck : Eloise::Deck*
+        - pile : Amalena::Pile*
+        - river : Amalena::River*
+
+        - Game(nb_players : size_t)
+        - ~Game()
+
+        - Game(Game) = delete
+        - operator=(Game) = delete
+
+        - static instance : Game*
+
+        + static giveInstance(nb_players : size_t) : Game&
+        + static freeInstance() : void
+        + getNbPlayers() : const size_t&
+        + static getNbPlayersMax() : const size_t&
+        + getCurrentPlayer() : const size_t&
+        + addPlayer(name : string) : void
+        + getPlayer(position : size_t) : Player*
+        + displayPlayers() : void
+        + nextPlayer() : void
+        + manageGame() : void
+        + manageSoloGame(difficulty : int) : void
+        + abandonGame() : void
+        + pickRiver() : Tile&
+        + endGame() : void
+    }
+}
+
+
+
+Game *-- "1..*" Player
+Game *-- "1" Deck
+Game *-- "1" Pile
+Game *-- "1" River
 
 
 @enduml

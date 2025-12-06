@@ -1,9 +1,16 @@
+#ifndef MENU2
+#define MENU2
 #include <iostream>
 
-class Menu {
-public:
-	Menu();
-	void display();
-	//~Menu();
-private:
-};
+
+namespace Eloise {
+	class Menu {
+	public:
+		Menu();
+		void display();
+		//~Menu();
+	private:
+	};
+}
+
+#endif
