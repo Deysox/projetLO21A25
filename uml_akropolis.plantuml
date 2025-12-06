@@ -114,4 +114,78 @@ class Pile{
 
 }
 Pile o-- "1..*" Tile
+
+namespace Barnabe {
+
+    class BoardManager
+
+    class Player {
+        - static stones_distribution : size_t
+        - name : string
+        - board : BoardManager
+        - stones : int
+
+        + Player(s : string)
+        + ~Player()
+        + getName() : const string&
+        + getStones() : int
+        + getBoard() : const BoardManager&
+        + setBoard(b : BoardManager)
+        + setStones(n : int)
+        + addStones(n : int)
+        + playTurn(t : Tile) <<virtual>>
+    }
+
+    Player *-- "1" BoardManager
+
+    class Architect {
+        - difficulty : int
+        - architect_tiles : vector<Tile*>
+
+        + Architect(name : string, d : int)
+        + playTurn(t : Tile) <<override>>
+    }
+
+    Player <|-- Architect
+
+class Game {
+    - players : vector<Player*>
+    - current_player : size_t
+    - nb_players : size_t
+    - static nb_players_max : size_t
+
+    - deck : Eloise::Deck*
+    - pile : Amalena::Pile*
+    - river : Amalena::River*
+
+    - Game(nb_players : size_t)
+    - ~Game()
+
+    - Game(Game) = delete
+    - operator=(Game) = delete
+
+    - static instance : Game*
+
+    + static giveInstance(nb_players : size_t) : Game&
+    + static freeInstance() : void
+    + getNbPlayers() : const size_t&
+    + static getNbPlayersMax() : const size_t&
+    + getCurrentPlayer() : const size_t&
+    + addPlayer(name : string) : void
+    + getPlayer(position : size_t) : Player*
+    + displayPlayers() : void
+    + nextPlayer() : void
+    + manageGame() : void
+    + manageSoloGame(difficulty : int) : void
+    + abandonGame() : void
+    + pickRiver() : Tile&
+    + endGame() : void
+}
+
+Game *-- "1..*"
+Game *-- "1"
+Game *-- "1"
+Game *-- "1"
+
+
 @enduml
