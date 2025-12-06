@@ -35,7 +35,7 @@ namespace Barnabe {
         return output;
     }
 
-    bool Position::estAdjacent(const Position& p) const {
+    bool Position::isNeighbour(const Position& p) const {
         for (auto it = begin(); it != end(); ++it) {
             if (*it == p) return true;
         }

@@ -1,7 +1,40 @@
 @startuml
 
+class Rotation {
+    - r : int
+    + Rotation(int)
+    + value() : int {const}
+    + operator+(const Rotation&) : Rotation {const}
+    + operator-(const Rotation&) : Rotation {const}
+    + operator++() : Rotation&
+    + operator++(int) : Rotation
+    + operator==(const Rotation&) : bool {const}
+    + operator!=(const Rotation&) : bool {const}
+
+}
 
 
+class Position {
+    - posX : int
+    - posY : int
+    + Position(int, int)
+    + x() : int {const}
+    + y() : int {const}
+    + operator+(const Position&) : Position {const}
+    + operator+(const Rotation&) : Position {const}
+    + operator-(const Position&) : Position {const}
+    + operator==(const Position&) : bool {const}
+    + operator!=(const Position&) : bool {const}
+    + isNeighbour(const Position&) : bool {const}
+    + iterator {class}
+    + begin() : iterator
+    + end() : iterator
+
+}
+
+struct PositionHasher {
+    operator()(const Position&) : size_t {const};
+}
 
 
 namespace Barnabe {
@@ -29,33 +62,36 @@ namespace Barnabe {
 
       BicolorCell --> Cell
 
+      together {
+          abstract Tile {
+                    # {static} id : int
+                    # cells : vector<const Cell*>*
+                    + Tile()
+                    + \~Tile()
+                    + getSize() : unsigned int {const}
+                    + getCells() : const vector<const Cell*>* {const}
+                    + {abstract} calculatePositions(Position, Rotation) : vector<Position>
+                    + begin() : iterator {const}
+                    + end() : iterator {const}
 
-      abstract Tile {
-          # {static} id : int
-          # cells : vector<const Cell*>*
-          + Tile()
-          + \~Tile()
-          + getSize() : unsigned int {const}
-          + getCells() : const vector<const Cell*>* {const}
-          + {abstract} calculatePositions(Position, Rotation) : vector<Position>
-          + begin() : iterator {const}
-          + end() : iterator {const}
+                }
+
+                class StartingTile {
+                    + StartingTile()
+                    + calculatePositions(Position, Rotation) : vector<Position>
+                }
+                class ClassicTile {
+                    + ClassicTile()
+                    + calculatePositions(Position, Rotation) : vector<Position>
+                }
+                class AthenaTile {
+                    - BicolorCell* cell;
+                    + AthenaTile()
+                    + calculatePositions(Position, Rotation) : vector<Position>
+                }
 
       }
 
-      class StartingTile {
-          + StartingTile()
-          + calculatePositions(Position, Rotation) : vector<Position>
-      }
-      class ClassicTile {
-          + ClassicTile()
-          + calculatePositions(Position, Rotation) : vector<Position>
-      }
-      class AthenaTile {
-          - BicolorCell* cell;
-          + AthenaTile()
-          + calculatePositions(Position, Rotation) : vector<Position>
-      }
 
       StartingTile --> Tile
       ClassicTile --> Tile
@@ -64,6 +100,7 @@ namespace Barnabe {
       Tile "1" *-- "1.." Cell
 
 
+      together {
 
       class Board {
           - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
@@ -97,7 +134,7 @@ namespace Barnabe {
 
       BoardManager "1" *-- "1" Board
       BoardManager *-- "1" StartingTile
-
+      }
 
 
 }
@@ -208,6 +245,7 @@ Game *-- "1..*" Player
 Game *-- "1" Deck
 Game *-- "1" Pile
 Game *-- "1" River
+
 
 
 @enduml
