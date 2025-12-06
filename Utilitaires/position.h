@@ -87,7 +87,7 @@ namespace Barnabe {
          * @param p Position à comparer
          * @return true si les deux positions sont adjacentes
          */
-        bool estAdjacent(const Position& p) const;
+        bool isNeighbour(const Position& p) const;
 
         /*
          * Itérateur sur les positions voisines d'une case donnée.
@@ -95,37 +95,37 @@ namespace Barnabe {
          * Le parcours s'effectue dans le sens horaire, dans le sens des aiguilles d'une montre à partir
          * de la rotation 0 (case (x;y+1)).
          */
-        class neighbor_iterator {
+        class iterator {
             int rot;
             int x;
             int y;
-            neighbor_iterator(int px, int py, int r) : x(px),y(py),rot(r) {}
+            iterator(int px, int py, int r) : x(px),y(py),rot(r) {}
             friend class Position;
         public:
-            neighbor_iterator& operator++() {
+            iterator& operator++() {
                 rot++;
                 return *this;
             }
-            neighbor_iterator operator++(int) {
+            iterator operator++(int) {
                 int old = rot;
                 rot++;
-                return neighbor_iterator(x,y,old);
+                return iterator(x,y,old);
             }
             Position operator*() const {return Position(x,y) + Rotation(rot);}
-            bool operator!=(const neighbor_iterator& c) const {return rot != c.rot;};
-            bool operator==(const neighbor_iterator& c) const {return rot == c.rot;}
+            bool operator!=(const iterator& c) const {return rot != c.rot;};
+            bool operator==(const iterator& c) const {return rot == c.rot;}
         };
 
         /*
          * Itérateur de début de parcours
          * @return neighbor_iterator sur la case (x;y+1)
          */
-        neighbor_iterator begin() const {return {posX,posY,0};}
+        iterator begin() const {return {posX,posY,0};}
         /*
          * Itérateur de fin de parcours
          * @return neighbor_iterator correspondant à la fin du parcours
          */
-        neighbor_iterator end() const {return {posX,posY, 6};}
+        iterator end() const {return {posX,posY, 6};}
 
     };
 

@@ -147,7 +147,7 @@ namespace Barnabe {
 	ostream& operator<<(ostream& f, ClassicTile& c);
 
 	class AthenaTile : public Tile {
-	BicolorCell* cell;
+		BicolorCell* cell;
 
 	public :
 		AthenaTile(Color c1, Color c2, Type t);

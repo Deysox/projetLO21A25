@@ -32,7 +32,7 @@ namespace Barnabe {
 
     int BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
         vector<Position> positions = t->calculatePositions(p,r); // Calcul des positions à vérifier
-        for (auto it = positions.begin(); it != positions.end(); it++) cout << it->x() << " " << it->y() << endl;
+        // for (auto it = positions.begin(); it != positions.end(); it++) cout << it->x() << " " << it->y() << endl;
 
         int stoneCount = 0;
 

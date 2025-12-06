@@ -54,7 +54,7 @@ namespace Barnabe {
          * @return Objet Rotation correspondant à la rotation totale effectuée par cumul des rotations
          * entraînées par les opérandes.
          */
-        Rotation operator+(const Rotation& other) {return {(r+other.r)%6};};
+        Rotation operator+(const Rotation& other) const {return {(r+other.r)%6};};
 
         /*
          * Soustrait deux rotations
@@ -63,13 +63,13 @@ namespace Barnabe {
          * entraînées dans le sens horaire pour le premièr opérande
          * et dans le sens inverse pour le second opérande.
          */
-        Rotation operator-(const Rotation&) {return {(r-1)%6};}
+        Rotation operator-(const Rotation&) const {return {(r-1)%6};}
 
         /*
          * Incrémente la rotation d'un sixième de tour
          * @return Rotation modifiée
          */
-        Rotation operator++() {r++; return *this;}
+        Rotation& operator++() {r++; return *this;}
         /*
          * Incrémente la rotation d'un sixième de tour
          * @return Rotation non modifiée
@@ -80,13 +80,13 @@ namespace Barnabe {
          * @param other Second opérande
          * @return true si les deux rotations ont la même valeur
          */
-        bool operator==(const Rotation& other) {return r == other.r;};
+        bool operator==(const Rotation& other) const {return r == other.r;};
         /*
          * Compare deux rotations
          * @param other Second opérande
          * @return false si les deux rotations ont la même valeur
          */
-        bool operator!=(const Rotation& other) {return r != other.r;}
+        bool operator!=(const Rotation& other) const {return r != other.r;}
     };
 }
 

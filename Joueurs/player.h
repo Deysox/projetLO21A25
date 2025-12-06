@@ -10,7 +10,9 @@
 #include <QWidget>
 
 //attribut stones à changer ==> mettre un attribut de type ScoreGeneral
-namespace Barnabe {
+namespace Eloise {
+    using namespace Barnabe;
+
     class Player {
         //parameter that allows the good initial distribution of stones
         static size_t stones_distribution;
