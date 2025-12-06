@@ -91,10 +91,11 @@ class BoardManager {
 
 BoardManager "1" *-- "1" Board
 BoardManager *-- "1" StartingTile
-
+namespace Amalena{
 class River{
     - tiles : vector<Tile*>
     - pile : Pile&
+    - sizemax : int
     - fillriver() : void
     + River(nb :size_t, pile : Pile&)
     + operator=(f : River&)
@@ -114,7 +115,28 @@ class Pile{
 
 }
 Pile o-- "1..*" Tile
-
+}
+namespace Amaléna{
+class  GameMemento{
+- PlayersName :vector<string>
+- PlayersStone :vector<int>
+- Boards :
+- nbplayers : size_t
+- currentplayer : size_t
+- variante : string
+- GameMemento( playersName :vector<string>,  playersStone : vector<int>,boards, nbplayers : size_t,
+currentplayer : size_t, variante : string)
+-~GameMemento()
+}
+class SaveManager{
+- gameMemento : GameMemento*
++ savemanager(GameMemento*)
++~SaveManager()
++ void save(filename : string)
++void restore (filename : string)
+}
+SaveManager o-- "1..*" GameMemento
+}
 namespace Barnabe {
 
     class BoardManager
@@ -147,6 +169,7 @@ namespace Barnabe {
     }
 
     Player <|-- Architect
+    }
 
 class Game {
     - players : vector<Player*>
@@ -182,10 +205,14 @@ class Game {
     + endGame() : void
 }
 
-Game *-- "1..*"
-Game *-- "1"
-Game *-- "1"
-Game *-- "1"
+Game *-- "1..*" Player
+Game *-- "1" Deck
+Game *-- "1" Pile
+Game *-- "1" River
+Game *-- "1" SaveManager
+Game *-- "1..*" GameMemento
+
+
 
 
 @enduml
