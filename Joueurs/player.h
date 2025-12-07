@@ -2,18 +2,19 @@
 // Created by elobo on 29/11/2025.
 //
 
-#ifndef TEST29_11_PLAYER_H
-#define TEST29_11_PLAYER_H
+#ifndef PROJETLO21A25_PLAYER_H
+#define PROJETLO21A25_PLAYER_H
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
 #include <string>
 #include <QWidget>
+#include <QObject>
+#include <QString>
 
-//attribut stones à changer ==> mettre un attribut de type ScoreGeneral
-namespace Eloise {
-    using namespace Barnabe;
-
-    class Player {
+//missing score in attributs' list
+namespace Barnabe {
+    class Player : public QObject {
+        Q_OBJECT
         //parameter that allows the good initial distribution of stones
         static size_t stones_distribution;
         string name;
@@ -29,8 +30,10 @@ namespace Eloise {
         void setStones(int n);
         void addStones(int n);
         virtual void playTurn(const Tile&);
-        void Player::playTurnQt(const Tile& tile, QWidget* parent);
-        //int score() const;
+        void playTurnQt(const Tile& tile, QWidget* parent = nullptr);
+        //method for score missing, to be added
+        signals:
+            void boardDisplay(const QString &boardText);
     };
 
     //solo variant
@@ -45,4 +48,4 @@ namespace Eloise {
     ostream& operator<<(ostream& f, const Player& p);
 }
 
-#endif //TEST29_11_PLAYER_H
+#endif //PROJETLO21A25_PLAYER_H
