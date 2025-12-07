@@ -1,6 +1,10 @@
 #include "player.h"
+#include <QInputDialog>
+#include <QMessageBox>
 
-namespace Barnabe {
+namespace Eloise {
+    using namespace Barnabe;
+
     size_t Player::stones_distribution = 1;
 
     Player::Player(const string& s) : name(s), stones(stones_distribution) {
@@ -29,7 +33,7 @@ namespace Barnabe {
         return board;
     }
 
-    ostream& operator<<(ostream& f, const Barnabe::Player& p) {
+    ostream& operator<<(ostream& f, const Player& p) {
         f << "Player " << p.getName() << endl << "Stones : " << p.getStones() << endl << "board : " << endl << p.getBoard() << endl;
         return f;
     }
@@ -57,6 +61,26 @@ namespace Barnabe {
             }
         }
         cout << board << endl;
+    }
+
+    void Player::playTurnQt(const Tile& tile, QWidget* parent) {
+        bool placed = false;
+        while (!placed) {
+            int x = QInputDialog::getInt(parent, "Place a tile", "x :");
+            int y = QInputDialog::getInt(parent, "Place a tile", "y :");
+            int r = QInputDialog::getInt(parent, "Rotation", "Rotation (0 à 5) :", 0, 0, 5);
+            Position pos(x, y);
+            Rotation rotation(r);
+            try {
+                addStones(board.place(&tile, pos, rotation));
+                placed = true;
+            }
+            catch (const std::exception& e) {
+                QMessageBox::warning(parent, "Error", e.what());
+            }
+        }
+        //to be coded : something to show board if changed
+        //emit boardChanged();
     }
 
     void Architect::playTurn(const Tile& t) {

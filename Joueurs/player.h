@@ -7,9 +7,12 @@
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
 #include <string>
+#include <QWidget>
 
 //attribut stones à changer ==> mettre un attribut de type ScoreGeneral
-namespace Barnabe {
+namespace Eloise {
+    using namespace Barnabe;
+
     class Player {
         //parameter that allows the good initial distribution of stones
         static size_t stones_distribution;
@@ -26,6 +29,7 @@ namespace Barnabe {
         void setStones(int n);
         void addStones(int n);
         virtual void playTurn(const Tile&);
+        void Player::playTurnQt(const Tile& tile, QWidget* parent);
         //int score() const;
     };
 

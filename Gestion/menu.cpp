@@ -1,5 +1,5 @@
-/*#include "menu.h"
-#include "game.h"
+#include "menu.h"
+#include "gameQt.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -10,14 +10,14 @@
 #include <QtGui>
 #include <QMessageBox>
 #include <Qobject>
+#include <QInputDialog>
 
-Menu::Menu(QWidget* parent) : QWidget(parent) {
+MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
     //Boutons
-    boutonLancerGame = new QPushButton("Lancer Game");
-    boutonReprendreGame = new QPushButton("Reprendre Game");
-    boutonAfficherRegles = new QPushButton("Afficher regles");
+    boutonLancerGame = new QPushButton("Launch a game");
+    boutonReprendreGame = new QPushButton("Resume a game");
+    boutonAfficherRegles = new QPushButton("Display rules");
 
-    //Affichage
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(boutonLancerGame);
     layout->addSpacing(15);
@@ -27,25 +27,43 @@ Menu::Menu(QWidget* parent) : QWidget(parent) {
     setLayout(layout);
     setWindowTitle("Menu du jeu");
 
-    //Connexions
     connect(boutonAfficherRegles, &QPushButton::clicked,
-        this, &Menu::boutonAfficherReglesClique);
+        this, &MenuQt::boutonAfficherReglesClique);
     connect(boutonLancerGame, &QPushButton::clicked,
-        this, &Menu::boutonLancerGameClique);
+        this, &MenuQt::boutonLancerGameClique);
 }
 
-//Slots
-void Menu::boutonAfficherReglesClique() {
+void MenuQt::boutonAfficherReglesClique() {
     QMessageBox::information(this,
-        "Regles du jeu",
-        "Dans ce jeu de pose de tuiles, les joueurs prennent le role d'architectes qui s'affrontent "
-        "en creant chacun une cite a l'aide de tuiles cite. Chaque tuile cite est composee de 3 "
-        "hexagones construction, chaque hexagone representant un quartier, une place ou une carriere. "
-        "Il existe plusieurs types de quartier. Chaque quartier rapporte des points de victoire "
-        "s'ils sont correctement places selon son type.");
+        "Rules",
+        "In this tile-laying game, players take on the role of architects who compete against each other "
+               "by each creating a city using city tiles. Each city tile is composed of 3 "
+               "construction hexagons, each hexagon representing a neighbourhood, a square or a quarry. "
+               "There are several types of neighbourhood. Each neighbourhood earns victory points "
+               "if they are correctly placed according to their type.");
 }
 
-void Menu::boutonLancerGameClique() {
-    Game& Game = Game::donneInstance();
-    Game.informationsGame();
-}*/
+void MenuQt::boutonLancerGameClique() {
+    int nb_players = QInputDialog::getInt(this,
+                                          "Nombre de joueurs",
+                                          "Number of players ? (1-4)",
+                                          1,
+                                          1,
+                                          Game::getNbPlayersMax(),
+                                          1);
+
+    GameQt& game = GameQt::giveInstance(nb_players);
+
+    if (nb_players == 1) {
+        int difficulty = QInputDialog::getInt(this,
+                                              "Difficulty",
+                                              "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
+                                              1, 1, 3, 1);
+        game.manageSoloGameQt(difficulty);
+    } else {
+        game.manageGameQt();
+    }
+
+    game.endGame();
+    GameQt::freeInstance();
+}

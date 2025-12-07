@@ -54,11 +54,17 @@ namespace Amalena
         cout<<"destruction river";
         //gérer sauvegarde
     }
-
+    string River::toString() const {
+        std::ostringstream oss;
+        for (size_t i = 0; i < tiles.size(); ++i) {
+            oss << "Tile " << (i + 1) << ": " << tiles[i]->toString() << "\n";
+        }
+        return oss.str();
+    }
 
 }
 
-ostream& operator<<(std::ostream& f, Amalena::River& river) {
+ostream& Amalena::operator<<(std::ostream& f, Amalena::River& river) {
     f << "River:\n";
     int pos = 1;
     for (auto it = river.begin(); it != river.end(); ++it) {
