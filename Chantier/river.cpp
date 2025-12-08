@@ -55,6 +55,15 @@ namespace Amalena
         //gérer sauvegarde
     }
 
+    River& River::operator=(const River& f) {
+        if (this!=&f) {
+            this->tiles = f.tiles;
+            this->max_tiles = f.max_tiles;
+            this->pile = f.pile;
+        }
+        return *this;
+    }
+
 }
 
 ostream& Amalena::operator<<(std::ostream& f, Amalena::River& river) {

@@ -31,6 +31,10 @@ namespace Eloise {
         //Deck frees the tiles
         ~Deck();
         const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
+        Deck& operator=(const Deck& f) {
+            if (this!=&f) this->tiles = f.tiles;
+            return *this;
+        }
     };
 }
 

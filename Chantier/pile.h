@@ -20,7 +20,6 @@ namespace Amalena {
         vector <Barnabe::Tile*> tiles;
         Eloise::Deck& deck;
         Pile(const Pile& p):deck(p.deck), tiles(p.tiles){}; //et si retour en arrière?
-        Pile& operator=(Pile& p)=delete;//? utilisation si memo retour arrière
         //piocher  ?? creéer une facon dans piocher plusieurs ou utiliser plsrs fois méthode
         friend class river;
     public:
@@ -31,6 +30,7 @@ namespace Amalena {
         bool isEmpty() const;//création d'un getters pour état
         Barnabe::Tile* Draw();
         ~Pile();
+        Pile& operator=(const Pile& f);
     };
 }
 
