@@ -125,7 +125,7 @@ void Game::manageGame() {
                 cin >> option;
                 if (option == 'A') {
                     Amalena::River* temp_river = new Amalena::River(*river_copy);
-                    river = temp_river;
+                    *river = *temp_river;
                     tile = &pickRiver();
                     delete temp_river;
                 }
@@ -213,7 +213,7 @@ void Game::manageSoloGame(int difficulty) {
                     do { cin >> option; } while(option != 'A' && option != 'B');
                     if (option == 'A') {
                         Amalena::River* temp_river = new Amalena::River(*river_copy);
-                        river = temp_river;
+                        *river = *temp_river;
                         tile = &pickRiver();
                         delete temp_river;
                     }
