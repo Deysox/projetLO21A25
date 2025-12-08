@@ -37,27 +37,6 @@ namespace Barnabe {
             p+(Rotation(1)+r)};
     }
 
-    //to be modified (Qt adaptation)
-    string Tile::typeToString(Type t) {
-        switch(t) {
-            case Type::PLACE: return "PLACE";
-            case Type::DISTRICT: return "DISTRIC";
-            case Type::QUARRY: return "QUARRY";
-            default: return "UNKNOWN";
-        }
-    }
-
-    //to be modified (Qt adaptation)
-    string Tile::toString() {
-        std::ostringstream oss;
-        for (size_t i = 0; i < cells.size(); ++i) {
-            oss << "Cell " << (i + 1) << ": "
-                << typeToString(cells[i]->getType())
-                << " | ";
-        }
-        return oss.str();
-    }
-
     ostream& operator<<(ostream& f, ClassicTile& c) {
         f << c.getCell(1)->displayTop(1) << endl;
         f << c.getCell(1)->displayBottom() << c.getCell(2)->displayTop(1) << endl;

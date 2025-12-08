@@ -1,4 +1,5 @@
 #include "menu.h"
+/*
 #include "gameQt.h"
 #include <QWidget>
 #include <QPushButton>
@@ -66,4 +67,4 @@ void MenuQt::boutonLancerGameClique() {
 
     game.endGame();
     GameQt::freeInstance();
-}
+}*/

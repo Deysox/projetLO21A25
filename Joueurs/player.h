@@ -7,14 +7,10 @@
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
 #include <string>
-#include <QWidget>
-#include <QObject>
-#include <QString>
 
 //missing score in attributs' list
 namespace Barnabe {
-    class Player : public QObject {
-        Q_OBJECT
+    class Player {
         //parameter that allows the good initial distribution of stones
         static size_t stones_distribution;
         string name;
@@ -30,10 +26,7 @@ namespace Barnabe {
         void setStones(int n);
         void addStones(int n);
         virtual void playTurn(const Tile&);
-        void playTurnQt(const Tile& tile, QWidget* parent = nullptr);
-        //method for score missing, to be added
-        signals:
-            void boardDisplay(const QString &boardText);
+
     };
 
     //solo variant

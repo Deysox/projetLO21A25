@@ -1,5 +1,6 @@
 #ifndef PROJETLO21A25_MENU_H
 #define PROJETLO21A25_MENU_H
+/*
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -25,7 +26,6 @@ private:
     QPushButton* boutonLancerGame;
     QPushButton* boutonReprendreGame;
     QPushButton* boutonAfficherRegles;
-};
-
+};*/
 #endif //PROJETLO21A25_MENU_H
 
