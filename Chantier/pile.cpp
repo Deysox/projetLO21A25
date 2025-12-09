@@ -26,6 +26,14 @@ namespace Amalena
         }
     }
 
+    Pile& Pile::operator=(const Pile& p) {
+        if (this!=&p) {
+            this->tiles = p.tiles;
+            this->deck = p.deck;
+        }
+        return *this;
+    }
+
     Pile::Pile(Eloise::Deck& d): deck(d)
     {
         tiles={};
