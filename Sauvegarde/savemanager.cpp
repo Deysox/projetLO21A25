@@ -83,7 +83,7 @@ namespace Amalena
     void savemanager::save(){
         //réfléchir créer new enregistrement
          json j= tojson();
-        std::ofstream file("../test.json");
+        std::ofstream file("../sauvegarde.json");
         if (!file.is_open()) {
             std::cerr << "Failed to open file for writing" << std::endl;
 
@@ -95,7 +95,7 @@ namespace Amalena
     }
     void savemanager::restore()
     {
-        std::ifstream file("../test.json");
+        std::ifstream file("../sauvegarde.json");
         if (!file.is_open()) {
             std::cerr << "Failed to open file" << std::endl;
         }
