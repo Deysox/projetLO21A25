@@ -34,54 +34,22 @@ namespace Barnabe {
         Position corner_tl;
         Position corner_br;
     public:
-        class iterator {
-            int xindex;
-            int yindex;
-            Position corner_tl;
-            Position corner_br;
-            const Board* board;
-            bool end;
-            iterator(const Board* b, Position ctl, Position cbr, int x, int y, bool e) : board(b), corner_tl(ctl), corner_br(cbr), xindex(x), yindex(y), end(e) {
-
-            };
-            friend class Board;
-        public:
-            iterator& operator++() {
-                do {
-                    xindex++;
-                    if (xindex > corner_br.x()) {
-                        xindex = corner_tl.x();
-                        yindex--;
-                    }
-
-                } while (!board->getCell(xindex,yindex));
-
-                if (yindex < corner_tl.y()) end = true;
-
-                return *this;
-            }
-            iterator operator++(int) {
-                iterator old = {board, corner_tl,corner_br,xindex,yindex,end};
-                ++(*this);
-                return old;
-            }
-            pair<Position,const Cell*> operator*() const {
-                if (end) throw; // A modifier
-
-                return {Position(xindex,yindex),board->getCell(xindex,yindex)};
-            }
-            bool operator==(const iterator& c) const {
-                if (end && end==c.end) return true;
-
-                return (xindex == c.xindex && yindex == c.yindex);
-            }
-            bool operator!=(const iterator & c) const {
-                return !(*this == c);
-            }
+        class iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::iterator {
 
         };
-        iterator begin() const;
-        iterator end() const;
+
+        class const_iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::const_iterator {
+
+        };
+
+        iterator begin() {return iterator(cells.begin());}
+        iterator end() {return iterator(cells.end());}
+
+        const_iterator begin() const {return const_iterator(cells.cbegin());}
+        const_iterator end() const {return const_iterator(cells.cend());}
+
+        const_iterator cbegin() const {return const_iterator(cells.cbegin());}
+        const_iterator cend() const {return const_iterator(cells.cend());}
 
         /*
          * Constructeur de la classe Board. Par défaut, le plateau est vide.
@@ -156,9 +124,6 @@ namespace Barnabe {
          */
         void setCell(int x, int y, unsigned int h, const Cell* c);
 
-
-        //void validPos(const vector<Position>&) const;
-
         /*
          * Accesseur en lecture des coins du plateau.
          * Les coins ne sont pas nécessairement des cases du plateau, mais plutôt des positions.
@@ -167,7 +132,6 @@ namespace Barnabe {
          *
          */
         std::pair<Position, Position> getCorners() const;
-
         friend ostream& operator<<(ostream& f, const Board& p);
 
     };
