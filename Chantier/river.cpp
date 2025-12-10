@@ -63,7 +63,13 @@ namespace Amalena
         }
         return *this;
     }
-
+    string River::toString() const {
+        std::ostringstream oss;
+        for (size_t i = 0; i < tiles.size(); ++i) {
+            oss << "Tile " << (i + 1) << ": " << tiles[i]->toString() << "\n";
+        }
+        return oss.str();
+    }
 }
 
 ostream& Amalena::operator<<(std::ostream& f, Amalena::River& river) {

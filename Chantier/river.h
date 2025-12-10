@@ -20,6 +20,7 @@ namespace Amalena {
         River(vector<Tile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
         ~River();
         River(const River& r):tiles(r.tiles), max_tiles(r.max_tiles), pile(r.pile){};
+        string toString() const;
         size_t getSize() const {
             return tiles.size();
         }

@@ -1,5 +1,4 @@
 #include "menu.h"
-/*
 #include "gameQt.h"
 #include <QWidget>
 #include <QPushButton>
@@ -52,19 +51,18 @@ void MenuQt::boutonLancerGameClique() {
                                           1,
                                           Game::getNbPlayersMax(),
                                           1);
-
-    GameQt& game = GameQt::giveInstance(nb_players);
-
-    if (nb_players == 1) {
-        int difficulty = QInputDialog::getInt(this,
-                                              "Difficulty",
-                                              "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
-                                              1, 1, 3, 1);
-        game.manageSoloGameQt(difficulty);
-    } else {
-        game.manageGameQt();
-    }
-
-    game.endGame();
+        if (nb_players != 1) {
+            GameQt& game = GameQt::giveInstance(nb_players);
+            game.manageGame();
+            game.endGame();
+        }
+        else {
+            GameQt& game = GameQt::giveInstance(nb_players+1);
+            int difficulty = QInputDialog::getInt(this,
+                                                  "Difficulty",
+                                                  "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
+                                                  1, 1, 3, 1);
+            game.manageSoloGame(difficulty);
+        }
     GameQt::freeInstance();
-}*/
+}
