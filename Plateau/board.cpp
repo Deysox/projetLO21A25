@@ -61,6 +61,7 @@ namespace Barnabe {
         setCell(Position(x,y),h,c);
     }
 
+
     std::pair<Position, Position> Board::getCorners() const {
         return {corner_tl,corner_br};
     }
