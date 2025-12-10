@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet LO21 Akropolis:  Fichier source de boardmanager.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet LO21 Akropolis
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_735ff7b2d181d61cefdcd08be3b19271.html">Plateau</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">boardmanager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/ddb/boardmanager_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETLO21A25_PLACEMENT_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETLO21A25_PLACEMENT_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Utilitaires/position.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Utilitaires/rotation.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d02/board_8h.html">board.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/df6/namespaceBarnabe.html">Barnabe</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="comment">//using namespace Marilou;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     * Classe de gestion du plateau d&#39;Akropolis par un joueur humain.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     * Le BoardManager agit comme une passerelle entre le Player et le Board.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d8/de9/classBarnabe_1_1BoardManager.html">   24</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">         * Plateau associé au BoardManager sur lequel il réalise les opérations.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a25b9d876fe771701191e60266a1947ca">   28</a></span>        <a class="code hl_class" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>* <a class="code hl_variable" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a25b9d876fe771701191e60266a1947ca">board</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">         * Attribut correspondant à la tuile de départ créée lors de l&#39;initialisation du plateau.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301">   32</a></span>        <a class="code hl_class" href="../../dc/d6a/classMarilou_1_1StartingTile.html">StartingTile</a>* <a class="code hl_variable" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301">startingTile</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">         * Constructeur de la classe BoardManager.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">         * Initialise un plateau possédant une tuile de départ.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a43d5c5da71c09a5545dd17b73be11441">BoardManager</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">         * Constructeur par recopie de la classe Board.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a43d5c5da71c09a5545dd17b73be11441">BoardManager</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a>&amp; e);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">         * Destructeur de la classe Board.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">         * Désalloue l&#39;espace octroyé au plateau et à la tuile de départ</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a8c519ff1ca00122f1db6b5799edc20db">~BoardManager</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         * Opérateur d&#39;affectation du BoardManager</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_class" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a>&amp; <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a9442fb40b9d66559c55e070d46fcc9d8">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a>&amp; e);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">         * Renvoie un pointeur vers le plateau géré par le BoardManager</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">         * @return Pointeur vers plateau</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a335429630efe5d4a3e818175f72d75f7">   58</a></span>        <span class="keyword">const</span> <a class="code hl_class" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>* <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a335429630efe5d4a3e818175f72d75f7">getBoard</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/de9/classBarnabe_1_1BoardManager.html#a25b9d876fe771701191e60266a1947ca">board</a>;}</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">         * Place la tuile à la position/rotation souhaitée dans le plateau.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">         * Lève une exception si c&#39;est impossible.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">         * @param t Un pointeur const vers une tuile à placer dans le plateau.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         * @param p La position de la tuile pivot dans le plateau</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">         * @param r La rotation de la tuile autour de la tuile pivot</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">         * @param adjacentIgnore Si est à true, la contrainte d&#39;adjacence de la tuile placée avec le reste du plateau</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">         * sera ignorée.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">         * @returns Nombre de pierres obtenues par le joueur par recouvrement de carrières</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/de9/classBarnabe_1_1BoardManager.html#aa6f2cdb31e7778705646ed0847e15522">place</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>* t, <a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <a class="code hl_class" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> r, <span class="keywordtype">bool</span> adjacentIgnore = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">friend</span> ostream&amp; <a class="code hl_friend" href="../../d8/de9/classBarnabe_1_1BoardManager.html#aa04e50819fef695ef61a1ac9673c4bec">operator&lt;&lt;</a>(ostream&amp; f, <span class="keyword">const</span> <a class="code hl_class" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a>&amp; c);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    ostream&amp; <a class="code hl_function" href="../../dd/df6/namespaceBarnabe.html#a288b73b92812d8c25d7115214b4dd81f">operator&lt;&lt;</a>(ostream&amp; f, <span class="keyword">const</span> BoardManager&amp; c);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">//class BoardManagerArchitect : public BoardManager;</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif </span><span class="comment">//PROJETLO21A25_PLACEMENT_H</span></div>
+<div class="ttc" id="aboard_8h_html"><div class="ttname"><a href="../../d3/d02/board_8h.html">board.h</a></div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html">Barnabe::BoardManager</a></div><div class="ttdef"><b>Definition:</b> boardmanager.h:24</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a1e14d3d97d473a8347ea614be2a53301"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301">Barnabe::BoardManager::startingTile</a></div><div class="ttdeci">StartingTile * startingTile</div><div class="ttdef"><b>Definition:</b> boardmanager.h:32</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a25b9d876fe771701191e60266a1947ca"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a25b9d876fe771701191e60266a1947ca">Barnabe::BoardManager::board</a></div><div class="ttdeci">Board * board</div><div class="ttdef"><b>Definition:</b> boardmanager.h:28</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a335429630efe5d4a3e818175f72d75f7"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a335429630efe5d4a3e818175f72d75f7">Barnabe::BoardManager::getBoard</a></div><div class="ttdeci">const Board * getBoard() const</div><div class="ttdef"><b>Definition:</b> boardmanager.h:58</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a43d5c5da71c09a5545dd17b73be11441"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a43d5c5da71c09a5545dd17b73be11441">Barnabe::BoardManager::BoardManager</a></div><div class="ttdeci">BoardManager()</div><div class="ttdef"><b>Definition:</b> boardmanager.cpp:8</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a8c519ff1ca00122f1db6b5799edc20db"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a8c519ff1ca00122f1db6b5799edc20db">Barnabe::BoardManager::~BoardManager</a></div><div class="ttdeci">~BoardManager()</div><div class="ttdef"><b>Definition:</b> boardmanager.cpp:27</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_a9442fb40b9d66559c55e070d46fcc9d8"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#a9442fb40b9d66559c55e070d46fcc9d8">Barnabe::BoardManager::operator=</a></div><div class="ttdeci">BoardManager &amp; operator=(const BoardManager &amp;e)</div><div class="ttdef"><b>Definition:</b> boardmanager.cpp:19</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_aa04e50819fef695ef61a1ac9673c4bec"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#aa04e50819fef695ef61a1ac9673c4bec">Barnabe::BoardManager::operator&lt;&lt;</a></div><div class="ttdeci">friend ostream &amp; operator&lt;&lt;(ostream &amp;f, const BoardManager &amp;c)</div><div class="ttdef"><b>Definition:</b> boardmanager.cpp:101</div></div>
+<div class="ttc" id="aclassBarnabe_1_1BoardManager_html_aa6f2cdb31e7778705646ed0847e15522"><div class="ttname"><a href="../../d8/de9/classBarnabe_1_1BoardManager.html#aa6f2cdb31e7778705646ed0847e15522">Barnabe::BoardManager::place</a></div><div class="ttdeci">int place(const Tile *t, Position p, Rotation r, bool adjacentIgnore=false)</div><div class="ttdef"><b>Definition:</b> boardmanager.cpp:33</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Board_html"><div class="ttname"><a href="../../d8/d80/classBarnabe_1_1Board.html">Barnabe::Board</a></div><div class="ttdef"><b>Definition:</b> board.h:32</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Position_html"><div class="ttname"><a href="../../d8/d16/classBarnabe_1_1Position.html">Barnabe::Position</a></div><div class="ttdef"><b>Definition:</b> position.h:21</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Rotation_html"><div class="ttname"><a href="../../dc/dc0/classBarnabe_1_1Rotation.html">Barnabe::Rotation</a></div><div class="ttdef"><b>Definition:</b> rotation.h:36</div></div>
+<div class="ttc" id="aclassMarilou_1_1StartingTile_html"><div class="ttname"><a href="../../dc/d6a/classMarilou_1_1StartingTile.html">Marilou::StartingTile</a></div><div class="ttdef"><b>Definition:</b> tile.h:20</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html">Marilou::Tile</a></div><div class="ttdef"><b>Definition:</b> tile.h:12</div></div>
+<div class="ttc" id="anamespaceBarnabe_html"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html">Barnabe</a></div><div class="ttdef"><b>Definition:</b> player.cpp:3</div></div>
+<div class="ttc" id="anamespaceBarnabe_html_a288b73b92812d8c25d7115214b4dd81f"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html#a288b73b92812d8c25d7115214b4dd81f">Barnabe::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;f, const Barnabe::Player &amp;p)</div><div class="ttdef"><b>Definition:</b> player.cpp:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

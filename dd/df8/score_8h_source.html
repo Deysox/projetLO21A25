@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet LO21 Akropolis:  Fichier source de score.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet LO21 Akropolis
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_811df3f49a222b2161a5fc2e4c502100.html">Joueurs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">score.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/df8/score_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETLO21A25_SCORE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETLO21A25_SCORE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Plateau/board.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Plateau/boardmanager.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Joueurs/player.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Tuiles/cell.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d8/dca/namespaceMarilou.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/dca/namespaceMarilou.html">Marilou</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">   12</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a1c87fa681dffb5034d6cbbebcc682343">   13</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a1c87fa681dffb5034d6cbbebcc682343">habitations</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#aee4d2d85db294bff729958d400919c59">   14</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#aee4d2d85db294bff729958d400919c59">marches</a>     = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a350412fb64639a6ff745864a5397c295">   15</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a350412fb64639a6ff745864a5397c295">casernes</a>    = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a2284f1bf2ae42d5b0cd84b182d973337">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a2284f1bf2ae42d5b0cd84b182d973337">temples</a>     = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a5c976a7132a8870c0f364380488f56e4">   17</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a5c976a7132a8870c0f364380488f56e4">jardins</a>     = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dc/d0b/classMarilou_1_1Score.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18">   25</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18">~Score</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dc/d0b/classMarilou_1_1Score.html#ac1e784d670d87221597f47f2cb31b8c6">   27</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="../../dc/d0b/classMarilou_1_1Score.html#ac1e784d670d87221597f47f2cb31b8c6">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                        <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d49/classMarilou_1_1ScorePierre.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d49/classMarilou_1_1ScorePierre.html">ScorePierre</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d1/d49/classMarilou_1_1ScorePierre.html#a0f8563e5c48c2ca17896b41890a27832">   36</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d1/d49/classMarilou_1_1ScorePierre.html#a0f8563e5c48c2ca17896b41890a27832">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44">   45</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44">~ScoreCouleur</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d8/de4/classMarilou_1_1ScoreBleu.html">   51</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d8/de4/classMarilou_1_1ScoreBleu.html">ScoreBleu</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d8/de4/classMarilou_1_1ScoreBleu.html#a25ea4c36c939f8ea291383d7999203c1">   53</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/de4/classMarilou_1_1ScoreBleu.html#a25ea4c36c939f8ea291383d7999203c1">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>};</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../dd/dd6/classMarilou_1_1ScoreJaune.html">   60</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dd/dd6/classMarilou_1_1ScoreJaune.html">ScoreJaune</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../dd/dd6/classMarilou_1_1ScoreJaune.html#ae23a1af5c228b6c709c247be83881707">   62</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../dd/dd6/classMarilou_1_1ScoreJaune.html#ae23a1af5c228b6c709c247be83881707">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d7/d78/classMarilou_1_1ScoreRouge.html">   69</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d78/classMarilou_1_1ScoreRouge.html">ScoreRouge</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d7/d78/classMarilou_1_1ScoreRouge.html#a4dda8f834d18c31d095c274f5e68ac52">   71</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d7/d78/classMarilou_1_1ScoreRouge.html#a4dda8f834d18c31d095c274f5e68ac52">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d0/d07/classMarilou_1_1ScoreViolet.html">   78</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d07/classMarilou_1_1ScoreViolet.html">ScoreViolet</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d0/d07/classMarilou_1_1ScoreViolet.html#af3312b5e640d2832b69fce83cdd685cd">   80</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d0/d07/classMarilou_1_1ScoreViolet.html#af3312b5e640d2832b69fce83cdd685cd">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../db/d01/classMarilou_1_1ScoreVert.html">   87</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/d01/classMarilou_1_1ScoreVert.html">ScoreVert</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">ScoreCouleur</a> {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../db/d01/classMarilou_1_1ScoreVert.html#a77ce4389af23676fe944b89b4c545c21">   89</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../db/d01/classMarilou_1_1ScoreVert.html#a77ce4389af23676fe944b89b4c545c21">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html">   97</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html">ScoreGeneral</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a267e2c0daa3d5af5b9c32d41f9f0855d">   98</a></span>    std::list&lt;ScoreCouleur*&gt; <a class="code hl_variable" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a267e2c0daa3d5af5b9c32d41f9f0855d">couleurs</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a817dc3bf3ad0011beeb90a2f6b56dabb">   99</a></span>    <a class="code hl_class" href="../../d1/d49/classMarilou_1_1ScorePierre.html">ScorePierre</a> <a class="code hl_variable" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a817dc3bf3ad0011beeb90a2f6b56dabb">scorePierre</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#ac68e3169804d342fbd8a1ffb9ada6760">  102</a></span>    <a class="code hl_function" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#ac68e3169804d342fbd8a1ffb9ada6760">ScoreGeneral</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#aaede69b2867403f972b2362ef8d98f73">  103</a></span>    <a class="code hl_function" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#aaede69b2867403f972b2362ef8d98f73">~ScoreGeneral</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a0a0d6991270758eb8d784e7880c35532">  105</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a0a0d6991270758eb8d784e7880c35532">compute</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a>&amp; player,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d97/structMarilou_1_1ScoreVariants.html">ScoreVariants</a>&amp; variants) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>} <span class="comment">// namespace Marilou</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif </span><span class="comment">// PROJETLO21A25_SCORE_H</span></div>
+<div class="ttc" id="aclassBarnabe_1_1Player_html"><div class="ttname"><a href="../../d3/d79/classBarnabe_1_1Player.html">Barnabe::Player</a></div><div class="ttdef"><b>Definition:</b> player.h:13</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreBleu_html"><div class="ttname"><a href="../../d8/de4/classMarilou_1_1ScoreBleu.html">Marilou::ScoreBleu</a></div><div class="ttdef"><b>Definition:</b> score.h:51</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreBleu_html_a25ea4c36c939f8ea291383d7999203c1"><div class="ttname"><a href="../../d8/de4/classMarilou_1_1ScoreBleu.html#a25ea4c36c939f8ea291383d7999203c1">Marilou::ScoreBleu::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreCouleur_html"><div class="ttname"><a href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html">Marilou::ScoreCouleur</a></div><div class="ttdef"><b>Definition:</b> score.h:43</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreCouleur_html_a93570e9550ba1e68952abed10dee4a44"><div class="ttname"><a href="../../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44">Marilou::ScoreCouleur::~ScoreCouleur</a></div><div class="ttdeci">virtual ~ScoreCouleur()=default</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html">Marilou::ScoreGeneral</a></div><div class="ttdef"><b>Definition:</b> score.h:97</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html_a0a0d6991270758eb8d784e7880c35532"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a0a0d6991270758eb8d784e7880c35532">Marilou::ScoreGeneral::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html_a267e2c0daa3d5af5b9c32d41f9f0855d"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a267e2c0daa3d5af5b9c32d41f9f0855d">Marilou::ScoreGeneral::couleurs</a></div><div class="ttdeci">std::list&lt; ScoreCouleur * &gt; couleurs</div><div class="ttdef"><b>Definition:</b> score.h:98</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html_a817dc3bf3ad0011beeb90a2f6b56dabb"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a817dc3bf3ad0011beeb90a2f6b56dabb">Marilou::ScoreGeneral::scorePierre</a></div><div class="ttdeci">ScorePierre scorePierre</div><div class="ttdef"><b>Definition:</b> score.h:99</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html_aaede69b2867403f972b2362ef8d98f73"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#aaede69b2867403f972b2362ef8d98f73">Marilou::ScoreGeneral::~ScoreGeneral</a></div><div class="ttdeci">~ScoreGeneral()</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreGeneral_html_ac68e3169804d342fbd8a1ffb9ada6760"><div class="ttname"><a href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#ac68e3169804d342fbd8a1ffb9ada6760">Marilou::ScoreGeneral::ScoreGeneral</a></div><div class="ttdeci">ScoreGeneral()</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreJaune_html"><div class="ttname"><a href="../../dd/dd6/classMarilou_1_1ScoreJaune.html">Marilou::ScoreJaune</a></div><div class="ttdef"><b>Definition:</b> score.h:60</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreJaune_html_ae23a1af5c228b6c709c247be83881707"><div class="ttname"><a href="../../dd/dd6/classMarilou_1_1ScoreJaune.html#ae23a1af5c228b6c709c247be83881707">Marilou::ScoreJaune::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScorePierre_html"><div class="ttname"><a href="../../d1/d49/classMarilou_1_1ScorePierre.html">Marilou::ScorePierre</a></div><div class="ttdef"><b>Definition:</b> score.h:34</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScorePierre_html_a0f8563e5c48c2ca17896b41890a27832"><div class="ttname"><a href="../../d1/d49/classMarilou_1_1ScorePierre.html#a0f8563e5c48c2ca17896b41890a27832">Marilou::ScorePierre::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreRouge_html"><div class="ttname"><a href="../../d7/d78/classMarilou_1_1ScoreRouge.html">Marilou::ScoreRouge</a></div><div class="ttdef"><b>Definition:</b> score.h:69</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreRouge_html_a4dda8f834d18c31d095c274f5e68ac52"><div class="ttname"><a href="../../d7/d78/classMarilou_1_1ScoreRouge.html#a4dda8f834d18c31d095c274f5e68ac52">Marilou::ScoreRouge::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreVert_html"><div class="ttname"><a href="../../db/d01/classMarilou_1_1ScoreVert.html">Marilou::ScoreVert</a></div><div class="ttdef"><b>Definition:</b> score.h:87</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreVert_html_a77ce4389af23676fe944b89b4c545c21"><div class="ttname"><a href="../../db/d01/classMarilou_1_1ScoreVert.html#a77ce4389af23676fe944b89b4c545c21">Marilou::ScoreVert::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreViolet_html"><div class="ttname"><a href="../../d0/d07/classMarilou_1_1ScoreViolet.html">Marilou::ScoreViolet</a></div><div class="ttdef"><b>Definition:</b> score.h:78</div></div>
+<div class="ttc" id="aclassMarilou_1_1ScoreViolet_html_af3312b5e640d2832b69fce83cdd685cd"><div class="ttname"><a href="../../d0/d07/classMarilou_1_1ScoreViolet.html#af3312b5e640d2832b69fce83cdd685cd">Marilou::ScoreViolet::compute</a></div><div class="ttdeci">int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const override</div></div>
+<div class="ttc" id="aclassMarilou_1_1Score_html"><div class="ttname"><a href="../../dc/d0b/classMarilou_1_1Score.html">Marilou::Score</a></div><div class="ttdef"><b>Definition:</b> score.h:23</div></div>
+<div class="ttc" id="aclassMarilou_1_1Score_html_a8ecf583969ce565d47b4da87af06ea18"><div class="ttname"><a href="../../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18">Marilou::Score::~Score</a></div><div class="ttdeci">virtual ~Score()=default</div></div>
+<div class="ttc" id="aclassMarilou_1_1Score_html_ac1e784d670d87221597f47f2cb31b8c6"><div class="ttname"><a href="../../dc/d0b/classMarilou_1_1Score.html#ac1e784d670d87221597f47f2cb31b8c6">Marilou::Score::compute</a></div><div class="ttdeci">virtual int compute(const Barnabe::Player &amp;player, const ScoreVariants &amp;variants) const =0</div></div>
+<div class="ttc" id="anamespaceMarilou_html"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html">Marilou</a></div><div class="ttdef"><b>Definition:</b> score.h:10</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html">Marilou::ScoreVariants</a></div><div class="ttdef"><b>Definition:</b> score.h:12</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html_a1c87fa681dffb5034d6cbbebcc682343"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a1c87fa681dffb5034d6cbbebcc682343">Marilou::ScoreVariants::habitations</a></div><div class="ttdeci">bool habitations</div><div class="ttdef"><b>Definition:</b> score.h:13</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html_a2284f1bf2ae42d5b0cd84b182d973337"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a2284f1bf2ae42d5b0cd84b182d973337">Marilou::ScoreVariants::temples</a></div><div class="ttdeci">bool temples</div><div class="ttdef"><b>Definition:</b> score.h:16</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html_a350412fb64639a6ff745864a5397c295"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a350412fb64639a6ff745864a5397c295">Marilou::ScoreVariants::casernes</a></div><div class="ttdeci">bool casernes</div><div class="ttdef"><b>Definition:</b> score.h:15</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html_a5c976a7132a8870c0f364380488f56e4"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html#a5c976a7132a8870c0f364380488f56e4">Marilou::ScoreVariants::jardins</a></div><div class="ttdeci">bool jardins</div><div class="ttdef"><b>Definition:</b> score.h:17</div></div>
+<div class="ttc" id="astructMarilou_1_1ScoreVariants_html_aee4d2d85db294bff729958d400919c59"><div class="ttname"><a href="../../d4/d97/structMarilou_1_1ScoreVariants.html#aee4d2d85db294bff729958d400919c59">Marilou::ScoreVariants::marches</a></div><div class="ttdeci">bool marches</div><div class="ttdef"><b>Definition:</b> score.h:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

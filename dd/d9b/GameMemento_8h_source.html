@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet LO21 Akropolis:  Fichier source de GameMemento.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet LO21 Akropolis
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_05d8916f54cb3f44bab3a21d858cfd8b.html">Sauvegarde</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">GameMemento.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d9b/GameMemento_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by GAUTIER--BONNEAU on 05/12/2025.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef TESTSAUVEGARDE_GAMEMEMENTO_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define TESTSAUVEGARDE_GAMEMEMENTO_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Created by GAUTIER--BONNEAU on 04/12/2025.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include&lt;map&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d7/d6e/namespaceAmalena.html">Amalena</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html">   23</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../dd/df7/classAmalena_1_1GameMemento.html">GameMemento</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">   26</a></span>            vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">riverid</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">   27</a></span>            vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">pileid</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="comment">//Deck=&gt; reconstruction possible à partir des paramètres</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">   29</a></span>            vector&lt;string&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">PlayersName</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">   30</a></span>            vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">PlayersStone</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e">   31</a></span>            vector&lt;map&lt;pair&lt;int, int&gt;, pair&lt;int, unsigned int&gt;&gt;&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e">boards</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="comment">//avec le premier int Idtil id cell, position autant de map que de joueurs</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">   33</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">nbplayer</a>;<span class="comment">//= taille devecor player</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">   34</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">currentplayer</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">   35</a></span>            <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">variante</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//_______________________Getters and setters____________________________________________________</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            vector&lt;int&gt; <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a9ea623b0323ea8617218abb09eec88e0">get_riverid</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#af59dc8c96d5a0161792ffa86aa8cfe81">set_riverid</a>(<span class="keyword">const</span> vector&lt;int&gt;&amp; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">riverid</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            vector&lt;int&gt; <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a306a05a4308d4d18c28c98e283721a0b">get_pileid</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a897d8f68abcfbcf86d61611e7e86da24">set_pileid</a>(<span class="keyword">const</span> vector&lt;int&gt;&amp; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">pileid</a>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            vector&lt;string&gt; <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a58674523919ec4ee750290e9bcbe38d8">get_players_name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#aacf70dff6bba40884b5d16b0cf1724b9">set_players_name</a>(<span class="keyword">const</span> vector&lt;string&gt;&amp; players_name);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            vector&lt;int&gt; <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a8c673ef72ab7652d701eece0a47f5d99">get_players_stone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#af5332929ef8a90cbc28f01c931d713f4">set_players_stone</a>(<span class="keyword">const</span> vector&lt;int&gt;&amp; players_stone);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            vector&lt;map&lt;pair&lt;int, int&gt;, pair&lt;int, unsigned int&gt;&gt;&gt; <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6dedd69a6abe39177ed27b196a6c10cb">get_boards</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a5b96b6c33f2c36d5b61905cf0384450d">set_boards</a>(<span class="keyword">const</span> vector&lt;map&lt;pair&lt;int, int&gt;, pair&lt;int, unsigned int&gt;&gt;&gt;&amp; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e">boards</a>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a91194cc318c870eb5d79b2d3bdb12b97">get_nbplayer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a214941a6a187feb77853684f90f5976b">set_nbplayer</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">nbplayer</a>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a9800ef27b8581e5abfe4c9817b59a1f6">get_currentplayer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6289da5557750104a4aa05c822cfedb1">set_currentplayer</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">currentplayer</a>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordtype">string</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a7a35188c80723a16922851667be50f02">get_variante</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#aa1bf3c140be452b9e8a89a581dedffab">set_variante</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">variante</a>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//___________________________________________________________________________________________________________________</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#aa2fab026580d6f14280c2ffb8063a314">   54</a></span>            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="../../dd/df7/classAmalena_1_1GameMemento.html#aa2fab026580d6f14280c2ffb8063a314">Game</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac118d5479a57197905bc811f49234af6">   55</a></span>            <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d2/de2/classAmalena_1_1savemanager.html">savemanager</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a40bb4ea795c210b38530df531bf8f13b">   62</a></span>            <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a40bb4ea795c210b38530df531bf8f13b">GameMemento</a>(vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">riverid</a>,vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">pileid</a>,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            vector&lt;string&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">PlayersName</a>,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            vector&lt;int&gt; <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">PlayersStone</a>,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            vector&lt;map&lt;pair&lt;int,int&gt;, pair&lt;int, unsigned int&gt;&gt;&gt;board,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">nbplayer</a>,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">currentplayer</a>,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordtype">string</span> <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">variante</a>): <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">riverid</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">riverid</a>),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">pileid</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">pileid</a>),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">PlayersName</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">PlayersName</a>),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">PlayersStone</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">PlayersStone</a>),</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e">boards</a>(board),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">nbplayer</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">nbplayer</a>),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">currentplayer</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">currentplayer</a>),<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">variante</a>(<a class="code hl_variable" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">variante</a>){};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1d22c2281c1758b40f0fa39af65ded19">   72</a></span>            <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a1d22c2281c1758b40f0fa39af65ded19">GameMemento</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4445b7593c17fa6227e8dd4b423a1249">   73</a></span>            <a class="code hl_function" href="../../dd/df7/classAmalena_1_1GameMemento.html#a4445b7593c17fa6227e8dd4b423a1249">~GameMemento</a>()=<span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    };</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif </span><span class="comment">//TESTSAUVEGARDE_GAMEMEMENTO_H</span></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html">Amalena::GameMemento</a></div><div class="ttdef"><b>Definition:</b> GameMemento.h:24</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a1aedf9bec6aee618cfa57cb2db28f408"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408">Amalena::GameMemento::variante</a></div><div class="ttdeci">string variante</div><div class="ttdef"><b>Definition:</b> GameMemento.h:35</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a1d22c2281c1758b40f0fa39af65ded19"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a1d22c2281c1758b40f0fa39af65ded19">Amalena::GameMemento::GameMemento</a></div><div class="ttdeci">GameMemento()</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a214941a6a187feb77853684f90f5976b"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a214941a6a187feb77853684f90f5976b">Amalena::GameMemento::set_nbplayer</a></div><div class="ttdeci">void set_nbplayer(const size_t nbplayer)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:66</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a306a05a4308d4d18c28c98e283721a0b"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a306a05a4308d4d18c28c98e283721a0b">Amalena::GameMemento::get_pileid</a></div><div class="ttdeci">vector&lt; int &gt; get_pileid() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:21</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a40bb4ea795c210b38530df531bf8f13b"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a40bb4ea795c210b38530df531bf8f13b">Amalena::GameMemento::GameMemento</a></div><div class="ttdeci">GameMemento(vector&lt; int &gt; riverid, vector&lt; int &gt; pileid, vector&lt; string &gt; PlayersName, vector&lt; int &gt; PlayersStone, vector&lt; map&lt; pair&lt; int, int &gt;, pair&lt; int, unsigned int &gt; &gt; &gt;board, size_t nbplayer, size_t currentplayer, string variante)</div><div class="ttdef"><b>Definition:</b> GameMemento.h:62</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a41726e8ea3b4cf3bd84d28fc8b2b047e"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e">Amalena::GameMemento::boards</a></div><div class="ttdeci">vector&lt; map&lt; pair&lt; int, int &gt;, pair&lt; int, unsigned int &gt; &gt; &gt; boards</div><div class="ttdef"><b>Definition:</b> GameMemento.h:31</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a4445b7593c17fa6227e8dd4b423a1249"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a4445b7593c17fa6227e8dd4b423a1249">Amalena::GameMemento::~GameMemento</a></div><div class="ttdeci">~GameMemento()=default</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a4f1bc35ed8e7b57a1abc38de56fa4785"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785">Amalena::GameMemento::nbplayer</a></div><div class="ttdeci">size_t nbplayer</div><div class="ttdef"><b>Definition:</b> GameMemento.h:33</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a58674523919ec4ee750290e9bcbe38d8"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a58674523919ec4ee750290e9bcbe38d8">Amalena::GameMemento::get_players_name</a></div><div class="ttdeci">vector&lt; string &gt; get_players_name() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:31</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a5b96b6c33f2c36d5b61905cf0384450d"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a5b96b6c33f2c36d5b61905cf0384450d">Amalena::GameMemento::set_boards</a></div><div class="ttdeci">void set_boards(const vector&lt; map&lt; pair&lt; int, int &gt;, pair&lt; int, unsigned int &gt; &gt; &gt; &amp;boards)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:56</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a6289da5557750104a4aa05c822cfedb1"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a6289da5557750104a4aa05c822cfedb1">Amalena::GameMemento::set_currentplayer</a></div><div class="ttdeci">void set_currentplayer(const size_t currentplayer)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:76</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a6dedd69a6abe39177ed27b196a6c10cb"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a6dedd69a6abe39177ed27b196a6c10cb">Amalena::GameMemento::get_boards</a></div><div class="ttdeci">vector&lt; map&lt; pair&lt; int, int &gt;, pair&lt; int, unsigned int &gt; &gt; &gt; get_boards() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:51</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a6eebe9a03e77b2c5550afb2f1da07974"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974">Amalena::GameMemento::pileid</a></div><div class="ttdeci">vector&lt; int &gt; pileid</div><div class="ttdef"><b>Definition:</b> GameMemento.h:27</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a7a35188c80723a16922851667be50f02"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a7a35188c80723a16922851667be50f02">Amalena::GameMemento::get_variante</a></div><div class="ttdeci">string get_variante() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:81</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a860b8546615e680d1672afa96d298dd5"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5">Amalena::GameMemento::riverid</a></div><div class="ttdeci">vector&lt; int &gt; riverid</div><div class="ttdef"><b>Definition:</b> GameMemento.h:26</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a897d8f68abcfbcf86d61611e7e86da24"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a897d8f68abcfbcf86d61611e7e86da24">Amalena::GameMemento::set_pileid</a></div><div class="ttdeci">void set_pileid(const vector&lt; int &gt; &amp;pileid)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:26</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a8c673ef72ab7652d701eece0a47f5d99"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a8c673ef72ab7652d701eece0a47f5d99">Amalena::GameMemento::get_players_stone</a></div><div class="ttdeci">vector&lt; int &gt; get_players_stone() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:41</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a905c68b54724b1580340d5a9a11a1b63"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63">Amalena::GameMemento::PlayersStone</a></div><div class="ttdeci">vector&lt; int &gt; PlayersStone</div><div class="ttdef"><b>Definition:</b> GameMemento.h:30</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a91194cc318c870eb5d79b2d3bdb12b97"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a91194cc318c870eb5d79b2d3bdb12b97">Amalena::GameMemento::get_nbplayer</a></div><div class="ttdeci">size_t get_nbplayer() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:61</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a9800ef27b8581e5abfe4c9817b59a1f6"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a9800ef27b8581e5abfe4c9817b59a1f6">Amalena::GameMemento::get_currentplayer</a></div><div class="ttdeci">size_t get_currentplayer() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:71</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_a9ea623b0323ea8617218abb09eec88e0"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#a9ea623b0323ea8617218abb09eec88e0">Amalena::GameMemento::get_riverid</a></div><div class="ttdeci">vector&lt; int &gt; get_riverid() const</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:11</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_aa1bf3c140be452b9e8a89a581dedffab"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#aa1bf3c140be452b9e8a89a581dedffab">Amalena::GameMemento::set_variante</a></div><div class="ttdeci">void set_variante(const string &amp;variante)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:86</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_aa2fab026580d6f14280c2ffb8063a314"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#aa2fab026580d6f14280c2ffb8063a314">Amalena::GameMemento::Game</a></div><div class="ttdeci">friend class Game</div><div class="ttdef"><b>Definition:</b> GameMemento.h:54</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_aacf70dff6bba40884b5d16b0cf1724b9"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#aacf70dff6bba40884b5d16b0cf1724b9">Amalena::GameMemento::set_players_name</a></div><div class="ttdeci">void set_players_name(const vector&lt; string &gt; &amp;players_name)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:36</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_ac70d528437528170bf139215b2434970"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970">Amalena::GameMemento::currentplayer</a></div><div class="ttdeci">size_t currentplayer</div><div class="ttdef"><b>Definition:</b> GameMemento.h:34</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_ae496f5ee7177fecb9336d4846bd46778"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778">Amalena::GameMemento::PlayersName</a></div><div class="ttdeci">vector&lt; string &gt; PlayersName</div><div class="ttdef"><b>Definition:</b> GameMemento.h:29</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_af5332929ef8a90cbc28f01c931d713f4"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#af5332929ef8a90cbc28f01c931d713f4">Amalena::GameMemento::set_players_stone</a></div><div class="ttdeci">void set_players_stone(const vector&lt; int &gt; &amp;players_stone)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:46</div></div>
+<div class="ttc" id="aclassAmalena_1_1GameMemento_html_af59dc8c96d5a0161792ffa86aa8cfe81"><div class="ttname"><a href="../../dd/df7/classAmalena_1_1GameMemento.html#af59dc8c96d5a0161792ffa86aa8cfe81">Amalena::GameMemento::set_riverid</a></div><div class="ttdeci">void set_riverid(const vector&lt; int &gt; &amp;riverid)</div><div class="ttdef"><b>Definition:</b> GameMemento.cpp:16</div></div>
+<div class="ttc" id="aclassAmalena_1_1savemanager_html"><div class="ttname"><a href="../../d2/de2/classAmalena_1_1savemanager.html">Amalena::savemanager</a></div><div class="ttdef"><b>Definition:</b> savemanager.h:20</div></div>
+<div class="ttc" id="anamespaceAmalena_html"><div class="ttname"><a href="../../d7/d6e/namespaceAmalena.html">Amalena</a></div><div class="ttdef"><b>Definition:</b> pile.cpp:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

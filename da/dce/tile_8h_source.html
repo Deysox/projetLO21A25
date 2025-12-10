@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet LO21 Akropolis:  Fichier source de tile.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet LO21 Akropolis
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_6dfe4529bd3d09e7603fce7f33e4324b.html">Tuiles</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">tile.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/dce/tile_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETLO21A25_TUILE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETLO21A25_TUILE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/ddd/cell_8h.html">cell.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/dca/namespaceMarilou.html">Marilou</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d8/da8/classMarilou_1_1Tile.html">   12</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d8/da8/classMarilou_1_1Tile.html#ac28482de8c584bf266065c158cf4a664">   14</a></span>                <a class="code hl_function" href="../../d8/da8/classMarilou_1_1Tile.html#ac28482de8c584bf266065c158cf4a664">Tile</a>();</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                <a class="code hl_function" href="../../d8/da8/classMarilou_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2">~Tile</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d8/da8/classMarilou_1_1Tile.html#a1a3e2e636e9f9a8bf2c3bd17f3a145b2">   16</a></span>                <a class="code hl_function" href="../../d8/da8/classMarilou_1_1Tile.html#a1a3e2e636e9f9a8bf2c3bd17f3a145b2">Tile</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; p)=<span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d8/da8/classMarilou_1_1Tile.html#a0e5f79e44b712af1be7046bb7a53711e">   17</a></span>                <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; <a class="code hl_function" href="../../d8/da8/classMarilou_1_1Tile.html#a0e5f79e44b712af1be7046bb7a53711e">operator=</a>(<a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; p)=<span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../dc/d6a/classMarilou_1_1StartingTile.html">   20</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../dc/d6a/classMarilou_1_1StartingTile.html">StartingTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../dc/d6a/classMarilou_1_1StartingTile.html#a120d9614bbc713c5af05fefea8db313b">   21</a></span>                array &lt;Marilou::Cell*, 4&gt; <a class="code hl_variable" href="../../dc/d6a/classMarilou_1_1StartingTile.html#a120d9614bbc713c5af05fefea8db313b">cells</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                public :</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../dc/d6a/classMarilou_1_1StartingTile.html#a0fb68c82ad786e79a822f655cadd7be7">   24</a></span>                        <a class="code hl_function" href="../../dc/d6a/classMarilou_1_1StartingTile.html#a0fb68c82ad786e79a822f655cadd7be7">StartingTile</a>(<span class="keyword">const</span> array&lt;Marilou::Cell*, 4&gt;&amp; c) : <a class="code hl_variable" href="../../dc/d6a/classMarilou_1_1StartingTile.html#a120d9614bbc713c5af05fefea8db313b">cells</a>(c) {}</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d4/d88/classMarilou_1_1ClassicTile.html">   27</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d4/d88/classMarilou_1_1ClassicTile.html">ClassicTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d4/d88/classMarilou_1_1ClassicTile.html#ac01d7e758ffb4d60dd4e81775e4ea609">   28</a></span>                array &lt;Marilou::Cell*, 3&gt; <a class="code hl_variable" href="../../d4/d88/classMarilou_1_1ClassicTile.html#ac01d7e758ffb4d60dd4e81775e4ea609">cells</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                public :</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d4/d88/classMarilou_1_1ClassicTile.html#a71bf5c60466c813bb3047b05ee6049e9">   31</a></span>                        <a class="code hl_function" href="../../d4/d88/classMarilou_1_1ClassicTile.html#a71bf5c60466c813bb3047b05ee6049e9">ClassicTile</a>(<span class="keyword">const</span> array&lt;Marilou::Cell*, 3&gt;&amp; c) : <a class="code hl_variable" href="../../d4/d88/classMarilou_1_1ClassicTile.html#ac01d7e758ffb4d60dd4e81775e4ea609">cells</a>(c) {}</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        };</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d7/d8f/classMarilou_1_1AthenaTile.html">   34</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d7/d8f/classMarilou_1_1AthenaTile.html">AthenaTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a04338ac1138e55726ca783ebfd15801b">   35</a></span>                <a class="code hl_class" href="../../d1/d38/classMarilou_1_1BicolorCell.html">Marilou::BicolorCell</a> <a class="code hl_variable" href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a04338ac1138e55726ca783ebfd15801b">cell</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                public :</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a70071da4c8eb55566f1fd3b9396dda60">   38</a></span>                        <a class="code hl_function" href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a70071da4c8eb55566f1fd3b9396dda60">AthenaTile</a>(<a class="code hl_class" href="../../d1/d38/classMarilou_1_1BicolorCell.html">Marilou::BicolorCell</a> c) : <a class="code hl_variable" href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a04338ac1138e55726ca783ebfd15801b">cell</a>(c) {}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        };</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/df6/namespaceBarnabe.html">Barnabe</a> {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">         * Classe abstraite représentant une tuile de Akropolis.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html">   49</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                <span class="comment">/*</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">                 * Attribut statique servant à créer des identifiants pour les cases, permettant de connaître la tuile</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">                 * associée à une case.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">                 * S&#39;incrémente à chaque appel au constructeur.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">                 */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#a4366dc5abe16f0b6ac62750649fb1bd2">   56</a></span>                <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d8/dcb/classBarnabe_1_1Tile.html#a4366dc5abe16f0b6ac62750649fb1bd2">id</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="comment">/*</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">                 * Pointeur vers un vecteur contenant les pointeurs vers les cellules qui composent la tuile.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">                 */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb">   60</a></span>                std::vector&lt;const Cell*&gt; <a class="code hl_variable" href="../../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb">cells</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#ad5cd3109d28808e56094284f12910f61">   63</a></span>                <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#ad5cd3109d28808e56094284f12910f61">Tile</a>() {<span class="keywordtype">id</span>++;}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2">   64</a></span>                <span class="keyword">virtual</span> <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2">~Tile</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#ac95821ac2235d24c1d6d36f6cd8da6ce">   65</a></span>                <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#ac95821ac2235d24c1d6d36f6cd8da6ce">Tile</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; p)=<span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#aa953c075fefc8c7c95af3579490dc0f3">   66</a></span>                <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#aa953c075fefc8c7c95af3579490dc0f3">operator=</a>(<a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>&amp; p)=<span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="comment">/*</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">                 * Accesseur en lecture de la taille de la tuile en termes de nombres de cases.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">                 * @return unsigned int</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">                 */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#ab95edf160346bdf40e7af5a6883e8468">   72</a></span>                <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#ab95edf160346bdf40e7af5a6883e8468">getSize</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> cells.size();};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#a0e7824c777b2ebca57b4b08d43e70503">   74</a></span>                <span class="keyword">const</span> <a class="code hl_class" href="../../dc/df5/classMarilou_1_1Cell.html">Cell</a>* <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#a0e7824c777b2ebca57b4b08d43e70503">getCell</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                        <span class="keywordflow">if</span> (i &gt;= <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#ab95edf160346bdf40e7af5a6883e8468">getSize</a>()) <span class="keywordflow">throw</span> <a class="code hl_class" href="../../db/dc9/classBarnabe_1_1TileException.html">TileException</a>(<span class="stringliteral">&quot;Indice de la cellule incorrect&quot;</span>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                        <span class="keywordflow">return</span> cells[i];</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                }</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                <span class="comment">/*</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">                 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d&#39;une position et une</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">                 * rotation données. Cette méthode est virtuelle pure, car cette méthode dépend de l&#39;implémentation concrète de</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">                 * la tuile. C&#39;est cette méthode définit la forme de la tuile.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">                 * @param p Position de la tuile dans un éventuel plateau</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">                 * @param r Rotation de la tuile par rapport à une tuile &quot;pivot&quot;, la première du vecteur cells par convention.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">                 * @return Vecteur de positions de la même taille que cells. La position i de ce vecteur correspond à la</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">                 * position calculée de la case d&#39;indice i dans l&#39;attribut cells.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">                 */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#a86fb84f7ca6ecdbbbc5f93055e35af4b">   88</a></span>                <span class="keyword">virtual</span> std::vector&lt;Position&gt; <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#a86fb84f7ca6ecdbbbc5f93055e35af4b">calculatePositions</a>(<a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <a class="code hl_class" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> r) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">   90</a></span>                <span class="keyword">class </span><a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">   91</a></span>                        vector&lt;const Cell*&gt;::const_iterator <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a8a6c6f6de547e6f39d3212d1f4d49a65">   92</a></span>                        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a38e199d963344d70a58403387969da80">   93</a></span>                        <span class="keyword">explicit</span> <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a38e199d963344d70a58403387969da80">const_iterator</a>(vector&lt;const Cell*&gt;::const_iterator def) : <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>(def) {}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ad510fe2ad2cdefb9b9473fe3ca8c4682">   95</a></span>                        <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a>&amp; <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ad510fe2ad2cdefb9b9473fe3ca8c4682">operator++</a>() {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                                <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>++;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                                <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                        }</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a1e4ca1b1bd8e8255f559f4505bd6c12b">   99</a></span>                        <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a1e4ca1b1bd8e8255f559f4505bd6c12b">operator++</a>(<span class="keywordtype">int</span>) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                                <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> old = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                                <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>++;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                                <span class="keywordflow">return</span> old;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                        }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a9f2aac18eca6d4a9a912fa85e2f899d5">  104</a></span>                        <span class="keyword">const</span> <a class="code hl_class" href="../../dc/df5/classMarilou_1_1Cell.html">Cell</a>* <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a9f2aac18eca6d4a9a912fa85e2f899d5">operator*</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                                <span class="keywordflow">return</span> *<a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                        }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#aefb2c5703331838fd25efece308764e5">  107</a></span>                        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#aefb2c5703331838fd25efece308764e5">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> &amp; e)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a> == e.<a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                        }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ae6d32c22df1d592ac4d567c29ca2ec6b">  110</a></span>                        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ae6d32c22df1d592ac4d567c29ca2ec6b">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> &amp; e)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                                <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a> != e.<a class="code hl_variable" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">vec_iterator</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                        }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                };</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                <span class="comment">// class const_iterator : public vector&lt;const Cell*&gt;::const_iterator {</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                <span class="comment">//      friend class Tile;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>                <span class="comment">// };</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#a42bf890c91c123b685e579f91ff59b3c">  119</a></span>                <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#a42bf890c91c123b685e579f91ff59b3c">begin</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a>(cells.begin());}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="../../d8/dcb/classBarnabe_1_1Tile.html#ad168fbc6aed6cd3e1adcd5ac05a8556c">  120</a></span>                <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a> <a class="code hl_function" href="../../d8/dcb/classBarnabe_1_1Tile.html#ad168fbc6aed6cd3e1adcd5ac05a8556c">end</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <a class="code hl_class" href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">const_iterator</a>(cells.end());}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        };</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../dd/df0/classBarnabe_1_1StartingTile.html">  125</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../dc/d6a/classMarilou_1_1StartingTile.html">StartingTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        public :</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                <a class="code hl_class" href="../../dc/d6a/classMarilou_1_1StartingTile.html">StartingTile</a>();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                <span class="keyword">virtual</span> std::vector&lt;Position&gt; <a class="code hl_function" href="../../dd/df0/classBarnabe_1_1StartingTile.html#ade4f6cf793c309acafd9ade49afd93e2">calculatePositions</a>(<a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <a class="code hl_class" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        };</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../d0/d23/classBarnabe_1_1ClassicTile.html">  132</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d4/d88/classMarilou_1_1ClassicTile.html">ClassicTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a> {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        public :</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <a class="code hl_class" href="../../d4/d88/classMarilou_1_1ClassicTile.html">ClassicTile</a>(<a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c1, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> t1, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c2, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> t2, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c3, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> t3);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                std::vector&lt;Position&gt; <a class="code hl_function" href="../../d0/d23/classBarnabe_1_1ClassicTile.html#ab24fa7f5efe095caa697016fbef67baa">calculatePositions</a>(<a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <a class="code hl_class" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="keyword">friend</span> ostream&amp; <a class="code hl_function" href="../../d4/d59/position_8cpp.html#aa476e6c45eb37ec6a5f7e028996712b0">operator&lt;&lt;</a>(ostream&amp; f, <a class="code hl_class" href="../../d4/d88/classMarilou_1_1ClassicTile.html">ClassicTile</a>&amp; c);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        };</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        ostream&amp; <a class="code hl_function" href="../../dd/df6/namespaceBarnabe.html#a288b73b92812d8c25d7115214b4dd81f">operator&lt;&lt;</a>(ostream&amp; f, <a class="code hl_class" href="../../d4/d88/classMarilou_1_1ClassicTile.html">ClassicTile</a>&amp; c);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../de/d78/classBarnabe_1_1AthenaTile.html">  144</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d7/d8f/classMarilou_1_1AthenaTile.html">AthenaTile</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/da8/classMarilou_1_1Tile.html">Tile</a> {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../de/d78/classBarnabe_1_1AthenaTile.html#a28fed0e57a1d6565e9e7f6858f152566">  145</a></span>                <a class="code hl_class" href="../../d1/d38/classMarilou_1_1BicolorCell.html">BicolorCell</a>* <a class="code hl_variable" href="../../de/d78/classBarnabe_1_1AthenaTile.html#a28fed0e57a1d6565e9e7f6858f152566">cell</a>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        public :</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                <a class="code hl_class" href="../../d7/d8f/classMarilou_1_1AthenaTile.html">AthenaTile</a>(<a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c1, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c2, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> t);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                std::vector&lt;Position&gt; <a class="code hl_function" href="../../de/d78/classBarnabe_1_1AthenaTile.html#af0d7e935ba34de87f309f6f7fe400bba">calculatePositions</a>(<a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <a class="code hl_class" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> r) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        };</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif </span><span class="comment">//PROJETLO21A25_TUILE_H</span></div>
+<div class="ttc" id="acell_8h_html"><div class="ttname"><a href="../../d0/ddd/cell_8h.html">cell.h</a></div></div>
+<div class="ttc" id="aclassBarnabe_1_1AthenaTile_html_a28fed0e57a1d6565e9e7f6858f152566"><div class="ttname"><a href="../../de/d78/classBarnabe_1_1AthenaTile.html#a28fed0e57a1d6565e9e7f6858f152566">Barnabe::AthenaTile::cell</a></div><div class="ttdeci">BicolorCell * cell</div><div class="ttdef"><b>Definition:</b> tile.h:145</div></div>
+<div class="ttc" id="aclassBarnabe_1_1AthenaTile_html_af0d7e935ba34de87f309f6f7fe400bba"><div class="ttname"><a href="../../de/d78/classBarnabe_1_1AthenaTile.html#af0d7e935ba34de87f309f6f7fe400bba">Barnabe::AthenaTile::calculatePositions</a></div><div class="ttdeci">std::vector&lt; Position &gt; calculatePositions(Position p, Rotation r) const</div><div class="ttdef"><b>Definition:</b> tile.cpp:55</div></div>
+<div class="ttc" id="aclassBarnabe_1_1ClassicTile_html_ab24fa7f5efe095caa697016fbef67baa"><div class="ttname"><a href="../../d0/d23/classBarnabe_1_1ClassicTile.html#ab24fa7f5efe095caa697016fbef67baa">Barnabe::ClassicTile::calculatePositions</a></div><div class="ttdeci">std::vector&lt; Position &gt; calculatePositions(Position p, Rotation r) const</div><div class="ttdef"><b>Definition:</b> tile.cpp:34</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Position_html"><div class="ttname"><a href="../../d8/d16/classBarnabe_1_1Position.html">Barnabe::Position</a></div><div class="ttdef"><b>Definition:</b> position.h:21</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Rotation_html"><div class="ttname"><a href="../../dc/dc0/classBarnabe_1_1Rotation.html">Barnabe::Rotation</a></div><div class="ttdef"><b>Definition:</b> rotation.h:36</div></div>
+<div class="ttc" id="aclassBarnabe_1_1StartingTile_html_ade4f6cf793c309acafd9ade49afd93e2"><div class="ttname"><a href="../../dd/df0/classBarnabe_1_1StartingTile.html#ade4f6cf793c309acafd9ade49afd93e2">Barnabe::StartingTile::calculatePositions</a></div><div class="ttdeci">virtual std::vector&lt; Position &gt; calculatePositions(Position p, Rotation r) const</div><div class="ttdef"><b>Definition:</b> tile.cpp:21</div></div>
+<div class="ttc" id="aclassBarnabe_1_1TileException_html"><div class="ttname"><a href="../../db/dc9/classBarnabe_1_1TileException.html">Barnabe::TileException</a></div><div class="ttdef"><b>Definition:</b> exceptions.h:26</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html">Barnabe::Tile::const_iterator</a></div><div class="ttdef"><b>Definition:</b> tile.h:90</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_a175567474cd16fdf10f8c06c8fd7b747"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747">Barnabe::Tile::const_iterator::vec_iterator</a></div><div class="ttdeci">vector&lt; constCell * &gt;::const_iterator vec_iterator</div><div class="ttdef"><b>Definition:</b> tile.h:91</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_a1e4ca1b1bd8e8255f559f4505bd6c12b"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a1e4ca1b1bd8e8255f559f4505bd6c12b">Barnabe::Tile::const_iterator::operator++</a></div><div class="ttdeci">const_iterator operator++(int)</div><div class="ttdef"><b>Definition:</b> tile.h:99</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_a38e199d963344d70a58403387969da80"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a38e199d963344d70a58403387969da80">Barnabe::Tile::const_iterator::const_iterator</a></div><div class="ttdeci">const_iterator(vector&lt; const Cell * &gt;::const_iterator def)</div><div class="ttdef"><b>Definition:</b> tile.h:93</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_a9f2aac18eca6d4a9a912fa85e2f899d5"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a9f2aac18eca6d4a9a912fa85e2f899d5">Barnabe::Tile::const_iterator::operator*</a></div><div class="ttdeci">const Cell * operator*() const</div><div class="ttdef"><b>Definition:</b> tile.h:104</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_ad510fe2ad2cdefb9b9473fe3ca8c4682"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ad510fe2ad2cdefb9b9473fe3ca8c4682">Barnabe::Tile::const_iterator::operator++</a></div><div class="ttdeci">const_iterator &amp; operator++()</div><div class="ttdef"><b>Definition:</b> tile.h:95</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_ae6d32c22df1d592ac4d567c29ca2ec6b"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#ae6d32c22df1d592ac4d567c29ca2ec6b">Barnabe::Tile::const_iterator::operator!=</a></div><div class="ttdeci">bool operator!=(const const_iterator &amp;e) const</div><div class="ttdef"><b>Definition:</b> tile.h:110</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_1_1const__iterator_html_aefb2c5703331838fd25efece308764e5"><div class="ttname"><a href="../../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#aefb2c5703331838fd25efece308764e5">Barnabe::Tile::const_iterator::operator==</a></div><div class="ttdeci">bool operator==(const const_iterator &amp;e) const</div><div class="ttdef"><b>Definition:</b> tile.h:107</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_a0e7824c777b2ebca57b4b08d43e70503"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#a0e7824c777b2ebca57b4b08d43e70503">Barnabe::Tile::getCell</a></div><div class="ttdeci">const Cell * getCell(int i) const</div><div class="ttdef"><b>Definition:</b> tile.h:74</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_a28abccd23372083df8fc97f820c2acfb"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb">Barnabe::Tile::cells</a></div><div class="ttdeci">std::vector&lt; const Cell * &gt; cells</div><div class="ttdef"><b>Definition:</b> tile.h:60</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_a42bf890c91c123b685e579f91ff59b3c"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#a42bf890c91c123b685e579f91ff59b3c">Barnabe::Tile::begin</a></div><div class="ttdeci">const_iterator begin() const</div><div class="ttdef"><b>Definition:</b> tile.h:119</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_a4366dc5abe16f0b6ac62750649fb1bd2"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#a4366dc5abe16f0b6ac62750649fb1bd2">Barnabe::Tile::id</a></div><div class="ttdeci">static int id</div><div class="ttdef"><b>Definition:</b> tile.h:56</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_a86fb84f7ca6ecdbbbc5f93055e35af4b"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#a86fb84f7ca6ecdbbbc5f93055e35af4b">Barnabe::Tile::calculatePositions</a></div><div class="ttdeci">virtual std::vector&lt; Position &gt; calculatePositions(Position p, Rotation r) const =0</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_aa953c075fefc8c7c95af3579490dc0f3"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#aa953c075fefc8c7c95af3579490dc0f3">Barnabe::Tile::operator=</a></div><div class="ttdeci">Tile &amp; operator=(Tile &amp;p)=delete</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_ab95edf160346bdf40e7af5a6883e8468"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#ab95edf160346bdf40e7af5a6883e8468">Barnabe::Tile::getSize</a></div><div class="ttdeci">unsigned int getSize() const</div><div class="ttdef"><b>Definition:</b> tile.h:72</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_ac95821ac2235d24c1d6d36f6cd8da6ce"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#ac95821ac2235d24c1d6d36f6cd8da6ce">Barnabe::Tile::Tile</a></div><div class="ttdeci">Tile(const Tile &amp;p)=delete</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_ad168fbc6aed6cd3e1adcd5ac05a8556c"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#ad168fbc6aed6cd3e1adcd5ac05a8556c">Barnabe::Tile::end</a></div><div class="ttdeci">const_iterator end() const</div><div class="ttdef"><b>Definition:</b> tile.h:120</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_ad5cd3109d28808e56094284f12910f61"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#ad5cd3109d28808e56094284f12910f61">Barnabe::Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdef"><b>Definition:</b> tile.h:63</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Tile_html_aeb8dda7d3e9633fe20b466ebdfa187c2"><div class="ttname"><a href="../../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2">Barnabe::Tile::~Tile</a></div><div class="ttdeci">virtual ~Tile()</div></div>
+<div class="ttc" id="aclassMarilou_1_1AthenaTile_html"><div class="ttname"><a href="../../d7/d8f/classMarilou_1_1AthenaTile.html">Marilou::AthenaTile</a></div><div class="ttdef"><b>Definition:</b> tile.h:34</div></div>
+<div class="ttc" id="aclassMarilou_1_1AthenaTile_html_a04338ac1138e55726ca783ebfd15801b"><div class="ttname"><a href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a04338ac1138e55726ca783ebfd15801b">Marilou::AthenaTile::cell</a></div><div class="ttdeci">Marilou::BicolorCell cell</div><div class="ttdef"><b>Definition:</b> tile.h:35</div></div>
+<div class="ttc" id="aclassMarilou_1_1AthenaTile_html_a70071da4c8eb55566f1fd3b9396dda60"><div class="ttname"><a href="../../d7/d8f/classMarilou_1_1AthenaTile.html#a70071da4c8eb55566f1fd3b9396dda60">Marilou::AthenaTile::AthenaTile</a></div><div class="ttdeci">AthenaTile(Marilou::BicolorCell c)</div><div class="ttdef"><b>Definition:</b> tile.h:38</div></div>
+<div class="ttc" id="aclassMarilou_1_1BicolorCell_html"><div class="ttname"><a href="../../d1/d38/classMarilou_1_1BicolorCell.html">Marilou::BicolorCell</a></div><div class="ttdef"><b>Definition:</b> cell.h:49</div></div>
+<div class="ttc" id="aclassMarilou_1_1Cell_html"><div class="ttname"><a href="../../dc/df5/classMarilou_1_1Cell.html">Marilou::Cell</a></div><div class="ttdef"><b>Definition:</b> cell.h:32</div></div>
+<div class="ttc" id="aclassMarilou_1_1ClassicTile_html"><div class="ttname"><a href="../../d4/d88/classMarilou_1_1ClassicTile.html">Marilou::ClassicTile</a></div><div class="ttdef"><b>Definition:</b> tile.h:27</div></div>
+<div class="ttc" id="aclassMarilou_1_1ClassicTile_html_a71bf5c60466c813bb3047b05ee6049e9"><div class="ttname"><a href="../../d4/d88/classMarilou_1_1ClassicTile.html#a71bf5c60466c813bb3047b05ee6049e9">Marilou::ClassicTile::ClassicTile</a></div><div class="ttdeci">ClassicTile(const array&lt; Marilou::Cell *, 3 &gt; &amp;c)</div><div class="ttdef"><b>Definition:</b> tile.h:31</div></div>
+<div class="ttc" id="aclassMarilou_1_1ClassicTile_html_ac01d7e758ffb4d60dd4e81775e4ea609"><div class="ttname"><a href="../../d4/d88/classMarilou_1_1ClassicTile.html#ac01d7e758ffb4d60dd4e81775e4ea609">Marilou::ClassicTile::cells</a></div><div class="ttdeci">array&lt; Marilou::Cell *, 3 &gt; cells</div><div class="ttdef"><b>Definition:</b> tile.h:28</div></div>
+<div class="ttc" id="aclassMarilou_1_1StartingTile_html"><div class="ttname"><a href="../../dc/d6a/classMarilou_1_1StartingTile.html">Marilou::StartingTile</a></div><div class="ttdef"><b>Definition:</b> tile.h:20</div></div>
+<div class="ttc" id="aclassMarilou_1_1StartingTile_html_a0fb68c82ad786e79a822f655cadd7be7"><div class="ttname"><a href="../../dc/d6a/classMarilou_1_1StartingTile.html#a0fb68c82ad786e79a822f655cadd7be7">Marilou::StartingTile::StartingTile</a></div><div class="ttdeci">StartingTile(const array&lt; Marilou::Cell *, 4 &gt; &amp;c)</div><div class="ttdef"><b>Definition:</b> tile.h:24</div></div>
+<div class="ttc" id="aclassMarilou_1_1StartingTile_html_a120d9614bbc713c5af05fefea8db313b"><div class="ttname"><a href="../../dc/d6a/classMarilou_1_1StartingTile.html#a120d9614bbc713c5af05fefea8db313b">Marilou::StartingTile::cells</a></div><div class="ttdeci">array&lt; Marilou::Cell *, 4 &gt; cells</div><div class="ttdef"><b>Definition:</b> tile.h:21</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html">Marilou::Tile</a></div><div class="ttdef"><b>Definition:</b> tile.h:12</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html_a0e5f79e44b712af1be7046bb7a53711e"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html#a0e5f79e44b712af1be7046bb7a53711e">Marilou::Tile::operator=</a></div><div class="ttdeci">Tile &amp; operator=(Tile &amp;p)=delete</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html_a1a3e2e636e9f9a8bf2c3bd17f3a145b2"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html#a1a3e2e636e9f9a8bf2c3bd17f3a145b2">Marilou::Tile::Tile</a></div><div class="ttdeci">Tile(const Tile &amp;p)=delete</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html_aaa00e28f8e3fcab6f9e9d7c990cdcbc2"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2">Marilou::Tile::~Tile</a></div><div class="ttdeci">~Tile()</div><div class="ttdef"><b>Definition:</b> tile.cpp:7</div></div>
+<div class="ttc" id="aclassMarilou_1_1Tile_html_ac28482de8c584bf266065c158cf4a664"><div class="ttname"><a href="../../d8/da8/classMarilou_1_1Tile.html#ac28482de8c584bf266065c158cf4a664">Marilou::Tile::Tile</a></div><div class="ttdeci">Tile()</div></div>
+<div class="ttc" id="anamespaceBarnabe_html"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html">Barnabe</a></div><div class="ttdef"><b>Definition:</b> player.cpp:3</div></div>
+<div class="ttc" id="anamespaceBarnabe_html_a288b73b92812d8c25d7115214b4dd81f"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html#a288b73b92812d8c25d7115214b4dd81f">Barnabe::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;f, const Barnabe::Player &amp;p)</div><div class="ttdef"><b>Definition:</b> player.cpp:32</div></div>
+<div class="ttc" id="anamespaceMarilou_html"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html">Marilou</a></div><div class="ttdef"><b>Definition:</b> score.h:10</div></div>
+<div class="ttc" id="anamespaceMarilou_html_a27484a2cbf323f4bd68e7a8f75e09a2d"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Marilou::Color</a></div><div class="ttdeci">Color</div><div class="ttdef"><b>Definition:</b> cell.h:16</div></div>
+<div class="ttc" id="anamespaceMarilou_html_a375dd806560ff8629ebff02ff3fe62da"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Marilou::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> cell.h:17</div></div>
+<div class="ttc" id="aposition_8cpp_html_aa476e6c45eb37ec6a5f7e028996712b0"><div class="ttname"><a href="../../d4/d59/position_8cpp.html#aa476e6c45eb37ec6a5f7e028996712b0">operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;f, const Barnabe::Position &amp;p)</div><div class="ttdef"><b>Definition:</b> position.cpp:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

@@ -1,5 +1,15 @@
 var searchData=
 [
-  ['test_2eh_0',['test.h',['../d2/ddc/test_8h.html',1,'']]],
-  ['truc_5fsuper_1',['truc_super',['../d2/ddc/test_8h.html#a374793c1d55da98d93e5cae01d903b64',1,'test.h']]]
+  ['barnabe_0',['Barnabe',['../dd/df6/namespaceBarnabe.html',1,'']]],
+  ['begin_1',['begin',['../d8/d16/classBarnabe_1_1Position.html#a234cf3f4a454b0e423aa266aabd4a339',1,'Barnabe::Position::begin()'],['../d8/dcb/classBarnabe_1_1Tile.html#a42bf890c91c123b685e579f91ff59b3c',1,'Barnabe::Tile::begin()'],['../dc/d76/classAmalena_1_1River.html#a5160846f4702b12c85bed27a1eb381ae',1,'Amalena::River::begin()'],['../d8/d80/classBarnabe_1_1Board.html#a85e92aa444fa8162d191991e2c425ba7',1,'Barnabe::Board::begin()'],['../d8/d80/classBarnabe_1_1Board.html#a2e57f906e0b31ef375145f63fd563143',1,'Barnabe::Board::begin() const']]],
+  ['bicolorcell_2',['BicolorCell',['../dd/d02/classBarnabe_1_1BicolorCell.html',1,'Barnabe::BicolorCell'],['../dd/d02/classBarnabe_1_1BicolorCell.html#aeb2ceed3264ec06bac7f1e4c0ad0c81b',1,'Barnabe::BicolorCell::BicolorCell(const BicolorCell &amp;c)=delete'],['../dd/d02/classBarnabe_1_1BicolorCell.html#a69da38b448a95d35b5cad4db6812ded3',1,'Barnabe::BicolorCell::BicolorCell(int i, Color c, Type t, Color sC, Rotation r)'],['../d1/d38/classMarilou_1_1BicolorCell.html#a2523f694bef264c25345977a673fe2e9',1,'Marilou::BicolorCell::BicolorCell(const BicolorCell &amp;c)'],['../d1/d38/classMarilou_1_1BicolorCell.html#a83c996e8192ff2b86f6804a0cb1595c4',1,'Marilou::BicolorCell::BicolorCell(const Tile *tile, Color c, Type t, Color sC, int r)'],['../d1/d38/classMarilou_1_1BicolorCell.html',1,'Marilou::BicolorCell']]],
+  ['blue_3',['BLUE',['../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2da1b3e1ee9bff86431dea6b181365ba65f',1,'Marilou::BLUE()'],['../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640a1b3e1ee9bff86431dea6b181365ba65f',1,'Barnabe::BLUE()']]],
+  ['board_4',['Board',['../d8/d80/classBarnabe_1_1Board.html',1,'Barnabe::Board'],['../d8/d80/classBarnabe_1_1Board.html#afbda003dfbd5761187a053efcfce70a6',1,'Barnabe::Board::Board()'],['../d8/d80/classBarnabe_1_1Board.html#a3778396c4876ec31b3c9f8e6889b617c',1,'Barnabe::Board::Board(const Board &amp;b)']]],
+  ['board_5',['board',['../d3/d79/classBarnabe_1_1Player.html#a7835db2502a7d012d90397fa1386ef67',1,'Barnabe::Player::board()'],['../d8/de9/classBarnabe_1_1BoardManager.html#a25b9d876fe771701191e60266a1947ca',1,'Barnabe::BoardManager::board()']]],
+  ['board_2ecpp_6',['board.cpp',['../df/d6e/board_8cpp.html',1,'']]],
+  ['board_2eh_7',['board.h',['../d3/d02/board_8h.html',1,'']]],
+  ['boardmanager_8',['BoardManager',['../d8/de9/classBarnabe_1_1BoardManager.html',1,'Barnabe::BoardManager'],['../d8/de9/classBarnabe_1_1BoardManager.html#a43d5c5da71c09a5545dd17b73be11441',1,'Barnabe::BoardManager::BoardManager()'],['../d8/de9/classBarnabe_1_1BoardManager.html#adeb6b51dd42bc07ce29c3395ec9d4bb9',1,'Barnabe::BoardManager::BoardManager(const BoardManager &amp;e)']]],
+  ['boardmanager_2ecpp_9',['boardmanager.cpp',['../d4/d25/boardmanager_8cpp.html',1,'']]],
+  ['boardmanager_2eh_10',['boardmanager.h',['../d7/ddb/boardmanager_8h.html',1,'']]],
+  ['boards_11',['boards',['../dd/df7/classAmalena_1_1GameMemento.html#a41726e8ea3b4cf3bd84d28fc8b2b047e',1,'Amalena::GameMemento']]]
 ];
