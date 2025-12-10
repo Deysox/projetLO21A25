@@ -1,0 +1,7 @@
+#ifndef PROJETLO21A25_CONSOLE_H
+#define PROJETLO21A25_CONSOLE_H
+
+#include "player.h"
+
+
+#endif //PROJETLO21A25_CONSOLE_H

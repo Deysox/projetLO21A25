@@ -1,0 +1,10 @@
+{
+  "joueurs": [
+    {
+      "nom": "machin",
+      "plateau" : [
+        {"Position": "(0,0)","Cellule": "3_2"}
+      ]
+    }
+  ]
+}
