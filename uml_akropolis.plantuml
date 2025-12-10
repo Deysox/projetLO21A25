@@ -311,5 +311,54 @@ namespace Marilou {
 
 Marilou.Score ..> Eloise.Player
 
+namespace Amaléna{
+
+
+
+class  GameMemento{
+- PlayersName :vector<string>
+- PlayersStone :vector<int>
+- boards :vector<map<pair<int,int>,pair<int, unsigned int>>>
+- nbplayers : size_t
+- currentplayer : size_t
+- variante : string
+- GameMemento(playersName :vector<string>,PlayersStone : vector<int> boards, nbplayers : size_t,
+currentplayer : size_t, variante : string)
+-~GameMemento()
+- get_players_name() : vector<string>
+- set_players_name(playersName : vector<string>) : void
+
+- get_players_stone() : vector<int>
+-set_players_stone(playersStone : vector<int>) : void
+
+-get_boards() : vector<map<pair<int,int>, pair<int,unsigned int>>>
+- set_boards(boards : vector<map<pair<int,int>, pair<int,unsigned int>>>) : void
+
+-get_nbplayer() : size_t
+-set_nbplayer(nbplayers : size_t) : void
+
+- get_currentplayer() : size_t
+-set_currentplayer(currentplayer : size_t) : void
+
+-get_variante() : string
+-set_variante(variante : string) : void
+}
+
+
+class SaveManager{
+- gameMemento : GameMemento*
+-fromjson(json data) : void
+-tojson(): json
++ savemanager(GameMemento*)
++~SaveManager()
++ void save(filename : string)
++void restore (filename : string)
+}
+
+
+SaveManager o-- "1..*" GameMemento
+
+
+}
 
 @enduml
