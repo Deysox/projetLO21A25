@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 #include "../Chantier/river.h"
-#include "../Joueur/player.h"
+#include "../Joueurs/player.h"
 #include "../Chantier/pile.h"
 #include "../Tuiles/deck.h"
 #include "../Gestion/game.h"
