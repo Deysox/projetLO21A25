@@ -20,8 +20,6 @@ namespace Eloise {
         if (fichier.is_open()){
             json data = json::parse(fichier); // Parsing des données
             fichier.close();
-            //reservation of space for tiles' vector
-            tiles.reserve(data.size());
             for (const auto& tile : data) {
 
                 if (tile["players"] <= nb_players_game) { // Vérification du nombre de joueurs dans la partie
