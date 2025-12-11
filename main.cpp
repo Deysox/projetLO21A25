@@ -29,10 +29,6 @@ int main(int argc, char* argv[])
 #include "Chantier/river.h"
 
 int main() {
-    using namespace Barnabe;
-
     Eloise::Menu menu;
-
-
     return 0;
 }
