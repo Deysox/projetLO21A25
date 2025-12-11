@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
-#include "../Joueur/player.h"
+#include "../Joueurs/player.h"
 
 
 //static attributs

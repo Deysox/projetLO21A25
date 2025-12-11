@@ -2,12 +2,12 @@
 // Created by elobo on 10/12/2025.
 //
 #include "gameQt.h"
-#include "../Joueur/playerQt.h"
+#include "../Joueurs/playerQt.h"
 #include "../Chantier/river.h"
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
-#include "../Joueur/player.h"
+#include "../Joueurs/player.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>

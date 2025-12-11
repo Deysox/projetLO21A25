@@ -2,7 +2,7 @@
 #define PROJETLO21A25_RIVER_H
 #include <vector>
 #include <iostream>
-#include "tile.h"
+#include "../Tuiles/tile.h"
 #include "pile.h"
 using namespace std;
 using namespace Barnabe;

@@ -5,8 +5,8 @@
 #include <algorithm>
 #include <random>
 
-#include "deck.h"
-#include "tile.h"
+#include "../Tuiles/deck.h"
+#include "../Tuiles/tile.h"
 using namespace std;
 namespace Amalena
 {

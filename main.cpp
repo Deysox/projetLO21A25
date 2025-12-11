@@ -23,10 +23,10 @@ int main(int argc, char* argv[])
 #include "Tuiles/tile.h"
 #include "Plateau/board.h"
 #include "Plateau/boardmanager.h"
-#include "deck.h"
-#include "pile.h"
-#include "menu2.h"
-#include "river.h"
+#include "Tuiles/deck.h"
+#include "Chantier/pile.h"
+#include "Gestion/menu2.h"
+#include "Chantier/river.h"
 
 int main() {
     using namespace Barnabe;

@@ -1,7 +1,8 @@
 //
 // Created by elobo on 10/12/2025.
 //
-#include "gameQt.h"
+#include "../Gestion/gameQt.h"
+#include "../Joueurs/playerQt.h"
 #include <QInputDialog>
 #include <QMessageBox>
 using namespace std;

@@ -5,8 +5,8 @@
 #include <vector>
 #include <string>
 
-#include "deck.h"
-#include "tile.h"
+#include "../Tuiles/deck.h"
+#include "../Tuiles/tile.h"
 
 
 class river;

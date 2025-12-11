@@ -2,7 +2,7 @@
 // Created by barnab on 17/11/2025.
 //
 #include "boardmanager.h"
-#include "exceptions.h"
+#include "../Utilitaires/exceptions.h"
 
 namespace Barnabe {
     BoardManager::BoardManager() : board(new Board()) {

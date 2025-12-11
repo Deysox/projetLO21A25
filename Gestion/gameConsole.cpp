@@ -2,7 +2,7 @@
 // Created by elobo on 10/12/2025.
 //
 #include "gameConsole.h"
-#include "../Joueur/playerConsole.h"
+#include "../Joueurs/playerConsole.h"
 GameConsole* GameConsole::instanceConsole = nullptr;
 
 void GameConsole::addEachPlayerToGame() {

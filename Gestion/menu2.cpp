@@ -5,13 +5,14 @@
 #include <iostream>
 #include "menu2.h"
 #include "game.h"
+#include "gameConsole.h"
 using namespace std;
 
-Menu::Menu() {
+Eloise::Menu::Menu() {
     display();
 }
 
-void Menu::display() {
+void Eloise::Menu::display() {
     char choice = 'A';
     while (1) {
             do {
