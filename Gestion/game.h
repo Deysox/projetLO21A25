@@ -2,7 +2,7 @@
 #define PROJETLO21A25_Game_H
 #include <string>
 #include "../Chantier/river.h"
-#include "../Joueur/player.h"
+#include "../Joueurs/player.h"
 #include "../Chantier/pile.h"
 #include <vector>
 #include "../Tuiles/deck.h"
