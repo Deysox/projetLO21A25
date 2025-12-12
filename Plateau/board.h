@@ -34,6 +34,11 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
+    public:
+        static map<string, Color> stringToColor;
+        static map<string, Type> stringToType;
+        static map<Color, string> colorToString;
+        static map<Type, string> typeToString;
         //Position = {int posX, int posY}
         /*
         struct PositionHasher {
@@ -43,6 +48,7 @@ namespace Barnabe {
             }
         };
          */
+    private :
         unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher> cells;
         Position corner_tl;
         Position corner_br;
