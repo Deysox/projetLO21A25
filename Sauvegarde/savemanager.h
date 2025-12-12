@@ -18,15 +18,20 @@ namespace Amalena
 {
     class savemanager
     {
-        GameMemento* gameMemento;
+        //init to secure
+        GameMemento* gameMemento = nullptr;
 
     public:
+        //to save
         savemanager(GameMemento* g):gameMemento(g){};
+        //to restore
+        savemanager();
         ~savemanager()=default;
         savemanager(const savemanager& s)=delete;
         savemanager& operator=(const savemanager& s)=delete;
         void save() ;
-        void restore();
+        //void restore();
+        GameMemento* restore();
         json tojson();
         void fromjson(json data);
     };

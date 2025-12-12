@@ -16,9 +16,14 @@ namespace Amalena
         //     tiles.push_back(pile.Draw());
         // }
     }
-
-
-
+    River& River::operator=(const River& f) {
+        if (this!=&f) {
+            this->tiles = f.tiles;
+            this->max_tiles = f.max_tiles;
+            this->pile = f.pile;
+        }
+        return *this;
+    }
     void River::fillriver()
     {
         while (tiles.size()<max_tiles) tiles.push_back(pile.Draw());
@@ -55,14 +60,6 @@ namespace Amalena
         //gérer sauvegarde
     }
 
-    River& River::operator=(const River& f) {
-        if (this!=&f) {
-            this->tiles = f.tiles;
-            this->max_tiles = f.max_tiles;
-            this->pile = f.pile;
-        }
-        return *this;
-    }
     string River::toString() const {
         std::ostringstream oss;
         for (size_t i = 0; i < tiles.size(); ++i) {
@@ -70,9 +67,10 @@ namespace Amalena
         }
         return oss.str();
     }
+
 }
 
-ostream& Amalena::operator<<(std::ostream& f, Amalena::River& river) {
+ostream& operator<<(std::ostream& f, Amalena::River& river) {
     f << "River:\n";
     int pos = 1;
     for (auto it = river.begin(); it != river.end(); ++it) {

@@ -22,7 +22,6 @@ namespace Amalena
 
         class GameMemento
         {
-
             vector<int> riverid;
             vector<int> pileid;
             //Deck=> reconstruction possible à partir des paramètres
@@ -34,6 +33,7 @@ namespace Amalena
             size_t currentplayer;
             string variante;
 //_______________________Getters and setters____________________________________________________
+        public :
             vector<int> get_riverid() const;
             void set_riverid(const vector<int>& riverid);
             vector<int> get_pileid() const;
@@ -51,30 +51,25 @@ namespace Amalena
             string get_variante() const;
             void set_variante(const string& variante);
 //___________________________________________________________________________________________________________________
+        private :
             friend class Game;
             friend class savemanager;
 
-
-
-
         public:
 
-            GameMemento(vector<int> riverid,vector<int> pileid,
-
+            GameMemento(
+            vector<int> riverid,
+            vector<int> pileid,
             vector<string> PlayersName,
             vector<int> PlayersStone,
             vector<map<pair<int,int>, pair<int, unsigned int>>>board,
-
             size_t nbplayer,
             size_t currentplayer,
             string variante): riverid(riverid),pileid(pileid),PlayersName(PlayersName),PlayersStone(PlayersStone),
             boards(board),nbplayer(nbplayer),currentplayer(currentplayer),variante(variante){};
             GameMemento();
             ~GameMemento()=default;
-
         };
-
-
     };
 
 #endif //TESTSAUVEGARDE_GAMEMEMENTO_H
