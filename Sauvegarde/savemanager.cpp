@@ -19,23 +19,7 @@ namespace Amalena
         j["pileid"]=gameMemento->get_pileid();
         j["playersName"]=gameMemento->get_players_name();
         j["playerStone"]=gameMemento->get_players_stone();
-        //j["boards"]=gameMemento->get_boards();
-        auto boards=gameMemento->get_boards();
-        json j_boards;
-        json j_boardi;
-        for (int i=0;i<boards.size();i++ )
-        {
-            std::string name = std::to_string(i);
-
-            for (auto board : boards[i]){
-            string key = to_string(board.first.first)+","+to_string(board.first.second);
-            j_boardi[key]={board.second.first,board.second.second};
-            }
-            j_boards[name] =j_boardi ;
-            //j_boards.push_back("");
-
-        }
-        j["boards"]=j_boards;
+        j["boards"] = gameMemento->get_boards();
         j["nbplayer"]=gameMemento->get_nbplayer();
         j["currentplayer"]=gameMemento->get_currentplayer();
         j["variante"]=gameMemento->get_variante();
@@ -82,44 +66,17 @@ namespace Amalena
     }*/
     void savemanager::fromjson(json data)
     {
-        auto jboards= data["boards"];
-        vector<map<pair<int, int>, pair<int, unsigned int>>> vboards={};
-
-        //for (int i=0; i<jboards.size();i++ )
-        for (auto& [boardKey, jsonboard] : jboards.items())
-
-        {
-            map<pair<int, int>, pair<int, unsigned int>> board={};
-
-            for (auto [keyStr, valueArr] : jsonboard.items())//partie inspirant des propositions d'une IAg
-            {
-                // keyStr = "x,y"
-                int x, y;
-                sscanf(keyStr.c_str(), "%d,%d", &x, &y);
-
-                // valueArr = [val1, val2]
-                int v1 = valueArr[0].get<int>();
-                unsigned int v2 = valueArr[1].get<unsigned int>();
-
-                board[{x, y}] = {v1, v2};
-            }
-
-        vboards.push_back(board);
-
         gameMemento = new GameMemento(
         data["version"],
         data["riverid"].get<std::vector<int>>(),
         data["pileid"].get<std::vector<int>>(),
         data["playersName"].get<std::vector<string>>(),
         data["playerStone"].get<std::vector<int>>(),
-        vboards,
+        data["boards"],
         data["nbplayer"],
         data["currentplayer"],
         data["variante"]
         );
-
-        }
-
     }
 
     void savemanager::save(){
@@ -130,11 +87,10 @@ namespace Amalena
             std::cerr << "Failed to open file for writing" << std::endl;
 
         }
-
-
         file << std::setw(4) << j << std::endl;
 
     }
+
     GameMemento* savemanager::restore()
     {
         std::ifstream file("../test.json");
