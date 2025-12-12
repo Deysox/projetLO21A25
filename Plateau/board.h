@@ -50,6 +50,8 @@ namespace Barnabe {
 
         json toJsonBoard() const;
 
+        static Board fromJsonBoard(const json& j);
+
         class iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::iterator {
 
         };

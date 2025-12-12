@@ -31,6 +31,20 @@ namespace Barnabe {
         return j_board;
     }
 
+    Board Board::fromJsonBoard(const json& j) {
+        Board board;
+        board.corner_tl = Position(j["corner_tl"]["x"], j["corner_tl"]["y"]);
+        board.corner_br = Position(j["corner_br"]["x"], j["corner_br"]["y"]);
+        for (const auto& jcell : j["cells"]) {
+            int x = jcell["x"];
+            int y = jcell["y"];
+            unsigned int hauteur = jcell["hauteur"];
+            const Cell* cell_ptr = getCell(x,y);
+            board.setCell(Position(x, y), hauteur, cell_ptr);
+        }
+        return board;
+    }
+
     Board &Board::operator=(const Board &b ) {
         if (&b != this) {
             cells = b.cells;

@@ -2,31 +2,21 @@
   "version": "console",
   "boards": {
     "0": {
-      "0,0": [
-        99,
-        10
-      ],
-      "1,2": [
-        3,
-        20
-      ],
-      "2,4": [
-        5,
-        30
+      "corner_tl": { "x": 0, "y": 0 },
+      "corner_br": { "x": 5, "y": 5 },
+      "cells": [
+        { "x": 0, "y": 0, "cell_id": 10, "hauteur": 5 },
+        { "x": 1, "y": 2, "cell_id": 7, "hauteur": 3 },
+        { "x": 2, "y": 4, "cell_id": 12, "hauteur": 8 }
       ]
     },
     "1": {
-      "0,0": [
-        1,
-        10
-      ],
-      "1,2": [
-        3,
-        20
-      ],
-      "2,4": [
-        5,
-        30
+      "corner_tl": { "x": 0, "y": 0 },
+      "corner_br": { "x": 4, "y": 4 },
+      "cells": [
+        { "x": 0, "y": 0, "cell_id": 1, "hauteur": 2 },
+        { "x": 1, "y": 2, "cell_id": 3, "hauteur": 6 },
+        { "x": 2, "y": 4, "cell_id": 5, "hauteur": 1 }
       ]
     }
   },
