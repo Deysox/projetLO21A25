@@ -5,7 +5,7 @@ namespace Barnabe {
 
     map<string, Color> Board::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
     map<string, Type> Board::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
-    map<Color, string> colorToString = {
+    map<Color, string> Board::colorToString = {
         {Color::BLUE, "Blue"},
         {Color::RED, "Red"},
         {Color::GREEN, "Green"},
@@ -13,7 +13,7 @@ namespace Barnabe {
         {Color::GREY, "Grey"},
         {Color::PURPLE, "Purple"}
     };
-    map<Type, string> typeToString = {
+    map<Type, string> Board::typeToString = {
         {Type::DISTRICT, "District"},
         {Type::PLACE, "Place"},
         {Type::QUARRY, "Quarry"}
@@ -38,7 +38,7 @@ namespace Barnabe {
             json jcell;
             jcell["x"] = pos.x();
             jcell["y"] = pos.y();
-            jcell["color"] = colorToString[data.first->getColor()];
+            jcell["couleur"] = colorToString[data.first->getColor()];
             jcell["type"] = typeToString[data.first->getType()];
             jcell["cell_id"] = data.first->getID();
             jcell["hauteur"] = data.second;
@@ -57,8 +57,8 @@ namespace Barnabe {
             int x = jcell["x"];
             int y = jcell["y"];
             unsigned int hauteur = jcell["hauteur"];
-            int id = jcell["id"];
-            Color color = stringToColor[jcell["color"]];
+            int id = jcell["cell_id"];
+            Color color = stringToColor[jcell["couleur"]];
             Type type = stringToType[jcell["type"]];
             const Cell* cell_ptr = new Cell(id, color, type);
             board.setCell(Position(x, y), hauteur, cell_ptr);
