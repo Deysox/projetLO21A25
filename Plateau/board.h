@@ -11,6 +11,10 @@
 
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
+
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 using namespace std;
 
 namespace Barnabe {
@@ -30,10 +34,22 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
+        //Position = {int posX, int posY}
+        /*
+        struct PositionHasher {
+            std::size_t operator()(const Position& p) const {
+                return std::hash<int>()(p.x()) ^ (std::hash<int>()(p.y()) << 1); // Fonction de hachage pour fournir
+                // un identifiant unique à chaque Position dans la unordered_map
+            }
+        };
+         */
         unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher> cells;
         Position corner_tl;
         Position corner_br;
     public:
+
+        json toJsonBoard() const;
+
         class iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::iterator {
 
         };

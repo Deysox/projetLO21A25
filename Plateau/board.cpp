@@ -11,6 +11,26 @@ namespace Barnabe {
         corner_br = b.corner_br;
     }
 
+    json Board::toJsonBoard() const {
+        json j_board;
+
+        j_board["corner_tl"] = { {"x", corner_tl.x()}, {"y", corner_tl.y()} };
+        j_board["corner_br"] = { {"x", corner_br.x()}, {"y", corner_br.y()} };
+
+        json j_cells = json::array();
+        for (const auto& [pos, data] : cells) {
+            json jcell;
+            jcell["x"] = pos.x();
+            jcell["y"] = pos.y();
+            jcell["cell_id"] = data.first->getID();
+            jcell["hauteur"] = data.second;
+            j_cells.push_back(jcell);
+        }
+
+        j_board["cells"] = j_cells;
+        return j_board;
+    }
+
     Board &Board::operator=(const Board &b ) {
         if (&b != this) {
             cells = b.cells;
