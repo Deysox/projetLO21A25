@@ -107,6 +107,7 @@ namespace Amalena
         vboards.push_back(board);
 
         gameMemento = new GameMemento(
+        data["version"],
         data["riverid"].get<std::vector<int>>(),
         data["pileid"].get<std::vector<int>>(),
         data["playersName"].get<std::vector<string>>(),
