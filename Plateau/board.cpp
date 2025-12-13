@@ -3,12 +3,76 @@
 namespace Barnabe {
     using namespace Marilou;
 
+    map<string, Color> Board::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
+    map<string, Type> Board::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
+    map<Color, string> Board::colorToString = {
+        {Color::BLUE, "Blue"},
+        {Color::RED, "Red"},
+        {Color::GREEN, "Green"},
+        {Color::YELLOW, "Yellow"},
+        {Color::GREY, "Grey"},
+        {Color::PURPLE, "Purple"}
+    };
+    map<Type, string> Board::typeToString = {
+        {Type::DISTRICT, "District"},
+        {Type::PLACE, "Place"},
+        {Type::QUARRY, "Quarry"}
+    };
+
     Board::Board() : corner_br(0,0), corner_tl(0,0) {};
     Board::~Board() = default;
-    Board::Board(const Board& b) {
+    /*Board::Board(const Board& b) {
         cells = b.cells;
         corner_tl = b.corner_tl;
         corner_br = b.corner_br;
+    }*/
+
+    Board::Board(const Board& b) {
+        corner_tl = b.corner_tl;
+        corner_br = b.corner_br;
+        for (const auto& [pos, data] : b.cells) {
+            Cell* new_cell = new Cell(*data.first);
+            cells[pos] = {new_cell, data.second};
+        }
+    }
+
+    json Board::toJsonBoard() const {
+        json j_board;
+
+        j_board["corner_tl"] = { {"x", corner_tl.x()}, {"y", corner_tl.y()} };
+        j_board["corner_br"] = { {"x", corner_br.x()}, {"y", corner_br.y()} };
+
+        json j_cells = json::array();
+        for (const auto& [pos, data] : cells) {
+            json jcell;
+            jcell["x"] = pos.x();
+            jcell["y"] = pos.y();
+            jcell["couleur"] = colorToString[data.first->getColor()];
+            jcell["type"] = typeToString[data.first->getType()];
+            jcell["cell_id"] = data.first->getID();
+            jcell["hauteur"] = data.second;
+            j_cells.push_back(jcell);
+        }
+
+        j_board["cells"] = j_cells;
+        return j_board;
+    }
+
+    Board Board::fromJsonBoard(const json& j) {
+        Board board;
+        board.corner_tl = Position(j["corner_tl"]["x"], j["corner_tl"]["y"]);
+        board.corner_br = Position(j["corner_br"]["x"], j["corner_br"]["y"]);
+        for (const auto& jcell : j["cells"]) {
+            int x = jcell["x"];
+            int y = jcell["y"];
+            unsigned int hauteur = jcell["hauteur"];
+            int id = jcell["cell_id"];
+            Color color = stringToColor[jcell["couleur"]];
+            Type type = stringToType[jcell["type"]];
+            const Cell* cell_ptr = new Cell(id, color, type);
+            board.setCell(Position(x, y), hauteur, cell_ptr);
+        }
+        return board;
     }
 
     Board &Board::operator=(const Board &b ) {

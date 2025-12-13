@@ -45,7 +45,7 @@ namespace Barnabe {
          * Désalloue l'espace octroyé au plateau et à la tuile de départ
          */
         ~BoardManager();
-
+        BoardManager(const Board& b) : board(new Board(b)) {}
         /*
          * Opérateur d'affectation du BoardManager
          */
@@ -69,7 +69,10 @@ namespace Barnabe {
          */
         int place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 
-
+        void setBoard(const BoardManager& bm) {
+            if (board) delete board;
+            board = new Board(*bm.board);
+        }
 
         friend ostream& operator<<(ostream& f, const BoardManager& c);
     };

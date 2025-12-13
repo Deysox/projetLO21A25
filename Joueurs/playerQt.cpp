@@ -1,7 +1,10 @@
 //
 // Created by elobo on 10/12/2025.
 //
-
+#include "../Gestion/gameQt.h"
+#include "../Joueurs/playerQt.h"
+#include <QInputDialog>
+#include <QMessageBox>
 using namespace std;
 
 namespace Barnabe {

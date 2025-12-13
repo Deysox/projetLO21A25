@@ -2,12 +2,12 @@
 // Created by elobo on 10/12/2025.
 //
 #include "gameQt.h"
-#include "../Joueur/playerQt.h"
+#include "../Joueurs/playerQt.h"
 #include "../Chantier/river.h"
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
-#include "../Joueur/player.h"
+#include "../Joueurs/player.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -38,6 +38,16 @@ void GameQt::displayCurrentPlayerInfo() {
     QMessageBox::information(parent, "Player Turn", info);
 }
 void GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+    QMessageBox msgBox;
+    msgBox.setText("Do you want to abandon the game ?");
+    QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
+    QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
+    msgBox.exec();
+    if (msgBox.clickedButton() == yesButton) {
+        abandonGame();
+        freeInstance();
+        return;
+    }
     char satisfied = 'N';
     do {
         Tile* tile = &pickRiver();
@@ -176,4 +186,20 @@ void GameQt::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* riv
             players[current_player]->playTurn(*tile);
         }
     } while (satisfied == 'N');
+}
+
+string GameQt::displayAbandonGame1() {
+    QMessageBox::information(parent, "Abandon game 1", "Temporary abandon of the game.");
+    QString id = QInputDialog::getText(
+        parent,
+        "Save game",
+        "Choose an id for your game:",
+        QLineEdit::Normal,
+        ""
+    );
+    return id.toStdString();
+}
+
+void GameQt::displayAbandonGame2(){
+    QMessageBox::information(parent, "Abandon game 2", "Registration of game successful.");
 }

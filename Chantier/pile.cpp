@@ -5,8 +5,8 @@
 #include <algorithm>
 #include <random>
 
-#include "deck.h"
-#include "tile.h"
+#include "../Tuiles/deck.h"
+#include "../Tuiles/tile.h"
 using namespace std;
 namespace Amalena
 {
@@ -15,23 +15,15 @@ namespace Amalena
         if (!isEmpty())
         {
             //throw PileException("Empty pile");
-
             Barnabe::Tile* t = tiles.back();
             tiles.pop_back();
             return t;
-        }else
+        }
+        else
         {
-            printf("pioche vide, distribution impossible");
+            cout << "pioche vide, distribution impossible";
             return nullptr;
         }
-    }
-
-    Pile& Pile::operator=(const Pile& p) {
-        if (this!=&p) {
-            this->tiles = p.tiles;
-            this->deck = p.deck;
-        }
-        return *this;
     }
 
     Pile::Pile(Eloise::Deck& d): deck(d)
@@ -46,6 +38,14 @@ namespace Amalena
         std::random_device rd;
         std::mt19937 g(rd());
         shuffle(tiles.begin(), tiles.end(), g);
+    }
+
+    Pile& Pile::operator=(const Pile& p) {
+        if (this!=&p) {
+            this->tiles = p.tiles;
+            this->deck = p.deck;
+        }
+        return *this;
     }
 
     bool Pile::isEmpty()const

@@ -12,9 +12,14 @@ class GameConsole : public Game {
 private:
     static GameConsole* instanceConsole;
     GameConsole(size_t nb_players) : Game(nb_players) {}
+    GameConsole(const Amalena::GameMemento& game_memento) : Game(game_memento) {}
 public:
     static GameConsole& giveInstance(size_t nb_players) {
         if (!instanceConsole) instanceConsole = new GameConsole(nb_players);
+        return *instanceConsole;
+    }
+    static GameConsole& giveInstance(const Amalena::GameMemento& game_memento) {
+        if (!instanceConsole) instanceConsole = new GameConsole(game_memento);
         return *instanceConsole;
     }
     static void freeInstance() {
@@ -34,5 +39,8 @@ public:
 
     void displayRiver() override;
     Tile& chooseTileRiver() override;
+
+    string displayAbandonGame1() override;
+    void displayAbandonGame2() override;
 };
 #endif //PROJETLO21A25_GAMECONSOLE_H

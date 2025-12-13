@@ -2,7 +2,8 @@
 // Created by elobo on 10/12/2025.
 //
 #include "gameConsole.h"
-#include "../Joueur/playerConsole.h"
+#include "../Joueurs/playerConsole.h"
+
 GameConsole* GameConsole::instanceConsole = nullptr;
 
 void GameConsole::addEachPlayerToGame() {
@@ -18,6 +19,14 @@ void GameConsole::displayCurrentPlayerInfo() {
     cout << "Current player : " << *players.at(current_player);
 }
 void GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+    cout << "Do you want to abandon the game ? (Y/N): ";
+    string answer;
+    cin >> answer;
+    if (answer == "Y") {
+        abandonGame();
+        freeInstance();
+        return;
+    }
     char satisfied_player = 'N';
     char option = 'A';
     Tile* tile = nullptr;
@@ -151,4 +160,16 @@ void GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River
             cin >> satisfied_player;
         }
     } while (satisfied_player == 'N');
+}
+
+string GameConsole::displayAbandonGame1() {
+    cout << "Temporary abandon of the game. \n";
+    cout << "Choose an id for your game : ";
+    string id;
+    cin >> id;
+    return id;
+}
+
+void GameConsole::displayAbandonGame2(){
+    cout << "Registration of game's parameters successful. \n";
 }

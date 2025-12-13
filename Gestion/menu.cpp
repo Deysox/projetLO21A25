@@ -66,3 +66,7 @@ void MenuQt::boutonLancerGameClique() {
         }
     GameQt::freeInstance();
 }
+
+void MenuQt::boutonReprendreGameClique() {
+    QMessageBox::information(this, "Resume game", "Resume of a game.");
+}
