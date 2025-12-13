@@ -19,16 +19,26 @@ int main(int argc, char* argv[])
     return app.exec();
 }*/
 
-#include "Tuiles/cell.h"
-#include "Tuiles/tile.h"
-#include "Plateau/board.h"
-#include "Plateau/boardmanager.h"
-#include "Tuiles/deck.h"
-#include "Chantier/pile.h"
-#include "Gestion/menu2.h"
-#include "Chantier/river.h"
 
-int main() {
-    Eloise::Menu menu;
-    return 0;
+
+#include <QApplication>
+
+#include "boardmanager.h"
+#include "boardqt.h"
+
+
+
+int main(int argc, char* argv[])
+{
+    QApplication app(argc, argv);
+
+
+    Barnabe::BoardManager bm;
+    Barnabe::BoardQt bqt(nullptr,bm.getBoard());
+    bqt.setFixedSize(500,500);
+
+    bqt.show();
+
+    return app.exec();
 }
+

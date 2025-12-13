@@ -11,7 +11,9 @@
 
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
+#include <nlohmann/json.hpp>
 using namespace std;
+using json = nlohmann::json;
 
 namespace Barnabe {
     //using namespace Marilou;
@@ -30,11 +32,21 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
+
+        static map<string, Color> stringToColor;
+        static map<string, Type> stringToType;
+        static map<Color, string> colorToString;
+        static map<Type, string> typeToString;
+
+    private :
         using cellmap = unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>;
         cellmap cells;
         Position corner_tl;
         Position corner_br;
     public:
+        json toJsonBoard() const;
+
+        static Board fromJsonBoard(const json& j);
 
         class iterator : public cellmap::iterator {
             friend class Board;
