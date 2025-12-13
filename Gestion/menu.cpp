@@ -9,7 +9,7 @@
 #include <QLineEdit>
 #include <QtGui>
 #include <QMessageBox>
-#include <Qobject>
+#include <QObject>
 #include <QInputDialog>
 
 MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {

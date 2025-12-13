@@ -30,16 +30,20 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
-        unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher> cells;
+        using cellmap = unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>;
+        cellmap cells;
         Position corner_tl;
         Position corner_br;
     public:
-        class iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::iterator {
 
+        class iterator : public cellmap::iterator {
+            friend class Board;
+            iterator(cellmap::iterator mi) : cellmap::iterator(mi) {}
         };
 
-        class const_iterator : public unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>::const_iterator {
-
+        class const_iterator : public cellmap::const_iterator {
+            friend class Board;
+            const_iterator(cellmap::const_iterator mi) : cellmap::const_iterator(mi) {}
         };
 
         iterator begin() {return iterator(cells.begin());}
