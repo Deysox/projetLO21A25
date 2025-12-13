@@ -141,9 +141,11 @@ namespace Barnabe {
             return (p1.y() > p2.y()) || (p1.y() == p2.y() && p1.x() < p2.x());
         }
     };
+
+    ostream& operator<<(ostream& f, const Barnabe::Position& p);
 }
 
-ostream& operator<<(ostream& f, const Barnabe::Position& p);
+
 
 
 #endif //PROJETLO21A25_POSITION_H

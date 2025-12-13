@@ -7,7 +7,7 @@
 namespace Barnabe {
     Position Position::operator+(const Rotation& r) const {
         Position output;
-        int parity = posX%2; // Les coordonnées voisines changent selon la parité de x
+        int parity = abs(posX%2); // Les coordonnées voisines changent selon la parité de x
         switch (r.value()) {
             case 0:
                 output = Position(posX,posY+1); // Universel
@@ -41,10 +41,11 @@ namespace Barnabe {
         }
         return false;
     }
+
+    ostream& operator<<(ostream& f, const Barnabe::Position& p) {
+        string out = "(" + to_string(p.x()) + ";" + to_string(p.y()) +")";
+        f << out;
+        return f;
+    }
 }
 
-ostream& operator<<(ostream& f, const Barnabe::Position& p) {
-    string out = "(" + to_string(p.x()) + ";" + to_string(p.y()) +")";
-    f << out;
-    return f;
-}
