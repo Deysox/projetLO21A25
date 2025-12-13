@@ -6,6 +6,8 @@
 #include <cmath>
 #include <QPainter>
 #include <QPoint>
+#include <QLabel>
+#include <QMouseEvent>
 
 namespace Barnabe {
 
@@ -19,23 +21,34 @@ namespace Barnabe {
         {Color::GREY,{"#b7b7b7","#777777"}},
     };
 
-    CellQt::CellQt(QWidget *parent, Color c, Type t, unsigned int hght, int s) :
-    QWidget(parent), color(c), type(t), height(hght), size(s), w(size*2), h(std::sqrt(3)*size) {
+    CellQt::CellQt(QWidget *parent, Position p, Color c, Type t, unsigned int hght, int s) :
+    QWidget(parent), pos(p), color(c), type(t), height(hght), size(s), w(size*2), h(std::sqrt(3)*size), locked(false) {
         setStyleSheet("background-color: rgba(0,0,0,0)");
         setFixedSize(w,w);
+        label = new QLabel(this);
+        label->setText(QString::number(height));
+        label->setFont(QFont("monospace",20,600));
+
+        label->move(4*size/5,2*size/5);
 
     }
 
     void CellQt::paintEvent(QPaintEvent *event) {
         QPainter hexPainter(this);
 
-        QPen hexPen(colors[color].second);
-        QBrush hexBrush(colors[color].first);
-        hexPen.setWidth(3);
-
-
-        hexPainter.setPen(hexPen);
-        hexPainter.setBrush(hexBrush);
+        if (type == Type::PLACE) {
+            QPen hexPen(colors[color].first);
+            QBrush hexBrush(colors[color].second);
+            hexPen.setWidth(3);
+            hexPainter.setPen(hexPen);
+            hexPainter.setBrush(hexBrush);
+        } else {
+            QPen hexPen(colors[color].second);
+            QBrush hexBrush(colors[color].first);
+            hexPen.setWidth(3);
+            hexPainter.setPen(hexPen);
+            hexPainter.setBrush(hexBrush);
+        }
 
         const QPoint points[6] = {
             QPoint(w/4,0),
@@ -48,11 +61,26 @@ namespace Barnabe {
         };
         hexPainter.drawPolygon(points,6);
 
+        if (underMouse() && !locked) {
+            label->setStyleSheet("color:red;");
+        } else {
+            if (type == Type::PLACE) label->setStyleSheet("color: white;"); else label->setStyleSheet("color: black;");
+        }
+
+
+
+    }
+
+    void CellQt::mousePressEvent(QMouseEvent * event) {
+        if (!locked) {
+            cout << pos << endl;
+        }
+
     }
 
     BoardQt::BoardQt(QWidget *parent, const Board *b, int s) : QWidget(parent), board(b), size(s) {
         setStyleSheet("background-color:#e0e0e0;");
-        update();
+        updateDisplay();
 
     }
 
@@ -61,7 +89,7 @@ namespace Barnabe {
         cells.clear();
     }
 
-    void BoardQt::update() {
+    void BoardQt::updateDisplay() {
         empty();
         Position ctl = board->getCorners().first;
         int w = size*2;
@@ -76,7 +104,7 @@ namespace Barnabe {
             const Cell* cell = it->second.first;
             unsigned int hght = it->second.second;
 
-            CellQt* cell_qt = new CellQt(this,cell->getColor(), cell->getType(),hght);
+            CellQt* cell_qt = new CellQt(this,pos,cell->getColor(), cell->getType(),hght);
             int movex = pos.x()*3*w/4-x_offset;
             int movey = -pos.y()*h-y_offset;
 
@@ -84,7 +112,12 @@ namespace Barnabe {
             cell_qt->move(movex,movey);
             cells.push_back(cell_qt);
         }
+
+        update();
     }
+
+
+
 
 
 
