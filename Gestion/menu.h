@@ -15,11 +15,8 @@ public:
     explicit MenuQt(QWidget* parent = 0);
     signals:
     private slots:
-
-        void boutonLancerGameClique();
-
-    //void boutonReprendreGameClique();
-
+    void boutonLancerGameClique();
+    void boutonReprendreGameClique();
     void boutonAfficherReglesClique();
 private:
     QPushButton* boutonLancerGame;

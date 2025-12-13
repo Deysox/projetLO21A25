@@ -21,13 +21,16 @@ private:
     QWidget* parent = nullptr;
     static GameQt* instanceQt;
     GameQt(size_t nb_players) : Game(nb_players) {}
-
+    GameQt(const Amalena::GameMemento& game_memento) : Game(game_memento) {}
 public:
     static GameQt& giveInstance(size_t nb_players) {
         if (!instanceQt) instanceQt = new GameQt(nb_players);
         return *instanceQt;
     }
-
+    static GameQt& giveInstance(const Amalena::GameMemento& game_memento) {
+        if (!instanceQt) instanceQt = new GameQt(game_memento);
+        return *instanceQt;
+    }
     static void freeInstance() {
         delete instanceQt;
         instanceQt = nullptr;
@@ -46,5 +49,8 @@ public:
 
     void displayRiver() override;
     Tile& chooseTileRiver() override ;
+
+    string displayAbandonGame1() override;
+    void displayAbandonGame2() override;
 };
 #endif //PROJETLO21A25_GAMEQT_H

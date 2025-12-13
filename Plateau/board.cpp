@@ -21,10 +21,19 @@ namespace Barnabe {
 
     Board::Board() : corner_br(0,0), corner_tl(0,0) {};
     Board::~Board() = default;
-    Board::Board(const Board& b) {
+    /*Board::Board(const Board& b) {
         cells = b.cells;
         corner_tl = b.corner_tl;
         corner_br = b.corner_br;
+    }*/
+
+    Board::Board(const Board& b) {
+        corner_tl = b.corner_tl;
+        corner_br = b.corner_br;
+        for (const auto& [pos, data] : b.cells) {
+            Cell* new_cell = new Cell(*data.first);
+            cells[pos] = {new_cell, data.second};
+        }
     }
 
     json Board::toJsonBoard() const {

@@ -4,15 +4,16 @@
 
 #include <iostream>
 #include "menu2.h"
-#include "game.h"
 #include "gameConsole.h"
+#include "../Sauvegarde/savemanager.h"
 using namespace std;
+using namespace Eloise;
 
-Eloise::Menu::Menu() {
+Menu::Menu() {
     display();
 }
 
-void Eloise::Menu::display() {
+void Menu::display() {
     char choice = 'A';
     while (1) {
             do {
@@ -60,9 +61,21 @@ void Eloise::Menu::display() {
                     GameConsole::freeInstance();
                     break;
                 }
+                {
                 case '2':
-                    cout << "Game resumption.\n";
+                    cout << "Game resumption. What was the id of your game ? :\n";
+                    string resumption;
+                    cin >> resumption;
+                    Amalena::savemanager save_manager;
+                    Amalena::GameMemento* game_memento = save_manager.restore(resumption);
+                    //little security because instance is unique
+                    GameConsole::freeInstance();
+                    GameConsole& game = GameConsole::giveInstance(*game_memento);
+                    game.manageResumeGame();
+                    game.endGame();
+                    GameConsole::freeInstance();
                     break;
+                }
                 case '3':
                     cout << "Here are the rules of the game :\n"
                         "In this tile-laying game, players take on the role of architects who compete against each other "

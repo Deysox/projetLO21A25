@@ -18,8 +18,8 @@ namespace Barnabe {
 
     BoardManager& BoardManager::operator=(const BoardManager& e) {
         if (&e != this) {
-            board = new Board();
-            *board = *(e.board);
+            delete board;
+            board = new Board(*e.board);
         }
         return *this;
     }

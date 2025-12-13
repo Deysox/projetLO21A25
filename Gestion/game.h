@@ -6,7 +6,14 @@
 #include "../Chantier/pile.h"
 #include <vector>
 #include "../Tuiles/deck.h"
+#include "../Gestion/game.h"
+#include "../Sauvegarde/savemanager.h"
+#include "../Sauvegarde/GameMemento.h"
+#include "../Joueurs/playerConsole.h"
+#include "../Joueurs/playerQt.h"
+#include "../Plateau/board.h"
 
+using namespace Barnabe;
 using namespace std;
 
 class Game {
@@ -27,11 +34,15 @@ protected:
 	//game handles river, river created when game starts
 	Amalena::River* river = nullptr;
 
-	//constructeur normal
-	Game(size_t nb_players);
-	//rajouter un constructeur à partir des fichiers json pour reprendre les parties
+	//game has potentially a variant
+	string variant;
 
-	//destructeur s'occupe d'aller stocker et sauvegarder les paramètres de la partie abandonnée dans un fichier json
+	//constructor for new game
+	Game(size_t nb_players);
+
+	//constructor for old game
+	Game(const Amalena::GameMemento& game_memento);
+
 	virtual ~Game();
 
 	//singleton so delete
@@ -104,9 +115,6 @@ public:
 	virtual void architectPlaySoloGame() = 0;
 	virtual void realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) = 0;
 
-	//quit and register the game
-	void abandonGame();
-
 	//design pattern : template method
 	Tile& pickRiver() {
 		displayRiver();
@@ -117,6 +125,65 @@ public:
 	virtual Tile& chooseTileRiver() = 0;
 	virtual void displayRiver() = 0;
 
-	void endGame();
+	//display scores at the end of the game
+	void endGame() ;
+
+	//quit and register game
+	void abandonGame() {
+		string version = " ";
+		PlayerConsole* pC = dynamic_cast<PlayerConsole*>(players.at(0));
+		if (pC) version = "console";
+		else version = "qt";
+		vector<int> riverid;
+		for (auto it=river->begin(); it!=river->end(); ++it) {
+			riverid.push_back((*it).getCell(0)->getID());
+		}
+		vector<int> pileid;
+		for (auto it=pile->begin(); it!=pile->end(); ++it) {
+			pileid.push_back((*it).getCell(0)->getID());
+		}
+		vector<string> PlayersName;
+		vector<int> PlayersStone;
+		json json_boards;
+		size_t num_board = 0;
+		for (auto it : players) {
+			PlayersName.push_back(it->getName());
+			PlayersStone.push_back(it->getStones());
+			const Board& board = *(it->getBoard().getBoard());
+			json json_board = board.toJsonBoard();
+			json_boards[std::to_string(num_board)] = json_board;
+			++num_board;
+		}
+		size_t nbplayer = nb_players;
+		size_t currentplayer = current_player;
+		string variante = variant;
+		string id = displayAbandonGame1();
+		Amalena::GameMemento game_memento(id,version, riverid,
+					pileid,
+					PlayersName,
+					PlayersStone,
+					json_boards,
+					nbplayer,
+					currentplayer,
+					variante);
+		Amalena::savemanager save_manager(&game_memento);
+		save_manager.save();
+		displayAbandonGame2();
+	}
+
+	virtual string displayAbandonGame1() = 0;
+	virtual void displayAbandonGame2() = 0;
+
+	void manageResumeGame() {
+		while (!(river->stay1() && pile->isEmpty())) {
+			displayCurrentPlayerInfo();
+			Amalena::River* river_copy = new Amalena::River(*river);
+			BoardManager* board_copy = new BoardManager(players.at(current_player)->getBoard());
+			actionsPlayer(river_copy,board_copy);
+			delete river_copy;
+			delete board_copy;
+			nextPlayer();
+		}
+	}
 };
 #endif //PROJETLO21A25_Game_H

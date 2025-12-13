@@ -25,13 +25,13 @@ namespace Amalena
         //to save
         savemanager(GameMemento* g):gameMemento(g){};
         //to restore
-        savemanager();
+        savemanager(){}
         ~savemanager()=default;
         savemanager(const savemanager& s)=delete;
         savemanager& operator=(const savemanager& s)=delete;
         void save() ;
         //void restore();
-        GameMemento* restore();
+        GameMemento* restore(string game_id);
         json tojson();
         void fromjson(json data);
     };

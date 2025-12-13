@@ -48,12 +48,12 @@
          PlayersStone = players_stone;
      }
 
-     vector<map<pair<int, int>, pair<int, unsigned int>>> GameMemento::get_boards() const
+     json GameMemento::get_boards() const
      {
          return boards;
      }
 
-     void GameMemento::set_boards(const vector<map<pair<int, int>, pair<int, unsigned int>>>& boards)
+     void GameMemento::set_boards(json boards)
      {
          this->boards = boards;
      }

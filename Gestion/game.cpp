@@ -90,10 +90,10 @@ Game::Game(const Amalena::GameMemento& game_memento) :
     int j = 0;
     for (auto it=player_names.begin(); it!=player_names.end(); ++it) {
          if (game_memento.get_version() == "console") {
-             players.at(j) = new PlayerConsole(*it);
+             players.push_back(new PlayerConsole(*it));
          }
         else {
-            players.at(j) = new PlayerQt(*it);
+            players.push_back(new PlayerQt(*it));
         }
         j++;
     }
@@ -106,8 +106,19 @@ Game::Game(const Amalena::GameMemento& game_memento) :
     json player_boards = game_memento.get_boards();
     size_t k = 0;
     for (auto& [boardKey, j_board] : player_boards.items()) {
-        Board board = Board::fromJsonBoard(j_board);
-        players.at(k)->setBoard(BoardManager(board));
+        //mandatory cout to debug
+        cout << "Iteration k=" << k << ", boardKey=" << boardKey << endl;
+        cout << "Board JSON:\n" << j_board.dump(4) << endl;
+        try {
+            Board board = Board::fromJsonBoard(j_board);
+            BoardManager bm(board);
+            auto& player = players.at(k);
+            player->setBoard(bm);
+        } catch (const exception& e) {
+            cout << "Exception caught: " << e.what() << endl;
+        } catch (...) {
+            cout << "Unknown exception caught" << endl;
+        }
         ++k;
     }
 }
