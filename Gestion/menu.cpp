@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include <QObject>
 #include <QInputDialog>
+#include "../UI/init.h"
 
 MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
     //Boutons
@@ -26,6 +27,8 @@ MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
     layout->addWidget(boutonAfficherRegles);
     setLayout(layout);
     setWindowTitle("Menu du jeu");
+    initWidget = new init(this);
+    initWidget->hide();
 
     connect(boutonAfficherRegles, &QPushButton::clicked,
         this, &MenuQt::boutonAfficherReglesClique);
@@ -44,7 +47,15 @@ void MenuQt::boutonAfficherReglesClique() {
 }
 
 void MenuQt::boutonLancerGameClique() {
-    int nb_players = QInputDialog::getInt(this,
+    // methode pas forcément optimal ... à voir
+    //ON cache le layout actuel_____________________________________________
+    boutonLancerGame->hide();
+    boutonReprendreGame->hide();
+    boutonAfficherRegles->hide();
+    //_____________puis affiche la fenetre d'initailisation_______________________________________________
+
+    initWidget->show();
+    /*int nb_players = QInputDialog::getInt(this,
                                           "Nombre de joueurs",
                                           "Number of players ? (1-4)",
                                           1,
@@ -63,8 +74,8 @@ void MenuQt::boutonLancerGameClique() {
                                                   "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
                                                   1, 1, 3, 1);
             game.manageSoloGame(difficulty);
-        }
-    GameQt::freeInstance();
+        }*/
+    //GameQt::freeInstance();
 }
 
 void MenuQt::boutonReprendreGameClique() {
