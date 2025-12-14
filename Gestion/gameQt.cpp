@@ -37,7 +37,7 @@ void GameQt::displayCurrentPlayerInfo() {
                            .arg(players[current_player]->getStones());
     QMessageBox::information(parent, "Player Turn", info);
 }
-void GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+bool GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
     QMessageBox msgBox;
     msgBox.setText("Do you want to abandon the game ?");
     QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
@@ -45,38 +45,40 @@ void GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) 
     msgBox.exec();
     if (msgBox.clickedButton() == yesButton) {
         abandonGame();
-        freeInstance();
-        return;
+        return false;
     }
-    char satisfied = 'N';
-    do {
-        Tile* tile = &pickRiver();
-        players[current_player]->playTurn(*tile);
-        QMessageBox msgBox;
-        msgBox.setText("Are you satisfied with your move?");
-        QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
-        QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
-        msgBox.exec();
-        if (msgBox.clickedButton() == yesButton) {
-            satisfied = 'Y';
-        } else {
-            players[current_player]->setBoard(*board_copy);
-            QMessageBox optionBox;
-            optionBox.setText("Pick another tile (A) or choose another place (B)?");
-            QPushButton *A_btn = optionBox.addButton("A - Another tile", QMessageBox::AcceptRole);
-            QPushButton *B_btn = optionBox.addButton("B - Another place", QMessageBox::AcceptRole);
-            optionBox.exec();
-            if (optionBox.clickedButton() == A_btn) {
-                Amalena::River* temp_river = new Amalena::River(*river_copy);
-                *river = *temp_river;
-                tile = &pickRiver();
-                delete temp_river;
-            }
+    else{
+        char satisfied = 'N';
+        do {
+            Tile* tile = &pickRiver();
             players[current_player]->playTurn(*tile);
-            msgBox.setText("Are you satisfied now?");
+            QMessageBox msgBox;
+            msgBox.setText("Are you satisfied with your move?");
+            QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
+            QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
             msgBox.exec();
-        }
-    } while (satisfied == 'N');
+            if (msgBox.clickedButton() == yesButton) {
+                satisfied = 'Y';
+            } else {
+                players[current_player]->setBoard(*board_copy);
+                QMessageBox optionBox;
+                optionBox.setText("Pick another tile (A) or choose another place (B)?");
+                QPushButton *A_btn = optionBox.addButton("A - Another tile", QMessageBox::AcceptRole);
+                QPushButton *B_btn = optionBox.addButton("B - Another place", QMessageBox::AcceptRole);
+                optionBox.exec();
+                if (optionBox.clickedButton() == A_btn) {
+                    Amalena::River* temp_river = new Amalena::River(*river_copy);
+                    *river = *temp_river;
+                    tile = &pickRiver();
+                    delete temp_river;
+                }
+                players[current_player]->playTurn(*tile);
+                msgBox.setText("Are you satisfied now?");
+                msgBox.exec();
+            }
+        } while (satisfied == 'N');
+        return true;
+    }
 }
 
 void GameQt::addPlayer(const string& name) {
@@ -148,44 +150,56 @@ void GameQt::architectPlaySoloGame(){
     players[current_player]->playTurn(*chosen_tile_ptr);
 }
 
-void GameQt::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
-    QMessageBox::information(parent, "Your Turn", QString("Stones: %1").arg(players[0]->getStones()));
-    char satisfied = 'N';
-    do {
-        Tile* tile = &pickRiver();
-        int stones_before = players.at(0)->getStones();
-        int architect_stones_before = players.at(1)->getStones();
-        int stones_after = players.at(0)->getStones();
-        int stones_lost = stones_before - stones_after;
-        players.at(1)->addStones(stones_lost);
-        players[current_player]->playTurn(*tile);
-        QMessageBox msgBox;
-        msgBox.setText("Are you satisfied with your move?");
-        QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
-        QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
-        msgBox.exec();
-        if (msgBox.clickedButton() == yesButton) {
-            satisfied = 'Y';
-        } else {
-            players.at(0)->setBoard(*board_copy);
-            players.at(0)->setStones(stones_before);
-            players.at(1)->setStones(architect_stones_before);
-            QMessageBox optionBox;
-            optionBox.setText("Pick another tile (A) or choose another place (B)?");
-            QPushButton *A_btn = optionBox.addButton("A - Another tile", QMessageBox::AcceptRole);
-            QPushButton *B_btn = optionBox.addButton("B - Another place", QMessageBox::AcceptRole);
-            optionBox.exec();
-            if (optionBox.clickedButton() == A_btn) {
-                Amalena::River* temp_river = new Amalena::River(*river_copy);
-                *river = *temp_river;
-                tile = &pickRiver();
-                delete temp_river;
-                int stones_after_new = players.at(0)->getStones();
-                players.at(1)->addStones(stones_before - stones_after_new);
-            }
+bool GameQt::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
+    QMessageBox msgBox;
+    msgBox.setText("Do you want to abandon the game ?");
+    QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
+    QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
+    msgBox.exec();
+    if (msgBox.clickedButton() == yesButton) {
+        abandonGame();
+        return false;
+    }
+    else {
+        QMessageBox::information(parent, "Your Turn", QString("Stones: %1").arg(players[0]->getStones()));
+        char satisfied = 'N';
+        do {
+            Tile* tile = &pickRiver();
+            int stones_before = players.at(0)->getStones();
+            int architect_stones_before = players.at(1)->getStones();
+            int stones_after = players.at(0)->getStones();
+            int stones_lost = stones_before - stones_after;
+            players.at(1)->addStones(stones_lost);
             players[current_player]->playTurn(*tile);
-        }
-    } while (satisfied == 'N');
+            QMessageBox msgBox;
+            msgBox.setText("Are you satisfied with your move?");
+            QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
+            QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
+            msgBox.exec();
+            if (msgBox.clickedButton() == yesButton) {
+                satisfied = 'Y';
+            } else {
+                players.at(0)->setBoard(*board_copy);
+                players.at(0)->setStones(stones_before);
+                players.at(1)->setStones(architect_stones_before);
+                QMessageBox optionBox;
+                optionBox.setText("Pick another tile (A) or choose another place (B)?");
+                QPushButton *A_btn = optionBox.addButton("A - Another tile", QMessageBox::AcceptRole);
+                QPushButton *B_btn = optionBox.addButton("B - Another place", QMessageBox::AcceptRole);
+                optionBox.exec();
+                if (optionBox.clickedButton() == A_btn) {
+                    Amalena::River* temp_river = new Amalena::River(*river_copy);
+                    *river = *temp_river;
+                    tile = &pickRiver();
+                    delete temp_river;
+                    int stones_after_new = players.at(0)->getStones();
+                    players.at(1)->addStones(stones_before - stones_after_new);
+                }
+                players[current_player]->playTurn(*tile);
+            }
+        } while (satisfied == 'N');
+        return true;
+    }
 }
 
 string GameQt::displayAbandonGame1() {

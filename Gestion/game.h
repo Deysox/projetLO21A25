@@ -73,24 +73,31 @@ public:
 
 	//main method of the game
 	void manageGame() {
+		bool ok = true;
 	    addEachPlayerToGame();
 	    while (!(river->stay1() && pile->isEmpty())) {
 	        displayCurrentPlayerInfo();
 	        Amalena::River* river_copy = new Amalena::River(*river);
 	        BoardManager* board_copy = new BoardManager(players.at(current_player)->getBoard());
-	    	actionsPlayer(river_copy,board_copy);
+	    	ok = actionsPlayer(river_copy,board_copy);
 	    	delete river_copy;
 	    	delete board_copy;
-	        nextPlayer();
+	        if (ok) {
+		        nextPlayer();
+	        }
+	    	else {
+	    		return;
+	    	}
 	    }
 	}
 
 	virtual void addEachPlayerToGame() = 0;
 	virtual void displayCurrentPlayerInfo() = 0;
-	virtual void actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) = 0;
+	virtual bool actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) = 0;
 
 	//main method if solo game
 	virtual void manageSoloGame(int difficulty) {
+		bool ok = true;
 	    askNameSoloGame();
 		architectCreation(difficulty);
 
@@ -102,10 +109,11 @@ public:
 	        else {
 	        	BoardManager* board_copy = new BoardManager(players.at(0)->getBoard());
 	        	Amalena::River* river_copy = new Amalena::River(*river);
-	            realPlayerPlaySoloGame(board_copy,river_copy);
+	            ok = realPlayerPlaySoloGame(board_copy,river_copy);
 	            delete river_copy;
 	            delete board_copy;
-	            nextPlayer();
+	            if (ok) nextPlayer();
+	        	else return;
 	        }
 	    }
 	}
@@ -113,7 +121,7 @@ public:
 	virtual void askNameSoloGame() = 0;
 	virtual void architectCreation(int difficulty) = 0;
 	virtual void architectPlaySoloGame() = 0;
-	virtual void realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) = 0;
+	virtual bool realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) = 0;
 
 	//design pattern : template method
 	Tile& pickRiver() {
@@ -175,14 +183,16 @@ public:
 	virtual void displayAbandonGame2() = 0;
 
 	void manageResumeGame() {
+		bool ok = true;
 		while (!(river->stay1() && pile->isEmpty())) {
 			displayCurrentPlayerInfo();
 			Amalena::River* river_copy = new Amalena::River(*river);
 			BoardManager* board_copy = new BoardManager(players.at(current_player)->getBoard());
-			actionsPlayer(river_copy,board_copy);
+			ok = actionsPlayer(river_copy,board_copy);
 			delete river_copy;
 			delete board_copy;
-			nextPlayer();
+			if (ok) nextPlayer();
+			else return;
 		}
 	}
 };

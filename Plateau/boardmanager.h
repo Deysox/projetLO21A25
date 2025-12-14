@@ -72,6 +72,8 @@ namespace Barnabe {
         void setBoard(const BoardManager& bm) {
             if (board) delete board;
             board = new Board(*bm.board);
+            startingTile = new StartingTile();
+            place(startingTile,0,0, true);
         }
 
         friend ostream& operator<<(ostream& f, const BoardManager& c);

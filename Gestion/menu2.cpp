@@ -51,19 +51,19 @@ void Menu::display() {
                         int difficulty = 0;
                         cin >> difficulty;
                         game.manageSoloGame(difficulty);
-                        game.endGame();
+                        //game.endGame();
                     }
                     else {
                         GameConsole& game = GameConsole::giveInstance(nb_players);
                         game.manageGame();
-                        game.endGame();
+                        //game.endGame();
                     }
                     GameConsole::freeInstance();
                     break;
                 }
                 {
                 case '2':
-                    cout << "Game resumption. What was the id of your game ? :\n";
+                    cout << "Game resumption. What was the code of your game? :\n";
                     string resumption;
                     cin >> resumption;
                     Amalena::savemanager save_manager;
@@ -72,7 +72,7 @@ void Menu::display() {
                     GameConsole::freeInstance();
                     GameConsole& game = GameConsole::giveInstance(*game_memento);
                     game.manageResumeGame();
-                    game.endGame();
+                    //game.endGame();
                     GameConsole::freeInstance();
                     break;
                 }

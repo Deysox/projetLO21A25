@@ -18,42 +18,44 @@ void GameConsole::addEachPlayerToGame() {
 void GameConsole::displayCurrentPlayerInfo() {
     cout << "Current player : " << *players.at(current_player);
 }
-void GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
     cout << "Do you want to abandon the game ? (Y/N): ";
     string answer;
     cin >> answer;
     if (answer == "Y") {
         abandonGame();
-        freeInstance();
-        return;
+        return false;
     }
-    char satisfied_player = 'N';
-    char option = 'A';
-    Tile* tile = nullptr;
-    do {
-        tile = &pickRiver();
-        players.at(current_player)->playTurn(*tile);
-
-        cout << "Are you satisfied ? (Y/N): ";
-        cin >> satisfied_player;
-
-        while (satisfied_player == 'N') {
-            players.at(current_player)->setBoard(*board_copy);
-            cout << "Your board : \n" << players.at(current_player)->getBoard();
-            cout << "Pick another tile (A) or choose another place (B)?: ";
-            cin >> option;
-            if (option == 'A') {
-                Amalena::River* temp_river = new Amalena::River(*river_copy);
-                *river = *temp_river;
-                tile = &pickRiver();
-                delete temp_river;
-            }
+    else {
+        char satisfied_player = 'N';
+        char option = 'A';
+        Tile* tile = nullptr;
+        do {
+            tile = &pickRiver();
             players.at(current_player)->playTurn(*tile);
-            cout << "Are you satisfied now ? (Y/N): ";
-            cin >> satisfied_player;
-        }
 
-    } while (satisfied_player == 'N');
+            cout << "Are you satisfied ? (Y/N): ";
+            cin >> satisfied_player;
+
+            while (satisfied_player == 'N') {
+                players.at(current_player)->setBoard(*board_copy);
+                cout << "Your board : \n" << players.at(current_player)->getBoard();
+                cout << "Pick another tile (A) or choose another place (B)?: ";
+                cin >> option;
+                if (option == 'A') {
+                    Amalena::River* temp_river = new Amalena::River(*river_copy);
+                    *river = *temp_river;
+                    tile = &pickRiver();
+                    delete temp_river;
+                }
+                players.at(current_player)->playTurn(*tile);
+                cout << "Are you satisfied now ? (Y/N): ";
+                cin >> satisfied_player;
+            }
+
+        } while (satisfied_player == 'N');
+        return true;
+    }
 }
 
 void GameConsole::addPlayer(const string& name) {
@@ -128,38 +130,48 @@ void GameConsole::architectPlaySoloGame(){
         cout << "Architect can't play.\n";
     }
 }
-void GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
-    cout << "Your turn !" << "\n";
-    cout << *players.at(current_player) << "\n";
-    int stones_before = players.at(0)->getStones();
-    int architect_stones_before = players.at(1)->getStones();
-    char satisfied_player = 'N';
-    char option = 'A';
-    do {
-        Tile* tile = &pickRiver();
-        int stones_after = players.at(0)->getStones();
-        int stones_lost = stones_before - stones_after;
-        players.at(1)->addStones(stones_lost);
-        players.at(0)->playTurn(*tile);
-        cout << "Are you satisfied with your move? (Y/N) : ";
-        cin >> satisfied_player;
-        if (satisfied_player == 'N') {
-            players.at(0)->setBoard(*board_copy);
-            players.at(0)->setStones(stones_before);
-            players.at(1)->setStones(architect_stones_before);
-            cout << "Pick another tile (A) or choose a new place (B)? ";
-            do { cin >> option; } while(option != 'A' && option != 'B');
-            if (option == 'A') {
-                Amalena::River* temp_river = new Amalena::River(*river_copy);
-                *river = *temp_river;
-                tile = &pickRiver();
-                delete temp_river;
-            }
+bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
+    cout << "Do you want to abandon the game ? (Y/N): ";
+    string answer;
+    cin >> answer;
+    if (answer == "Y") {
+        abandonGame();
+        return false;
+    }
+    else {
+        cout << "Your turn !" << "\n";
+        cout << *players.at(current_player) << "\n";
+        int stones_before = players.at(0)->getStones();
+        int architect_stones_before = players.at(1)->getStones();
+        char satisfied_player = 'N';
+        char option = 'A';
+        do {
+            Tile* tile = &pickRiver();
+            int stones_after = players.at(0)->getStones();
+            int stones_lost = stones_before - stones_after;
+            players.at(1)->addStones(stones_lost);
             players.at(0)->playTurn(*tile);
-            cout << "Are you satisfied now ? (Y/N): ";
+            cout << "Are you satisfied with your move? (Y/N) : ";
             cin >> satisfied_player;
-        }
-    } while (satisfied_player == 'N');
+            if (satisfied_player == 'N') {
+                players.at(0)->setBoard(*board_copy);
+                players.at(0)->setStones(stones_before);
+                players.at(1)->setStones(architect_stones_before);
+                cout << "Pick another tile (A) or choose a new place (B)? ";
+                do { cin >> option; } while(option != 'A' && option != 'B');
+                if (option == 'A') {
+                    Amalena::River* temp_river = new Amalena::River(*river_copy);
+                    *river = *temp_river;
+                    tile = &pickRiver();
+                    delete temp_river;
+                }
+                players.at(0)->playTurn(*tile);
+                cout << "Are you satisfied now ? (Y/N): ";
+                cin >> satisfied_player;
+            }
+        } while (satisfied_player == 'N');
+        return true;
+    }
 }
 
 string GameConsole::displayAbandonGame1() {

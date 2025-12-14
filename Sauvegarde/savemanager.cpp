@@ -15,6 +15,7 @@ namespace Amalena
     json savemanager::tojson()
     {
         json j;
+        j["version"]=gameMemento->get_version();
         j["game_id"]=gameMemento->get_game_id();
         j["riverid"]=gameMemento->get_riverid();
         j["pileid"]=gameMemento->get_pileid();
@@ -44,13 +45,40 @@ namespace Amalena
         );
     }
 
-    void savemanager::save(){
-        json j = tojson();
-        std::ofstream file("../sauvegarde.json");
-        if (!file.is_open()) {
-            std::cerr << "Failed to open file for writing" << std::endl;
+    void savemanager::save()
+    {
+        json newGame = tojson();
+        json data;
+        std::ifstream in("../sauvegarde.json");
+        if (in.is_open()) {
+            try {
+                in >> data;
+            } catch (...) {
+                data = json::object();
+            }
+            in.close();
         }
-        file << std::setw(4) << j << std::endl;
+        if (!data.contains("games") || !data["games"].is_array()) {
+            data["games"] = json::array();
+        }
+        bool replaced = false;
+        for (auto& game : data["games"]) {
+            if (game.contains("game_id") &&
+                game["game_id"] == newGame["game_id"]) {
+                game = newGame;
+                replaced = true;
+                break;
+                }
+        }
+        if (!replaced) {
+            data["games"].push_back(newGame);
+        }
+        std::ofstream out("../sauvegarde.json");
+        if (!out.is_open()) {
+            std::cerr << "Failed to open save file for writing" << std::endl;
+            return;
+        }
+        out << std::setw(4) << data << std::endl;
     }
 
     GameMemento* savemanager::restore(string id)

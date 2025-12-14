@@ -30,12 +30,12 @@ public:
 
     void addEachPlayerToGame() override;
     void displayCurrentPlayerInfo() override;
-    void actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) override;
+    bool actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) override;
 
     void askNameSoloGame() override ;
     void architectCreation(int difficulty) override ;
     void architectPlaySoloGame() override ;
-    void realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) override ;
+    bool realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) override ;
 
     void displayRiver() override;
     Tile& chooseTileRiver() override;
