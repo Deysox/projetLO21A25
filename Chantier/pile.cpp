@@ -53,7 +53,6 @@ namespace Amalena
         return tiles.empty();
     }
     Pile::~Pile(){
-        cout<<"destruction pile";
     }
 
 

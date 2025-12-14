@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
     menu.setFixedSize(500, 400);
     menu.show();
     return app.exec();
-}*/
+}
 
 
 
@@ -56,4 +56,8 @@ int main(int argc, char* argv[])
 
     return app.exec();
 }
-
+*/
+#include "Gestion/menu2.h"
+int main() {
+    Eloise::Menu menu;
+}

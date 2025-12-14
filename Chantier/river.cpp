@@ -55,10 +55,7 @@ namespace Amalena
         //if (position==1000)throw riverException("inexistant"); OU retour d'un chiffre abérant
     }
     River::~River()
-    {
-        cout<<"destruction river";
-        //gérer sauvegarde
-    }
+    {}
 
     string River::toString() const {
         std::ostringstream oss;
