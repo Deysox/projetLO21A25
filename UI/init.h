@@ -34,7 +34,7 @@ private:
     signals :
 
     void gameparametersReady(int nbPlayers, QString variante, QStringList names );//au clic
-    void sologameparametersReady(QString Variante, int level);
+    void sologameparametersReady(QString name, QString Variante, int level);
 
 private slots :
 void updateUInb();

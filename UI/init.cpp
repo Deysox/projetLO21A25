@@ -35,8 +35,14 @@ void init::updateUInb()
 
     int nbplayer=ui->spinBoxNb->value();
     QStringList variante;
+    QList<QLineEdit*> playersEdit;
+    QLabel *infoN=new QLabel("Indiquer les nom(s)",this);
+    ui->layouteditname->addWidget(infoN);
     if (nbplayer==1)
     {
+        QLineEdit *nom = new QLineEdit(QString("Player "), this);
+        ui->layouteditname->addWidget(nom);
+        playersEdit.append(nom);
         variante={"no variant available at the moment"};
         QLabel *info=new QLabel("Quel niveau",this);
         ui->layouteditname->addWidget(info);
@@ -49,7 +55,7 @@ void init::updateUInb()
     }
     else if (nbplayer>1 && nbplayer<=4)
     {
-        QList<QLineEdit*> playersEdit;
+
         for (int i = 0; i < nbplayer; i++) {
             QLineEdit *edit = new QLineEdit(QString("Player %1").arg(i+1), this);
             ui->layouteditname->addWidget(edit);
@@ -69,24 +75,26 @@ void init::OnValidateclicked()
 {
     int nbplayer=ui->spinBoxNb->value();
     QString variante=BoxVariante->currentText();
+    QStringList names;
+    for (int i = 1; i <= nbplayer; i++) {
+        QLineEdit *edit = qobject_cast<QLineEdit*>(ui->layouteditname->itemAt(i)->widget());
+        if (edit)
+            names.append(edit->text());
+    }
     if (nbplayer==1)
     {
+
+        QString name=names[0];
         int level=spinlevel->value();
-        emit init::sologameparametersReady(variante,level );
-        QString message = "Nombre de joueurs : " + QString::number(level) +
-                          "\nVariante : " + variante ;
+        emit init::sologameparametersReady(name,variante,level );
+        QString message = "Niveau : " + QString::number(level) +
+                          "\nVariante : " + variante +
+                           "\nnom: " + name ;
         QMessageBox::information(this, "Player Turn", message);
 
     }else if (nbplayer>1&& nbplayer<=4){
-        int myplayer=ui->spinBoxNb->value();
 
-        QStringList names;
-        for (int i = 0; i < myplayer; i++) {
-            QLineEdit *edit = qobject_cast<QLineEdit*>(ui->layouteditname->itemAt(i)->widget());
-            if (edit)
-                names.append(edit->text());
-        }
-        emit init::gameparametersReady(myplayer,variante, names );//int nbPlayers, QString variante, QStringList names);
+        emit init::gameparametersReady(nbplayer,variante, names );//int nbPlayers, QString variante, QStringList names);
         QString message = "Nombre de joueurs : " + QString::number(nbplayer) +
                           "\nVariante : " + variante +
                           "\nNoms : " + names.join(", ");
