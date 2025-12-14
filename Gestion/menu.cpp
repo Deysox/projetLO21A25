@@ -34,6 +34,10 @@ MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
         this, &MenuQt::boutonAfficherReglesClique);
     connect(boutonLancerGame, &QPushButton::clicked,
         this, &MenuQt::boutonLancerGameClique);
+    connect(initWidget, &init::gameparametersReady,this, &MenuQt::OnGameParameterReady);
+    connect(initWidget, &init::sologameparametersReady,this, &MenuQt::OnSoloGameParameterReady);
+
+
 }
 
 void MenuQt::boutonAfficherReglesClique() {
@@ -77,6 +81,32 @@ void MenuQt::boutonLancerGameClique() {
         }*/
     //GameQt::freeInstance();
 }
+void MenuQt::OnGameParameterReady(int nbPlayers, QString variante, QStringList names )
+{
+    GameQt& game = GameQt::giveInstance(nbPlayers);
+    //comme je ne peux pas transmettre plus d'info
+    for (int i = 0; i < names.size(); ++i) {
+        game.addPlayer(names[i].toStdString());
+    }
+    //game.manageGame();
+
+    QString message = "Nombre de joueurs : " + QString::number(nbPlayers) +
+                          "\nVariante : " + variante +
+                          "\nNoms : " + names.join(", ");
+    QMessageBox::information(this,"multi",message );
+};
+void MenuQt::OnSoloGameParameterReady(QString name, QString Variante, int level)
+{
+    GameQt& game = GameQt::giveInstance(2);
+    game.manageSoloGame(level);
+    game.addPlayer(name.toStdString());
+    QString message="Level: " + QString::number(level) +
+                          "\nVariante : " + Variante +
+                          "\nNoms : " + name;
+    QMessageBox::information(this,"solo",message);
+
+};
+
 
 void MenuQt::boutonReprendreGameClique() {
     QMessageBox::information(this, "Resume game", "Resume of a game.");
