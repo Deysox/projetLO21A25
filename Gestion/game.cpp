@@ -162,7 +162,8 @@ void Game::manageSoloGame(int difficulty) {
             int chosen_pos = 1;
             int pos = 1;
             for (auto& t : *river) {
-                for (const Cell* cell : t) {
+                for (auto it = t.begin(); it != t.end(); it++) {
+                    const Cell* cell = it->second.first;
                     if (cell->getType() == Type::PLACE) {
                         chosen_tile_ptr = &t;
                         chosen_pos = pos;

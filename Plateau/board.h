@@ -7,10 +7,10 @@
 #include <unordered_map>
 
 #include "../Tuiles/cell.h"
-#include "../Tuiles/tile.h"
+
 
 #include "../Utilitaires/position.h"
-#include "../Utilitaires/rotation.h"
+
 using namespace std;
 
 namespace Barnabe {
@@ -30,8 +30,10 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
+    protected:
         using cellmap = unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>;
         cellmap cells;
+    private:
         Position corner_tl;
         Position corner_br;
     public:
@@ -46,14 +48,14 @@ namespace Barnabe {
             const_iterator(cellmap::const_iterator mi) : cellmap::const_iterator(mi) {}
         };
 
-        iterator begin() {return iterator(cells.begin());}
-        iterator end() {return iterator(cells.end());}
+        virtual iterator begin() {return iterator(cells.begin());}
+        virtual iterator end() {return iterator(cells.end());}
 
-        const_iterator begin() const {return const_iterator(cells.cbegin());}
-        const_iterator end() const {return const_iterator(cells.cend());}
+        virtual const_iterator begin() const {return const_iterator(cells.cbegin());}
+        virtual const_iterator end() const {return const_iterator(cells.cend());}
 
-        const_iterator cbegin() const {return const_iterator(cells.cbegin());}
-        const_iterator cend() const {return const_iterator(cells.cend());}
+        virtual const_iterator cbegin() const {return const_iterator(cells.cbegin());}
+        virtual const_iterator cend() const {return const_iterator(cells.cend());}
 
         /*
          * Constructeur de la classe Board. Par défaut, le plateau est vide.
@@ -63,7 +65,7 @@ namespace Barnabe {
         /*
          * Destructeur de la classe Board.
          */
-        ~Board();
+        virtual ~Board();
 
         /*
          * Constructeur par recopie de la classe Board.
@@ -136,7 +138,11 @@ namespace Barnabe {
          *
          */
         std::pair<Position, Position> getCorners() const;
-        friend ostream& operator<<(ostream& f, const Board& p);
+
+
+        void display(ostream& f = std::cout, bool contour = false) const;
+
+
 
     };
     string lenStringInt(int x);

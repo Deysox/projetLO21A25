@@ -25,7 +25,7 @@ namespace Barnabe {
         void setBoard(const BoardManager& b){board = b;}
         void setStones(int n);
         void addStones(int n);
-        virtual void playTurn(const Tile&);
+        virtual void playTurn(Tile&);
 
     };
 
@@ -36,7 +36,7 @@ namespace Barnabe {
     public:
         Architect(const std::string& name, int d)
             : Player(name), difficulty(d) {}
-        void playTurn(const Tile& t) override;
+        void playTurn(Tile& t) override;
     };
     ostream& operator<<(ostream& f, const Player& p);
 }

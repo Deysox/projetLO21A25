@@ -8,6 +8,7 @@
 #include "../Utilitaires/position.h"
 #include "../Utilitaires/rotation.h"
 #include "board.h"
+#include "tile.h"
 
 using namespace std;
 
@@ -67,7 +68,7 @@ namespace Barnabe {
          * sera ignorée.
          * @returns Nombre de pierres obtenues par le joueur par recouvrement de carrières
          */
-        int place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
+        int place(Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
 
 
 

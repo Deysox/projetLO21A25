@@ -34,7 +34,7 @@ namespace Barnabe {
         return f;
     }
 
-    void Player::playTurn(const Tile& tile) {
+    void Player::playTurn(Tile& tile) {
         cout << "\n" << board << endl;
         bool placed = false;
         while (!placed) {
@@ -59,7 +59,7 @@ namespace Barnabe {
         cout << board << endl;
     }
 
-    void Architect::playTurn(const Tile& t) {
+    void Architect::playTurn(Tile& t) {
         architect_tiles.push_back(const_cast<Tile*>(&t));
         //score based on the difficulty level
         /*switch (difficulty) {

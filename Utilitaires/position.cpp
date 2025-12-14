@@ -7,25 +7,24 @@
 namespace Barnabe {
     Position Position::operator+(const Rotation& r) const {
         Position output;
-        int parity = abs(posX%2); // Les coordonnées voisines changent selon la parité de x
         switch (r.value()) {
             case 0:
-                output = Position(posX,posY+1); // Universel
+                output = Position(posX,posY-1);
                 break;
             case 1:
-                output = Position(posX+1,posY+1-parity); // (x+1;y+1) si x pair, (x+1;y) si x impair
+                output = Position(posX+1,posY-1);
                 break;
             case 2:
-                output = Position(posX+1,posY-parity); // (x+1;y) si x pair, (x+1;y-1) si x impair
+                output = Position(posX+1,posY);
                 break;
             case 3:
-                output = Position(posX,posY-1); // Universel
+                output = Position(posX,posY+1);
                 break;
             case 4:
-                output = Position(posX-1,posY-parity); // (x-1;y) si x pair, (x-1;y-1) si x impair
+                output = Position(posX-1,posY+1);
                 break;
             case 5:
-                output = Position(posX-1,posY+1-parity); // (x-1;y+1) si x pair, (x-1;y) si x impair
+                output = Position(posX-1,posY);
                 break;
             default:
                 output = Position(posX,posY);
