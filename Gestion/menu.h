@@ -8,6 +8,7 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QLabel>
+#include "../UI/init.h"
 
 class MenuQt : public QWidget {
     Q_OBJECT
@@ -22,6 +23,7 @@ private:
     QPushButton* boutonLancerGame;
     QPushButton* boutonReprendreGame;
     QPushButton* boutonAfficherRegles;
+    init* initWidget;
 };
 #endif //PROJETLO21A25_MENU_H
 
