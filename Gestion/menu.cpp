@@ -99,6 +99,7 @@ void MenuQt::OnSoloGameParameterReady(QString name, QString Variante, int level)
 {
     GameQt& game = GameQt::giveInstance(2);
     game.manageSoloGame(level);
+    game.addPlayer(name.toStdString());
     QString message="Level: " + QString::number(level) +
                           "\nVariante : " + Variante +
                           "\nNoms : " + name;
