@@ -106,9 +106,8 @@ Game::Game(const Amalena::GameMemento& game_memento) :
     json player_boards = game_memento.get_boards();
     size_t k = 0;
     for (auto& [boardKey, j_board] : player_boards.items()) {
-        //mandatory cout
-        cout << "Iteration k=" << k << ", boardKey=" << boardKey << endl;
-        cout << "Board JSON:\n" << j_board.dump(4) << endl;
+        boardKey;
+        j_board.dump(4);
         try {
             Board board = Board::fromJsonBoard(j_board);
             BoardManager bm(board);

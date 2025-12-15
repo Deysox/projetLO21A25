@@ -1,6 +1,5 @@
-
 #include <iostream>
-/*#include <QWidget>
+#include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QDebug>
@@ -9,18 +8,16 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QApplication>
-
+#include "Gestion/menu.h"
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    Menu menu;
+    MenuQt menu;
     menu.setFixedSize(500, 400);
     menu.show();
     return app.exec();
 }
-
-
-
+/*
 #include <QApplication>
 
 #include "boardmanager.h"
@@ -57,7 +54,9 @@ int main(int argc, char* argv[])
     return app.exec();
 }
 */
+/*
 #include "Gestion/menu2.h"
 int main() {
     Eloise::Menu menu;
 }
+*/

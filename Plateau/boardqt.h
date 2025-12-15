@@ -8,7 +8,7 @@
 #include <QWidget>
 #include <QMainWindow>
 #include <QMouseEvent>
-#include "cell.h"
+#include "../Tuiles/cell.h"
 #include "board.h"
 #include <QLabel>
 
