@@ -109,5 +109,14 @@ void MenuQt::OnSoloGameParameterReady(QString name, QString Variante, int level)
 
 
 void MenuQt::boutonReprendreGameClique() {
-    QMessageBox::information(this, "Resume game", "Resume of a game.");
+    QString pseudo_game = QInputDialog::getText(this, "Game", "What was the pseudo of your game ?");
+    string game_name = pseudo_game.toStdString();
+    Amalena::savemanager save_manager;
+    Amalena::GameMemento* game_memento = save_manager.restore(game_name);
+    //little security because instance is unique
+    GameQt::freeInstance();
+    GameQt& game = GameQt::giveInstance(*game_memento);
+    game.manageResumeGame();
+    //game.endGame();
+    GameQt::freeInstance();
 }
