@@ -207,7 +207,7 @@ string GameQt::displayAbandonGame1() {
     QString id = QInputDialog::getText(
         parent,
         "Save game",
-        "Choose an id for your game:",
+        "Choose a pseudo for your game:",
         QLineEdit::Normal,
         ""
     );

@@ -176,7 +176,7 @@ bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River
 
 string GameConsole::displayAbandonGame1() {
     cout << "Temporary abandon of the game. \n";
-    cout << "Choose an id for your game : ";
+    cout << "Choose a pseudo for your game : ";
     string id;
     cin >> id;
     return id;

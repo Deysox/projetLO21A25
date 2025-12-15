@@ -68,7 +68,7 @@ namespace Amalena
                 game = newGame;
                 replaced = true;
                 break;
-                }
+            }
         }
         if (!replaced) {
             data["games"].push_back(newGame);
