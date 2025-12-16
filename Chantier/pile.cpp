@@ -29,7 +29,6 @@ namespace Amalena
     Pile::Pile(Eloise::Deck& d): deck(d)
     {
         tiles={};
-        //tiles=d.getTiles();//proposition à réétudier
         for (auto t : d.getTiles()) {
             tiles.push_back(static_cast<Barnabe::Tile*>(t));
         }
