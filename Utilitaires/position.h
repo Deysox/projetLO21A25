@@ -28,6 +28,7 @@ namespace Barnabe {
          * @param y Coordonnée y
          */
         Position(int x = 0, int y = 0) : posX(x), posY(y) {};
+        Position(const Position& p) : posX(p.x()), posY(p.y()) {};
 
         /*
          * Accesseur en lecture pour la coordonnée x

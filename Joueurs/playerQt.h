@@ -4,7 +4,7 @@
 
 #ifndef PROJETLO21A25_PLAYERQT_H
 #define PROJETLO21A25_PLAYERQT_H
-#include "Player.h"
+#include "player.h"
 #include <QObject>
 
 namespace Barnabe {
