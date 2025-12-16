@@ -7,8 +7,8 @@
 
 #endif //AKROPOLIS_CELLQT_H
 
-#include "position.h"
-#include "cell.h"
+#include "../../Utilitaires/position.h"
+#include "../../Tuiles/cell.h"
 
 #include <QWidget>
 #include <QMainWindow>
