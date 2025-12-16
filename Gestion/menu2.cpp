@@ -38,7 +38,7 @@ void Menu::display() {
             {
                 //errors w/out {} because need of a local scope
                 case '1': {
-                    cout << "Choose a variant (normal or new) :";
+                    cout << "Choose 0, 1 or several variants between (home - market - barrack - temple - garden)";
                     string variant = "";
                     cin >> variant;
                     cout << "Number of players ? (1, 2, 3 or 4) :";
