@@ -4,7 +4,7 @@
 
 #ifndef PROJETLO21A25_PLAYERCONSOLE_H
 #define PROJETLO21A25_PLAYERCONSOLE_H
-#include "Player.h"
+#include "player.h"
 
 namespace Barnabe {
     class PlayerConsole : public Player {

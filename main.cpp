@@ -8,13 +8,24 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QApplication>
+
+#include "boardmanager.h"
+#include "Plateau/QT/boardqt.h"
 #include "Gestion/menu.h"
+
 int main(int argc, char* argv[])
 {
+    using namespace Barnabe;
     QApplication app(argc, argv);
-    MenuQt menu;
-    menu.setFixedSize(500, 400);
-    menu.show();
+    Barnabe::ClassicTile* t = new ClassicTile(Color::BLUE,Type::DISTRICT,Color::RED,Type::DISTRICT,Color::GREEN,Type::DISTRICT);
+    Barnabe::BoardManager bm;
+
+    bm.place(t,Position(1,1),Rotation(0));
+    bm.place(t,Position(0,-2),Rotation(0));
+
+    Barnabe::BoardQt bqt(nullptr,bm.getBoard());
+    bqt.setFixedSize(500, 500);
+    bqt.show();
     return app.exec();
 }
 /*
