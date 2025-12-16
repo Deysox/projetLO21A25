@@ -85,7 +85,7 @@ void MenuQt::boutonLancerGameClique() {
 }
 void MenuQt::OnGameParameterReady(int nbPlayers, QString variante, QStringList names )
 {
-    GameQt& game = GameQt::giveInstance(nbPlayers);
+    GameQt& game = GameQt::giveInstance(nbPlayers,variante.toStdString());
     //comme je ne peux pas transmettre plus d'info
     for (int i = 0; i < names.size(); ++i) {
         game.addPlayer(names[i].toStdString());
@@ -99,7 +99,7 @@ void MenuQt::OnGameParameterReady(int nbPlayers, QString variante, QStringList n
 };
 void MenuQt::OnSoloGameParameterReady(QString name, QString Variante, int level)
 {
-    GameQt& game = GameQt::giveInstance(2);
+    GameQt& game = GameQt::giveInstance(2,Variante.toStdString());
     game.manageSoloGame(level);
     game.addPlayer(name.toStdString());
     QString message="Level: " + QString::number(level) +
