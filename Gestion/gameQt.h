@@ -20,11 +20,11 @@ class GameQt : public Game {
 private:
     QWidget* parent = nullptr;
     static GameQt* instanceQt;
-    GameQt(size_t nb_players) : Game(nb_players) {}
+    GameQt(size_t nb_players,string v) : Game(nb_players,v) {}
     GameQt(const Amalena::GameMemento& game_memento) : Game(game_memento) {}
 public:
-    static GameQt& giveInstance(size_t nb_players) {
-        if (!instanceQt) instanceQt = new GameQt(nb_players);
+    static GameQt& giveInstance(size_t nb_players,string v) {
+        if (!instanceQt) instanceQt = new GameQt(nb_players,v);
         return *instanceQt;
     }
     static GameQt& giveInstance(const Amalena::GameMemento& game_memento) {
