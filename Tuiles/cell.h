@@ -90,7 +90,10 @@ namespace Barnabe {
 	public:
 		Cell(int i, Color c, Type t): id(i), color(c), type(t) {}
 
-		Cell(const Cell& c) = delete;
+		Cell(const Cell& c)
+		: id(c.id), color(c.color), type(c.type)
+			{
+		}
 		Cell& operator=(const Cell& c)= delete;
 
 		/*

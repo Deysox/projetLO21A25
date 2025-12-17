@@ -2,7 +2,7 @@
 // Created by barnab on 17/11/2025.
 //
 #include "boardmanager.h"
-#include "exceptions.h"
+#include "../Utilitaires/exceptions.h"
 
 namespace Barnabe {
     BoardManager::BoardManager() : board(new Board()) {
@@ -18,8 +18,8 @@ namespace Barnabe {
 
     BoardManager& BoardManager::operator=(const BoardManager& e) {
         if (&e != this) {
-            board = new Board();
-            *board = *(e.board);
+            delete board;
+            board = new Board(*e.board);
         }
         return *this;
     }

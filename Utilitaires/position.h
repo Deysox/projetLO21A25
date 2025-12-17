@@ -28,6 +28,7 @@ namespace Barnabe {
          * @param y Coordonnée y
          */
         Position(int x = 0, int y = 0) : posX(x), posY(y) {};
+        Position(const Position& p) : posX(p.x()), posY(p.y()) {};
 
         /*
          * Accesseur en lecture pour la coordonnée x
@@ -141,9 +142,11 @@ namespace Barnabe {
             return (p1.y() > p2.y()) || (p1.y() == p2.y() && p1.x() < p2.x());
         }
     };
+
+    ostream& operator<<(ostream& f, const Barnabe::Position& p);
 }
 
-ostream& operator<<(ostream& f, const Barnabe::Position& p);
+
 
 
 #endif //PROJETLO21A25_POSITION_H

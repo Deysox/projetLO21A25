@@ -108,4 +108,4 @@ public:
 
 } // namespace Marilou
 
-#endif // PROJETLO21A25_SCORE_H
+#endif //PROJETLO21A25_SCORE_H

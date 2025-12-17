@@ -4,13 +4,18 @@
 
 #ifndef PROJETLO21A25_PLAYER_H
 #define PROJETLO21A25_PLAYER_H
+#include "../Tuiles/tile.h"
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
 #include <string>
+#include <QWidget>
+#include <QObject>
+#include <QString>
 
 //missing score in attributs' list
 namespace Barnabe {
     class Player {
+    protected:
         //parameter that allows the good initial distribution of stones
         static size_t stones_distribution;
         string name;
@@ -25,18 +30,13 @@ namespace Barnabe {
         void setBoard(const BoardManager& b){board = b;}
         void setStones(int n);
         void addStones(int n);
-        virtual void playTurn(const Tile&);
-
-    };
-
-    //solo variant
-    class Architect : public Player {
-        int difficulty;
-        vector <Tile*> architect_tiles;
-    public:
-        Architect(const std::string& name, int d)
-            : Player(name), difficulty(d) {}
-        void playTurn(const Tile& t) override;
+        virtual void playTurn(const Tile& tile) {
+            displayBoard();
+            placeTile(tile);
+            displayBoard();
+        }
+        virtual void displayBoard() = 0;
+        virtual void placeTile(const Tile& tile) = 0;
     };
     ostream& operator<<(ostream& f, const Player& p);
 }

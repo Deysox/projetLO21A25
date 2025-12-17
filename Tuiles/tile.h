@@ -76,6 +76,10 @@ namespace Barnabe {
 			return cells[i];
 		}
 
+		string typeToString(Type t);
+
+		string toString();
+
 		/*
 		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une
 		 * rotation données. Cette méthode est virtuelle pure, car cette méthode dépend de l'implémentation concrète de

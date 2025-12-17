@@ -9,16 +9,18 @@
 
 namespace Amalena
 {
-    River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile) //parmaetre du constructeur ou un attribut nb tuiles
+    River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile)
     {
         River::fillriver();
-        // for (int i =0; i<(max_tiles);i++){
-        //     tiles.push_back(pile.Draw());
-        // }
     }
-
-
-
+    River& River::operator=(const River& f) {
+        if (this!=&f) {
+            this->tiles = f.tiles;
+            this->max_tiles = f.max_tiles;
+            this->pile = f.pile;
+        }
+        return *this;
+    }
     void River::fillriver()
     {
         while (tiles.size()<max_tiles) tiles.push_back(pile.Draw());
@@ -47,26 +49,22 @@ namespace Amalena
             if (*it==t) return position;
         }
         return 0;
-        //if (position==1000)throw riverException("inexistant"); OU retour d'un chiffre abérant
+
     }
     River::~River()
-    {
-        cout<<"destruction river";
-        //gérer sauvegarde
-    }
+    {}
 
-    River& River::operator=(const River& f) {
-        if (this!=&f) {
-            this->tiles = f.tiles;
-            this->max_tiles = f.max_tiles;
-            this->pile = f.pile;
+    string River::toString() const {
+        std::ostringstream oss;
+        for (size_t i = 0; i < tiles.size(); ++i) {
+            oss << "Tile " << (i + 1) << ": " << tiles[i]->toString() << "\n";
         }
-        return *this;
+        return oss.str();
     }
 
 }
 
-ostream& Amalena::operator<<(std::ostream& f, Amalena::River& river) {
+ostream& operator<<(std::ostream& f, Amalena::River& river) {
     f << "River:\n";
     int pos = 1;
     for (auto it = river.begin(); it != river.end(); ++it) {

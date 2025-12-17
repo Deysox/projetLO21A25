@@ -49,7 +49,7 @@ int Marilou::ScorePierre::compute(const Player& player,const ScoreVariants& ) co
 
 // ===== ScoreBleu : Habitations =====
 
-int Marilou::ScoreBleu::compute(const Player& player,const ScoreVariants& variants) const 
+int Marilou::ScoreBleu::compute(const Player& player,const ScoreVariants& variants) const
 {
     const Board& board = getBoardFromPlayer(player);
 
