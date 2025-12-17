@@ -18,7 +18,7 @@ using json = nlohmann::json;
 namespace Barnabe {
     //using namespace Marilou;
 
-    /*
+    /**
      * Modélise un plateau de joueur du jeu Akropolis.
      * Le contenu du plateau est modélisé par des pointeurs const vers des cases Cell. Les cases sont indexées
      * par leurs positions dans la grille hexagonale, modélisés par des objets Position.
@@ -67,36 +67,36 @@ namespace Barnabe {
         const_iterator cbegin() const {return const_iterator(cells.cbegin());}
         const_iterator cend() const {return const_iterator(cells.cend());}
 
-        /*
+        /**
          * Constructeur de la classe Board. Par défaut, le plateau est vide.
          */
         Board();
 
-        /*
+        /**
          * Destructeur de la classe Board.
          */
         ~Board();
 
-        /*
+        /**
          * Constructeur par recopie de la classe Board.
          * @param b Board à recopier
          */
         Board(const Board& b);
 
-        /*
+        /**
          * Opérateur d'affectation de la classe Board.
          * @param b Board à recopier
          */
         Board& operator=(const Board&);
 
-        /*
+        /**
          * Accesseur en lecture de la case de position pos dans le Board.
          * @param pos Position de la case
          * @return Pointeur const sur la case de coordonnées pos. nullptr si aucune case à l'emplacement indiqué.
          */
         const Cell* getCell(Position pos) const;
 
-        /*
+        /**
          * Accesseur en lecture de la case de position pos dans le Board.
          * @param x Coordonnée x de la case
          * @param y Coordonnée y de la case
@@ -104,14 +104,14 @@ namespace Barnabe {
          */
         const Cell* getCell(int x, int y) const;
 
-        /*
+        /**
          * Accesseur en lecture sur la hauteur de la case de position pos dans le Board.
          * @param pos Position de la case
          * @return unsigned int représentant la hauteur de la case de coordonnées pos.
          * nullptr si aucune case à l'emplacement indiqué.
          */
         unsigned int getHeight(Position pos) const;
-        /*
+        /**
          * Accesseur en lecture sur la hauteur de la case de position pos dans le Board.
          * @param x Coordonnée x de la case
          * @param y Coordonnée y de la case
@@ -122,7 +122,7 @@ namespace Barnabe {
 
         //Position findCell(const Cell&) const;
 
-        /*
+        /**
          * Accesseur en écriture de la case de position pos. Assigne l'emplacement pos à la case c et à la hauteur h.
          * @param pos Position de l'emplacement à écrire
          * @param h Hauteur à écrire
@@ -130,7 +130,7 @@ namespace Barnabe {
          */
         void setCell(Position pos, unsigned int h, const Cell* c);
 
-        /*
+        /**
          * Accesseur en écriture de la case d'emplacement x et y.
          * Assigne l'emplacement de coordonnées x et y à la case c et à la hauteur h.
          * @param x Coordonnée x de l'emplacement à écrire
@@ -140,7 +140,7 @@ namespace Barnabe {
          */
         void setCell(int x, int y, unsigned int h, const Cell* c);
 
-        /*
+        /**
          * Accesseur en lecture des coins du plateau.
          * Les coins ne sont pas nécessairement des cases du plateau, mais plutôt des positions.
          * @return pair contenant le coin supérieur gauche et le coin inférieur droit, dans cet ordre.
