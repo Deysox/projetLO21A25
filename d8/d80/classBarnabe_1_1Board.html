@@ -169,7 +169,11 @@ Amis</h2></td></tr>
 <tr class="memitem:a686e3d32097bd4b9aba98e7daf12775d"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a686e3d32097bd4b9aba98e7daf12775d">operator&lt;&lt;</a> (ostream &amp;f, const <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> &amp;p)</td></tr>
 <tr class="separator:a686e3d32097bd4b9aba98e7daf12775d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des définitions de type membres</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Modélise un plateau de joueur du jeu Akropolis. Le contenu du plateau est modélisé par des pointeurs const vers des cases <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a>. Les cases sont indexées par leurs positions dans la grille hexagonale, modélisés par des objets <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a>. La hauteur d'une case dans le plateau est un unsigned int. Une hauteur de 0 correspond à l'absence de case.</p>
+<p >La classe <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> n'effectue pas de vérification sur la validité des coups joués, et ne permet que la gestion par case, et non par tuile. Elle est destinée à être utilisée avec un objet <a class="el" href="../../d8/de9/classBarnabe_1_1BoardManager.html">BoardManager</a> pour effectuer une interface.</p>
+<p >L'implémentation se fait à l'aide d'une std::unordered_map de clés <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> et de valeurs std::pair&lt;const Cell*, unsigned int&gt; </p>
+</div><h2 class="groupheader">Documentation des définitions de type membres</h2>
 <a id="a427892b33816dc01f93397671b94a2e6" name="a427892b33816dc01f93397671b94a2e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a427892b33816dc01f93397671b94a2e6">&#9670;&#160;</a></span>cellmap</h2>
 
@@ -207,6 +211,7 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructeur de la classe <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. Par défaut, le plateau est vide. </p>
 
 </div>
 </div>
@@ -232,6 +237,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Destructeur de la classe <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p>
 
 </div>
 </div>
@@ -250,6 +256,12 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructeur par recopie de la classe <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> à recopier </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -455,6 +467,14 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture de la case de position pos dans le <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x de la case </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur const sur la case de coordonnées x et y. nullptr si aucune case à l'emplacement indiqué. </dd></dl>
 
 </div>
 </div>
@@ -473,6 +493,13 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture de la case de position pos dans le <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur const sur la case de coordonnées pos. nullptr si aucune case à l'emplacement indiqué. </dd></dl>
 
 </div>
 </div>
@@ -490,6 +517,7 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture des coins du plateau. Les coins ne sont pas nécessairement des cases du plateau, mais plutôt des positions. </p><dl class="section return"><dt>Renvoie</dt><dd>pair contenant le coin supérieur gauche et le coin inférieur droit, dans cet ordre. </dd></dl>
 
 </div>
 </div>
@@ -518,6 +546,14 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture sur la hauteur de la case de position pos dans le <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x de la case </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>unsigned int représentant la hauteur de la case de coordonnées x et y. nullptr si aucune case à l'emplacement indiqué. </dd></dl>
 
 </div>
 </div>
@@ -536,6 +572,13 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture sur la hauteur de la case de position pos dans le <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> de la case </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>unsigned int représentant la hauteur de la case de coordonnées pos. nullptr si aucune case à l'emplacement indiqué. </dd></dl>
 
 </div>
 </div>
@@ -554,6 +597,12 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Opérateur d'affectation de la classe <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a>. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> à recopier </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -594,6 +643,15 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en écriture de la case d'emplacement x et y. Assigne l'emplacement de coordonnées x et y à la case c et à la hauteur h. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x de l'emplacement à écrire </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y de l'emplacement à écrire </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur à écrire </td></tr>
+    <tr><td class="paramname">c</td><td>Pointeur const vers la case à écrire </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -628,6 +686,14 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Accesseur en écriture de la case de position pos. Assigne l'emplacement pos à la case c et à la hauteur h. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> de l'emplacement à écrire </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur à écrire </td></tr>
+    <tr><td class="paramname">c</td><td>Pointeur const vers la case à écrire </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
