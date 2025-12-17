@@ -100,8 +100,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a14ba44b952894fe28fa10774c5c4876c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27a12b62a34e3a4c20b188f2fa40b62f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f">draw</a> () override</td></tr>
 <tr class="separator:a27a12b62a34e3a4c20b188f2fa40b62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a130c574e5c4df9037631ba1ad5ac5ff5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#a130c574e5c4df9037631ba1ad5ac5ff5">setBoard</a> (<a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> *b)</td></tr>
-<tr class="separator:a130c574e5c4df9037631ba1ad5ac5ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc143deb49511d9f5984f2d69c57f22d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#adc143deb49511d9f5984f2d69c57f22d">setBoard</a> (const <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> *b)</td></tr>
+<tr class="separator:adc143deb49511d9f5984f2d69c57f22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acec9477e7ea28b11a3b3d202656dc5b6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#acec9477e7ea28b11a3b3d202656dc5b6">getBoard</a> () const</td></tr>
 <tr class="separator:acec9477e7ea28b11a3b3d202656dc5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a518d6c755b21660cf72047f65029759b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#a518d6c755b21660cf72047f65029759b">lock</a> ()</td></tr>
@@ -137,12 +137,17 @@ Membres hérités additionnels</h2></td></tr>
 <tr class="memitem:a86ab3cc65f345aef93840c95e76ec3eb inherit pro_attribs_classBarnabe_1_1ContainerQt"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html#a86ab3cc65f345aef93840c95e76ec3eb">size</a></td></tr>
 <tr class="separator:a86ab3cc65f345aef93840c95e76ec3eb inherit pro_attribs_classBarnabe_1_1ContainerQt"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Représentation graphique d'un plateau du jeu Akropolis sous forme de Widget QT. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a44a5dd9ae715e95d62a7b9d9ea25fa8f" name="a44a5dd9ae715e95d62a7b9d9ea25fa8f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44a5dd9ae715e95d62a7b9d9ea25fa8f">&#9670;&#160;</a></span>BoardQt()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Barnabe::BoardQt::BoardQt </td>
@@ -168,7 +173,20 @@ Membres hérités additionnels</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<p >Constructeur de la classe <a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html">BoardQt</a> </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Widget parent </td></tr>
+    <tr><td class="paramname">b</td><td>Plateau à représenter </td></tr>
+    <tr><td class="paramname">s</td><td>Taille des cases (rayon) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -195,6 +213,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Création de l'affichage </p>
 
 <p>Implémente <a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html#a8681cf007e2f9436bed877e7a9206ca6">Barnabe::ContainerQt</a>.</p>
 
@@ -222,6 +241,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Désalloue les <a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> en itérant sur la map </p>
 
 <p>Implémente <a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html#a15a6eccc9f9368bf2481a79b640bcea8">Barnabe::ContainerQt</a>.</p>
 
@@ -249,6 +269,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture du plateau à afficher </p><dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> </dd></dl>
 
 </div>
 </div>
@@ -274,11 +295,12 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Verrouille toutes les cases du plateau </p>
 
 </div>
 </div>
-<a id="a130c574e5c4df9037631ba1ad5ac5ff5" name="a130c574e5c4df9037631ba1ad5ac5ff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a130c574e5c4df9037631ba1ad5ac5ff5">&#9670;&#160;</a></span>setBoard()</h2>
+<a id="adc143deb49511d9f5984f2d69c57f22d" name="adc143deb49511d9f5984f2d69c57f22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc143deb49511d9f5984f2d69c57f22d">&#9670;&#160;</a></span>setBoard()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +311,7 @@ Membres hérités additionnels</h2></td></tr>
         <tr>
           <td class="memname">void Barnabe::BoardQt::setBoard </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html">Board</a> *&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
           <td></td>
         </tr>
@@ -300,6 +322,12 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Accesseur en écriture du plateau à afficher </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>Plateau à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -325,6 +353,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Déverrouille toutes les cases du plateau </p>
 
 </div>
 </div>
@@ -348,6 +377,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Plateau à afficher </p>
 
 </div>
 </div>
@@ -370,6 +400,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Map stockant les widgets <a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> utilisés pour l'affichage des cases </p>
 
 </div>
 </div>

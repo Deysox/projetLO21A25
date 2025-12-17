@@ -125,7 +125,9 @@ Attributs protégés</h2></td></tr>
 <tr class="memitem:a626c6ab3f17321f451f34dc2a96359b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">locked</a></td></tr>
 <tr class="separator:a626c6ab3f17321f451f34dc2a96359b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Classe abstraide représentant un widget affichant une case du jeu Akropolis. Définit une interface pour les différents types de cases. </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ad6eefdb3773bb0a2ba861f889d3fcde3" name="ad6eefdb3773bb0a2ba861f889d3fcde3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6eefdb3773bb0a2ba861f889d3fcde3">&#9670;&#160;</a></span>CellQt()</h2>
 
@@ -163,6 +165,15 @@ Attributs protégés</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Constructeur de la classe <a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Widget parent </td></tr>
+    <tr><td class="paramname">p</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> dans un plateau repésentée par la case </td></tr>
+    <tr><td class="paramname">l</td><td>Verrouillage par défaut </td></tr>
+    <tr><td class="paramname">s</td><td>Taille de la case </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -188,6 +199,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Destructeur de <a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> </p>
 
 </div>
 </div>
@@ -214,6 +226,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Calcule le remplissage du dessin de la case. En fonction du type de case, le remplissage diffère, en devant possiblement s'adapter à la couleur, au type... </p><dl class="section return"><dt>Renvoie</dt><dd>QBrush utilisée pour le remplissage du tracé </dd></dl>
 
 <p>Implémenté dans <a class="el" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#abffdfacfb2081d790f0a772a37b4497b">Barnabe::CellQtFull</a>, et <a class="el" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#ab70253d2cc5b6f0730f8ee60e18807c1">Barnabe::CellQtEmpty</a>.</p>
 
@@ -241,6 +254,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Actions à effectuer après le traçage de la case. </p>
 
 <p>Implémenté dans <a class="el" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a00d45d59147dee3df8ce657999f0fa66">Barnabe::CellQtFull</a>, et <a class="el" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#afb2c1e8c08eda4a3f2626c9c15566fd3">Barnabe::CellQtEmpty</a>.</p>
 
@@ -268,6 +282,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Verrouille la case </p>
 
 </div>
 </div>
@@ -294,6 +309,12 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Dessine la case sous la forme d'un hexagone. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>QPaintEvent </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -319,6 +340,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Calcule le contour du dessin de la case. En fonction du type de case, le contour diffère, en devant possiblement s'adapter à la couleur, au type... </p><dl class="section return"><dt>Renvoie</dt><dd>QPen utilisée pour le contour du tracé </dd></dl>
 
 <p>Implémenté dans <a class="el" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ab1b16572c792797bb4d8b85456f2200f">Barnabe::CellQtFull</a>, et <a class="el" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#af0f6f02055582850b94bbbf04073dba6">Barnabe::CellQtEmpty</a>.</p>
 
@@ -346,6 +368,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Déverrouille la case </p>
 
 </div>
 </div>
@@ -369,6 +392,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Hauteur réelle du widget h = sqrt(3)*size </p>
 
 </div>
 </div>
@@ -391,6 +415,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Bloque ou non l'effet lors du passage de la souris </p>
 
 </div>
 </div>
@@ -413,6 +438,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p ><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> dans un plateau représentée par la case dans son conteneur </p>
 
 </div>
 </div>
@@ -435,6 +461,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Taille de la case en pixels (rayon) </p>
 
 </div>
 </div>
@@ -457,6 +484,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Largeur réelle du widget w = 2*size </p>
 
 </div>
 </div>

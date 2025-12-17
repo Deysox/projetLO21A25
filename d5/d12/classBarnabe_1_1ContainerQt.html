@@ -116,7 +116,11 @@ Attributs protégés</h2></td></tr>
 <tr class="memitem:a86ab3cc65f345aef93840c95e76ec3eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html#a86ab3cc65f345aef93840c95e76ec3eb">size</a></td></tr>
 <tr class="separator:a86ab3cc65f345aef93840c95e76ec3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Classe abstraite définissant une interface pour les widgets contenant des cellules, en particulier <a class="el" href="../../df/dc3/classBarnabe_1_1TileQt.html">TileQt</a> et <a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html">BoardQt</a>.</p>
+<p >Hérite de QWidget</p>
+<p >Gère le cycle de vie des <a class="el" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a0dca38dbf523e25e515974ab8f14c387" name="a0dca38dbf523e25e515974ab8f14c387"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0dca38dbf523e25e515974ab8f14c387">&#9670;&#160;</a></span>ContainerQt() <span class="overload">[1/2]</span></h2>
 
@@ -146,10 +150,17 @@ Attributs protégés</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur de la classe <a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html">ContainerQt</a> </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Widget parent du conteneur </td></tr>
+    <tr><td class="paramname">s</td><td>Taille des cases en pixels </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -175,6 +186,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Destructeur de la classe <a class="el" href="../../d5/d12/classBarnabe_1_1ContainerQt.html">ContainerQt</a> </p>
 
 </div>
 </div>
@@ -227,6 +239,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Comportement à adopter pour générer l'affichage </p>
 
 <p>Implémenté dans <a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f">Barnabe::BoardQt</a>, et <a class="el" href="../../d6/dbf/classBarnabe_1_1ClassicTileQt.html#adfa02b378ce45e7661150d37f35e2bc0">Barnabe::ClassicTileQt</a>.</p>
 
@@ -254,6 +267,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Comportement à adopter pour vider le contenu du conteneur </p>
 
 <p>Implémenté dans <a class="el" href="../../db/d91/classBarnabe_1_1BoardQt.html#a14ba44b952894fe28fa10774c5c4876c">Barnabe::BoardQt</a>, et <a class="el" href="../../df/dc3/classBarnabe_1_1TileQt.html#aa2009261caf48eded9c508b0114c6c24">Barnabe::TileQt</a>.</p>
 
@@ -307,6 +321,11 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Actualisation de l'affichage du conteneur. Effectue dans l'ordre :</p><ul>
+<li>Désallocation et nettoyage des widgets enfants</li>
+<li>Création des widgets pour l'affichage</li>
+<li>Actualisation de l'affichage grâce à la méthode update() de Qt </li>
+</ul>
 
 </div>
 </div>
@@ -330,6 +349,7 @@ Attributs protégés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Taille des cases à afficher en pixels. </p>
 
 </div>
 </div>
