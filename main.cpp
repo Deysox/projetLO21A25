@@ -9,7 +9,7 @@
 #include <QLabel>
 #include <QApplication>
 
-#include "boardmanager.h"
+#include "Plateau/boardmanager.h"
 #include "Plateau/QT/boardqt.h"
 #include "Gestion/menu.h"
 

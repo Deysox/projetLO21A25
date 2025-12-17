@@ -9,12 +9,9 @@
 
 namespace Amalena
 {
-    River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile) //parmaetre du constructeur ou un attribut nb tuiles
+    River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile)
     {
         River::fillriver();
-        // for (int i =0; i<(max_tiles);i++){
-        //     tiles.push_back(pile.Draw());
-        // }
     }
     River& River::operator=(const River& f) {
         if (this!=&f) {
@@ -52,7 +49,7 @@ namespace Amalena
             if (*it==t) return position;
         }
         return 0;
-        //if (position==1000)throw riverException("inexistant"); OU retour d'un chiffre abérant
+
     }
     River::~River()
     {}

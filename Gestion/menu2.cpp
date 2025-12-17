@@ -38,7 +38,10 @@ void Menu::display() {
             {
                 //errors w/out {} because need of a local scope
                 case '1': {
-                    cout << "Number of players ? (1, 2, 3 or 4) ";
+                    cout << "Choose 0, 1 or several variants between (home - market - barrack - temple - garden)";
+                    string variant = "";
+                    cin >> variant;
+                    cout << "Number of players ? (1, 2, 3 or 4) :";
                     size_t nb_players = 0;
                     cin >> nb_players;
                     while (nb_players > Game::getNbPlayersMax()) {
@@ -46,7 +49,7 @@ void Menu::display() {
                         cin >> nb_players;
                     }
                     if (nb_players == 1) {
-                        GameConsole& game = GameConsole::giveInstance(nb_players+1);
+                        GameConsole& game = GameConsole::giveInstance(nb_players+1,variant);
                         cout << "Difficulty ? (1 = easy, 2 = medium, 3 = hard) : ";
                         int difficulty = 0;
                         cin >> difficulty;
@@ -54,7 +57,7 @@ void Menu::display() {
                         //game.endGame();
                     }
                     else {
-                        GameConsole& game = GameConsole::giveInstance(nb_players);
+                        GameConsole& game = GameConsole::giveInstance(nb_players,variant);
                         game.manageGame();
                         //game.endGame();
                     }

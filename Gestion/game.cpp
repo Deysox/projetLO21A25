@@ -17,12 +17,12 @@ using json = nlohmann::json;
 //static attributs
 size_t Game::nb_players_max = 4;
 
-Game::Game(size_t nb_players) :
+Game::Game(size_t nb_players,string v) :
     nb_players(nb_players),
     deck(new Eloise::Deck(nb_players)),
     pile(new Amalena::Pile(*deck)),
     river(new Amalena::River(nb_players+2,*pile)),
-    variant(" "){}
+    variant(v){}
 
 //retrieve tiles' id
 Game::Game(const Amalena::GameMemento& game_memento) :

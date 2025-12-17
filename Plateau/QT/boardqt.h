@@ -5,8 +5,8 @@
 #ifndef PROJETLO21A25_HEXAGON_H
 #define PROJETLO21A25_HEXAGON_H
 
-#include "cell.h"
-#include "board.h"
+#include "../../Tuiles/tile.h"
+#include "../../Plateau/board.h"
 #include "cellqt.h"
 
 #include <QWidget>

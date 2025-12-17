@@ -35,10 +35,10 @@ protected:
 	Amalena::River* river = nullptr;
 
 	//game has potentially a variant
-	string variant;
+	string variant = "";
 
 	//constructor for new game
-	Game(size_t nb_players);
+	Game(size_t nb_players, string variant);
 
 	//constructor for old game
 	Game(const Amalena::GameMemento& game_memento);
@@ -50,6 +50,12 @@ protected:
 	Game& operator=(const Game& c) = delete;
 public:
 	//getters et setters
+	void setVariant(const string& v) {
+		variant = v;
+	}
+	const string& getVariant() const {
+		return variant;
+	}
 	const size_t& getNbPlayers() const {
 		return nb_players;
 	}
