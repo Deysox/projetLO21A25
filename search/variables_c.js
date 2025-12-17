@@ -4,5 +4,5 @@ var searchData=
   ['river_1',['river',['../d9/d68/classGame.html#a0595a2416afcf2ebf3d2fe22ffdb606b',1,'Game']]],
   ['riverid_2',['riverid',['../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5',1,'Amalena::GameMemento']]],
   ['rot_3',['rot',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a5eb9429ae1450b6e0cf1728ef80a7189',1,'Barnabe::Position::iterator']]],
-  ['rotation_4',['rotation',['../d1/d38/classMarilou_1_1BicolorCell.html#aea0fad7e6a282cecf3664ffb4fe24399',1,'Marilou::BicolorCell::rotation()'],['../dd/d02/classBarnabe_1_1BicolorCell.html#a607c8a530c959f30b7f133c66acaf047',1,'Barnabe::BicolorCell::rotation()']]]
+  ['rotation_4',['rotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#a607c8a530c959f30b7f133c66acaf047',1,'Barnabe::BicolorCell']]]
 ];

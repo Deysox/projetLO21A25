@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['bicolorcell_0',['BicolorCell',['../dd/d02/classBarnabe_1_1BicolorCell.html',1,'Barnabe::BicolorCell'],['../d1/d38/classMarilou_1_1BicolorCell.html',1,'Marilou::BicolorCell']]],
+  ['bicolorcell_0',['BicolorCell',['../dd/d02/classBarnabe_1_1BicolorCell.html',1,'Barnabe']]],
   ['board_1',['Board',['../d8/d80/classBarnabe_1_1Board.html',1,'Barnabe']]],
   ['boardmanager_2',['BoardManager',['../d8/de9/classBarnabe_1_1BoardManager.html',1,'Barnabe']]],
   ['boardqt_3',['BoardQt',['../db/d91/classBarnabe_1_1BoardQt.html',1,'Barnabe']]]

@@ -13,5 +13,5 @@ var searchData=
   ['architectplaysologame_10',['architectPlaySoloGame',['../d9/d68/classGame.html#a56d99d25e08563ef9e59da39b1797eea',1,'Game::architectPlaySoloGame()'],['../d6/d73/classGameConsole.html#a8d634c5f543478925a0b50cd2097bbc2',1,'GameConsole::architectPlaySoloGame()'],['../dc/d9d/classGameQt.html#ad78154995df4b4ffd4ff3bfdbb6f259e',1,'GameQt::architectPlaySoloGame()']]],
   ['architectqt_11',['ArchitectQt',['../d7/dfd/classBarnabe_1_1ArchitectQt.html#a693c1cef8a5197653978c82a2363fdfa',1,'Barnabe::ArchitectQt']]],
   ['asknamesologame_12',['askNameSoloGame',['../d9/d68/classGame.html#a039ee35c3cf73a519fcb66743c730942',1,'Game::askNameSoloGame()'],['../d6/d73/classGameConsole.html#a04663d8d489349a82c6c783505f1d57f',1,'GameConsole::askNameSoloGame()'],['../dc/d9d/classGameQt.html#ab4d4812c068001b6308b0b627020a2e1',1,'GameQt::askNameSoloGame()']]],
-  ['athenatile_13',['AthenaTile',['../d7/d8f/classMarilou_1_1AthenaTile.html#a70071da4c8eb55566f1fd3b9396dda60',1,'Marilou::AthenaTile::AthenaTile()'],['../de/d78/classBarnabe_1_1AthenaTile.html#ab0906d46175cb118114c3be1b27e4d09',1,'Barnabe::AthenaTile::AthenaTile()']]]
+  ['athenatile_13',['AthenaTile',['../de/d78/classBarnabe_1_1AthenaTile.html#ab0906d46175cb118114c3be1b27e4d09',1,'Barnabe::AthenaTile']]]
 ];

@@ -11,5 +11,5 @@ var searchData=
   ['scorevariants_8',['ScoreVariants',['../d4/d97/structMarilou_1_1ScoreVariants.html',1,'Marilou']]],
   ['scorevert_9',['ScoreVert',['../db/d01/classMarilou_1_1ScoreVert.html',1,'Marilou']]],
   ['scoreviolet_10',['ScoreViolet',['../d0/d07/classMarilou_1_1ScoreViolet.html',1,'Marilou']]],
-  ['startingtile_11',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html',1,'Barnabe::StartingTile'],['../dc/d6a/classMarilou_1_1StartingTile.html',1,'Marilou::StartingTile']]]
+  ['startingtile_11',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html',1,'Barnabe']]]
 ];

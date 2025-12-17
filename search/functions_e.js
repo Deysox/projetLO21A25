@@ -20,6 +20,6 @@ var searchData=
   ['settile_17',['setTile',['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#ae4f4286b20aa0270057c17d94032c01e',1,'Barnabe::ClassicTileQt']]],
   ['setvariant_18',['setVariant',['../d9/d68/classGame.html#a24cc447e86fb537268a58913ce26eabb',1,'Game']]],
   ['sologameparametersready_19',['sologameparametersReady',['../d2/dfd/classinit.html#a48e0374a71a5bef1b91b02673d0d172b',1,'init']]],
-  ['startingtile_20',['StartingTile',['../dc/d6a/classMarilou_1_1StartingTile.html#a0fb68c82ad786e79a822f655cadd7be7',1,'Marilou::StartingTile::StartingTile()'],['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile::StartingTile()']]],
+  ['startingtile_20',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile']]],
   ['stay1_21',['stay1',['../dc/d76/classAmalena_1_1River.html#a725938b41dd7aa51ea940e4372884dd4',1,'Amalena::River']]]
 ];
