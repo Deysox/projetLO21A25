@@ -85,20 +85,19 @@ namespace Barnabe {
         }
     }
 
-    CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s){}
+    CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s){setMouseTracking(true);}
 
 
     const QPen CellQtEmpty::pen() const {
-        static const QPen hexPen(Qt::transparent);
+        QPen hexPen(Qt::transparent);
         return hexPen;
     }
 
     const QBrush CellQtEmpty::brush() const {
-        QBrush hexBrush(Qt::Dense6Pattern);
+        QBrush hexBrush(Qt::Dense5Pattern);
         if (underMouse() && !locked) {
             hexBrush.setColor(Qt::red);
-        }
-        else {
+        } else {
             hexBrush.setColor(Qt::darkGray);
         }
         return hexBrush;
@@ -107,16 +106,5 @@ namespace Barnabe {
     void CellQtEmpty::endPaintEventActions() {
         return;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }
