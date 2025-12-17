@@ -29,8 +29,6 @@ namespace Barnabe {
 
         void lock() {for (auto it = cells.begin(); it != cells.end(); it++) it->second->lock();}
         void unlock() {for (auto it = cells.begin(); it != cells.end(); it++) it->second->unlock();}
-
-
     };
 
 

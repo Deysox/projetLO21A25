@@ -128,6 +128,8 @@ namespace Barnabe {
          */
         iterator end() const {return {posX,posY, 6};}
 
+        string toString() const {return "("+to_string(x())+";"+to_string(y())+")";}
+
     };
 
     struct PositionHasher {

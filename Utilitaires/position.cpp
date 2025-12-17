@@ -42,8 +42,7 @@ namespace Barnabe {
         return false;
     }
     ostream& operator<<(ostream& f, const Barnabe::Position& p) {
-        string out = "(" + to_string(p.x()) + ";" + to_string(p.y()) +")";
-        f << out;
+        f << p.toString();
         return f;
     }
 

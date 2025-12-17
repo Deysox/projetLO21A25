@@ -12,7 +12,7 @@ namespace Barnabe {
         int size;
     public:
         ContainerQt(QWidget* parent, int s = 40) : QWidget(parent), size(s) {
-            setStyleSheet("background-color: rgba(0,0,0,0)");
+
 
         }
         virtual ~ContainerQt() = default;

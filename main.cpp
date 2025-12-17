@@ -17,16 +17,21 @@ int main(int argc, char* argv[])
 {
     using namespace Barnabe;
     QApplication app(argc, argv);
+
     Barnabe::ClassicTile* t = new ClassicTile(Color::BLUE,Type::DISTRICT,Color::RED,Type::DISTRICT,Color::GREEN,Type::DISTRICT);
+    Barnabe::ClassicTile* t2 = new ClassicTile(Color::PURPLE,Type::PLACE,Color::YELLOW,Type::DISTRICT,Color::RED,Type::PLACE);
     Barnabe::BoardManager bm;
 
     bm.place(t,Position(1,1),Rotation(0));
-    bm.place(t,Position(0,-2),Rotation(0));
+    bm.place(t2,Position(0,-2),Rotation(0));
+    bm.place(t,Position(0,0),Rotation(0));
 
     Barnabe::BoardQt bqt(nullptr,bm.getBoard());
-    bqt.setTileDisplay(t);
+
 
     bqt.setFixedSize(500, 500);
+    bqt.setStyleSheet("background-color:rgba(255,255,255,1);");
+
     bqt.show();
     return app.exec();
 }

@@ -15,7 +15,9 @@ namespace Barnabe {
         vector<CellQtFull*> cells;
         const Tile* tile;
     public:
-        TileQt(QWidget* parent, const Tile* t, int s = 40) : ContainerQt(parent, s), tile(t) {}
+        TileQt(QWidget* parent, const Tile* t, int s = 40) : ContainerQt(parent, s), tile(t) {
+            setStyleSheet("background-color: rgba(0,0,0,0)");
+        }
 
         void empty() {
             for (const CellQtFull* vec : cells) delete vec;

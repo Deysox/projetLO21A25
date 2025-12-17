@@ -43,7 +43,7 @@ namespace Barnabe {
 
                 auto finder = cells.find(subpos);
                 if (finder == cells.end()) {
-                    CellQt* sub_cell_qt = new CellQtEmpty(this,pos,false,40);
+                    CellQt* sub_cell_qt = new CellQtEmpty(this,subpos,false,40);
                     int submovex = subpos.x()*3*w/4-x_offset;
                     int submovey = -subpos.y()*h-y_offset;
 

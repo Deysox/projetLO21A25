@@ -34,7 +34,7 @@ namespace Barnabe {
         CellQt(QWidget* parent, Position p, bool l = false, int s = 40);
         virtual ~CellQt() = default;
         void paintEvent(QPaintEvent *event) override;
-        void mousePressEvent ( QMouseEvent * event ) override;
+
 
         virtual const QBrush brush() const = 0;
         virtual const QPen pen() const = 0;
@@ -45,11 +45,14 @@ namespace Barnabe {
         void unlock() {locked = false;}
 
 
+
     };
 
 
     class CellQtFull : public CellQt {
         static map<Color, pair<QColor, QColor>> colors;
+        static map<Color, string> colorText;
+        static map<Color, string> placeText;
         Color color;
         Type type;
         unsigned int height;
@@ -61,6 +64,7 @@ namespace Barnabe {
         const QPen pen() const override;
 
         void endPaintEventActions() override;
+
     };
 
     class CellQtEmpty : public CellQt {

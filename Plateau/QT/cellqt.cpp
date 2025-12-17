@@ -2,13 +2,17 @@
 // Created by barnab on 16/12/2025.
 //
 #include "cellqt.h"
+#include <QToolTip>
+#include <sstream>
 
 namespace Barnabe {
 
     CellQt::CellQt(QWidget *parent, Position p, bool l, int s) : QWidget(parent), pos(p), locked(l), size(s), w(size*2), h(std::sqrt(3)*size) {
-        setStyleSheet("background-color: rgba(0,0,0,0)");
+        setStyleSheet("QWidget{background-color: rgba(0,0,0,0);}QToolTip{background-color:rgba(255,255,255,1);padding:1px;border:none;border-radius:3px;font-family:monospace;}");
         setFixedSize(w,w);
         setMouseTracking(true);
+        setToolTip(QString::fromStdString(pos.toString()));
+
     }
     void CellQt::paintEvent(QPaintEvent *event) {
         QPainter hexPainter(this);
@@ -34,16 +38,6 @@ namespace Barnabe {
         endPaintEventActions();
     }
 
-    void CellQt::mousePressEvent(QMouseEvent * event) {
-        if (!locked) {
-            cout << pos << endl;
-        }
-
-    }
-
-
-
-
 
     map<Color, pair<QColor, QColor>> CellQtFull::colors = {
         {Color::BLUE,{"#559ad6","#1f5a8e"}},
@@ -54,6 +48,23 @@ namespace Barnabe {
         {Color::GREY,{"#b7b7b7","#777777"}},
     };
 
+    map<Color, string> CellQtFull::colorText = {
+        {Color::BLUE,"Habitations"},
+        {Color::YELLOW,"Marché"},
+        {Color::RED,"Casernes"},
+        {Color::PURPLE,"Temple"},
+        {Color::GREEN,"Jardins"},
+    };
+
+    map<Color, string> CellQtFull::placeText = {
+        {Color::BLUE,"(*)"},
+        {Color::YELLOW,"(**)"},
+        {Color::RED,"(**)"},
+        {Color::PURPLE,"(**)"},
+        {Color::GREEN,"(***)"},
+    };
+
+
     CellQtFull::CellQtFull(QWidget* parent, Position p, bool l, int s, Color c, Type t, unsigned int hght) :
     CellQt(parent,p,l,s), color(c), type(t), height(hght) {
         if (height > 0) {
@@ -62,6 +73,20 @@ namespace Barnabe {
             label->setFont(QFont("monospace",20,600));
             label->move(4*size/5,2*size/5);
         }
+
+        stringstream ss;
+        ss << "Position : "<<pos.toString()<<"\nHauteur : "<<to_string(height)<<"\n";
+        if (type == Type::DISTRICT) {
+            ss << "Quartier " << colorText[color];
+        } else if (type == Type::PLACE) {
+            ss << "Place " << colorText[color] << " " << placeText[color];
+        } else {
+            ss << "Carrière";
+        }
+        setToolTip(QString::fromStdString(ss.str()));
+
+
+
 
     }
 
@@ -89,7 +114,11 @@ namespace Barnabe {
         }
     }
 
-    CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s){setMouseTracking(true);}
+
+
+    CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s) {
+        setToolTip(QString::fromStdString("Position : "+pos.toString()));
+    }
 
 
     const QPen CellQtEmpty::pen() const {
@@ -98,7 +127,7 @@ namespace Barnabe {
     }
 
     const QBrush CellQtEmpty::brush() const {
-        QBrush hexBrush(Qt::Dense5Pattern);
+        QBrush hexBrush(Qt::Dense6Pattern);
         if (underMouse() && !locked) {
             hexBrush.setColor(Qt::red);
         } else {
