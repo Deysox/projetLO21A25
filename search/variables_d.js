@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scorepierre_0',['scorePierre',['../d6/d25/classMarilou_1_1ScoreGeneral.html#a817dc3bf3ad0011beeb90a2f6b56dabb',1,'Marilou::ScoreGeneral']]],
+  ['scores_0',['scores',['../d6/d25/classMarilou_1_1ScoreGeneral.html#a2020dd57c877ffdca2e0d3cb5d6861bb',1,'Marilou::ScoreGeneral']]],
   ['secondarycolor_1',['secondaryColor',['../d1/d38/classMarilou_1_1BicolorCell.html#aba35f3baac522afbb2ee315b6d63d80c',1,'Marilou::BicolorCell::secondaryColor()'],['../dd/d02/classBarnabe_1_1BicolorCell.html#a2330d30f411f42d4c61b49a26698464f',1,'Barnabe::BicolorCell::secondaryColor()']]],
   ['size_2',['size',['../db/d91/classBarnabe_1_1BoardQt.html#ab549cb169ff2b254d859fb593748ad36',1,'Barnabe::BoardQt::size()'],['../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29',1,'Barnabe::CellQt::size()']]],
   ['spinlevel_3',['spinlevel',['../d2/dfd/classinit.html#aed0fae512cfa48069b08611d23e41bba',1,'init']]],

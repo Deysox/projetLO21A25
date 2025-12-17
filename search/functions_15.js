@@ -14,6 +14,5 @@ var searchData=
   ['_7esavemanager_11',['~savemanager',['../d2/de2/classAmalena_1_1savemanager.html#a7cac4b204584c2c61a8bf2d5bc4cd36d',1,'Amalena::savemanager']]],
   ['_7escore_12',['~Score',['../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18',1,'Marilou::Score']]],
   ['_7escorecouleur_13',['~ScoreCouleur',['../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44',1,'Marilou::ScoreCouleur']]],
-  ['_7escoregeneral_14',['~ScoreGeneral',['../d6/d25/classMarilou_1_1ScoreGeneral.html#aaede69b2867403f972b2362ef8d98f73',1,'Marilou::ScoreGeneral']]],
-  ['_7etile_15',['~Tile',['../d8/da8/classMarilou_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2',1,'Marilou::Tile::~Tile()'],['../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2',1,'Barnabe::Tile::~Tile()']]]
+  ['_7etile_14',['~Tile',['../d8/da8/classMarilou_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2',1,'Marilou::Tile::~Tile()'],['../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2',1,'Barnabe::Tile::~Tile()']]]
 ];

@@ -7,8 +7,7 @@ var searchData=
   ['initwidget_4',['initWidget',['../d1/d26/classMenuQt.html#a69aa304d61398ac091a9635fa1734928',1,'MenuQt']]],
   ['instanceconsole_5',['instanceConsole',['../d6/d73/classGameConsole.html#aa3bcb644a8a7225fc46ff7f5954198df',1,'GameConsole']]],
   ['instanceqt_6',['instanceQt',['../dc/d9d/classGameQt.html#a886c7b9c1b56873b230e6084368d283c',1,'GameQt']]],
-  ['isdistrictofcolor_7',['isDistrictOfColor',['../db/d3d/score_8cpp.html#ab4008283fdb65fbd72e6f5b248601cb3',1,'score.cpp']]],
-  ['isempty_8',['isEmpty',['../df/d05/classAmalena_1_1Pile.html#a8d00084ea5924fb45fbea0750074c15d',1,'Amalena::Pile']]],
-  ['isneighbour_9',['isNeighbour',['../d8/d16/classBarnabe_1_1Position.html#a515f87663564db31a6c8a8b62623457a',1,'Barnabe::Position']]],
-  ['iterator_10',['iterator',['../df/d0b/classBarnabe_1_1Board_1_1iterator.html',1,'Barnabe::Board::iterator'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html',1,'Barnabe::Position::iterator'],['../df/d0b/classBarnabe_1_1Board_1_1iterator.html#a689353a54ccb3e41341675c83be30992',1,'Barnabe::Board::iterator::iterator()'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#abc76b0c373642ce922a2eb8284d67cd5',1,'Barnabe::Position::iterator::iterator()']]]
+  ['isempty_7',['isEmpty',['../df/d05/classAmalena_1_1Pile.html#a8d00084ea5924fb45fbea0750074c15d',1,'Amalena::Pile']]],
+  ['isneighbour_8',['isNeighbour',['../d8/d16/classBarnabe_1_1Position.html#a515f87663564db31a6c8a8b62623457a',1,'Barnabe::Position']]],
+  ['iterator_9',['iterator',['../df/d0b/classBarnabe_1_1Board_1_1iterator.html',1,'Barnabe::Board::iterator'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html',1,'Barnabe::Position::iterator'],['../df/d0b/classBarnabe_1_1Board_1_1iterator.html#a689353a54ccb3e41341675c83be30992',1,'Barnabe::Board::iterator::iterator()'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#abc76b0c373642ce922a2eb8284d67cd5',1,'Barnabe::Position::iterator::iterator()']]]
 ];
