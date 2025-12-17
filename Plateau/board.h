@@ -32,39 +32,95 @@ namespace Barnabe {
      * std::pair<const Cell*, unsigned int>
      */
     class Board {
-
+        /**
+         * Map statique utilisée pour le chargement d'une sauvegarde à partir d'un fichier JSON
+         */
         static map<string, Color> stringToColor;
+        /**
+         * Map statique utilisée pour le chargement d'une sauvegarde à partir d'un fichier JSON
+         */
         static map<string, Type> stringToType;
+        /**
+         * Map statique utilisée pour l'enregistrement d'une sauvegarde vers un fichier JSON
+         */
         static map<Color, string> colorToString;
+        /**
+         * Map statique utilisée pour l'enregistrement d'une sauvegarde vers un fichier JSON
+         */
         static map<Type, string> typeToString;
 
-    private :
+        /**
+         * Alias pour le type de la map utilisée pour le stockage des données du plateau.
+         */
         using cellmap = unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>;
+        /**
+         * Map contenant les données du plateau
+         */
         cellmap cells;
+        /**
+         * Coordonnées du coin supérieur gauche du plateau.
+         * Attribut actualisé lors d'un appel à setCell(), permettant d'avoir un point de repère pour l'affichage.
+         */
         Position corner_tl;
+        /**
+         * Coordonnées du coin inférieur droit du plateau.
+         * Attribut actualisé lors d'un appel à setCell(), permettant d'avoir un point de repère pour l'affichage.
+         */
         Position corner_br;
     public:
+        /*
+         *A faire
+         */
         json toJsonBoard() const;
 
+        /*
+         *A faire
+         */
         static Board fromJsonBoard(const json& j);
 
+        /**
+         * Itérateur sur les données du plateau.
+         * L'itérateur héritant d'un itérateur de unordered_map, l'ordre du passage des éléments n'est pas garanti.
+         */
         class iterator : public cellmap::iterator {
             friend class Board;
             iterator(cellmap::iterator mi) : cellmap::iterator(mi) {}
         };
 
+        /**
+         * Itérateur constant sur les données du plateau.
+         * L'itérateur héritant d'un itérateur de unordered_map, l'ordre du passage des éléments n'est pas garanti.
+         */
         class const_iterator : public cellmap::const_iterator {
             friend class Board;
             const_iterator(cellmap::const_iterator mi) : cellmap::const_iterator(mi) {}
         };
 
+        /**
+         * @return Itérateur commençant le parcours du plateau
+         */
         iterator begin() {return iterator(cells.begin());}
+        /**
+         * @return Itérateur indiquant la fin de parcours du plateau
+         */
         iterator end() {return iterator(cells.end());}
 
+        /**
+         * @return Itérateur constant commençant le parcours du plateau
+         */
         const_iterator begin() const {return const_iterator(cells.cbegin());}
+        /**
+         * @return Itérateur constant indiquant la fin de parcours du plateau
+         */
         const_iterator end() const {return const_iterator(cells.cend());}
 
+        /**
+         * @return Itérateur constant commençant le parcours du plateau
+         */
         const_iterator cbegin() const {return const_iterator(cells.cbegin());}
+        /**
+         * @return Itérateur constant indiquant la fin de parcours du plateau
+         */
         const_iterator cend() const {return const_iterator(cells.cend());}
 
         /**
@@ -94,7 +150,7 @@ namespace Barnabe {
          * @param pos Position de la case
          * @return Pointeur const sur la case de coordonnées pos. nullptr si aucune case à l'emplacement indiqué.
          */
-        const Cell* getCell(Position pos) const;
+        const Cell* getCell(const Position& pos) const;
 
         /**
          * Accesseur en lecture de la case de position pos dans le Board.
@@ -110,7 +166,7 @@ namespace Barnabe {
          * @return unsigned int représentant la hauteur de la case de coordonnées pos.
          * nullptr si aucune case à l'emplacement indiqué.
          */
-        unsigned int getHeight(Position pos) const;
+        unsigned int getHeight(const Position& pos) const;
         /**
          * Accesseur en lecture sur la hauteur de la case de position pos dans le Board.
          * @param x Coordonnée x de la case
@@ -119,8 +175,6 @@ namespace Barnabe {
          * nullptr si aucune case à l'emplacement indiqué.
          */
         unsigned int getHeight(int x, int y) const;
-
-        //Position findCell(const Cell&) const;
 
         /**
          * Accesseur en écriture de la case de position pos. Assigne l'emplacement pos à la case c et à la hauteur h.
@@ -151,7 +205,19 @@ namespace Barnabe {
         friend ostream& operator<<(ostream& f, const Board& p);
 
     };
+
+    /**
+     * Fonction utilisée pour générer des string de la bonne taille pour les axes de l'affichage console.
+     * @param x Entier à convertir
+     * @return Chaîne de caractères
+     */
     string lenStringInt(int x);
+
+    /**
+     * @param f Flux de sortie
+     * @param p Plateau à afficher
+     * @return Flux modifié
+     */
     ostream& operator<<(ostream& f, const Board& p);
 
 }

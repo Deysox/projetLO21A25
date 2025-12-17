@@ -18,7 +18,7 @@ namespace Barnabe {
         cells.push_back(new Cell(id, Color::GREY, Type::QUARRY));
     }
 
-    std::vector<Position> StartingTile::calculatePositions(Position p, Rotation r) const {
+    std::vector<Position> StartingTile::calculatePositions(const Position& p, const Rotation& r) const {
         return {p,
             p+(Rotation(0)+r),
             p+(Rotation(2)+r),
@@ -31,7 +31,7 @@ namespace Barnabe {
         cells.push_back(new Cell(id,c3,t3));
     }
 
-    std::vector<Position> ClassicTile::calculatePositions(Position p, Rotation r) const {
+    std::vector<Position> ClassicTile::calculatePositions(const Position& p, const Rotation& r) const {
         return {p,
             p+(Rotation(0)+r),
             p+(Rotation(1)+r)};
@@ -52,7 +52,7 @@ namespace Barnabe {
         cells.push_back(cell);
     }
 
-    std::vector<Position> AthenaTile::calculatePositions(Position p, Rotation r) const {
+    std::vector<Position> AthenaTile::calculatePositions(const Position& p, const Rotation& r) const {
         cell->setRotation(r);
         return {p};
     }

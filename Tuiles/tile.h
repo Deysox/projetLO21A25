@@ -15,6 +15,8 @@ namespace Barnabe {
 	 * Pour définir un nouveau type de tuile, il suffit d'hériter de cette classe et redéfinir la méthode virtuelle pure
 	 * calculatePositions() qui définit la forme de la tuile, et instancier les cellules dans le constructeur, dans
 	 * l'ordre des positions.
+	 *
+	 * Tile gère le cycle de vie de Cell
 	 */
 	class Tile{
 	protected:
@@ -42,7 +44,13 @@ namespace Barnabe {
 		 */
 		virtual ~Tile();
 
+		/**
+		 * Le constructeur par recopie de Tile est détruit.
+		 */
 		Tile(const Tile& p)=delete;
+		/**
+		 * L'opérateur d'affectation de Tile est détruit.
+		 */
 		Tile& operator=(Tile& p)=delete;
 
 		/**
@@ -81,7 +89,7 @@ namespace Barnabe {
  		 * @return Vecteur de positions de la même taille que cells. La position i de ce vecteur correspond à la
  		 * position calculée de la case d'indice i dans l'attribut cells.
 		 */
-		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const = 0;
+		virtual std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const = 0;
 
 		// class const_iterator {
 		// 	vector<const Cell*>::const_iterator vec_iterator;
@@ -141,39 +149,47 @@ namespace Barnabe {
 	};
 
 	/**
-	 * Tuile de départ du jeu Akropolis. Possède la forme suivante
-	 *     /1c\
-	 *     \__/
-	 *     /0q\
-	 * /3c\\h_//2c\
-	 * \__/    \__/
-	 *
+	 * Tuile de départ du jeu Akropolis.
 	 */
 	class StartingTile : public Tile {
 	public :
 		StartingTile();
-		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const;
+		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 
 	};
 
+	/**
+	 * Tuile normale du jeu Akropolis, contenant trois cases.
+	 */
 	class ClassicTile : public Tile {
 	public :
 		ClassicTile(Color c1, Type t1, Color c2, Type t2, Color c3, Type t3);
-		std::vector<Position> calculatePositions(Position p, Rotation r) const;
+		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 
 		friend ostream& operator<<(ostream& f, ClassicTile& c);
 
 
 	};
 
+	/**
+	 * Opérateur d'agrégation d'une tuile classique à un flux de sortie.
+	 * @param f Flux de sortie à agréger
+	 * @param c Tuile à afficher
+	 * @return Flux modifié
+	 */
 	ostream& operator<<(ostream& f, ClassicTile& c);
 
+	/**
+	 * Tuile bicolore de l'extension Akropolis Athena.
+	 *
+	 * Non utilisée dans la version finale.
+	 */
 	class AthenaTile : public Tile {
 		BicolorCell* cell;
 
 	public :
 		AthenaTile(Color c1, Color c2, Type t);
-		std::vector<Position> calculatePositions(Position p, Rotation r) const;
+		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 	};
 }
 

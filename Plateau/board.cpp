@@ -2,6 +2,7 @@
 
 namespace Barnabe {
 
+    // ===== maps utilisées pour le chargement/enrgistrement de la sauvegarde =====
     map<string, Color> Board::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
     map<string, Type> Board::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
     map<Color, string> Board::colorToString = {
@@ -17,6 +18,7 @@ namespace Barnabe {
         {Type::PLACE, "Place"},
         {Type::QUARRY, "Quarry"}
     };
+
 
     Board::Board() : corner_br(0,0), corner_tl(0,0) {};
     Board::~Board() = default;
@@ -83,7 +85,7 @@ namespace Barnabe {
         return *this;
     }
 
-    const Cell* Board::getCell(Position pos) const {
+    const Cell* Board::getCell(const Position& pos) const {
         auto search = cells.find(pos); // Recherche de l'emplacement pos dans la map
         if (search != cells.end()) {
             return search->second.first; // Si l'emplacement est occupé, on renvoie la case
@@ -96,7 +98,7 @@ namespace Barnabe {
         return getCell(Position(x,y));  // Voir getCell(Position pos)
     }
 
-    unsigned int Board::getHeight(Position pos) const {
+    unsigned int Board::getHeight(const Position& pos) const {
         auto search = cells.find(pos);
         if (search != cells.end()) {
             return search->second.second;

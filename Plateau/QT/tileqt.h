@@ -19,13 +19,11 @@ namespace Barnabe {
             setStyleSheet("background-color: rgba(0,0,0,0)");
         }
 
-        void empty() {
+        void empty() override {
             for (const CellQtFull* vec : cells) delete vec;
             cells.clear();
         }
 
-        //void transparencyOn();
-        //void transparencyOff();
     };
 
     class ClassicTileQt : public TileQt {

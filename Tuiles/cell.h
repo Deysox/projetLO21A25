@@ -48,10 +48,13 @@ namespace Barnabe {
 		Cell(int i, Color c, Type t): id(i), color(c), type(t) {}
 
 
-		Cell(const Cell& c)
-		: id(c.id), color(c.color), type(c.type) {
-
-		}
+		/**
+		 * Constructeur par recopie de Cell
+		 */
+		Cell(const Cell& c) : id(c.id), color(c.color), type(c.type) {}
+		/**
+		 * L'opérateur d'affectation de Cell est détruit.
+		 */
 		Cell& operator=(const Cell& c)= delete;
 
 		/**
@@ -132,8 +135,13 @@ namespace Barnabe {
 		 */
 		BicolorCell(int i, Color c, Type t, Color sC, Rotation r): Cell(i,c,t), secondaryColor(sC), rotation(r) {};
 
-
+		/**
+		 * Le constructeur par recopie de Cell est détruit.
+		 */
 		BicolorCell(const BicolorCell& c) = delete;
+		/**
+		 * L'opérateur d'affectation de Cell est détruit.
+		 */
 		BicolorCell& operator=(const BicolorCell& c)= delete;
 
 		/**

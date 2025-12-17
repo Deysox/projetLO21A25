@@ -9,7 +9,7 @@
 
 namespace Barnabe {
 
-    /*
+    /**
      * Représente la rotation d'une case hexagonale ou d'une tuile dans le jeu Akropolis.
      * La rotation peut prendre six valeurs possibles, modélisé par un entier r allant de 0 à 5.
      * L'objet Rotation correspond à r Rotations successives de 60° dans le sens horaire
@@ -36,19 +36,19 @@ namespace Barnabe {
     class Rotation {
         int r;
     public:
-        /*
+        /**
          * Constructeur de la classe Rotation.
          * @param rot Valeur initiale de la rotation
          */
         Rotation(int rot = 0) : r(rot%6) {};
 
-        /*
+        /**
          * Accesseur en lecture de l'attribut r
          * @return entier correspondant à la rotation, entre 1 et 6
          */
         int value() const {return r;}
 
-        /*
+        /**
          * Additionne deux rotations
          * @param Second opérande
          * @return Objet Rotation correspondant à la rotation totale effectuée par cumul des rotations
@@ -56,7 +56,7 @@ namespace Barnabe {
          */
         Rotation operator+(const Rotation& other) const {return {(r+other.r)%6};};
 
-        /*
+        /**
          * Soustrait deux rotations
          * @param Second opérande
          * @return Objet Rotation correspondant à la rotation totale effectuée par cumul des rotations
@@ -65,23 +65,23 @@ namespace Barnabe {
          */
         Rotation operator-(const Rotation&) const {return {(r-1)%6};}
 
-        /*
+        /**
          * Incrémente la rotation d'un sixième de tour
          * @return Rotation modifiée
          */
         Rotation& operator++() {r++; return *this;}
-        /*
+        /**
          * Incrémente la rotation d'un sixième de tour
          * @return Rotation non modifiée
          */
         Rotation operator++(int) {int old = r; r++; return {old};};
-        /*
+        /**
          * Compare deux rotations
          * @param other Second opérande
          * @return true si les deux rotations ont la même valeur
          */
         bool operator==(const Rotation& other) const {return r == other.r;};
-        /*
+        /**
          * Compare deux rotations
          * @param other Second opérande
          * @return false si les deux rotations ont la même valeur

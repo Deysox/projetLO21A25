@@ -1,26 +1,30 @@
 #include "cell.h"
+#include <sstream>
 
 namespace Barnabe {
     string Cell::displayTop(unsigned int height) const {
-        string output;
+        stringstream ss;
         // Mode d'affichage, entre normal et inversé selon le type de quartier
-        output = type == Type::PLACE ? "\033[7;3" : "\033[0;3";
-        output += ansiColorCodes[color] + "m";
-        output += "/" + to_string(height) + akroTypeCodes[type] + "\\";
+        string ansi_start = type == Type::PLACE ? "\033[7;3" : "\033[0;3"; // Début de la séquence ANSI pour la coloration
+        // dans le terminal
+        ss << ansi_start;
+        ss << ansiColorCodes[color] << "m"; // Ajout de la couleur
+        ss << "/" << to_string(height) << akroTypeCodes[type] << "\\"; // Ajout des caractères de la tuile
 
-        output += "\033[0m";
-        return output;
+        ss << "\033[0m"; // Fermeture de la séquence ANSI
+        return ss.str();
     }
 
     string Cell::displayBottom() const {
-        string output;
+        stringstream ss;
         // Mode d'affichage, entre normal et inversé selon le type de quartier
-        output = type == Type::PLACE ? "\033[7;3" : "\033[0;3";
-        output += ansiColorCodes[color] + "m";
-        output += "\\" + akroColorCodes[color] + + "_/";
+        string ansi_start = type == Type::PLACE ? "\033[7;3" : "\033[0;3"; // Début de la séquence ANSI pour la coloration
+        ss << ansi_start;
+        ss << ansiColorCodes[color] + "m"; // Ajout de la couleur
+        ss << "\\" << akroColorCodes[color] << "_/"; // Ajout des caractères de la tuile
 
-        output += "\033[0m";
-        return output;
+        ss << "\033[0m"; // Fermeture de la séquence ANSI
+        return ss.str();
     }
 
 }

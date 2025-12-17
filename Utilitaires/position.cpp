@@ -36,8 +36,8 @@ namespace Barnabe {
     }
 
     bool Position::isNeighbour(const Position& p) const {
-        for (auto it = begin(); it != end(); ++it) {
-            if (*it == p) return true;
+        for (const Position& pos : *this) {
+            if (pos == p) return true;
         }
         return false;
     }
