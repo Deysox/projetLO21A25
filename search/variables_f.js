@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a187e48ab34838f03fa27db1a334cce21',1,'Barnabe::Position::iterator']]]
+  ['ui_0',['ui',['../d2/dfd/classinit.html#a6ff5ffefc82b02eb68e8e375e7b59c7c',1,'init']]]
 ];

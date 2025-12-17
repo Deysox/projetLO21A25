@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['pile_0',['pile',['../dc/d76/classAmalena_1_1River.html#a5233d9ae0a0019a7ec8c9397719689d2',1,'Amalena::River::pile()'],['../da/d38/classEloise_1_1Game.html#a92715390f67704c085f05d9a4ab6eca8',1,'Eloise::Game::pile()']]],
-  ['pileid_1',['pileid',['../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974',1,'Amalena::GameMemento']]],
-  ['players_2',['players',['../da/d38/classEloise_1_1Game.html#a8ae46c0bb98ebe8441651627a46e2865',1,'Eloise::Game']]],
-  ['playersname_3',['PlayersName',['../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778',1,'Amalena::GameMemento']]],
-  ['playersstone_4',['PlayersStone',['../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63',1,'Amalena::GameMemento']]],
-  ['posx_5',['posX',['../d8/d16/classBarnabe_1_1Position.html#a7825e4720b059db31af3e01f817c11aa',1,'Barnabe::Position']]],
-  ['posy_6',['posY',['../d8/d16/classBarnabe_1_1Position.html#a4eb95fc91865983beafc2c2c224abd58',1,'Barnabe::Position']]]
+  ['name_0',['name',['../d3/d79/classBarnabe_1_1Player.html#a77349630e9fd6b73ecef34d4d6bca953',1,'Barnabe::Player']]],
+  ['nb_5fplayers_1',['nb_players',['../d9/d68/classGame.html#af62558fc42d72bfcaa209fa0976347b9',1,'Game']]],
+  ['nb_5fplayers_5fmax_2',['nb_players_max',['../d9/d68/classGame.html#a6944e99a0a3a17e45e33be3be1e3c31c',1,'Game']]],
+  ['nbplayer_3',['nbplayer',['../dd/df7/classAmalena_1_1GameMemento.html#a4f1bc35ed8e7b57a1abc38de56fa4785',1,'Amalena::GameMemento']]]
 ];

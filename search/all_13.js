@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['value_0',['value',['../dc/dc0/classBarnabe_1_1Rotation.html#a97d21d2ae724a9f85a32660ddc402675',1,'Barnabe::Rotation']]],
-  ['variante_1',['variante',['../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408',1,'Amalena::GameMemento']]],
-  ['vec_5fiterator_2',['vec_iterator',['../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a175567474cd16fdf10f8c06c8fd7b747',1,'Barnabe::Tile::const_iterator']]]
+  ['ui_0',['Ui',['../db/d3c/namespaceUi.html',1,'']]],
+  ['ui_1',['ui',['../d2/dfd/classinit.html#a6ff5ffefc82b02eb68e8e375e7b59c7c',1,'init']]],
+  ['unlock_2',['unlock',['../db/d91/classBarnabe_1_1BoardQt.html#a990047c34000d863ce5b037b0a18e40b',1,'Barnabe::BoardQt::unlock()'],['../d0/d4c/classBarnabe_1_1CellQt.html#a6f6b26c8e495985f61994c6ba8be202b',1,'Barnabe::CellQt::unlock()']]],
+  ['updatedisplay_3',['updateDisplay',['../db/d91/classBarnabe_1_1BoardQt.html#ab5b606fe9e298e0343ac3894059ac289',1,'Barnabe::BoardQt']]],
+  ['updateuinb_4',['updateUInb',['../d2/dfd/classinit.html#aa64a31ee6d505aef723aa0168176f259',1,'init']]]
 ];

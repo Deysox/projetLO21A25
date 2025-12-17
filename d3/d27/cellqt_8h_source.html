@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.5"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet LO21 Akropolis:  Fichier source de cellqt.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projet LO21 Akropolis
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.5 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_735ff7b2d181d61cefdcd08be3b19271.html">Plateau</a></li><li class="navelem"><a class="el" href="../../dir_da9192e8a0daeed74db21195340240fb.html">QT</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">cellqt.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d27/cellqt_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by barnab on 16/12/2025.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef AKROPOLIS_CELLQT_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define AKROPOLIS_CELLQT_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#endif </span><span class="comment">//AKROPOLIS_CELLQT_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../../Utilitaires/position.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../../Tuiles/cell.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QMouseEvent&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;QBrush&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;QPen&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;QPainter&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dd/df6/namespaceBarnabe.html">Barnabe</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html">   23</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> : <span class="keyword">public</span> QWidget {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29">   25</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29">size</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a53711382e8b44682043a65f717641612">   26</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a53711382e8b44682043a65f717641612">w</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a0971077c72ea701b9ef7ef8e3720956f">   27</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a0971077c72ea701b9ef7ef8e3720956f">h</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a1d1f5e693b0324af66564b19dd59c66e">   29</a></span>        <a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> <a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a1d1f5e693b0324af66564b19dd59c66e">pos</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">   31</a></span>        <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">locked</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_class" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a>(QWidget* parent, <a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <span class="keywordtype">bool</span> l = <span class="keyword">false</span>, <span class="keywordtype">int</span> s = 40);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3001111f31df91b76d2a1a77261fd91d">   35</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3001111f31df91b76d2a1a77261fd91d">~CellQt</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#aa7dcd62c40ccaaf57496f9790c64d84a">paintEvent</a>(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#ad81df881e773dff4fb613006e727d5f8">mousePressEvent</a> ( QMouseEvent * event ) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a5dbe19097af5ce6e0ebd47d2cf754c2e">   39</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> QBrush <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a5dbe19097af5ce6e0ebd47d2cf754c2e">brush</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3159efe5be72ed8569060b703db5aa64">   40</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> QPen <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3159efe5be72ed8569060b703db5aa64">pen</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a8fa2a114d0ddeb38797f6716323c0408">   42</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a8fa2a114d0ddeb38797f6716323c0408">endPaintEventActions</a>() = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a43408b5e86c761ec3eb5eb2a6ea16b62">   44</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a43408b5e86c761ec3eb5eb2a6ea16b62">lock</a>() {<a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">locked</a> = <span class="keyword">true</span>;}</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a6f6b26c8e495985f61994c6ba8be202b">   45</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a6f6b26c8e495985f61994c6ba8be202b">unlock</a>() {<a class="code hl_variable" href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">locked</a> = <span class="keyword">false</span>;}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    };</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html">   51</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html">CellQtFull</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a82d38c9f90b0a76f53159270462f6bd5">   52</a></span>        <span class="keyword">static</span> map&lt;Color, pair&lt;QColor, QColor&gt;&gt; <a class="code hl_variable" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a82d38c9f90b0a76f53159270462f6bd5">colors</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ac64902c2adaed3cb19bd3d256190bb38">   53</a></span>        <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> <a class="code hl_variable" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ac64902c2adaed3cb19bd3d256190bb38">color</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a2cfb5709308ee497b8dee5a22164ae41">   54</a></span>        <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> <a class="code hl_variable" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a2cfb5709308ee497b8dee5a22164ae41">type</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#afd71c4934b1d1b45cdc53ad664dc21e7">   55</a></span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#afd71c4934b1d1b45cdc53ad664dc21e7">height</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#aa401ef1ddbdec59def9f165fcea8b7c7">   56</a></span>        QLabel* <a class="code hl_variable" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#aa401ef1ddbdec59def9f165fcea8b7c7">label</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_class" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html">CellQtFull</a>(QWidget* parent, <a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <span class="keywordtype">bool</span> l = <span class="keyword">false</span>, <span class="keywordtype">int</span> s = 40, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Color</a> c = <a class="code hl_enumvalue" href="../../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640a1b3e1ee9bff86431dea6b181365ba65f">Color::BLUE</a>, <a class="code hl_enumeration" href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Type</a> t = <a class="code hl_enumvalue" href="../../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c">Type::DISTRICT</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> hght = 0);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keyword">const</span> QBrush <a class="code hl_function" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#abffdfacfb2081d790f0a772a37b4497b">brush</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">const</span> QPen <a class="code hl_function" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ab1b16572c792797bb4d8b85456f2200f">pen</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a00d45d59147dee3df8ce657999f0fa66">endPaintEventActions</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html">   66</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html">CellQtEmpty</a> : <span class="keyword">public</span> <a class="code hl_class" href="../../d0/d4c/classBarnabe_1_1CellQt.html">CellQt</a> {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_class" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html">CellQtEmpty</a>(QWidget* parent, <a class="code hl_class" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> p, <span class="keywordtype">bool</span> l = <span class="keyword">false</span>, <span class="keywordtype">int</span> s = 40);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">const</span> QBrush <a class="code hl_function" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#ab70253d2cc5b6f0730f8ee60e18807c1">brush</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keyword">const</span> QPen <a class="code hl_function" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#af0f6f02055582850b94bbbf04073dba6">pen</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#afb2c1e8c08eda4a3f2626c9c15566fd3">endPaintEventActions</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtEmpty_html"><div class="ttname"><a href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html">Barnabe::CellQtEmpty</a></div><div class="ttdef"><b>Definition:</b> cellqt.h:66</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtEmpty_html_ab70253d2cc5b6f0730f8ee60e18807c1"><div class="ttname"><a href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#ab70253d2cc5b6f0730f8ee60e18807c1">Barnabe::CellQtEmpty::brush</a></div><div class="ttdeci">const QBrush brush() const override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:96</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtEmpty_html_af0f6f02055582850b94bbbf04073dba6"><div class="ttname"><a href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#af0f6f02055582850b94bbbf04073dba6">Barnabe::CellQtEmpty::pen</a></div><div class="ttdeci">const QPen pen() const override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:91</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtEmpty_html_afb2c1e8c08eda4a3f2626c9c15566fd3"><div class="ttname"><a href="../../d9/d03/classBarnabe_1_1CellQtEmpty.html#afb2c1e8c08eda4a3f2626c9c15566fd3">Barnabe::CellQtEmpty::endPaintEventActions</a></div><div class="ttdeci">void endPaintEventActions() override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:106</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html">Barnabe::CellQtFull</a></div><div class="ttdef"><b>Definition:</b> cellqt.h:51</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_a00d45d59147dee3df8ce657999f0fa66"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a00d45d59147dee3df8ce657999f0fa66">Barnabe::CellQtFull::endPaintEventActions</a></div><div class="ttdeci">void endPaintEventActions() override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:80</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_a2cfb5709308ee497b8dee5a22164ae41"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a2cfb5709308ee497b8dee5a22164ae41">Barnabe::CellQtFull::type</a></div><div class="ttdeci">Type type</div><div class="ttdef"><b>Definition:</b> cellqt.h:54</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_a82d38c9f90b0a76f53159270462f6bd5"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#a82d38c9f90b0a76f53159270462f6bd5">Barnabe::CellQtFull::colors</a></div><div class="ttdeci">static map&lt; Color, pair&lt; QColor, QColor &gt; &gt; colors</div><div class="ttdef"><b>Definition:</b> cellqt.h:52</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_aa401ef1ddbdec59def9f165fcea8b7c7"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#aa401ef1ddbdec59def9f165fcea8b7c7">Barnabe::CellQtFull::label</a></div><div class="ttdeci">QLabel * label</div><div class="ttdef"><b>Definition:</b> cellqt.h:56</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_ab1b16572c792797bb4d8b85456f2200f"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ab1b16572c792797bb4d8b85456f2200f">Barnabe::CellQtFull::pen</a></div><div class="ttdeci">const QPen pen() const override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:73</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_abffdfacfb2081d790f0a772a37b4497b"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#abffdfacfb2081d790f0a772a37b4497b">Barnabe::CellQtFull::brush</a></div><div class="ttdeci">const QBrush brush() const override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:66</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_ac64902c2adaed3cb19bd3d256190bb38"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#ac64902c2adaed3cb19bd3d256190bb38">Barnabe::CellQtFull::color</a></div><div class="ttdeci">Color color</div><div class="ttdef"><b>Definition:</b> cellqt.h:53</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQtFull_html_afd71c4934b1d1b45cdc53ad664dc21e7"><div class="ttname"><a href="../../d1/dcc/classBarnabe_1_1CellQtFull.html#afd71c4934b1d1b45cdc53ad664dc21e7">Barnabe::CellQtFull::height</a></div><div class="ttdeci">unsigned int height</div><div class="ttdef"><b>Definition:</b> cellqt.h:55</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html">Barnabe::CellQt</a></div><div class="ttdef"><b>Definition:</b> cellqt.h:23</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a0971077c72ea701b9ef7ef8e3720956f"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a0971077c72ea701b9ef7ef8e3720956f">Barnabe::CellQt::h</a></div><div class="ttdeci">int h</div><div class="ttdef"><b>Definition:</b> cellqt.h:27</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a1d1f5e693b0324af66564b19dd59c66e"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a1d1f5e693b0324af66564b19dd59c66e">Barnabe::CellQt::pos</a></div><div class="ttdeci">Position pos</div><div class="ttdef"><b>Definition:</b> cellqt.h:29</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a2b2591b36ff9ef3ec1669a6e77549c29"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29">Barnabe::CellQt::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition:</b> cellqt.h:25</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a3001111f31df91b76d2a1a77261fd91d"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3001111f31df91b76d2a1a77261fd91d">Barnabe::CellQt::~CellQt</a></div><div class="ttdeci">virtual ~CellQt()=default</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a3159efe5be72ed8569060b703db5aa64"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a3159efe5be72ed8569060b703db5aa64">Barnabe::CellQt::pen</a></div><div class="ttdeci">virtual const QPen pen() const =0</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a43408b5e86c761ec3eb5eb2a6ea16b62"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a43408b5e86c761ec3eb5eb2a6ea16b62">Barnabe::CellQt::lock</a></div><div class="ttdeci">void lock()</div><div class="ttdef"><b>Definition:</b> cellqt.h:44</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a53711382e8b44682043a65f717641612"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a53711382e8b44682043a65f717641612">Barnabe::CellQt::w</a></div><div class="ttdeci">int w</div><div class="ttdef"><b>Definition:</b> cellqt.h:26</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a5dbe19097af5ce6e0ebd47d2cf754c2e"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a5dbe19097af5ce6e0ebd47d2cf754c2e">Barnabe::CellQt::brush</a></div><div class="ttdeci">virtual const QBrush brush() const =0</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a626c6ab3f17321f451f34dc2a96359b9"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a626c6ab3f17321f451f34dc2a96359b9">Barnabe::CellQt::locked</a></div><div class="ttdeci">bool locked</div><div class="ttdef"><b>Definition:</b> cellqt.h:31</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a6f6b26c8e495985f61994c6ba8be202b"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a6f6b26c8e495985f61994c6ba8be202b">Barnabe::CellQt::unlock</a></div><div class="ttdeci">void unlock()</div><div class="ttdef"><b>Definition:</b> cellqt.h:45</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_a8fa2a114d0ddeb38797f6716323c0408"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#a8fa2a114d0ddeb38797f6716323c0408">Barnabe::CellQt::endPaintEventActions</a></div><div class="ttdeci">virtual void endPaintEventActions()=0</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_aa7dcd62c40ccaaf57496f9790c64d84a"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#aa7dcd62c40ccaaf57496f9790c64d84a">Barnabe::CellQt::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event) override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:13</div></div>
+<div class="ttc" id="aclassBarnabe_1_1CellQt_html_ad81df881e773dff4fb613006e727d5f8"><div class="ttname"><a href="../../d0/d4c/classBarnabe_1_1CellQt.html#ad81df881e773dff4fb613006e727d5f8">Barnabe::CellQt::mousePressEvent</a></div><div class="ttdeci">void mousePressEvent(QMouseEvent *event) override</div><div class="ttdef"><b>Definition:</b> cellqt.cpp:37</div></div>
+<div class="ttc" id="aclassBarnabe_1_1Position_html"><div class="ttname"><a href="../../d8/d16/classBarnabe_1_1Position.html">Barnabe::Position</a></div><div class="ttdef"><b>Definition:</b> position.h:21</div></div>
+<div class="ttc" id="anamespaceBarnabe_html"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html">Barnabe</a></div><div class="ttdef"><b>Definition:</b> player.cpp:3</div></div>
+<div class="ttc" id="anamespaceBarnabe_html_a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c">Barnabe::Type::DISTRICT</a></div><div class="ttdeci">@ DISTRICT</div></div>
+<div class="ttc" id="anamespaceBarnabe_html_ada57d41eb3e7d129da8767aecc2b2640a1b3e1ee9bff86431dea6b181365ba65f"><div class="ttname"><a href="../../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640a1b3e1ee9bff86431dea6b181365ba65f">Barnabe::Color::BLUE</a></div><div class="ttdeci">@ BLUE</div></div>
+<div class="ttc" id="anamespaceMarilou_html_a27484a2cbf323f4bd68e7a8f75e09a2d"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2d">Marilou::Color</a></div><div class="ttdeci">Color</div><div class="ttdef"><b>Definition:</b> cell.h:16</div></div>
+<div class="ttc" id="anamespaceMarilou_html_a375dd806560ff8629ebff02ff3fe62da"><div class="ttname"><a href="../../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62da">Marilou::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> cell.h:17</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
+</small></address>
+</body>
+</html>

@@ -1,17 +1,5 @@
 var searchData=
 [
-  ['_7ebicolorcell_0',['~BicolorCell',['../d1/d38/classMarilou_1_1BicolorCell.html#a74a253639fa79b1bc7218589ad08fb99',1,'Marilou::BicolorCell']]],
-  ['_7eboard_1',['~Board',['../d8/d80/classBarnabe_1_1Board.html#ad676ba0a013f6842c22da4a6f61ca101',1,'Barnabe::Board']]],
-  ['_7eboardmanager_2',['~BoardManager',['../d8/de9/classBarnabe_1_1BoardManager.html#a8c519ff1ca00122f1db6b5799edc20db',1,'Barnabe::BoardManager']]],
-  ['_7edeck_3',['~Deck',['../d1/d55/classEloise_1_1Deck.html#a96b14c19298e833ce872b52ee90e0851',1,'Eloise::Deck']]],
-  ['_7egame_4',['~Game',['../da/d38/classEloise_1_1Game.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Eloise::Game']]],
-  ['_7egamememento_5',['~GameMemento',['../dd/df7/classAmalena_1_1GameMemento.html#a4445b7593c17fa6227e8dd4b423a1249',1,'Amalena::GameMemento']]],
-  ['_7epile_6',['~Pile',['../df/d05/classAmalena_1_1Pile.html#ac1568f68e2313f20f57369b1452b5697',1,'Amalena::Pile']]],
-  ['_7eplayer_7',['~Player',['../d3/d79/classBarnabe_1_1Player.html#aa769747c4c39b469f505b6a6bb37a900',1,'Barnabe::Player']]],
-  ['_7eriver_8',['~River',['../dc/d76/classAmalena_1_1River.html#a750391f5508ea44912a0c9db05a3931a',1,'Amalena::River']]],
-  ['_7esavemanager_9',['~savemanager',['../d2/de2/classAmalena_1_1savemanager.html#a7cac4b204584c2c61a8bf2d5bc4cd36d',1,'Amalena::savemanager']]],
-  ['_7escore_10',['~Score',['../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18',1,'Marilou::Score']]],
-  ['_7escorecouleur_11',['~ScoreCouleur',['../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44',1,'Marilou::ScoreCouleur']]],
-  ['_7escoregeneral_12',['~ScoreGeneral',['../d6/d25/classMarilou_1_1ScoreGeneral.html#aaede69b2867403f972b2362ef8d98f73',1,'Marilou::ScoreGeneral']]],
-  ['_7etile_13',['~Tile',['../d8/da8/classMarilou_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2',1,'Marilou::Tile::~Tile()'],['../d8/dcb/classBarnabe_1_1Tile.html#aeb8dda7d3e9633fe20b466ebdfa187c2',1,'Barnabe::Tile::~Tile()']]]
+  ['y_0',['y',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a6605e87bf56e95fcd8556814ec950561',1,'Barnabe::Position::iterator::y()'],['../d8/d16/classBarnabe_1_1Position.html#a9d0c6a1b21447b63469a8b4228ba764f',1,'Barnabe::Position::y()']]],
+  ['yellow_1',['YELLOW',['../d8/dca/namespaceMarilou.html#a27484a2cbf323f4bd68e7a8f75e09a2da8a568e5f41b7e4da88fe5c4a00aad34e',1,'Marilou::YELLOW()'],['../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640a8a568e5f41b7e4da88fe5c4a00aad34e',1,'Barnabe::YELLOW()']]]
 ];

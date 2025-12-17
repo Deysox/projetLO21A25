@@ -1,14 +1,21 @@
 var searchData=
 [
-  ['deck_0',['deck',['../df/d05/classAmalena_1_1Pile.html#a3ee730bc33f343ae48f014efc74c7848',1,'Amalena::Pile::deck()'],['../da/d38/classEloise_1_1Game.html#a8aef6c859582306304bd2e46eed11d98',1,'Eloise::Game::deck()']]],
-  ['deck_1',['Deck',['../d1/d55/classEloise_1_1Deck.html#a4aa9abb3579ccdf957e6535e81ff3775',1,'Eloise::Deck::Deck()'],['../d1/d55/classEloise_1_1Deck.html',1,'Eloise::Deck']]],
-  ['deck_2ecpp_2',['deck.cpp',['../d5/d59/deck_8cpp.html',1,'']]],
-  ['deck_2eh_3',['deck.h',['../da/d4f/deck_8h.html',1,'']]],
-  ['difficulty_4',['difficulty',['../d1/de7/classBarnabe_1_1Architect.html#aeebaa965b63290c1ba969857127a1c1b',1,'Barnabe::Architect']]],
-  ['display_5',['display',['../d0/dbf/classEloise_1_1Menu.html#add96503fdd4e4526f7b058b78f3f4304',1,'Eloise::Menu']]],
-  ['displaybottom_6',['displayBottom',['../dc/df5/classMarilou_1_1Cell.html#ab66eac1d48b69a6a74f28cfd12b5aaae',1,'Marilou::Cell::displayBottom()'],['../d0/db0/classBarnabe_1_1Cell.html#a937a9f4002abf54cc4611535de0180fb',1,'Barnabe::Cell::displayBottom()']]],
-  ['displayplayers_7',['displayPlayers',['../da/d38/classEloise_1_1Game.html#aed5ccb19619e28f1edecff16d79ac97a',1,'Eloise::Game']]],
-  ['displaytop_8',['displayTop',['../dc/df5/classMarilou_1_1Cell.html#aaa6d164bfccc6f85bed98ff2d97d96e5',1,'Marilou::Cell::displayTop()'],['../d0/db0/classBarnabe_1_1Cell.html#a1f886aee3a4377c2214843486271ef3b',1,'Barnabe::Cell::displayTop()']]],
-  ['district_9',['DISTRICT',['../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62daa90b2bdc0f1ec01de1376652cacc36d3c',1,'Marilou::DISTRICT()'],['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c',1,'Barnabe::DISTRICT()']]],
-  ['draw_10',['Draw',['../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88',1,'Amalena::Pile']]]
+  ['deck_0',['deck',['../d9/d68/classGame.html#a7f15dd644e6fee2afb01624a8951e47e',1,'Game']]],
+  ['deck_1',['Deck',['../d1/d55/classEloise_1_1Deck.html#a4aa9abb3579ccdf957e6535e81ff3775',1,'Eloise::Deck']]],
+  ['deck_2',['deck',['../df/d05/classAmalena_1_1Pile.html#a3ee730bc33f343ae48f014efc74c7848',1,'Amalena::Pile']]],
+  ['deck_3',['Deck',['../d1/d55/classEloise_1_1Deck.html',1,'Eloise']]],
+  ['deck_2ecpp_4',['deck.cpp',['../d5/d59/deck_8cpp.html',1,'']]],
+  ['deck_2eh_5',['deck.h',['../da/d4f/deck_8h.html',1,'']]],
+  ['difficulty_6',['difficulty',['../d1/d88/classBarnabe_1_1ArchitectConsole.html#a932945a974341842d895e3e6828f764e',1,'Barnabe::ArchitectConsole::difficulty()'],['../d7/dfd/classBarnabe_1_1ArchitectQt.html#a8a671a5cec49dbbc168d54b103fd5382',1,'Barnabe::ArchitectQt::difficulty()']]],
+  ['display_7',['display',['../d0/dbf/classEloise_1_1Menu.html#a2e784e39d600214e778acbfcbfe04a1b',1,'Eloise::Menu']]],
+  ['displayabandongame1_8',['displayAbandonGame1',['../d9/d68/classGame.html#aaf25962910295978560b76ebe27e699d',1,'Game::displayAbandonGame1()'],['../d6/d73/classGameConsole.html#a444b65b459f95382f7d4db00569f6dcc',1,'GameConsole::displayAbandonGame1()'],['../dc/d9d/classGameQt.html#a52b0fe2bb8e41cdb704a222b0b9ba1de',1,'GameQt::displayAbandonGame1()']]],
+  ['displayabandongame2_9',['displayAbandonGame2',['../d9/d68/classGame.html#ab5622e53630b7bc8ae491f5534e34e1b',1,'Game::displayAbandonGame2()'],['../d6/d73/classGameConsole.html#ab1765fe69a80db00aaba23015c3f90f2',1,'GameConsole::displayAbandonGame2()'],['../dc/d9d/classGameQt.html#a00c15ba4c12a7e7deffdcced99211695',1,'GameQt::displayAbandonGame2()']]],
+  ['displayboard_10',['displayBoard',['../d3/d42/classBarnabe_1_1PlayerQt.html#aff5389ad7b80838624396e0243df87dc',1,'Barnabe::PlayerQt::displayBoard()'],['../dd/db5/classBarnabe_1_1PlayerConsole.html#a6927cdb515febce237108995c80b4945',1,'Barnabe::PlayerConsole::displayBoard()'],['../d3/d79/classBarnabe_1_1Player.html#a3bdff4f01b2236ea19bacc7f763ce1b3',1,'Barnabe::Player::displayBoard()']]],
+  ['displaybottom_11',['displayBottom',['../dc/df5/classMarilou_1_1Cell.html#ab66eac1d48b69a6a74f28cfd12b5aaae',1,'Marilou::Cell::displayBottom()'],['../d0/db0/classBarnabe_1_1Cell.html#a937a9f4002abf54cc4611535de0180fb',1,'Barnabe::Cell::displayBottom()']]],
+  ['displaycurrentplayerinfo_12',['displayCurrentPlayerInfo',['../d9/d68/classGame.html#afef83ce00970c1e16a6347225af15844',1,'Game::displayCurrentPlayerInfo()'],['../d6/d73/classGameConsole.html#afbc581ab5fe439cd5d088566bfa8a94c',1,'GameConsole::displayCurrentPlayerInfo()'],['../dc/d9d/classGameQt.html#aecaf31349c2b2c4d33d0084a7bc0a60e',1,'GameQt::displayCurrentPlayerInfo()']]],
+  ['displayplayers_13',['displayPlayers',['../d9/d68/classGame.html#aed5ccb19619e28f1edecff16d79ac97a',1,'Game']]],
+  ['displayriver_14',['displayRiver',['../d9/d68/classGame.html#a5547fd241704071cf3f0bb5f3452d248',1,'Game::displayRiver()'],['../d6/d73/classGameConsole.html#a44770b0c798053676693b1aae8fa620c',1,'GameConsole::displayRiver()'],['../dc/d9d/classGameQt.html#a95e39ed24929dad192f40ab3efa8d596',1,'GameQt::displayRiver()']]],
+  ['displaytop_15',['displayTop',['../dc/df5/classMarilou_1_1Cell.html#aaa6d164bfccc6f85bed98ff2d97d96e5',1,'Marilou::Cell::displayTop()'],['../d0/db0/classBarnabe_1_1Cell.html#a1f886aee3a4377c2214843486271ef3b',1,'Barnabe::Cell::displayTop()']]],
+  ['district_16',['DISTRICT',['../d8/dca/namespaceMarilou.html#a375dd806560ff8629ebff02ff3fe62daa90b2bdc0f1ec01de1376652cacc36d3c',1,'Marilou::DISTRICT()'],['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c',1,'Barnabe::DISTRICT()']]],
+  ['draw_17',['Draw',['../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88',1,'Amalena::Pile']]]
 ];

@@ -78,35 +78,46 @@ $(function() {
 <div class="contents">
 <a href="../../d3/d54/menu_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJETLO21A25_MENU_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJETLO21A25_MENU_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">#include &lt;QPushButton&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">#include &lt;QVBoxLayout&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">#include &lt;QDebug&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">#include &lt;QString&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">#include &lt;QDialog&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">#include &lt;QLineEdit&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">#include &lt;QLabel&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">class MenuQt : public QWidget {</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    Q_OBJECT</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">public:</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    explicit MenuQt(QWidget* parent = 0);</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    signals:</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">    private slots:</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    void boutonLancerGameClique();</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    //void boutonReprendreGameClique();</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    void boutonAfficherReglesClique();</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">private:</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    QPushButton* boutonLancerGame;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    QPushButton* boutonReprendreGame;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">    QPushButton* boutonAfficherRegles;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">};*/</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../UI/init.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d1/d26/classMenuQt.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d1/d26/classMenuQt.html">MenuQt</a> : <span class="keyword">public</span> QWidget {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Q_OBJECT</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="../../d1/d26/classMenuQt.html">MenuQt</a>(QWidget* parent = 0);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    signals:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="../../d1/d26/classMenuQt.html#aad7f60e1bab3b49ffe453de8e502a415">boutonLancerGameClique</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="../../d1/d26/classMenuQt.html#a9fcbcbb4a4c3e37f32c23aa1cd9349a8">boutonReprendreGameClique</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="../../d1/d26/classMenuQt.html#a608e84c72982be76a901aa9767b9b788">boutonAfficherReglesClique</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="../../d1/d26/classMenuQt.html#ab665d6833efbdce125890a5517388ed6">OnGameParameterReady</a>(<span class="keywordtype">int</span> nbPlayers, QString variante, QStringList names );</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="../../d1/d26/classMenuQt.html#abd802a435dd7182354373c125663530d">OnSoloGameParameterReady</a>(QString name, QString Variante, <span class="keywordtype">int</span> level);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d1/d26/classMenuQt.html#a84009da26b001ec92fb16506b07992f5">   25</a></span>    QPushButton* <a class="code hl_variable" href="../../d1/d26/classMenuQt.html#a84009da26b001ec92fb16506b07992f5">boutonLancerGame</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d1/d26/classMenuQt.html#afb3ad552d581d1b7eacd6cc28377dd47">   26</a></span>    QPushButton* <a class="code hl_variable" href="../../d1/d26/classMenuQt.html#afb3ad552d581d1b7eacd6cc28377dd47">boutonReprendreGame</a>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d26/classMenuQt.html#a6a86a5f6e1d223c0464772c9d3955a4b">   27</a></span>    QPushButton* <a class="code hl_variable" href="../../d1/d26/classMenuQt.html#a6a86a5f6e1d223c0464772c9d3955a4b">boutonAfficherRegles</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d1/d26/classMenuQt.html#a69aa304d61398ac091a9635fa1734928">   28</a></span>    <a class="code hl_class" href="../../d2/dfd/classinit.html">init</a>* <a class="code hl_variable" href="../../d1/d26/classMenuQt.html#a69aa304d61398ac091a9635fa1734928">initWidget</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif </span><span class="comment">//PROJETLO21A25_MENU_H</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="ttc" id="aclassMenuQt_html"><div class="ttname"><a href="../../d1/d26/classMenuQt.html">MenuQt</a></div><div class="ttdef"><b>Definition:</b> menu.h:13</div></div>
+<div class="ttc" id="aclassMenuQt_html_a608e84c72982be76a901aa9767b9b788"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#a608e84c72982be76a901aa9767b9b788">MenuQt::boutonAfficherReglesClique</a></div><div class="ttdeci">void boutonAfficherReglesClique()</div><div class="ttdef"><b>Definition:</b> menu.cpp:45</div></div>
+<div class="ttc" id="aclassMenuQt_html_a69aa304d61398ac091a9635fa1734928"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#a69aa304d61398ac091a9635fa1734928">MenuQt::initWidget</a></div><div class="ttdeci">init * initWidget</div><div class="ttdef"><b>Definition:</b> menu.h:28</div></div>
+<div class="ttc" id="aclassMenuQt_html_a6a86a5f6e1d223c0464772c9d3955a4b"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#a6a86a5f6e1d223c0464772c9d3955a4b">MenuQt::boutonAfficherRegles</a></div><div class="ttdeci">QPushButton * boutonAfficherRegles</div><div class="ttdef"><b>Definition:</b> menu.h:27</div></div>
+<div class="ttc" id="aclassMenuQt_html_a84009da26b001ec92fb16506b07992f5"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#a84009da26b001ec92fb16506b07992f5">MenuQt::boutonLancerGame</a></div><div class="ttdeci">QPushButton * boutonLancerGame</div><div class="ttdef"><b>Definition:</b> menu.h:25</div></div>
+<div class="ttc" id="aclassMenuQt_html_a9fcbcbb4a4c3e37f32c23aa1cd9349a8"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#a9fcbcbb4a4c3e37f32c23aa1cd9349a8">MenuQt::boutonReprendreGameClique</a></div><div class="ttdeci">void boutonReprendreGameClique()</div><div class="ttdef"><b>Definition:</b> menu.cpp:113</div></div>
+<div class="ttc" id="aclassMenuQt_html_aad7f60e1bab3b49ffe453de8e502a415"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#aad7f60e1bab3b49ffe453de8e502a415">MenuQt::boutonLancerGameClique</a></div><div class="ttdeci">void boutonLancerGameClique()</div><div class="ttdef"><b>Definition:</b> menu.cpp:55</div></div>
+<div class="ttc" id="aclassMenuQt_html_ab665d6833efbdce125890a5517388ed6"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#ab665d6833efbdce125890a5517388ed6">MenuQt::OnGameParameterReady</a></div><div class="ttdeci">void OnGameParameterReady(int nbPlayers, QString variante, QStringList names)</div><div class="ttdef"><b>Definition:</b> menu.cpp:86</div></div>
+<div class="ttc" id="aclassMenuQt_html_abd802a435dd7182354373c125663530d"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#abd802a435dd7182354373c125663530d">MenuQt::OnSoloGameParameterReady</a></div><div class="ttdeci">void OnSoloGameParameterReady(QString name, QString Variante, int level)</div><div class="ttdef"><b>Definition:</b> menu.cpp:100</div></div>
+<div class="ttc" id="aclassMenuQt_html_afb3ad552d581d1b7eacd6cc28377dd47"><div class="ttname"><a href="../../d1/d26/classMenuQt.html#afb3ad552d581d1b7eacd6cc28377dd47">MenuQt::boutonReprendreGame</a></div><div class="ttdeci">QPushButton * boutonReprendreGame</div><div class="ttdef"><b>Definition:</b> menu.h:26</div></div>
+<div class="ttc" id="aclassinit_html"><div class="ttname"><a href="../../d2/dfd/classinit.html">init</a></div><div class="ttdef"><b>Definition:</b> init.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
