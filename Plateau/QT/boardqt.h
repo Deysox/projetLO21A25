@@ -20,7 +20,6 @@ namespace Barnabe {
     class BoardQt : public ContainerQt {
         const Board* board;
         unordered_map<Position, CellQt*, PositionHasher> cells;
-        TileQt* tileToPlace;
     public:
         BoardQt(QWidget* parent, const Board* b, int s = 40);
         void empty() override;
@@ -30,6 +29,7 @@ namespace Barnabe {
 
         void lock() {for (auto it = cells.begin(); it != cells.end(); it++) it->second->lock();}
         void unlock() {for (auto it = cells.begin(); it != cells.end(); it++) it->second->unlock();}
+
 
     };
 

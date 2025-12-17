@@ -1,7 +1,6 @@
 #include "board.h"
 
 namespace Barnabe {
-    using namespace Marilou;
 
     map<string, Color> Board::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
     map<string, Type> Board::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};

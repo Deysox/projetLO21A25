@@ -6,81 +6,73 @@
 #include <sstream>
 
 using namespace std;
-
-namespace Marilou {
-
-	class Tile{
-	public:
-		Tile();
-		~Tile();
-		Tile(const Tile& p)=delete;
-		Tile& operator=(Tile& p)=delete;
-	};
-
-	class StartingTile : public Tile {
-		array <Marilou::Cell*, 4> cells;
-
-		public :
-			StartingTile(const array<Marilou::Cell*, 4>& c) : cells(c) {}
-	};
-
-	class ClassicTile : public Tile {
-		array <Marilou::Cell*, 3> cells;
-
-		public :
-			ClassicTile(const array<Marilou::Cell*, 3>& c) : cells(c) {}
-	};
-
-	class AthenaTile : public Tile{
-		Marilou::BicolorCell cell;
-
-		public :
-			AthenaTile(Marilou::BicolorCell c) : cell(c) {}
-	};
-}
-
-
 namespace Barnabe {
 
-	/*
-	 * Classe abstraite représentant une tuile de Akropolis.
+	/**
+	 * Classe abstraite représentant une tuile de Akropolis. Cette classe abstraite implémente les fonctions
+	 * générales à tous les types de tuiles, comme les accesseurs en lecture et le système d'ID pour les cases.
 	 *
+	 * Pour définir un nouveau type de tuile, il suffit d'hériter de cette classe et redéfinir la méthode virtuelle pure
+	 * calculatePositions() qui définit la forme de la tuile, et instancier les cellules dans le constructeur, dans
+	 * l'ordre des positions.
 	 */
 	class Tile{
 	protected:
-		/*
+		/**
 		 * Attribut statique servant à créer des identifiants pour les cases, permettant de connaître la tuile
 		 * associée à une case.
 		 * S'incrémente à chaque appel au constructeur.
 		 */
 		static int id;
-		/*
+		/**
 		 * Pointeur vers un vecteur contenant les pointeurs vers les cellules qui composent la tuile.
 		 */
 		std::vector<const Cell*> cells;
 
 	public:
+		/**
+		 * Constructeur de la classe Tile. Lors de la construction d'une nouvelle tuile, l'identifiant id est
+		 * incrémenté pour que les nouvelles cellules instanciées lors de la création de la tuile portent un id différent
+		 * des cases précédentes.
+		 */
 		Tile() {id++;}
+
+		/**
+		 * Destructeur de la classe Tile. Désalloue les cellules contenues dans le vecteur cells.
+		 */
 		virtual ~Tile();
+
 		Tile(const Tile& p)=delete;
 		Tile& operator=(Tile& p)=delete;
 
-		/*
+		/**
 		 * Accesseur en lecture de la taille de la tuile en termes de nombres de cases.
 		 * @return unsigned int
 		 */
 		unsigned int getSize() const {return cells.size();};
 
+		/**
+		 * Accesseur en lecture d'une case de la tuile. La case d'indice i est la case insérée en ième position
+		 * lors de la création de la tuile, dépendant donc du type de tuile.
+		 * @param i Indice
+		 * @return Pointeur vers la case voulue
+		 */
 		const Cell* getCell(int i) const {
 			if (i >= getSize()) throw TileException("Indice de la cellule incorrect");
 			return cells[i];
 		}
 
+		/*
+		 * A completer par la personne qui a fait cette fonction
+		 */
 		string typeToString(Type t);
 
+		/*
+		 * Pareillement
+		 */
 		string toString();
 
-		/*
+		/**
 		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une
 		 * rotation données. Cette méthode est virtuelle pure, car cette méthode dépend de l'implémentation concrète de
 		 * la tuile. C'est cette méthode définit la forme de la tuile.
@@ -91,41 +83,72 @@ namespace Barnabe {
 		 */
 		virtual std::vector<Position> calculatePositions(Position p, Rotation r) const = 0;
 
-		class const_iterator {
-			vector<const Cell*>::const_iterator vec_iterator;
-			friend class Tile;
-			explicit const_iterator(vector<const Cell*>::const_iterator def) : vec_iterator(def) {}
-		public:
-			const_iterator& operator++() {
-				vec_iterator++;
-				return *this;
-			}
-			const_iterator operator++(int) {
-				const_iterator old = *this;
-				vec_iterator++;
-				return old;
-			}
-			const Cell* operator*() const {
-				return *vec_iterator;
-			}
-			bool operator==(const const_iterator & e) const {
-				return vec_iterator == e.vec_iterator;
-			}
-			bool operator!=(const const_iterator & e) const {
-				return vec_iterator != e.vec_iterator;
-			}
-		};
-
-		// class const_iterator : public vector<const Cell*>::const_iterator {
+		// class const_iterator {
+		// 	vector<const Cell*>::const_iterator vec_iterator;
 		// 	friend class Tile;
+		// 	explicit const_iterator(vector<const Cell*>::const_iterator def) : vec_iterator(def) {}
+		// public:
+		// 	const_iterator& operator++() {
+		// 		vec_iterator++;
+		// 		return *this;
+		// 	}
+		// 	const_iterator operator++(int) {
+		// 		const_iterator old = *this;
+		// 		vec_iterator++;
+		// 		return old;
+		// 	}
+		// 	const Cell* operator*() const {
+		// 		return *vec_iterator;
+		// 	}
+		// 	bool operator==(const const_iterator & e) const {
+		// 		return vec_iterator == e.vec_iterator;
+		// 	}
+		// 	bool operator!=(const const_iterator & e) const {
+		// 		return vec_iterator != e.vec_iterator;
+		// 	}
 		// };
 
+		/**
+		 * Itérateur constant sur les cases contenues dans la tuile. L'ordre est déterminée par l'ordre d'ajout
+		 * des cases à la tuile.
+		 */
+		class const_iterator : public vector<const Cell*>::const_iterator {
+			friend class Tile;
+			const_iterator(vector<const Cell*>::const_iterator ci) : vector<const Cell*>::const_iterator(ci) {}
+		};
+
+		/**
+		 * @return const_iterator sur la première case
+		 */
 		const_iterator begin() const {return const_iterator(cells.begin());}
+		/**
+		 * @return const_iterator indiquant la fin de parcours
+		 */
 		const_iterator end() const {return const_iterator(cells.end());}
+
+		/**
+		 *
+		 * @return const_iterator sur la première case
+		 */
+		const_iterator cbegin() const {return const_iterator(cells.begin());}
+
+		/**
+		 * @return const_iterator indiquant la fin de parcours
+		 */
+		const_iterator cend() const {return const_iterator(cells.end());}
 
 
 	};
 
+	/**
+	 * Tuile de départ du jeu Akropolis. Possède la forme suivante
+	 *     /1c\
+	 *     \__/
+	 *     /0q\
+	 * /3c\\h_//2c\
+	 * \__/    \__/
+	 *
+	 */
 	class StartingTile : public Tile {
 	public :
 		StartingTile();
