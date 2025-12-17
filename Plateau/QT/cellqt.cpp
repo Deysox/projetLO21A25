@@ -30,15 +30,12 @@ namespace Barnabe {
             QPoint(w/4,h),
             QPoint(0,h/2),
 
-        };
+        }; // Points du tracé sous forme d'hexagone.
         hexPainter.drawPolygon(points,6);
-
-
-
         endPaintEventActions();
     }
 
-
+    // ===== Maps pour les couleurs =====
     map<Color, pair<QColor, QColor>> CellQtFull::colors = {
         {Color::BLUE,{"#559ad6","#1f5a8e"}},
         {Color::RED,{"#db6262","#a03030"}},
@@ -67,14 +64,14 @@ namespace Barnabe {
 
     CellQtFull::CellQtFull(QWidget* parent, Position p, bool l, int s, Color c, Type t, unsigned int hght) :
     CellQt(parent,p,l,s), color(c), type(t), height(hght) {
-        if (height > 0) {
+        if (height > 0) { // Affichage de la hauteur
             label = new QLabel(this);
             label->setText(QString::number(height));
             label->setFont(QFont("monospace",20,600));
             label->move(4*size/5,2*size/5);
         }
 
-        stringstream ss;
+        stringstream ss; // Génération du Tooltip
         ss << "Position : "<<pos.toString()<<"\nHauteur : "<<to_string(height)<<"\n";
         if (type == Type::DISTRICT) {
             ss << "Quartier " << colorText[color];
@@ -117,7 +114,7 @@ namespace Barnabe {
 
 
     CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s) {
-        setToolTip(QString::fromStdString("Position : "+pos.toString()));
+        setToolTip(QString::fromStdString("Position : "+pos.toString())); // Génération du Tooltip
     }
 
 
@@ -136,8 +133,6 @@ namespace Barnabe {
         return hexBrush;
     }
 
-    void CellQtEmpty::endPaintEventActions() {
-        return;
-    }
+
 
 }
