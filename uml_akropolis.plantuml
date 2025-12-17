@@ -288,10 +288,14 @@ namespace Marilou {
         + compute(player : Eloise::Player, variants : ScoreVariants) : int
     }
 
+    ' Strategy Adapt Class : ScoreGeneral<CONT = list<const Score*>>
     class ScoreGeneral {
-        - couleurs : List<ScoreCouleur*>
-        - scorePierre : ScorePierre
+        - scores : CONT  ' par défaut CONT = list<const Score*>
         + ScoreGeneral()
+        + ScoreGeneral(c : CONT)
+        + getContainer() : CONT&
+        + getContainer() : const CONT&
+        + addScore(s : const Score*)
         + compute(player : Eloise::Player, variants : ScoreVariants) : int
     }
 
@@ -305,11 +309,12 @@ namespace Marilou {
     ScoreCouleur <|-- ScoreViolet
     ScoreCouleur <|-- ScoreVert
 
-    ScoreGeneral o-- ScoreCouleur
-    ScoreGeneral o-- ScorePierre
+    ' ScoreGeneral agrège des Score* génériques (pas seulement des couleurs)
+    ScoreGeneral o-- "0..*" Score
 }
 
 Marilou.Score ..> Eloise.Player
+
 
 namespace Amaléna{
 
