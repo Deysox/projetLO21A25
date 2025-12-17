@@ -16,7 +16,7 @@
 namespace Barnabe {
     class Player {
     protected:
-        //parameter that allows the good initial distribution of stones
+        //static attribut that allows the good initial distribution of stones
         static size_t stones_distribution;
         string name;
         BoardManager board;
@@ -30,11 +30,13 @@ namespace Barnabe {
         void setBoard(const BoardManager& b){board = b;}
         void setStones(int n);
         void addStones(int n);
+        //template method
         virtual void playTurn(const Tile& tile) {
             displayBoard();
             placeTile(tile);
             displayBoard();
         }
+        //methods implemented by playerConsole and playerQt
         virtual void displayBoard() = 0;
         virtual void placeTile(const Tile& tile) = 0;
     };

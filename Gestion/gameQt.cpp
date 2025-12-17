@@ -84,8 +84,7 @@ bool GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) 
 void GameQt::addPlayer(const string& name) {
     if (nb_players == nb_players_max)
     {
-        //Put an exception instead
-        cout << "Can't add an additionnal player, you have reached the maximum.";
+        throw MaxPlayerException();
     }
     else {
         PlayerQt* p = new PlayerQt(name);

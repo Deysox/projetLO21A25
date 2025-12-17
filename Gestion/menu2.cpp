@@ -36,9 +36,12 @@ void Menu::display() {
             cin >> choice;
             switch (choice)
             {
-                //errors w/out {} because need of a local scope
+                //{} because need of a local scope
                 case '1': {
-                    cout << "Choose 0, 1 or several variants between (home - market - barrack - temple - garden)";
+                    cout << "Choose 0, 1 or several variants between (home - market - barrack - temple - garden)"
+                    << "\nFormat for answer : variantX,variantY"
+                    <<"\nExample : market,garden"
+                    <<"\nYour answer : ";
                     string variant = "";
                     cin >> variant;
                     cout << "Number of players ? (1, 2, 3 or 4) :";
@@ -54,12 +57,12 @@ void Menu::display() {
                         int difficulty = 0;
                         cin >> difficulty;
                         game.manageSoloGame(difficulty);
-                        //game.endGame();
+                        game.endGame();
                     }
                     else {
                         GameConsole& game = GameConsole::giveInstance(nb_players,variant);
                         game.manageGame();
-                        //game.endGame();
+                        game.endGame();
                     }
                     GameConsole::freeInstance();
                     break;
@@ -75,7 +78,7 @@ void Menu::display() {
                     GameConsole::freeInstance();
                     GameConsole& game = GameConsole::giveInstance(*game_memento);
                     game.manageResumeGame();
-                    //game.endGame();
+                    game.endGame();
                     GameConsole::freeInstance();
                     break;
                 }

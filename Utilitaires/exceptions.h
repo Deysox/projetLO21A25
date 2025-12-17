@@ -36,6 +36,19 @@ namespace Barnabe {
 
         }
     };
+
+    class MaxPlayerException : public exception {
+        string message_;
+    public:
+        explicit MaxPlayerException(const string& message) : message_(message) {}
+        MaxPlayerException() : message_("Can't add another player, you've reached the max.") {}
+        const char* what() const throw()
+        {
+
+            return message_.c_str();
+
+        }
+    };
 }
 
 

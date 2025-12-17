@@ -1,4 +1,5 @@
 #include <iostream>
+/*
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -28,7 +29,7 @@ int main(int argc, char* argv[])
     bqt.show();
     return app.exec();
 }
-/*
+
 #include <QApplication>
 
 #include "boardmanager.h"
@@ -65,9 +66,8 @@ int main(int argc, char* argv[])
     return app.exec();
 }
 */
-/*
+
 #include "Gestion/menu2.h"
 int main() {
     Eloise::Menu menu;
 }
-*/

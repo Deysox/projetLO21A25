@@ -31,6 +31,7 @@ namespace Amalena
 
     void savemanager::fromjson(json data)
     {
+        //creation of a game memento with all the information
         gameMemento = new GameMemento(
         data["game_id"],
         data["version"],
@@ -75,10 +76,10 @@ namespace Amalena
         }
         std::ofstream out("../sauvegarde.json");
         if (!out.is_open()) {
-            std::cerr << "Failed to open save file for writing" << std::endl;
+            cout << "Failed to open save file for writing";
             return;
         }
-        out << std::setw(4) << data << std::endl;
+        out << std::setw(4) << data;
     }
 
     GameMemento* savemanager::restore(string id)
