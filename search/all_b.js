@@ -14,6 +14,5 @@ var searchData=
   ['menu2_2ecpp_11',['menu2.cpp',['../de/d16/menu2_8cpp.html',1,'']]],
   ['menu2_2eh_12',['menu2.h',['../dd/d54/menu2_8h.html',1,'']]],
   ['menuqt_13',['MenuQt',['../d1/d26/classMenuQt.html#a5345955025bb621fd60e543b93e0f5fb',1,'MenuQt::MenuQt()'],['../d1/d26/classMenuQt.html',1,'MenuQt']]],
-  ['message_5f_14',['message_',['../d2/d28/classBarnabe_1_1PlacementException.html#a669a9b83dcdef51051bb2f9094086285',1,'Barnabe::PlacementException::message_()'],['../db/dc9/classBarnabe_1_1TileException.html#aa9a2a747c2f8d10c517a4a5317c74ccc',1,'Barnabe::TileException::message_()']]],
-  ['mousepressevent_15',['mousePressEvent',['../d0/d4c/classBarnabe_1_1CellQt.html#ad81df881e773dff4fb613006e727d5f8',1,'Barnabe::CellQt']]]
+  ['message_5f_14',['message_',['../d2/d28/classBarnabe_1_1PlacementException.html#a669a9b83dcdef51051bb2f9094086285',1,'Barnabe::PlacementException::message_()'],['../db/dc9/classBarnabe_1_1TileException.html#aa9a2a747c2f8d10c517a4a5317c74ccc',1,'Barnabe::TileException::message_()']]]
 ];
