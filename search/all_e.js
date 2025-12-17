@@ -12,7 +12,7 @@ var searchData=
   ['pileiterator_9',['PileIterator',['../d6/d87/classAmalena_1_1Pile_1_1PileIterator.html',1,'Amalena::Pile::PileIterator'],['../d6/d87/classAmalena_1_1Pile_1_1PileIterator.html#a05875f55315dd2c982785b5517577832',1,'Amalena::Pile::PileIterator::PileIterator()']]],
   ['place_10',['PLACE',['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da8c756b7e3daff6db3808a377b05a148f',1,'Barnabe']]],
   ['place_11',['place',['../d8/de9/classBarnabe_1_1BoardManager.html#aa6f2cdb31e7778705646ed0847e15522',1,'Barnabe::BoardManager']]],
-  ['placementexception_12',['PlacementException',['../d2/d28/classBarnabe_1_1PlacementException.html',1,'Barnabe::PlacementException'],['../d2/d28/classBarnabe_1_1PlacementException.html#af7a72cc6e6bb15ac034a5fd905d67bdc',1,'Barnabe::PlacementException::PlacementException()'],['../d2/d28/classBarnabe_1_1PlacementException.html#acb4dee1f7fffbb5d499f1b4c3097f616',1,'Barnabe::PlacementException::PlacementException(const string &amp;message)']]],
+  ['placementexception_12',['PlacementException',['../d8/dc2/classPlacementException.html#a75d6f1b77b0a84814a6db31e1dd61547',1,'PlacementException::PlacementException()'],['../d8/dc2/classPlacementException.html#af6710e6b0cada7e7747e44b770236881',1,'PlacementException::PlacementException(const string &amp;message)'],['../d8/dc2/classPlacementException.html',1,'PlacementException']]],
   ['placetext_13',['placeText',['../d1/dcc/classBarnabe_1_1CellQtFull.html#acc50a82968056f5627f07a8f3e9c4b45',1,'Barnabe::CellQtFull']]],
   ['placetile_14',['placeTile',['../d3/d42/classBarnabe_1_1PlayerQt.html#af9b6dd55023652e48cd621cc254dcee3',1,'Barnabe::PlayerQt::placeTile()'],['../dd/db5/classBarnabe_1_1PlayerConsole.html#a38f21ad853f53e11483cf085a8c25eec',1,'Barnabe::PlayerConsole::placeTile()'],['../d3/d79/classBarnabe_1_1Player.html#ad16a57cb72ef5eaf926aa8f807e63299',1,'Barnabe::Player::placeTile()']]],
   ['player_15',['Player',['../d3/d79/classBarnabe_1_1Player.html',1,'Barnabe::Player'],['../d3/d79/classBarnabe_1_1Player.html#acce7a76665a930c489f75137003d3f8d',1,'Barnabe::Player::Player()']]],
@@ -29,12 +29,11 @@ var searchData=
   ['playersstone_26',['PlayersStone',['../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63',1,'Amalena::GameMemento']]],
   ['playturn_27',['playTurn',['../d3/d79/classBarnabe_1_1Player.html#aeced18e663b681bef7e58d356cc97f60',1,'Barnabe::Player::playTurn()'],['../d1/d88/classBarnabe_1_1ArchitectConsole.html#a4f125ce46e3d3b3394dec3756426fb59',1,'Barnabe::ArchitectConsole::playTurn()'],['../d7/dfd/classBarnabe_1_1ArchitectQt.html#aa4634b27bc14d2a9935e0d35474bd60b',1,'Barnabe::ArchitectQt::playTurn()']]],
   ['pos_28',['pos',['../d0/d4c/classBarnabe_1_1CellQt.html#a1d1f5e693b0324af66564b19dd59c66e',1,'Barnabe::CellQt']]],
-  ['poscmp_29',['PosCmp',['../d6/dee/structBarnabe_1_1PosCmp.html',1,'Barnabe']]],
-  ['position_30',['Position',['../d8/d16/classBarnabe_1_1Position.html',1,'Barnabe::Position'],['../d8/d16/classBarnabe_1_1Position.html#acbef2789a11a046704c3e83dfe04cf46',1,'Barnabe::Position::Position(int x=0, int y=0)'],['../d8/d16/classBarnabe_1_1Position.html#ac0c660446c16035171e73cf0b72e5c86',1,'Barnabe::Position::Position(const Position &amp;p)'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#ae98dfb8d01660fe645bc2ee7720399f2',1,'Barnabe::Position::iterator::Position()']]],
-  ['position_2ecpp_31',['position.cpp',['../d4/d59/position_8cpp.html',1,'']]],
-  ['position_2eh_32',['position.h',['../dd/d53/position_8h.html',1,'']]],
-  ['positionhasher_33',['PositionHasher',['../d7/d6c/structBarnabe_1_1PositionHasher.html',1,'Barnabe']]],
-  ['posx_34',['posX',['../d8/d16/classBarnabe_1_1Position.html#a7825e4720b059db31af3e01f817c11aa',1,'Barnabe::Position']]],
-  ['posy_35',['posY',['../d8/d16/classBarnabe_1_1Position.html#a4eb95fc91865983beafc2c2c224abd58',1,'Barnabe::Position']]],
-  ['purple_36',['PURPLE',['../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640aec9c138095a352a9b7ef9ca5363b14d9',1,'Barnabe']]]
+  ['position_29',['Position',['../d8/d16/classBarnabe_1_1Position.html',1,'Barnabe::Position'],['../d8/d16/classBarnabe_1_1Position.html#ac0c660446c16035171e73cf0b72e5c86',1,'Barnabe::Position::Position()'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#ae98dfb8d01660fe645bc2ee7720399f2',1,'Barnabe::Position::iterator::Position()'],['../d8/d16/classBarnabe_1_1Position.html#acbef2789a11a046704c3e83dfe04cf46',1,'Barnabe::Position::Position()']]],
+  ['position_2ecpp_30',['position.cpp',['../d4/d59/position_8cpp.html',1,'']]],
+  ['position_2eh_31',['position.h',['../dd/d53/position_8h.html',1,'']]],
+  ['positionhasher_32',['PositionHasher',['../d7/d6c/structBarnabe_1_1PositionHasher.html',1,'Barnabe']]],
+  ['posx_33',['posX',['../d8/d16/classBarnabe_1_1Position.html#a7825e4720b059db31af3e01f817c11aa',1,'Barnabe::Position']]],
+  ['posy_34',['posY',['../d8/d16/classBarnabe_1_1Position.html#a4eb95fc91865983beafc2c2c224abd58',1,'Barnabe::Position']]],
+  ['purple_35',['PURPLE',['../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640aec9c138095a352a9b7ef9ca5363b14d9',1,'Barnabe']]]
 ];

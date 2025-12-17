@@ -7,7 +7,7 @@ var searchData=
   ['tile_4',['Tile',['../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a8a6c6f6de547e6f39d3212d1f4d49a65',1,'Barnabe::Tile::const_iterator']]],
   ['tile_2ecpp_5',['tile.cpp',['../d7/d2f/tile_8cpp.html',1,'']]],
   ['tile_2eh_6',['tile.h',['../da/dce/tile_8h.html',1,'']]],
-  ['tileexception_7',['TileException',['../db/dc9/classBarnabe_1_1TileException.html',1,'Barnabe::TileException'],['../db/dc9/classBarnabe_1_1TileException.html#a73aada4b60e2590967c8f397da50912f',1,'Barnabe::TileException::TileException()'],['../db/dc9/classBarnabe_1_1TileException.html#a25362ed4e2b4ad3115fee3d0f4f6fd8d',1,'Barnabe::TileException::TileException(const string &amp;message)']]],
+  ['tileexception_7',['TileException',['../df/d8b/classTileException.html',1,'TileException'],['../df/d8b/classTileException.html#a4b9cd8e0b7f5c5b4dae1645729c73ae5',1,'TileException::TileException()'],['../df/d8b/classTileException.html#ae442fbf1167ad6782be008eed18143ec',1,'TileException::TileException(const string &amp;message)']]],
   ['tileqt_8',['TileQt',['../df/dc3/classBarnabe_1_1TileQt.html',1,'Barnabe::TileQt'],['../df/dc3/classBarnabe_1_1TileQt.html#a597b5783742555f785f30054636b6029',1,'Barnabe::TileQt::TileQt()']]],
   ['tileqt_2ecpp_9',['tileqt.cpp',['../d4/d6f/tileqt_8cpp.html',1,'']]],
   ['tileqt_2eh_10',['tileqt.h',['../d0/da5/tileqt_8h.html',1,'']]],

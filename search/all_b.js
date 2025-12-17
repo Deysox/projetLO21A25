@@ -14,5 +14,5 @@ var searchData=
   ['menu2_2ecpp_11',['menu2.cpp',['../de/d16/menu2_8cpp.html',1,'']]],
   ['menu2_2eh_12',['menu2.h',['../dd/d54/menu2_8h.html',1,'']]],
   ['menuqt_13',['MenuQt',['../d1/d26/classMenuQt.html#a5345955025bb621fd60e543b93e0f5fb',1,'MenuQt::MenuQt()'],['../d1/d26/classMenuQt.html',1,'MenuQt']]],
-  ['message_5f_14',['message_',['../d2/d28/classBarnabe_1_1PlacementException.html#a669a9b83dcdef51051bb2f9094086285',1,'Barnabe::PlacementException::message_()'],['../db/dc9/classBarnabe_1_1TileException.html#aa9a2a747c2f8d10c517a4a5317c74ccc',1,'Barnabe::TileException::message_()']]]
+  ['message_5f_14',['message_',['../d8/dc2/classPlacementException.html#a5e66548fef7690497759cec0fb5a56c9',1,'PlacementException::message_()'],['../df/d8b/classTileException.html#a4dc8be1047427a4cb88a551d76fe6847',1,'TileException::message_()']]]
 ];

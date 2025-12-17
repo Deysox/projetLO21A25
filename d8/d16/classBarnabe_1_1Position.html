@@ -115,6 +115,10 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a234cf3f4a454b0e423aa266aabd4a339"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30317f97750ce8d0d48b2f7ba5ffc792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d6e/classBarnabe_1_1Position_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html#a30317f97750ce8d0d48b2f7ba5ffc792">end</a> () const</td></tr>
 <tr class="separator:a30317f97750ce8d0d48b2f7ba5ffc792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16df19411720a476c49a5378588f862a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d6e/classBarnabe_1_1Position_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html#a16df19411720a476c49a5378588f862a">cbegin</a> () const</td></tr>
+<tr class="separator:a16df19411720a476c49a5378588f862a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ba1697cf1a4ddaccd7f405dd31e6b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../da/d6e/classBarnabe_1_1Position_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html#a71ba1697cf1a4ddaccd7f405dd31e6b5">cend</a> () const</td></tr>
+<tr class="separator:a71ba1697cf1a4ddaccd7f405dd31e6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49473ade3c61b688b20dfda66f37f214"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html#a49473ade3c61b688b20dfda66f37f214">toString</a> () const</td></tr>
 <tr class="separator:a49473ade3c61b688b20dfda66f37f214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -159,6 +163,13 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur de la classe position. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -211,6 +222,59 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Itérateur de début de parcours </p><dl class="section return"><dt>Renvoie</dt><dd>neighbor_iterator sur la case (x;y+1) </dd></dl>
+
+</div>
+</div>
+<a id="a16df19411720a476c49a5378588f862a" name="a16df19411720a476c49a5378588f862a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16df19411720a476c49a5378588f862a">&#9670;&#160;</a></span>cbegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d6e/classBarnabe_1_1Position_1_1iterator.html">iterator</a> Barnabe::Position::cbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Itérateur de début de parcours </p><dl class="section return"><dt>Renvoie</dt><dd>neighbor_iterator sur la case (x;y+1) </dd></dl>
+
+</div>
+</div>
+<a id="a71ba1697cf1a4ddaccd7f405dd31e6b5" name="a71ba1697cf1a4ddaccd7f405dd31e6b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ba1697cf1a4ddaccd7f405dd31e6b5">&#9670;&#160;</a></span>cend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d6e/classBarnabe_1_1Position_1_1iterator.html">iterator</a> Barnabe::Position::cend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Itérateur de fin de parcours </p><dl class="section return"><dt>Renvoie</dt><dd>neighbor_iterator correspondant à la fin du parcours </dd></dl>
 
 </div>
 </div>
@@ -236,6 +300,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Itérateur de fin de parcours </p><dl class="section return"><dt>Renvoie</dt><dd>neighbor_iterator correspondant à la fin du parcours </dd></dl>
 
 </div>
 </div>
@@ -254,6 +319,13 @@ Attributs privés</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Teste si une case fournie en paramètre est adjacente. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> à comparer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les deux positions sont adjacentes </dd></dl>
 
 </div>
 </div>
@@ -280,6 +352,13 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Comparateur de positions. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> à comparer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>false si les coordonnées x et y sont égales deux à deux </dd></dl>
 
 </div>
 </div>
@@ -306,6 +385,13 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Addition de deux positions terme à terme. z = t + p (x,y) = (xt+xp,yt+yp) </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Second opérande </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> résultat du calcul </dd></dl>
 
 </div>
 </div>
@@ -324,6 +410,13 @@ Attributs privés</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Addition d'une position et d'une rotation. Renvoie une <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> correspondant à la case adjacente à l'objet dans la direction indiquée par la rotation r </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td><a class="el" href="../../dc/dc0/classBarnabe_1_1Rotation.html">Rotation</a> indiquant la direction </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> résultat du calcul </dd></dl>
 
 </div>
 </div>
@@ -350,6 +443,13 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Soustraction z = t - p (x,y) = (xt-xp,yt-yp) </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Second opérande </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> résultat du calcul </dd></dl>
 
 </div>
 </div>
@@ -376,6 +476,13 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Comparateur de positions. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> à comparer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>true si les coordonnées x et y sont égales deux à deux </dd></dl>
 
 </div>
 </div>
@@ -401,6 +508,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Renvoie</dt><dd>Chaîne de caractères sous la forme (x;y) </dd></dl>
 
 </div>
 </div>
@@ -426,6 +534,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture pour la coordonnée x </p><dl class="section return"><dt>Renvoie</dt><dd>Coordonée x </dd></dl>
 
 </div>
 </div>
@@ -451,6 +560,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Accesseur en lecture pour la coordonnée y </p><dl class="section return"><dt>Renvoie</dt><dd>Coordonnée y </dd></dl>
 
 </div>
 </div>
