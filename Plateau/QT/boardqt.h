@@ -10,20 +10,21 @@
 #include "cellqt.h"
 
 #include <QWidget>
+#include "containerqt.h"
+#include "tileqt.h"
 
 
 namespace Barnabe {
 
 
-    class BoardQt : public QWidget {
-        int size;
-
+    class BoardQt : public ContainerQt {
         const Board* board;
         unordered_map<Position, CellQt*, PositionHasher> cells;
+        TileQt* tileToPlace;
     public:
         BoardQt(QWidget* parent, const Board* b, int s = 40);
-        void empty();
-        void updateDisplay();
+        void empty() override;
+        void draw() override;
         void setBoard(Board* b) {board = b;}
         const Board* getBoard() const {return board;}
 

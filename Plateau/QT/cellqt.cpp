@@ -56,11 +56,13 @@ namespace Barnabe {
 
     CellQtFull::CellQtFull(QWidget* parent, Position p, bool l, int s, Color c, Type t, unsigned int hght) :
     CellQt(parent,p,l,s), color(c), type(t), height(hght) {
-        label = new QLabel(this);
-        label->setText(QString::number(height));
-        label->setFont(QFont("monospace",20,600));
+        if (height > 0) {
+            label = new QLabel(this);
+            label->setText(QString::number(height));
+            label->setFont(QFont("monospace",20,600));
+            label->move(4*size/5,2*size/5);
+        }
 
-        label->move(4*size/5,2*size/5);
     }
 
     const QBrush CellQtFull::brush() const {
@@ -78,10 +80,12 @@ namespace Barnabe {
     }
 
     void CellQtFull::endPaintEventActions() {
-        if (underMouse() && !locked) {
-            label->setStyleSheet("color:red;");
-        } else {
-            if (type == Type::PLACE) label->setStyleSheet("color: white;"); else label->setStyleSheet("color: black;");
+        if (height > 0) {
+            if (underMouse() && !locked) {
+                label->setStyleSheet("color:red;");
+            } else {
+                if (type == Type::PLACE) label->setStyleSheet("color: white;"); else label->setStyleSheet("color: black;");
+            }
         }
     }
 

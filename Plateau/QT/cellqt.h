@@ -5,7 +5,7 @@
 #ifndef AKROPOLIS_CELLQT_H
 #define AKROPOLIS_CELLQT_H
 
-#endif //AKROPOLIS_CELLQT_H
+
 
 #include "../../Utilitaires/position.h"
 #include "../../Tuiles/cell.h"
@@ -72,3 +72,5 @@ namespace Barnabe {
         void endPaintEventActions() override;
     };
 }
+
+#endif //AKROPOLIS_CELLQT_H

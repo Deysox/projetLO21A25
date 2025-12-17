@@ -10,18 +10,14 @@
 #include <QMouseEvent>
 
 namespace Barnabe {
-    BoardQt::BoardQt(QWidget *parent, const Board *b, int s) : QWidget(parent), board(b), size(s) {
-        setStyleSheet("background-color:#e0e0e0;");
-        updateDisplay();
-
-    }
+    BoardQt::BoardQt(QWidget *parent, const Board *b, int s) : ContainerQt(parent,s), board(b) {updateDisplay();}
 
     void BoardQt::empty() {
         for (auto it = cells.begin(); it != cells.end(); it++) delete it->second;
         cells.clear();
     }
 
-    void BoardQt::updateDisplay() {
+    void BoardQt::draw() {
         empty();
         Position ctl = board->getCorners().first;
         int w = size*2;
