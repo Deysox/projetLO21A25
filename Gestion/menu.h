@@ -24,8 +24,8 @@ namespace Eloise {
         void boutonLancerGameClique();
         void boutonReprendreGameClique();
         void boutonAfficherReglesClique();
-        void OnGameParameterReady(int nbPlayers, QString variante, QStringList names );
-        void OnSoloGameParameterReady(QString name, QString Variante, int level);
+        //void OnGameParameterReady(int nbPlayers, QString variante, QStringList names );
+        //void OnSoloGameParameterReady(QString name, QString Variante, int level);
     private:
         QPushButton* boutonLancerGame;
         QPushButton* boutonReprendreGame;

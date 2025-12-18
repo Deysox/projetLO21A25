@@ -36,8 +36,8 @@ namespace Eloise {
             this, &MenuQt::boutonLancerGameClique);
         connect(boutonReprendreGame, &QPushButton::clicked,
             this, &MenuQt::boutonReprendreGameClique);
-        connect(initWidget, &init::gameparametersReady,this, &MenuQt::OnGameParameterReady);
-        connect(initWidget, &init::sologameparametersReady,this, &MenuQt::OnSoloGameParameterReady);
+        //connect(initWidget, &init::gameparametersReady,this, &MenuQt::OnGameParameterReady);
+        //connect(initWidget, &init::sologameparametersReady,this, &MenuQt::OnSoloGameParameterReady);
     }
 
     void MenuQt::boutonAfficherReglesClique() {
@@ -51,6 +51,7 @@ namespace Eloise {
     }
 
     void MenuQt::boutonLancerGameClique() {
+        /*
         // methode pas forcément optimal ... à voir
         //ON cache le layout actuel_____________________________________________
         boutonLancerGame->hide();
@@ -58,29 +59,30 @@ namespace Eloise {
         boutonAfficherRegles->hide();
         //_____________puis affiche la fenetre d'initailisation_______________________________________________
 
-        initWidget->show();
-        /*int nb_players = QInputDialog::getInt(this,
+        initWidget->show();*/
+        int nb_players = QInputDialog::getInt(this,
                                               "Nombre de joueurs",
                                               "Number of players ? (1-4)",
                                               1,
                                               1,
                                               Game::getNbPlayersMax(),
                                               1);
-            if (nb_players != 1) {
-                GameQt& game = GameQt::giveInstance(nb_players);
-                game.manageGame();
-                game.endGame();
-            }
-            else {
-                GameQt& game = GameQt::giveInstance(nb_players+1);
-                int difficulty = QInputDialog::getInt(this,
-                                                      "Difficulty",
-                                                      "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
-                                                      1, 1, 3, 1);
-                game.manageSoloGame(difficulty);
-            }*/
+        if (nb_players != 1) {
+            GameQt& game = GameQt::giveInstance(nb_players,"");
+            game.manageGame();
+            game.endGame();
+        }
+        else {
+            GameQt& game = GameQt::giveInstance(nb_players+1,"");
+            int difficulty = QInputDialog::getInt(this,
+                                                  "Difficulty",
+                                                  "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
+                                                  1, 1, 3, 1);
+            game.manageSoloGame(difficulty);
+        }
         //GameQt::freeInstance();
     }
+    /*
     void MenuQt::OnGameParameterReady(int nbPlayers, QString variante, QStringList names )
     {
         GameQt& game = GameQt::giveInstance(nbPlayers,variante.toStdString());
@@ -106,8 +108,7 @@ namespace Eloise {
         QMessageBox::information(this,"solo",message);
 
     };
-
-
+    */
     void MenuQt::boutonReprendreGameClique() {
         QString pseudo_game = QInputDialog::getText(this, "Game", "What was the pseudo of your game ?");
         string game_name = pseudo_game.toStdString();
