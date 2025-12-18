@@ -92,8 +92,6 @@ namespace Barnabe {
      */
     ostream& operator<<(ostream& f, const BoardManager& c);
 
-
-    //class BoardManagerArchitect : public BoardManager;
 }
 
 

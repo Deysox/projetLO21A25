@@ -55,6 +55,7 @@ namespace Barnabe {
          */
         void updateDisplay() {empty(); draw(); update();}
 
+    protected:
         /**
          * Comportement à adopter pour générer l'affichage
          */

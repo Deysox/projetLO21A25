@@ -68,6 +68,7 @@ namespace Barnabe {
          */
         void paintEvent(QPaintEvent *event) override;
 
+    protected:
         /**
          * Calcule le remplissage du dessin de la case.
          * En fonction du type de case, le remplissage diffère, en devant possiblement s'adapter à la couleur,
@@ -88,6 +89,7 @@ namespace Barnabe {
          */
         virtual void endPaintEventActions() = 0;
 
+    public:
         /**
          * Verrouille la case
          */
@@ -145,6 +147,7 @@ namespace Barnabe {
          */
         CellQtFull(QWidget* parent, const Position& p, bool l = false, int s = 40, Color c = Color::BLUE, Type t = Type::DISTRICT, unsigned int hght = 0);
 
+    protected:
         /**
          * Remplissage de la case. Renvoie un remplissage plein de la couleur de la case.
          * Utilise la variante sombre en cas de type Place.
