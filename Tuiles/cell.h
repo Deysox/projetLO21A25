@@ -138,9 +138,9 @@ namespace Barnabe {
 		BicolorCell(int i, Color c, Type t, Color sC, Rotation r): Cell(i,c,t), secondaryColor(sC), rotation(r) {};
 
 		/**
-		 * Le constructeur par recopie de Cell est détruit.
+		 * Constructeur par recopie de Cell.
 		 */
-		BicolorCell(const BicolorCell& c) = delete;
+		BicolorCell(const BicolorCell& c) = default;
 		/**
 		 * L'opérateur d'affectation de Cell est détruit.
 		 */
@@ -160,7 +160,7 @@ namespace Barnabe {
 		 * Accesseur en écriture pour la rotation
 		 * @param r Rotation à affecter
 		 */
-		void setRotation(Rotation r) { rotation = r;}
+		void setRotation(const Rotation& r) { rotation = r;}
 	};
 }
 

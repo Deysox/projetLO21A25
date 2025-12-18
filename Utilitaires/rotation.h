@@ -44,7 +44,7 @@ namespace Barnabe {
          * Accesseur en lecture de l'attribut r
          * @return Entier correspondant à la rotation, entre 1 et 6
          */
-        int value() const {return r;}
+        [[nodiscard]] int value() const {return r;}
 
         /**
          * Additionne deux rotations

@@ -1,141 +1,166 @@
 @startuml
 
-class Rotation {
-    - r : int
-    + Rotation(int)
-    + value() : int {const}
-    + operator+(const Rotation&) : Rotation {const}
-    + operator-(const Rotation&) : Rotation {const}
-    + operator++() : Rotation&
-    + operator++(int) : Rotation
-    + operator==(const Rotation&) : bool {const}
-    + operator!=(const Rotation&) : bool {const}
-
-}
-
-
-class Position {
-    - posX : int
-    - posY : int
-    + Position(int, int)
-    + x() : int {const}
-    + y() : int {const}
-    + operator+(const Position&) : Position {const}
-    + operator+(const Rotation&) : Position {const}
-    + operator-(const Position&) : Position {const}
-    + operator==(const Position&) : bool {const}
-    + operator!=(const Position&) : bool {const}
-    + isNeighbour(const Position&) : bool {const}
-    + iterator {class}
-    + begin() : iterator
-    + end() : iterator
-
-}
-
-struct PositionHasher {
-    operator()(const Position&) : size_t {const};
-}
-
-
 namespace Barnabe {
-      class Cell {
-          - id : int
-          - color : Color
-          - type : Type
-          + Cell(int, Color, Type)
-          + getColor() : Color {const}
-          + getEffectiveColor(const Rotation&) : Color {const}
-          + getType() : Color {const}
-          + getID() : id {const}
-          + displayTop(unsigned int) : string const
-          + displayBottom() : string {const}
-      }
 
-      class BicolorCell {
-          - secondaryColor : Color
-          - rotation : Rotation
-          + BicolorCell(int, Color, Type, Color, Rotation)
-          + getSecondaryColor() : Color {const}
-          + getRotation() : Rotation {const}
-          + setRotation(Rotation)
-      }
+    package Utilitaires #DDDDDD {
+        class Rotation {
+            - r : int
+            + Rotation(int)
+            + value() : int {const}
+            + operator+(const Rotation&) : Rotation {const}
+            + operator-(const Rotation&) : Rotation {const}
+            + operator++() : Rotation&
+            + operator++(int) : Rotation
+            + operator==(const Rotation&) : bool {const}
+            + operator!=(const Rotation&) : bool {const}
 
-      BicolorCell --> Cell
+        }
 
-      together {
-          abstract Tile {
-                    # {static} id : int
-                    # cells : vector<const Cell*>*
-                    + Tile()
-                    + \~Tile()
-                    + getSize() : unsigned int {const}
-                    + getCells() : const vector<const Cell*>* {const}
-                    + {abstract} calculatePositions(Position, Rotation) : vector<Position>
-                    + begin() : iterator {const}
-                    + end() : iterator {const}
+        class Position {
+            - posX : int
+            - posY : int
+            + Position(int, int)
+            + x() : int {const}
+            + y() : int {const}
+            + operator+(const Position&) : Position {const}
+            + operator+(const Rotation&) : Position {const}
+            + operator-(const Position&) : Position {const}
+            + operator==(const Position&) : bool {const}
+            + operator!=(const Position&) : bool {const}
+            + isNeighbour(const Position&) : bool {const}
+            + class iterator
+            + begin() : iterator {const}
+            + end() : iterator {const}
+            + cbegin() : iterator {const}
+            + cend() : iterator {const}
+            + toString() : string {const}
 
-                }
-
-                class StartingTile {
-                    + StartingTile()
-                    + calculatePositions(Position, Rotation) : vector<Position>
-                }
-                class ClassicTile {
-                    + ClassicTile()
-                    + calculatePositions(Position, Rotation) : vector<Position>
-                }
-                class AthenaTile {
-                    - BicolorCell* cell;
-                    + AthenaTile()
-                    + calculatePositions(Position, Rotation) : vector<Position>
-                }
-
-      }
+        }
 
 
-      StartingTile --> Tile
-      ClassicTile --> Tile
-      AthenaTile --> Tile
+        struct PositionHasher {
+            operator()(const Position&) : size_t {const}
+        }
+    }
 
-      Tile "1" *-- "1.." Cell
 
 
-      together {
+    package "Gestion Plateau" #ffeeee {
+        class Cell {
+            - id : int
+            - color : Color
+            - type : Type
+            + Cell(int, Color, Type)
+            + Cell(const Cell&)
+            + ~Cell() {virtual}
+            + getColor() : Color {const}
+            + getEffectiveColor(const Rotation&) : Color {const} {virtual}
+            + getType() : Color {const}
+            + getID() : id {const}
+            + displayTop(unsigned int) : string const {virtual}
+            + displayBottom() : string {const} {virtual}
+        }
 
-      class Board {
-          - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
-          - corner_tl : Position
-          - corner_bl : Position
-          + Board()
-          + \~Board()
-          + Board(const Board&)
-          + operator=(const Board&) : Board&
-          + getCell(Position) : const Cell* {const}
-          + getCell(int, int) : const Cell* {const}
-          + getHeight(Position) : unsigned int {const}
-          + getHeight(int, int) : unsigned int {const}
-          + setCell(Position, unsigned int, const Cell*)
-          + setCell(int, int, unsigned int, const Cell*)
-          + getCorners() : pair<Position, Position> {const}
-      }
+        class BicolorCell {
+           - secondaryColor : Color
+           - rotation : Rotation
+           + BicolorCell(int, Color, Type, Color, Rotation)
+           + BicolorCell(const BicolorCell&)
+           + getSecondaryColor() : Color {const}
+           + getRotation() : Rotation {const}
+           + setRotation(const Rotation&)
+        }
 
-      Board "*" o-- "*" Cell
+        BicolorCell --> Cell
+        abstract Tile {
+           # {static} id : int
+           # cells : vector<const Cell*>*
+           + Tile()
+           + ~Tile()
+           + getSize() : unsigned int {const}
+           + getCell(int) : const Cell* {const}
+           + {abstract} calculatePositions(const Position&, Rotation&) : vector<Position>
+           + class const_iterator
+           + begin() : const_iterator {const}
+           + end() : const_iterator {const}
+           + cbegin() : const_iterator {const}
+           + cend() : const_iterator {const}
+        }
 
-      class BoardManager {
-          - board : Board*
-          - startingTile : StartingTile*
-          + BoardManager()
-          + \~BoardManager()
-          + BoardManager(const BoardManager&)
-          + operator=(const BoardManager&) : BoardManager&
-          + getBoard() : const Board* {const}
-          + place(const Tile*, Position, Rotation, bool)
-      }
+        class StartingTile {
+            + StartingTile()
+            + calculatePositions(const Position&, Rotation&) : vector<Position> {override}
+        }
+        class ClassicTile {
+            + ClassicTile(Color, Type, Color, Type, Color, Type)
+            + calculatePositions(const Position&, Rotation&) : vector<Position> {override}
+        }
+        class AthenaTile {
+            - BicolorCell* cell;
+            + AthenaTile(Color, Color, Type)
+            + calculatePositions(const Position&, Rotation&) : vector<Position> {override}
+        }
 
-      BoardManager "1" *-- "1" Board
-      BoardManager *-- "1" StartingTile
-      }
+        StartingTile --> Tile
+        ClassicTile --> Tile
+        AthenaTile --> Tile
 
+        Tile "1" *-- "1.." Cell
+
+
+        together {
+          class Board {
+              - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
+              - corner_tl : Position
+              - corner_bl : Position
+              + Board()
+              + \~Board()
+              + Board(const Board&)
+              + operator=(const Board&) : Board&
+              + getCell(Position) : const Cell* {const}
+              + getCell(int, int) : const Cell* {const}
+              + getHeight(Position) : unsigned int {const}
+              + getHeight(int, int) : unsigned int {const}
+              + setCell(Position, unsigned int, const Cell*)
+              + setCell(int, int, unsigned int, const Cell*)
+              + getCorners() : pair<Position, Position> {const}
+          }
+
+          Board "*" o-- "*" Cell
+
+          class BoardManager {
+              - board : Board*
+              - startingTile : StartingTile*
+              + BoardManager()
+              + \~BoardManager()
+              + BoardManager(const BoardManager&)
+              + operator=(const BoardManager&) : BoardManager&
+              + getBoard() : const Board* {const}
+              + place(const Tile*, Position, Rotation, bool)
+          }
+
+          BoardManager "1" *-- "1" Board
+          BoardManager *-- "1" StartingTile
+        }
+    }
+
+
+    enum Color {
+        BLUE
+        RED
+        YELLOW
+        GREEN
+        PURPLE
+    }
+
+    enum Type {
+        DISTRICT
+        PLACE
+        QUARRY
+    }
+
+    Color -- Cell
+    Type -- Cell
 
 }
 
