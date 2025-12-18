@@ -6,7 +6,7 @@
 #define PROJETLO21A25_PLAYERQT_H
 #include "player.h"
 #include <QObject>
-
+using namespace Barnabe;
 namespace Eloise {
     class PlayerQt : public QObject , public Player {
         Q_OBJECT
