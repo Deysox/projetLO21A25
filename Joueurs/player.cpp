@@ -1,6 +1,6 @@
 #include "player.h"
 
-namespace Barnabe {
+namespace Eloise {
     size_t Player::stones_distribution = 1;
 
     Player::Player(const string& s) : name(s), stones(stones_distribution) {
@@ -25,11 +25,11 @@ namespace Barnabe {
         stones += n;
     }
 
-    const BoardManager& Player::getBoard() const {
+    const Barnabe::BoardManager& Player::getBoard() const {
         return board;
     }
 
-    ostream& operator<<(ostream& f, const Barnabe::Player& p) {
+    ostream& operator<<(ostream& f, const Player& p) {
         f << "Player " << p.getName() << endl << "Stones : " << p.getStones() << endl << "board : " << endl << p.getBoard() << endl;
         return f;
     }

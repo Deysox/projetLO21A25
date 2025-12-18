@@ -7,7 +7,7 @@
 #include <QMessageBox>
 using namespace std;
 
-namespace Barnabe {
+namespace Eloise {
 
     void PlayerQt::displayBoard() {
         emit boardDisplay("board");

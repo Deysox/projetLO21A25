@@ -31,7 +31,6 @@ namespace Amalena
 
     void savemanager::fromjson(json data)
     {
-        //creation of a game memento with all the information
         gameMemento = new GameMemento(
         data["game_id"],
         data["version"],

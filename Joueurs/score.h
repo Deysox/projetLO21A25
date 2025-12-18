@@ -24,7 +24,7 @@ class Score {
 public:
     virtual ~Score() = default;
 
-    virtual int compute(const Barnabe::Player& player,
+    virtual int compute(const Eloise::Player& player,
                         const ScoreVariants& variants) const = 0;
 };
 
@@ -33,7 +33,7 @@ public:
  */
 class ScorePierre : public Score {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -50,7 +50,7 @@ public:
  */
 class ScoreBleu : public ScoreCouleur {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -59,7 +59,7 @@ public:
  */
 class ScoreJaune : public ScoreCouleur {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -68,7 +68,7 @@ public:
  */
 class ScoreRouge : public ScoreCouleur {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -77,7 +77,7 @@ public:
  */
 class ScoreViolet : public ScoreCouleur {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -86,7 +86,7 @@ public:
  */
 class ScoreVert : public ScoreCouleur {
 public:
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 
@@ -102,7 +102,7 @@ public:
     ScoreGeneral();
     ~ScoreGeneral();
 
-    int compute(const Barnabe::Player& player,
+    int compute(const Eloise::Player& player,
                 const ScoreVariants& variants) const override;
 };
 

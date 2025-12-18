@@ -7,7 +7,7 @@
 #include "player.h"
 #include <QObject>
 
-namespace Barnabe {
+namespace Eloise {
     class PlayerQt : public QObject , public Player {
         Q_OBJECT
     public:

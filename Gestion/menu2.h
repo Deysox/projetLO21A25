@@ -6,10 +6,12 @@
 namespace Eloise {
 	class Menu {
 	public:
+		/*
+		 *constructor that calls display() method
+		 */
 		Menu();
 		void display();
-		//~Menu();
-	private:
+		~Menu() = default;
 	};
 }
 

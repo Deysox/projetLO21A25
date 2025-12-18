@@ -2,8 +2,8 @@
 #include <stack>
 #include <map>
 
+using namespace Eloise;
 using namespace Barnabe;
-
 
 static bool isDistrictOfColor(const Cell* c, Color col) {
     return c != nullptr && c->getType() == Type::DISTRICT && c->getColor() == col;

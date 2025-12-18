@@ -5,204 +5,206 @@
 #include "../Joueurs/playerConsole.h"
 #include "../Utilitaires/exceptions.h"
 
-GameConsole* GameConsole::instanceConsole = nullptr;
+namespace Eloise {
+    GameConsole* GameConsole::instanceConsole = nullptr;
 
-void GameConsole::addEachPlayerToGame() {
-    cout << "Start of the game ! \n";
-    for (size_t i = 0; i < nb_players; i++) {
-        cout << "Name of player " << to_string(i) << " :";
+    void GameConsole::addEachPlayerToGame() {
+        cout << "Start of the game ! \n";
+        for (size_t i = 0; i < nb_players; i++) {
+            cout << "Name of player " << to_string(i) << " :";
+            string name;
+            cin >> name;
+            addPlayer(name);
+        }
+    }
+    void GameConsole::displayCurrentPlayerInfo() {
+        cout << "Current player : " << *players.at(current_player);
+    }
+    bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+        cout << "Do you want to abandon the game ? (Y/N): ";
+        string answer;
+        cin >> answer;
+        //if player wants to stop the game we call abandonGame() and we stop the method
+        if (answer == "Y") {
+            abandonGame();
+            return false;
+        }
+        else {
+            //char to acknowledge if player wants to restart his actions
+            char satisfied_player = 'N';
+            char option = 'A';
+            Tile* tile = nullptr;
+            do {
+                //picks a tile and places it thanks to playTurn()
+                tile = &pickRiver();
+                players.at(current_player)->playTurn(*tile);
+
+                cout << "Are you satisfied ? (Y/N): ";
+                cin >> satisfied_player;
+
+                while (satisfied_player == 'N') {
+                    players.at(current_player)->setBoard(*board_copy);
+                    cout << "Your board : \n" << players.at(current_player)->getBoard();
+                    cout << "Pick another tile (A) or choose another place (B)?: ";
+                    cin >> option;
+                    if (option == 'A') {
+                        //copy of copy so that we always have a copy of the river (the original river)
+                        Amalena::River* temp_river = new Amalena::River(*river_copy);
+                        *river = *temp_river;
+                        tile = &pickRiver();
+                        delete temp_river;
+                    }
+                    players.at(current_player)->playTurn(*tile);
+                    cout << "Are you satisfied now ? (Y/N): ";
+                    cin >> satisfied_player;
+                }
+
+            } while (satisfied_player == 'N');
+            return true;
+        }
+    }
+
+    void GameConsole::addPlayer(const string& name) {
+        if (nb_players == nb_players_max)
+        {
+            //throws exception if max reached
+            throw MaxPlayerException();
+        }
+        else {
+            PlayerConsole* p = new PlayerConsole(name);
+            players.push_back(p);
+        }
+    }
+
+    void GameConsole::displayRiver() {
+        cout << *river << "\n";;
+    }
+
+    Tile& GameConsole::chooseTileRiver() {
+        cout << "Write the position of the tile you want (first tile at position 1) : ";
+        int position = 0;
+        cin >> position;
+        //check : player has enough stones
+        while (players[current_player]->getStones() < position - 1) {
+            cout << "You don't have enough stones, select another position : ";
+            cin >> position;
+        }
+        //river gives a tile to player
+        Tile& chosen_tile = river->giveTile(position);
+        //update of stones
+        size_t newStones = players[current_player]->getStones() - (position - 1);
+        players[current_player]->setStones(newStones);
+        return chosen_tile;
+    }
+
+    void GameConsole::askNameSoloGame(){
+        cout << "Start of the solo game ! \n";
+        cout << "What is your name ? :";
         string name;
         cin >> name;
         addPlayer(name);
     }
-}
-void GameConsole::displayCurrentPlayerInfo() {
-    cout << "Current player : " << *players.at(current_player);
-}
-bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
-    cout << "Do you want to abandon the game ? (Y/N): ";
-    string answer;
-    cin >> answer;
-    //if player wants to stop the game we call abandonGame() and we stop the method
-    if (answer == "Y") {
-        abandonGame();
-        return false;
+
+    void GameConsole::architectCreation(int difficulty) {
+        Player* architect = new ArchitectConsole("Architect", difficulty);
+        players.push_back(architect);
     }
-    else {
-        //char to acknowledge if player wants to restart his actions
-        char satisfied_player = 'N';
-        char option = 'A';
-        Tile* tile = nullptr;
-        do {
-            //picks a tile and places it thanks to playTurn()
-            tile = &pickRiver();
-            players.at(current_player)->playTurn(*tile);
-
-            cout << "Are you satisfied ? (Y/N): ";
-            cin >> satisfied_player;
-
-            while (satisfied_player == 'N') {
-                players.at(current_player)->setBoard(*board_copy);
-                cout << "Your board : \n" << players.at(current_player)->getBoard();
-                cout << "Pick another tile (A) or choose another place (B)?: ";
-                cin >> option;
-                if (option == 'A') {
-                    //copy of copy so that we always have a copy of the river (the original river)
-                    Amalena::River* temp_river = new Amalena::River(*river_copy);
-                    *river = *temp_river;
-                    tile = &pickRiver();
-                    delete temp_river;
+    void GameConsole::architectPlaySoloGame(){
+        cout << "Architect's turn!\n";
+        cout << "Stones : " << players.at(current_player)->getStones() << "\n";
+        //init of chosen tile
+        Tile* chosen_tile_ptr = nullptr;
+        //init of its position
+        int chosen_pos = 1;
+        int pos = 1;
+        //loop that will search for the first tile that contains a PLACE
+        for (auto& t : *river) {
+            for (const Cell* cell : t) {
+                if (cell->getType() == Type::PLACE) {
+                    chosen_tile_ptr = &t;
+                    chosen_pos = pos;
+                    break;
                 }
-                players.at(current_player)->playTurn(*tile);
-                cout << "Are you satisfied now ? (Y/N): ";
-                cin >> satisfied_player;
             }
-
-        } while (satisfied_player == 'N');
-        return true;
-    }
-}
-
-void GameConsole::addPlayer(const string& name) {
-    if (nb_players == nb_players_max)
-    {
-        //throws exception if max reached
-        throw MaxPlayerException();
-    }
-    else {
-        PlayerConsole* p = new PlayerConsole(name);
-        players.push_back(p);
-    }
-}
-
-void GameConsole::displayRiver() {
-    cout << *river << "\n";;
-}
-
-Tile& GameConsole::chooseTileRiver() {
-    cout << "Write the position of the tile you want (first tile at position 1) : ";
-    int position = 0;
-    cin >> position;
-    //check : player has enough stones
-    while (players[current_player]->getStones() < position - 1) {
-        cout << "You don't have enough stones, select another position : ";
-        cin >> position;
-    }
-    //river gives a tile to player
-    Tile& chosen_tile = river->giveTile(position);
-    //update of stones
-    size_t newStones = players[current_player]->getStones() - (position - 1);
-    players[current_player]->setStones(newStones);
-    return chosen_tile;
-}
-
-void GameConsole::askNameSoloGame(){
-    cout << "Start of the solo game ! \n";
-    cout << "What is your name ? :";
-    string name;
-    cin >> name;
-    addPlayer(name);
-}
-
-void GameConsole::architectCreation(int difficulty) {
-    Player* architect = new ArchitectConsole("Architect", difficulty);
-    players.push_back(architect);
-}
-void GameConsole::architectPlaySoloGame(){
-    cout << "Architect's turn!\n";
-    cout << "Stones : " << players.at(current_player)->getStones() << "\n";
-    //init of chosen tile
-    Tile* chosen_tile_ptr = nullptr;
-    //init of its position
-    int chosen_pos = 1;
-    int pos = 1;
-    //loop that will search for the first tile that contains a PLACE
-    for (auto& t : *river) {
-        for (const Cell* cell : t) {
-            if (cell->getType() == Type::PLACE) {
-                chosen_tile_ptr = &t;
-                chosen_pos = pos;
-                break;
-            }
+            if (chosen_tile_ptr) break;
+            ++pos;
         }
-        if (chosen_tile_ptr) break;
-        ++pos;
+        //if no tile w/ PLACE or can't afford it takes the first tile
+        if (!chosen_tile_ptr || (chosen_pos - 1) > players.at(current_player)->getStones()) {
+            chosen_tile_ptr = &*river->begin();
+            chosen_pos = 1;
+        }
+        if (chosen_tile_ptr) {
+            cout << "Architect took the tile " << chosen_pos << "\n";
+            //picks the tile at the position
+            river->giveTile(chosen_pos);
+            //update of stones
+            players.at(1)->addStones(-chosen_pos + 1);
+            //places it thanks to playTurn()
+            players.at(1)->playTurn(*chosen_tile_ptr);
+        } else {
+            cout << "Architect can't play.\n";
+        }
     }
-    //if no tile w/ PLACE or can't afford it takes the first tile
-    if (!chosen_tile_ptr || (chosen_pos - 1) > players.at(current_player)->getStones()) {
-        chosen_tile_ptr = &*river->begin();
-        chosen_pos = 1;
-    }
-    if (chosen_tile_ptr) {
-        cout << "Architect took the tile " << chosen_pos << "\n";
-        //picks the tile at the position
-        river->giveTile(chosen_pos);
-        //update of stones
-        players.at(1)->addStones(-chosen_pos + 1);
-        //places it thanks to playTurn()
-        players.at(1)->playTurn(*chosen_tile_ptr);
-    } else {
-        cout << "Architect can't play.\n";
-    }
-}
-bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
-    cout << "Do you want to abandon the game ? (Y/N): ";
-    string answer;
-    cin >> answer;
-    //in case of abandon of the game, return false
-    if (answer == "Y") {
-        abandonGame();
-        return false;
-    }
-    else {
-        cout << "Your turn !" << "\n";
-        cout << *players.at(current_player) << "\n";
-        //recording of the stones before player plays so that he can cancel
-        int stones_before = players.at(0)->getStones();
-        //recording for architect stones also
-        int architect_stones_before = players.at(1)->getStones();
-        char satisfied_player = 'N';
-        char option = 'A';
-        do {
-            Tile* tile = &pickRiver();
-            //stones after picking a tile in the river
-            int stones_after = players.at(0)->getStones();
-            int stones_lost = stones_before - stones_after;
-            //we give the stones lost to the architect
-            players.at(1)->addStones(stones_lost);
-            //tile placement
-            players.at(0)->playTurn(*tile);
-            cout << "Are you satisfied of your move? (Y/N) : ";
-            cin >> satisfied_player;
-            if (satisfied_player == 'N') {
-                players.at(0)->setBoard(*board_copy);
-                players.at(0)->setStones(stones_before);
-                players.at(1)->setStones(architect_stones_before);
-                cout << "Pick another tile (A) or choose a new place (B)? ";
-                do { cin >> option; } while(option != 'A' && option != 'B');
-                if (option == 'A') {
-                    Amalena::River* temp_river = new Amalena::River(*river_copy);
-                    *river = *temp_river;
-                    tile = &pickRiver();
-                    delete temp_river;
-                }
+    bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
+        cout << "Do you want to abandon the game ? (Y/N): ";
+        string answer;
+        cin >> answer;
+        //in case of abandon of the game, return false
+        if (answer == "Y") {
+            abandonGame();
+            return false;
+        }
+        else {
+            cout << "Your turn !" << "\n";
+            cout << *players.at(current_player) << "\n";
+            //recording of the stones before player plays so that he can cancel
+            int stones_before = players.at(0)->getStones();
+            //recording for architect stones also
+            int architect_stones_before = players.at(1)->getStones();
+            char satisfied_player = 'N';
+            char option = 'A';
+            do {
+                Tile* tile = &pickRiver();
+                //stones after picking a tile in the river
+                int stones_after = players.at(0)->getStones();
+                int stones_lost = stones_before - stones_after;
+                //we give the stones lost to the architect
+                players.at(1)->addStones(stones_lost);
+                //tile placement
                 players.at(0)->playTurn(*tile);
-                cout << "Are you satisfied now ? (Y/N): ";
+                cout << "Are you satisfied of your move? (Y/N) : ";
                 cin >> satisfied_player;
-            }
-        } while (satisfied_player == 'N');
-        return true;
+                if (satisfied_player == 'N') {
+                    players.at(0)->setBoard(*board_copy);
+                    players.at(0)->setStones(stones_before);
+                    players.at(1)->setStones(architect_stones_before);
+                    cout << "Pick another tile (A) or choose a new place (B)? ";
+                    do { cin >> option; } while(option != 'A' && option != 'B');
+                    if (option == 'A') {
+                        Amalena::River* temp_river = new Amalena::River(*river_copy);
+                        *river = *temp_river;
+                        tile = &pickRiver();
+                        delete temp_river;
+                    }
+                    players.at(0)->playTurn(*tile);
+                    cout << "Are you satisfied now ? (Y/N): ";
+                    cin >> satisfied_player;
+                }
+            } while (satisfied_player == 'N');
+            return true;
+        }
     }
-}
 
-string GameConsole::displayAbandonGame1() {
-    cout << "Temporary abandon of the game. \n";
-    cout << "Choose a pseudo for your game : ";
-    string pseudo;
-    cin >> pseudo;
-    return pseudo;
-}
+    string GameConsole::displayAbandonGame1() {
+        cout << "Temporary abandon of the game. \n";
+        cout << "Choose a pseudo for your game : ";
+        string pseudo;
+        cin >> pseudo;
+        return pseudo;
+    }
 
-void GameConsole::displayAbandonGame2(){
-    cout << "Registration of game's parameters successful. \n";
+    void GameConsole::displayAbandonGame2(){
+        cout << "Registration of game's parameters successful. \n";
+    }
 }
