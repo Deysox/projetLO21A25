@@ -11,7 +11,7 @@
 #include <QMessageBox>
 #include <QObject>
 #include <QInputDialog>
-#include "../UI/init.h"
+
 
 MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
     //Boutons
@@ -27,8 +27,7 @@ MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
     layout->addWidget(boutonAfficherRegles);
     setLayout(layout);
     setWindowTitle("Menu du jeu");
-    initWidget = new init(this);
-    initWidget->hide();
+
 
     connect(boutonAfficherRegles, &QPushButton::clicked,
         this, &MenuQt::boutonAfficherReglesClique);
@@ -36,8 +35,7 @@ MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
         this, &MenuQt::boutonLancerGameClique);
     connect(boutonReprendreGame, &QPushButton::clicked,
         this, &MenuQt::boutonReprendreGameClique);
-    connect(initWidget, &init::gameparametersReady,this, &MenuQt::OnGameParameterReady);
-    connect(initWidget, &init::sologameparametersReady,this, &MenuQt::OnSoloGameParameterReady);
+
 
 
 }
@@ -53,61 +51,33 @@ void MenuQt::boutonAfficherReglesClique() {
 }
 
 void MenuQt::boutonLancerGameClique() {
-    // methode pas forcément optimal ... à voir
-    //ON cache le layout actuel_____________________________________________
-    boutonLancerGame->hide();
-    boutonReprendreGame->hide();
-    boutonAfficherRegles->hide();
-    //_____________puis affiche la fenetre d'initailisation_______________________________________________
 
-    initWidget->show();
-    /*int nb_players = QInputDialog::getInt(this,
+    int nb_players = QInputDialog::getInt(this,
                                           "Nombre de joueurs",
                                           "Number of players ? (1-4)",
                                           1,
                                           1,
                                           Game::getNbPlayersMax(),
+
                                           1);
+        string s ="variante";
         if (nb_players != 1) {
-            GameQt& game = GameQt::giveInstance(nb_players);
+
+            GameQt& game = GameQt::giveInstance(nb_players,s);
             game.manageGame();
             game.endGame();
         }
         else {
-            GameQt& game = GameQt::giveInstance(nb_players+1);
+            GameQt& game = GameQt::giveInstance(nb_players+1,s);
             int difficulty = QInputDialog::getInt(this,
                                                   "Difficulty",
                                                   "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
                                                   1, 1, 3, 1);
             game.manageSoloGame(difficulty);
-        }*/
-    //GameQt::freeInstance();
+        }
+    GameQt::freeInstance();
 }
-void MenuQt::OnGameParameterReady(int nbPlayers, QString variante, QStringList names )
-{
-    GameQt& game = GameQt::giveInstance(nbPlayers,variante.toStdString());
-    //comme je ne peux pas transmettre plus d'info
-    for (int i = 0; i < names.size(); ++i) {
-        game.addPlayer(names[i].toStdString());
-    }
-    //game.manageGame();
 
-    QString message = "Nombre de joueurs : " + QString::number(nbPlayers) +
-                          "\nVariante : " + variante +
-                          "\nNoms : " + names.join(", ");
-    QMessageBox::information(this,"multi",message );
-};
-void MenuQt::OnSoloGameParameterReady(QString name, QString Variante, int level)
-{
-    GameQt& game = GameQt::giveInstance(2,Variante.toStdString());
-    game.manageSoloGame(level);
-    game.addPlayer(name.toStdString());
-    QString message="Level: " + QString::number(level) +
-                          "\nVariante : " + Variante +
-                          "\nNoms : " + name;
-    QMessageBox::information(this,"solo",message);
-
-};
 
 
 void MenuQt::boutonReprendreGameClique() {
