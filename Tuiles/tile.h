@@ -1,11 +1,15 @@
 #ifndef PROJETLO21A25_TUILE_H
 #define PROJETLO21A25_TUILE_H
-#include <array>
-#include <vector>
-#include "cell.h"
-#include <sstream>
 
-using namespace std;
+#include <vector>
+#include <sstream>
+#include "position.h"
+#include "cell.h"
+#include "exceptions.h"
+
+using std::vector;
+
+
 namespace Barnabe {
 
 	/**
@@ -57,7 +61,7 @@ namespace Barnabe {
 		 * Accesseur en lecture de la taille de la tuile en termes de nombres de cases.
 		 * @return unsigned int
 		 */
-		unsigned int getSize() const {return cells.size();};
+		[[nodiscard]] unsigned int getSize() const {return cells.size();};
 
 		/**
 		 * Accesseur en lecture d'une case de la tuile. La case d'indice i est la case insérée en ième position
@@ -65,7 +69,7 @@ namespace Barnabe {
 		 * @param i Indice
 		 * @return Pointeur vers la case voulue
 		 */
-		const Cell* getCell(int i) const {
+		[[nodiscard]] const Cell* getCell(int i) const {
 			if (i >= getSize()) throw TileException("Indice de la cellule incorrect");
 			return cells[i];
 		}
@@ -73,12 +77,12 @@ namespace Barnabe {
 		/*
 		 * A completer par la personne qui a fait cette fonction
 		 */
-		string typeToString(Type t);
+		static string typeToString(Type t);
 
 		/*
 		 * Pareillement
 		 */
-		string toString();
+		string toString() const;
 
 		/**
 		 * Méthode permettant de calculer la position de chaque case composant la tuile à partir d'une position et une
@@ -89,7 +93,7 @@ namespace Barnabe {
  		 * @return Vecteur de positions de la même taille que cells. La position i de ce vecteur correspond à la
  		 * position calculée de la case d'indice i dans l'attribut cells.
 		 */
-		virtual std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const = 0;
+		[[nodiscard]] virtual std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const = 0;
 
 		// class const_iterator {
 		// 	vector<const Cell*>::const_iterator vec_iterator;
@@ -122,28 +126,28 @@ namespace Barnabe {
 		 */
 		class const_iterator : public vector<const Cell*>::const_iterator {
 			friend class Tile;
-			const_iterator(vector<const Cell*>::const_iterator ci) : vector<const Cell*>::const_iterator(ci) {}
+			explicit const_iterator(vector<const Cell*>::const_iterator ci) : vector<const Cell*>::const_iterator(ci) {}
 		};
 
 		/**
 		 * @return const_iterator sur la première case
 		 */
-		const_iterator begin() const {return const_iterator(cells.begin());}
+		[[nodiscard]] const_iterator begin() const {return const_iterator(cells.begin());}
 		/**
 		 * @return const_iterator indiquant la fin de parcours
 		 */
-		const_iterator end() const {return const_iterator(cells.end());}
+		[[nodiscard]] const_iterator end() const {return const_iterator(cells.end());}
 
 		/**
 		 *
 		 * @return const_iterator sur la première case
 		 */
-		const_iterator cbegin() const {return const_iterator(cells.begin());}
+		[[nodiscard]] const_iterator cbegin() const {return const_iterator(cells.begin());}
 
 		/**
 		 * @return const_iterator indiquant la fin de parcours
 		 */
-		const_iterator cend() const {return const_iterator(cells.end());}
+		[[nodiscard]] const_iterator cend() const {return const_iterator(cells.end());}
 
 
 	};
@@ -154,7 +158,7 @@ namespace Barnabe {
 	class StartingTile : public Tile {
 	public :
 		StartingTile();
-		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
+		[[nodiscard]] std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 
 	};
 
@@ -164,7 +168,7 @@ namespace Barnabe {
 	class ClassicTile : public Tile {
 	public :
 		ClassicTile(Color c1, Type t1, Color c2, Type t2, Color c3, Type t3);
-		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
+		[[nodiscard]] std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 
 		friend ostream& operator<<(ostream& f, ClassicTile& c);
 
@@ -189,7 +193,7 @@ namespace Barnabe {
 
 	public :
 		AthenaTile(Color c1, Color c2, Type t);
-		std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
+		[[nodiscard]] std::vector<Position> calculatePositions(const Position& p, const Rotation& r) const override;
 	};
 }
 

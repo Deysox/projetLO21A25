@@ -5,9 +5,11 @@
 #include <QToolTip>
 #include <sstream>
 
+using std::stringstream, std::to_string;
+
 namespace Barnabe {
 
-    CellQt::CellQt(QWidget *parent, Position p, bool l, int s) : QWidget(parent), pos(p), locked(l), size(s), w(size*2), h(std::sqrt(3)*size) {
+    CellQt::CellQt(QWidget *parent, const Position& p, bool l, int s) : QWidget(parent), pos(p), locked(l), size(s), w(size*2), h(std::sqrt(3)*size) {
         setStyleSheet("QWidget{background-color: rgba(0,0,0,0);}QToolTip{background-color:rgba(255,255,255,1);padding:1px;border:none;border-radius:3px;font-family:monospace;}");
         setFixedSize(w,w);
         setMouseTracking(true);
@@ -17,8 +19,8 @@ namespace Barnabe {
     void CellQt::paintEvent(QPaintEvent *event) {
         QPainter hexPainter(this);
 
-        QPen hexPen = pen();
-        QBrush hexBrush = brush();
+        const QPen hexPen = pen();
+        const QBrush hexBrush = brush();
         hexPainter.setBrush(hexBrush);
         hexPainter.setPen(hexPen);
 
@@ -62,7 +64,7 @@ namespace Barnabe {
     };
 
 
-    CellQtFull::CellQtFull(QWidget* parent, Position p, bool l, int s, Color c, Type t, unsigned int hght) :
+    CellQtFull::CellQtFull(QWidget* parent, const Position& p, bool l, int s, Color c, Type t, unsigned int hght) :
     CellQt(parent,p,l,s), color(c), type(t), height(hght) {
         if (height > 0) { // Affichage de la hauteur
             label = new QLabel(this);
@@ -81,20 +83,15 @@ namespace Barnabe {
             ss << "Carrière";
         }
         setToolTip(QString::fromStdString(ss.str()));
-
-
-
-
     }
 
-    const QBrush CellQtFull::brush() const {
+    QBrush CellQtFull::brush() const {
         const QColor penColor = (type == Type::PLACE) ? colors[color].second : colors[color].first;
         QBrush hexBrush(penColor);
         return hexBrush;
-
     }
 
-    const QPen CellQtFull::pen() const {
+    QPen CellQtFull::pen() const {
         const QColor penColor = (type == Type::PLACE) ? colors[color].first : colors[color].second;
         QPen hexPen(penColor);
         hexPen.setWidth(3);
@@ -113,17 +110,17 @@ namespace Barnabe {
 
 
 
-    CellQtEmpty::CellQtEmpty(QWidget *parent, Position p, bool l, int s) : CellQt(parent,p,l,s) {
+    CellQtEmpty::CellQtEmpty(QWidget *parent, const Position& p, bool l, int s) : CellQt(parent,p,l,s) {
         setToolTip(QString::fromStdString("Position : "+pos.toString())); // Génération du Tooltip
     }
 
 
-    const QPen CellQtEmpty::pen() const {
+    QPen CellQtEmpty::pen() const {
         QPen hexPen(Qt::transparent);
         return hexPen;
     }
 
-    const QBrush CellQtEmpty::brush() const {
+    QBrush CellQtEmpty::brush() const {
         QBrush hexBrush(Qt::Dense6Pattern);
         if (underMouse() && !locked) {
             hexBrush.setColor(Qt::red);

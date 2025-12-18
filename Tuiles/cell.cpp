@@ -1,5 +1,8 @@
 #include "cell.h"
+#include <iostream>
 #include <sstream>
+
+using std::stringstream, std::to_string;
 
 namespace Barnabe {
     string Cell::displayTop(unsigned int height) const {

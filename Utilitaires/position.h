@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+using std::string, std::ostream;
+
 /**
  * Représente la position d'une case dans un plateau d'Akropolis.
  * Les coordonnées des positions sont des entiers relatifs. La position (0;0) correspond à l'origine du repère.
@@ -27,20 +29,20 @@ namespace Barnabe {
          * @param x Coordonnée x
          * @param y Coordonnée y
          */
-        Position(int x = 0, int y = 0) : posX(x), posY(y) {};
-        Position(const Position& p) : posX(p.x()), posY(p.y()) {};
+        explicit Position(int x = 0, int y = 0) : posX(x), posY(y) {}
+        Position(const Position& p) : posX(p.x()), posY(p.y()) {}
 
         /**
          * Accesseur en lecture pour la coordonnée x
          * @return Coordonée x
          */
-        int x() const {return posX;}
+        [[nodiscard]] int x() const {return posX;}
 
         /**
          * Accesseur en lecture pour la coordonnée y
          * @return Coordonnée y
          */
-        int y() const {return posY;}
+        [[nodiscard]] int y() const {return posY;}
 
         /**
          * Addition de deux positions terme à terme.
@@ -88,7 +90,7 @@ namespace Barnabe {
          * @param p Position à comparer
          * @return true si les deux positions sont adjacentes
          */
-        bool isNeighbour(const Position& p) const;
+        [[nodiscard]] bool isNeighbour(const Position& p) const;
 
         /**
          * Itérateur sur les positions voisines d'une case donnée.
@@ -110,7 +112,7 @@ namespace Barnabe {
             iterator operator++(int) {
                 int old = rot;
                 rot++;
-                return iterator(x,y,old);
+                return {x,y,old};
             }
             Position operator*() const {return Position(x,y) + Rotation(rot);}
             bool operator!=(const iterator& c) const {return rot != c.rot;};
@@ -123,27 +125,27 @@ namespace Barnabe {
          * Itérateur de début de parcours
          * @return neighbor_iterator sur la case (x;y+1)
          */
-        iterator begin() const {return {posX,posY,0};}
+        [[nodiscard]] iterator begin() const {return {posX,posY,0};}
         /**
          * Itérateur de fin de parcours
          * @return neighbor_iterator correspondant à la fin du parcours
          */
-        iterator end() const {return {posX,posY, 6};}
+        [[nodiscard]] iterator end() const {return {posX,posY, 6};}
         /**
          * Itérateur de début de parcours
          * @return neighbor_iterator sur la case (x;y+1)
          */
-        iterator cbegin() const {return {posX,posY,0};}
+        [[nodiscard]] iterator cbegin() const {return {posX,posY,0};}
         /**
          * Itérateur de fin de parcours
          * @return neighbor_iterator correspondant à la fin du parcours
          */
-        iterator cend() const {return {posX,posY, 6};}
+        [[nodiscard]] iterator cend() const {return {posX,posY, 6};}
 
         /**
          * @return Chaîne de caractères sous la forme (x;y)
          */
-        string toString() const {return "("+to_string(x())+";"+to_string(y())+")";}
+        [[nodiscard]] string toString() const {return "("+std::to_string(x())+";"+std::to_string(y())+")";}
 
     };
 

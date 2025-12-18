@@ -7,10 +7,10 @@
 namespace Barnabe {
     BoardManager::BoardManager() : board(new Board()) {
         startingTile = new StartingTile(); // Initialisation du plateau en y ajoutant une tuile de départ
-        place(startingTile,0,0, true);
+        place(startingTile,Position(0,0),0, true);
     }
 
-    BoardManager::BoardManager(const BoardManager &e) {
+    BoardManager::BoardManager(const BoardManager &e) : startingTile(new StartingTile) {
         board = new Board();
         *board = *(e.board);
 
@@ -30,7 +30,7 @@ namespace Barnabe {
     }
 
 
-    int BoardManager::place(const Tile *t, Position p, Rotation r, bool adjacentIgnore) {
+    int BoardManager::place(const Tile *t, const Position& p, const Rotation& r, bool adjacentIgnore) {
         vector<Position> positions = t->calculatePositions(p,r); // Calcul des positions à vérifier
 
         int stoneCount = 0;

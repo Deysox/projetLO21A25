@@ -7,19 +7,15 @@
 
 #include "cellqt.h"
 #include "containerqt.h"
-#include "../../Tuiles/tile.h"
+#include "tile.h"
 
 namespace Barnabe {
     /**
      * Représentation graphique d'une tuile du jeu Akropolis.
      * Version abstraite d'une tuile pour permettre les déclinaisons d'affichage simples.
      */
-    class TileQt : public ContainerQt {
+    class TileQt : public ContainerQt<vector<CellQtFull*>> {
     protected:
-        /**
-         * Vecteur comportant des pointeurs vers les différents affichages de cases.
-         */
-        vector<CellQtFull*> cells;
         /**
          * Tuile à représenter
          */
@@ -70,7 +66,7 @@ namespace Barnabe {
          * Accesseur en lecture de la tuile à afficher
          * @return Pointeur vers Tile
          */
-        const Tile* getTile() const {return tile;}
+        [[nodiscard]] const Tile* getTile() const {return tile;}
 
         /**
          * Construction de l'affichage de la tuile.

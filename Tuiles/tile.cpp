@@ -5,8 +5,8 @@ namespace Barnabe {
     int Tile::id = 0;
 
     Tile::~Tile() {
-        for (auto it = cells.begin(); it != cells.end(); it++) {
-            delete *it; // Désallocation des cases
+        for (const Cell* cell : cells) {
+            delete cell; // Désallocation des cases
         }
     }
 
@@ -25,7 +25,7 @@ namespace Barnabe {
             p+(Rotation(4)+r)};
     }
 
-    ClassicTile::ClassicTile(Color c1, Type t1, Color c2, Type t2, Color c3, Type t3) {
+    ClassicTile::ClassicTile(const Color c1, const Type t1, const Color c2, const Type t2, const Color c3, const Type t3) {
         cells.push_back(new Cell(id,c1,t1));
         cells.push_back(new Cell(id,c2,t2));
         cells.push_back(new Cell(id,c3,t3));
@@ -37,17 +37,17 @@ namespace Barnabe {
             p+(Rotation(1)+r)};
     }
 
-    ostream& operator<<(ostream& f, ClassicTile& c) {
-        f << c.getCell(1)->displayTop(1) << endl;
-        f << c.getCell(1)->displayBottom() << c.getCell(2)->displayTop(1) << endl;
-        f << c.getCell(0)->displayTop(1) << c.getCell(2)->displayBottom() << endl;
-        f << c.getCell(0)->displayBottom() << endl;
+    ostream& operator<<(ostream& f, const ClassicTile& c) {
+        f << c.getCell(1)->displayTop(1) << "\n";
+        f << c.getCell(1)->displayBottom() << c.getCell(2)->displayTop(1) << "\n";
+        f << c.getCell(0)->displayTop(1) << c.getCell(2)->displayBottom() << "\n";
+        f << c.getCell(0)->displayBottom() << "\n";
         return f;
 
     }
 
 
-    AthenaTile::AthenaTile(Color c1, Color c2, Type t) {
+    AthenaTile::AthenaTile(const Color c1, const Color c2, const Type t) {
         cell = new BicolorCell(id,c1,t,c2,0);
         cells.push_back(cell);
     }
@@ -62,14 +62,14 @@ namespace Barnabe {
     string Tile::typeToString(Type t) {
         switch(t) {
             case Type::PLACE: return "PLACE";
-            case Type::DISTRICT: return "DISTRIC";
+            case Type::DISTRICT: return "DISTRICT";
             case Type::QUARRY: return "QUARRY";
             default: return "UNKNOWN";
         }
     }
 
     //to be modified (Qt adaptation)
-    string Tile::toString() {
+    string Tile::toString() const {
         std::ostringstream oss;
         for (size_t i = 0; i < cells.size(); ++i) {
             oss << "Cell " << (i + 1) << ": "
