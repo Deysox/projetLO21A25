@@ -12,7 +12,7 @@
 #include "Plateau/boardmanager.h"
 #include "Plateau/QT/boardqt.h"
 #include "Gestion/menu.h"
-
+/*
 int main(int argc, char* argv[])
 {
     using namespace Barnabe;
@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
     bqt.show();
     return app.exec();
 }
+*/
 /*
 #include <QApplication>
 
@@ -78,3 +79,14 @@ int main() {
     Eloise::Menu menu;
 }
 */
+
+#include "Gestion/menu.h"
+#include <QApplication>
+int main(int argc, char* argv[])
+{
+    QApplication app(argc, argv);
+    MenuQt menu;
+    menu.setFixedSize(500, 400);
+    menu.show();
+    return app.exec();
+}

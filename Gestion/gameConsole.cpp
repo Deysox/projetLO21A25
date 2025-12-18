@@ -31,7 +31,7 @@ bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_c
         char option = 'A';
         Tile* tile = nullptr;
         do {
-            tile = &pickRiver();
+            Tile* tile = &pickRiver();
             players.at(current_player)->playTurn(*tile);
 
             cout << "Are you satisfied ? (Y/N): ";
@@ -45,10 +45,12 @@ bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_c
                 if (option == 'A') {
                     Amalena::River* temp_river = new Amalena::River(*river_copy);
                     *river = *temp_river;
-                    tile = &pickRiver();
+                    Tile* new_tile = &pickRiver();
+                    players.at(current_player)->playTurn(*new_tile);
                     delete temp_river;
+                }else {
+                    players.at(current_player)->playTurn(*tile);
                 }
-                players.at(current_player)->playTurn(*tile);
                 cout << "Are you satisfied now ? (Y/N): ";
                 cin >> satisfied_player;
             }
@@ -155,17 +157,23 @@ bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River
             cin >> satisfied_player;
             if (satisfied_player == 'N') {
                 players.at(0)->setBoard(*board_copy);
-                players.at(0)->setStones(stones_before);
-                players.at(1)->setStones(architect_stones_before);
                 cout << "Pick another tile (A) or choose a new place (B)? ";
                 do { cin >> option; } while(option != 'A' && option != 'B');
                 if (option == 'A') {
+                    players.at(0)->setStones(stones_before);
+                    players.at(1)->setStones(architect_stones_before);
                     Amalena::River* temp_river = new Amalena::River(*river_copy);
                     *river = *temp_river;
-                    tile = &pickRiver();
+                    Tile* new_tile = &pickRiver();
+                    int new_stones_after = players.at(0)->getStones();
+                    int new_stones_lost = stones_before - new_stones_after;
+                    players.at(1)->addStones(new_stones_lost);
+                    players.at(0)->playTurn(*new_tile);
                     delete temp_river;
                 }
-                players.at(0)->playTurn(*tile);
+                else {
+                    players.at(0)->playTurn(*tile);
+                }
                 cout << "Are you satisfied now ? (Y/N): ";
                 cin >> satisfied_player;
             }

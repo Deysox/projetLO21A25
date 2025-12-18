@@ -1,3 +1,4 @@
+/*
 #include <map>
 #include <stack>
 #include <vector>
@@ -405,3 +406,4 @@ int Marilou::ScoreVert::compute(const Player &player,
 
 	return score;
 }
+*/
