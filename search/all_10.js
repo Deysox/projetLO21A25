@@ -15,7 +15,8 @@ var searchData=
   ['riverid_12',['riverid',['../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5',1,'Amalena::GameMemento']]],
   ['riveriterator_13',['RiverIterator',['../da/ddb/classAmalena_1_1River_1_1RiverIterator.html',1,'Amalena::River::RiverIterator'],['../da/ddb/classAmalena_1_1River_1_1RiverIterator.html#aecd2fd270d9edb878cbe5d012b2c510b',1,'Amalena::River::RiverIterator::RiverIterator()']]],
   ['rot_14',['rot',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a5eb9429ae1450b6e0cf1728ef80a7189',1,'Barnabe::Position::iterator']]],
-  ['rotation_15',['Rotation',['../dc/dc0/classBarnabe_1_1Rotation.html',1,'Barnabe::Rotation'],['../dc/dc0/classBarnabe_1_1Rotation.html#a5e8869b6640b6c354cc6ab1916988bfc',1,'Barnabe::Rotation::Rotation()']]],
+  ['rotation_15',['Rotation',['../dc/dc0/classBarnabe_1_1Rotation.html',1,'Barnabe']]],
   ['rotation_16',['rotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#a607c8a530c959f30b7f133c66acaf047',1,'Barnabe::BicolorCell']]],
-  ['rotation_2eh_17',['rotation.h',['../d6/dfe/rotation_8h.html',1,'']]]
+  ['rotation_17',['Rotation',['../dc/dc0/classBarnabe_1_1Rotation.html#a5e8869b6640b6c354cc6ab1916988bfc',1,'Barnabe::Rotation']]],
+  ['rotation_2eh_18',['rotation.h',['../d6/dfe/rotation_8h.html',1,'']]]
 ];

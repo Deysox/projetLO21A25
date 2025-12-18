@@ -2,9 +2,9 @@ var searchData=
 [
   ['temples_0',['temples',['../d4/d97/structMarilou_1_1ScoreVariants.html#a2284f1bf2ae42d5b0cd84b182d973337',1,'Marilou::ScoreVariants']]],
   ['test_2eh_1',['test.h',['../d2/ddc/test_8h.html',1,'']]],
-  ['tile_2',['Tile',['../d8/dcb/classBarnabe_1_1Tile.html',1,'Barnabe::Tile'],['../d8/dcb/classBarnabe_1_1Tile.html#ac95821ac2235d24c1d6d36f6cd8da6ce',1,'Barnabe::Tile::Tile(const Tile &amp;p)=delete'],['../d8/dcb/classBarnabe_1_1Tile.html#ad5cd3109d28808e56094284f12910f61',1,'Barnabe::Tile::Tile()']]],
+  ['tile_2',['Tile',['../d8/dcb/classBarnabe_1_1Tile.html',1,'Barnabe']]],
   ['tile_3',['tile',['../df/dc3/classBarnabe_1_1TileQt.html#a4ea06070aa7212d9eadec058a63271cb',1,'Barnabe::TileQt']]],
-  ['tile_4',['Tile',['../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a8a6c6f6de547e6f39d3212d1f4d49a65',1,'Barnabe::Tile::const_iterator']]],
+  ['tile_4',['Tile',['../d8/dcb/classBarnabe_1_1Tile.html#ac95821ac2235d24c1d6d36f6cd8da6ce',1,'Barnabe::Tile::Tile()'],['../d8/d47/classBarnabe_1_1Tile_1_1const__iterator.html#a8a6c6f6de547e6f39d3212d1f4d49a65',1,'Barnabe::Tile::const_iterator::Tile()'],['../d8/dcb/classBarnabe_1_1Tile.html#ad5cd3109d28808e56094284f12910f61',1,'Barnabe::Tile::Tile()']]],
   ['tile_2ecpp_5',['tile.cpp',['../d7/d2f/tile_8cpp.html',1,'']]],
   ['tile_2eh_6',['tile.h',['../da/dce/tile_8h.html',1,'']]],
   ['tileexception_7',['TileException',['../df/d8b/classTileException.html',1,'TileException'],['../df/d8b/classTileException.html#a4b9cd8e0b7f5c5b4dae1645729c73ae5',1,'TileException::TileException()'],['../df/d8b/classTileException.html#ae442fbf1167ad6782be008eed18143ec',1,'TileException::TileException(const string &amp;message)']]],
