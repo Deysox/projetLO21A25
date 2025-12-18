@@ -5,10 +5,8 @@
 #ifndef AKROPOLIS_CELLQT_H
 #define AKROPOLIS_CELLQT_H
 
-
-
-#include "../../Utilitaires/position.h"
-#include "../../Tuiles/cell.h"
+#include "position.h"
+#include "cell.h"
 
 #include <QWidget>
 #include <QMainWindow>
@@ -19,9 +17,11 @@
 #include <QPen>
 #include <QPainter>
 
+using std::map, std::pair;
+
 namespace Barnabe {
     /**
-     * Classe abstraide représentant un widget affichant une case du jeu Akropolis.
+     * Classe abstraite représentant un widget affichant une case du jeu Akropolis.
      * Définit une interface pour les différents types de cases.
      */
     class CellQt : public QWidget {
@@ -55,16 +55,12 @@ namespace Barnabe {
         /**
          * Constructeur de la classe CellQt
          * @param parent Widget parent
-         * @param p Position dans un plateau repésentée par la case
+         * @param p Position dans un plateau représentée par la case
          * @param l Verrouillage par défaut
          * @param s Taille de la case
          */
-        CellQt(QWidget* parent, Position p, bool l = false, int s = 40);
+        CellQt(QWidget* parent, const Position& p, bool l = false, int s = 40);
 
-        /**
-         * Destructeur de CellQt
-         */
-        virtual ~CellQt() = default;
 
         /**
          * Dessine la case sous la forme d'un hexagone.
@@ -78,14 +74,14 @@ namespace Barnabe {
          * au type...
          * @return QBrush utilisée pour le remplissage du tracé
          */
-        virtual const QBrush brush() const = 0;
+        [[nodiscard]] virtual QBrush brush() const = 0;
         /**
          * Calcule le contour du dessin de la case.
          * En fonction du type de case, le contour diffère, en devant possiblement s'adapter à la couleur,
          * au type...
          * @return QPen utilisée pour le contour du tracé
          */
-        virtual const QPen pen() const = 0;
+        [[nodiscard]] virtual QPen pen() const = 0;
 
         /**
          * Actions à effectuer après le traçage de la case.
@@ -100,9 +96,6 @@ namespace Barnabe {
          * Déverrouille la case
          */
         void unlock() {locked = false;}
-
-
-
     };
 
     /**
@@ -150,20 +143,20 @@ namespace Barnabe {
          * @param t Type
          * @param hght Hauteur
          */
-        CellQtFull(QWidget* parent, Position p, bool l = false, int s = 40, Color c = Color::BLUE, Type t = Type::DISTRICT, unsigned int hght = 0);
+        CellQtFull(QWidget* parent, const Position& p, bool l = false, int s = 40, Color c = Color::BLUE, Type t = Type::DISTRICT, unsigned int hght = 0);
 
         /**
          * Remplissage de la case. Renvoie un remplissage plein de la couleur de la case.
          * Utilise la variante sombre en cas de type Place.
          * @return QBrush
          */
-        const QBrush brush() const override;
+        [[nodiscard]] QBrush brush() const override;
         /**
          * Contour de la case. Renvoie un contour de la variante sombre de la couleur de la case.
          * Utilise la variante claire en cas de type Place.
          * @return QPen
          */
-        const QPen pen() const override;
+        [[nodiscard]] QPen pen() const override;
 
         /**
          * Gère la coloration du label en cas de survol par la souris
@@ -185,19 +178,19 @@ namespace Barnabe {
          * @param l Verrouillage initial
          * @param s Taille de la case (rayon)
          */
-        CellQtEmpty(QWidget* parent, Position p, bool l = false, int s = 40);
+        CellQtEmpty(QWidget* parent, const Position& p, bool l = false, int s = 40);
 
         /**
          * Remplissage en pointillés gris.
          * @return QBrush
          */
-        const QBrush brush() const override;
+        [[nodiscard]] QBrush brush() const override;
 
         /**
          * Contour invisible
          * @return QPen
          */
-        const QPen pen() const override;
+        [[nodiscard]] QPen pen() const override;
 
         /**
          * Aucune action post-traçage.

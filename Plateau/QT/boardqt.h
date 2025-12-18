@@ -5,28 +5,20 @@
 #ifndef PROJETLO21A25_HEXAGON_H
 #define PROJETLO21A25_HEXAGON_H
 
-#include "../../Tuiles/tile.h"
-#include "../../Plateau/board.h"
+#include "board.h"
 #include "cellqt.h"
-
-#include <QWidget>
 #include "containerqt.h"
-#include "tileqt.h"
 
 
 namespace Barnabe {
     /**
      * Représentation graphique d'un plateau du jeu Akropolis sous forme de Widget QT.
      */
-    class BoardQt : public ContainerQt {
+    class BoardQt : public ContainerQt<unordered_map<Position, CellQt*, PositionHasher>> {
         /**
          * Plateau à afficher
          */
         const Board* board;
-        /**
-         * Map stockant les widgets CellQt utilisés pour l'affichage des cases
-         */
-        unordered_map<Position, CellQt*, PositionHasher> cells;
     public:
         /**
          * Constructeur de la classe BoardQt
@@ -66,10 +58,6 @@ namespace Barnabe {
          */
         void unlock() {for (const pair<Position, CellQt*> p : cells) p.second->unlock();}
     };
-
-
-
-
 }
 
 #endif //PROJETLO21A25_HEXAGON_H

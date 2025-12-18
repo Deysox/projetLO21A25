@@ -2,18 +2,15 @@
 #define PROJETLO21A25_PLATEAU_H
 
 #include <map>
-#include <vector>
 #include <string>
 #include <unordered_map>
-
-#include "../Tuiles/cell.h"
-#include "../Tuiles/tile.h"
-
-#include "../Utilitaires/position.h"
-#include "../Utilitaires/rotation.h"
 #include <nlohmann/json.hpp>
-using namespace std;
+
+#include "cell.h"
+#include "position.h"
+
 using json = nlohmann::json;
+using std::map, std::unordered_map, std::pair;
 
 namespace Barnabe {
     //using namespace Marilou;
@@ -84,7 +81,7 @@ namespace Barnabe {
          */
         class iterator : public cellmap::iterator {
             friend class Board;
-            iterator(cellmap::iterator mi) : cellmap::iterator(mi) {}
+            explicit iterator(cellmap::iterator mi) : cellmap::iterator(mi) {}
         };
 
         /**
@@ -93,7 +90,7 @@ namespace Barnabe {
          */
         class const_iterator : public cellmap::const_iterator {
             friend class Board;
-            const_iterator(cellmap::const_iterator mi) : cellmap::const_iterator(mi) {}
+            explicit const_iterator(cellmap::const_iterator mi) : cellmap::const_iterator(mi) {}
         };
 
         /**
@@ -182,7 +179,7 @@ namespace Barnabe {
          * @param h Hauteur à écrire
          * @param c Pointeur const vers la case à écrire
          */
-        void setCell(Position pos, unsigned int h, const Cell* c);
+        void setCell(const Position& pos, unsigned int h, const Cell* c);
 
         /**
          * Accesseur en écriture de la case d'emplacement x et y.

@@ -1,5 +1,7 @@
 #include "board.h"
 
+using std::to_string;
+
 namespace Barnabe {
 
     // ===== maps utilisées pour le chargement/enrgistrement de la sauvegarde =====
@@ -111,7 +113,7 @@ namespace Barnabe {
         return getHeight(Position(x,y));
     }
 
-    void Board::setCell(Position pos, unsigned int h, const Cell* c) {
+    void Board::setCell(const Position& pos, unsigned int h, const Cell* c) {
         cells[pos] = pair<const Cell*, unsigned int>(c,h); // Actualisation de la map
 
         // Actualisation des coins
@@ -134,11 +136,11 @@ namespace Barnabe {
     ostream& operator<<(ostream& f, const Barnabe::Board& b) {
         string output;
 
-        Position ctl = b.getCorners().first;
-        Position cbr = b.getCorners().second;
+        const Position ctl = b.getCorners().first;
+        const Position cbr = b.getCorners().second;
 
-        int xindex_end = cbr.x(); // Le passage sur les colonnes se fait de la première à la dernière de gauche à droite
-        int yindex_end = cbr.y()-1; // Le passage sur les lignes se fait de haut en bas, avec une itération de plus que
+        const int xindex_end = cbr.x(); // Le passage sur les colonnes se fait de la première à la dernière de gauche à droite
+        const int yindex_end = cbr.y()-1; // Le passage sur les lignes se fait de haut en bas, avec une itération de plus que
         // le nombre de lignes indiqué par les coordonnées. Les lignes d'affichage console sont à cheval sur plusieurs
         // lignes du plateau hexagonal.
 
@@ -146,7 +148,7 @@ namespace Barnabe {
         for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
             output += lenStringInt(xindex);
         }
-        f << output << endl;
+        f << output << "\n";
 
         // A chaque itération, deux lignes de sortie console sont produites.
         for (int yindex = ctl.y(); yindex >= yindex_end; yindex--) {
@@ -159,7 +161,7 @@ namespace Barnabe {
             for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
                 if (xindex%2 == 0) { // Si le x est pair, les parties haute et basse correspondent à la même cellule
                     const Cell* cellToPlace = b.getCell(xindex,yindex);
-                    unsigned int heightToPlace = b.getHeight(xindex,yindex);
+                    const unsigned int heightToPlace = b.getHeight(xindex,yindex);
                     line1 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    "); // Ajout de la partie
                     // haute de la cellule, si présente
                     line2 += (cellToPlace ? cellToPlace->displayBottom() : "    "); // Ajout de la partie basse de la
@@ -170,12 +172,12 @@ namespace Barnabe {
                     line1 += (cellToPlace ? cellToPlace->displayBottom() : "    ");
 
                     cellToPlace = b.getCell(xindex,yindex);
-                    unsigned int heightToPlace = b.getHeight(xindex,yindex);
+                    const unsigned int heightToPlace = b.getHeight(xindex,yindex);
 
                     line2 += (cellToPlace ? cellToPlace->displayTop(heightToPlace) : "    ");
                 }
             }
-            f << line1 << endl << line2 << endl;
+            f << line1 << "\n" << line2 << "\n";
         }
         return f;
     }
@@ -183,7 +185,6 @@ namespace Barnabe {
     string lenStringInt(int x) {
         string output = to_string(x);
 
-        //cout << output.length() << endl;
         switch (output.length()) {
             case 4:
                 break;

@@ -5,8 +5,6 @@
 #ifndef PROJETLO21A25_ROTATION_H
 #define PROJETLO21A25_ROTATION_H
 
-#include "exceptions.h"
-
 namespace Barnabe {
 
     /**
@@ -40,13 +38,13 @@ namespace Barnabe {
          * Constructeur de la classe Rotation.
          * @param rot Valeur initiale de la rotation
          */
-        Rotation(int rot = 0) : r(rot%6) {};
+        Rotation(int rot = 0) : r(rot%6) {}  // Conversion implicite possible
 
         /**
          * Accesseur en lecture de l'attribut r
-         * @return entier correspondant à la rotation, entre 1 et 6
+         * @return Entier correspondant à la rotation, entre 1 et 6
          */
-        int value() const {return r;}
+        [[nodiscard]] int value() const {return r;}
 
         /**
          * Additionne deux rotations
@@ -78,13 +76,13 @@ namespace Barnabe {
         /**
          * Compare deux rotations
          * @param other Second opérande
-         * @return true si les deux rotations ont la même valeur
+         * @return True si les deux rotations ont la même valeur
          */
         bool operator==(const Rotation& other) const {return r == other.r;};
         /**
          * Compare deux rotations
          * @param other Second opérande
-         * @return false si les deux rotations ont la même valeur
+         * @return False si les deux rotations ont la même valeur
          */
         bool operator!=(const Rotation& other) const {return r != other.r;}
     };

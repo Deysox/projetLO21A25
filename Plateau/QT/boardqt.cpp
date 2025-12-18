@@ -12,28 +12,28 @@
 namespace Barnabe {
 
     void BoardQt::empty() {
-        for (auto it = cells.begin(); it != cells.end(); it++) delete it->second;
+        for (pair<Position, CellQt*> p : cells) delete p.second;
         cells.clear();
     }
 
     void BoardQt::draw() {
         empty();
-        Position ctl = board->getCorners().first;
-        int w = size*2; // Calcul de la largeur
-        int h = std::sqrt(3)*size; // Calcul de la hauteur
-        int x_offset = (ctl.x()-1)*w; // Décalage des positions par rapport au coin supérieur
-        int y_offset = -(ctl.y()+1)*h;
+        const Position ctl = board->getCorners().first;
+        const int w = size*2; // Calcul de la largeur
+        const int h = std::sqrt(3)*size; // Calcul de la hauteur
+        const int x_offset = (ctl.x()-1)*w; // Décalage des positions par rapport au coin supérieur
+        const int y_offset = -(ctl.y()+1)*h;
 
         for (const pair<Position, pair<const Cell*, unsigned int>> p : *board) { // Itération sur les cases du plateau
             Position pos = p.first;
             const Cell* cell = p.second.first;
-            unsigned int hght = p.second.second;
+            const unsigned int hght = p.second.second;
 
             // Création du widget case
             CellQt* cell_qt = new CellQtFull(this,pos,false,40,cell->getColor(),cell->getType(),hght);
 
             // Calcul des coordonnées en pixel à partir de la Position
-            int movex = pos.x()*3*w/4-x_offset;
+            const int movex = pos.x()*3*w/4-x_offset;
             int movey = -pos.y()*h-y_offset;
 
             // Décalage de hauteur pour les colonnes impaires
@@ -43,23 +43,20 @@ namespace Barnabe {
             cells[pos] = cell_qt; // Assignation dans la map
 
             for (const Position& subpos : pos) { // Itération sur les voisins
-                auto finder = cells.find(subpos);
+                const auto finder = cells.find(subpos);
                 if (finder == cells.end()) { // S'il n'y a pas déjà une case, création d'un emplacement de contour
                     CellQt* sub_cell_qt = new CellQtEmpty(this,subpos,false,40);
 
                     // Calcul des coordonnées en pixel à partir de la Position
-                    int submovex = subpos.x()*3*w/4-x_offset;
+                    const int submovex = subpos.x()*3*w/4-x_offset;
                     int submovey = -subpos.y()*h-y_offset;
 
                     if (subpos.x()%2 != 0) submovey += h/2;
                     sub_cell_qt->move(submovex,submovey);
                     cells[subpos] = sub_cell_qt; // Assignation dans la map
                 }
-
             }
         }
-
-
         update();
     }
 

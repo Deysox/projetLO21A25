@@ -1,15 +1,11 @@
 #ifndef PROJETLO21A25_PLACEMENT_H
 #define PROJETLO21A25_PLACEMENT_H
 
-#include <map>
-#include <vector>
-#include <string>
-
-#include "../Utilitaires/position.h"
-#include "../Utilitaires/rotation.h"
+#include "position.h"
+#include "rotation.h"
 #include "board.h"
+#include "tile.h"
 
-using namespace std;
 
 
 namespace Barnabe {
@@ -46,7 +42,12 @@ namespace Barnabe {
          * Désalloue l'espace octroyé au plateau et à la tuile de départ
          */
         ~BoardManager();
-        BoardManager(const Board& b) : board(new Board(b)) {}
+
+        /*
+         * Commenter ici
+         */
+        explicit BoardManager(const Board& b) : board(new Board(b)), startingTile(new StartingTile()) {}
+
         /**
          * Opérateur d'affectation du BoardManager
          */
@@ -56,7 +57,7 @@ namespace Barnabe {
          * Renvoie un pointeur vers le plateau géré par le BoardManager
          * @return Pointeur vers plateau
          */
-        const Board* getBoard() const {return board;}
+        [[nodiscard]] const Board* getBoard() const {return board;}
 
         /**
          * Place la tuile à la position/rotation souhaitée dans le plateau.
@@ -68,13 +69,16 @@ namespace Barnabe {
          * sera ignorée.
          * @returns Nombre de pierres obtenues par le joueur par recouvrement de carrières
          */
-        int place(const Tile* t, Position p, Rotation r, bool adjacentIgnore = false);
+        int place(const Tile* t, const Position& p, const Rotation& r, bool adjacentIgnore = false);
 
+        /*
+         * Ici aussi
+         */
         void setBoard(const BoardManager& bm) {
-            if (board) delete board;
+            delete board;
             board = new Board(*bm.board);
             startingTile = new StartingTile();
-            place(startingTile,0,0, true);
+            place(startingTile,Position(0,0),0, true);
         }
 
         friend ostream& operator<<(ostream& f, const BoardManager& c);

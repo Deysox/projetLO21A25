@@ -1,17 +1,13 @@
 #ifndef PROJETLO21A25_CASE_H
 #define PROJETLO21A25_CASE_H
 
-#include <iostream>
 #include <map>
 #include <string>
-
 #include "../Utilitaires/rotation.h"
-#include "../Utilitaires/position.h"
 
-using namespace std;
+using std::string;
 
 namespace Barnabe {
-	// Réécriture et poursuite de Tile et Cell à partir du travail de Marilou
 
 	enum class Color { BLUE, YELLOW, RED, PURPLE, GREEN, GREY};
 	enum class Type { DISTRICT, PLACE, QUARRY };
@@ -47,11 +43,16 @@ namespace Barnabe {
 		 */
 		Cell(int i, Color c, Type t): id(i), color(c), type(t) {}
 
+		/**
+		 * Destructeur de la classe Cell
+		 */
+		virtual ~Cell() = default;
 
 		/**
 		 * Constructeur par recopie de Cell
 		 */
-		Cell(const Cell& c) : id(c.id), color(c.color), type(c.type) {}
+		Cell(const Cell& c) = default;
+
 		/**
 		 * L'opérateur d'affectation de Cell est détruit.
 		 */
@@ -61,7 +62,8 @@ namespace Barnabe {
 		 * Accesseur en lecture pour la couleur de la case.
 		 * @return couleur de la case, type Color
 		 */
-		Color getColor() const { return color; }
+		[[nodiscard]] Color getColor() const { return color; }
+
 		/**
 		 * Renvoie la couleur de la case vue par une case voisine si l'on effectue un déplacement dans la
 		 * direction r à partir de cette dernière.
@@ -72,19 +74,19 @@ namespace Barnabe {
 		 *
 		 * @param r Direction de la case actuelle à partir de la case dont on souhaite vérifier le voisinage
 		 */
-		virtual Color getEffectiveColor(const Rotation& r) const { return color; }
+		[[nodiscard]] virtual Color getEffectiveColor(const Rotation& r) const { return color; }
+
 		/**
 		 * Accesseur en lecture pour le type de la case
 		 * @return type de la case, type Type
 		 */
-		Type getType() const { return type; }
+		[[nodiscard]] Type getType() const { return type; }
+
 		/**
 		 * Accesseur en lecture pour l'identifiant de la case.
 		 * @return id de la case, type int
 		 */
-		int getID() const { return id; }
-
-
+		[[nodiscard]] int getID() const { return id; }
 
 		/**
 		 * Renvoie la partie haute de l'affichage de la case.
@@ -94,7 +96,7 @@ namespace Barnabe {
 		 * - Y : type de la case (Q pour Quartier, C pour Carrière, P pour Place)
 		 *
 		 */
-		virtual string displayTop(unsigned int height) const;
+		[[nodiscard]] virtual string displayTop(unsigned int height) const;
 
 		/**
 		 * Renvoie la partie basse de l'affichage de la case.
@@ -104,7 +106,7 @@ namespace Barnabe {
 		 * - $ (pour les tuiles bicolores) : 2e couleur de la case
 		 *
 		 */
-		virtual string displayBottom() const;
+		[[nodiscard]] virtual string displayBottom() const;
 	};
 
 	/**
@@ -136,9 +138,9 @@ namespace Barnabe {
 		BicolorCell(int i, Color c, Type t, Color sC, Rotation r): Cell(i,c,t), secondaryColor(sC), rotation(r) {};
 
 		/**
-		 * Le constructeur par recopie de Cell est détruit.
+		 * Constructeur par recopie de Cell.
 		 */
-		BicolorCell(const BicolorCell& c) = delete;
+		BicolorCell(const BicolorCell& c) = default;
 		/**
 		 * L'opérateur d'affectation de Cell est détruit.
 		 */
@@ -148,17 +150,17 @@ namespace Barnabe {
 		 * Accesseur en lecture pour la couleur secondaire.
 		 * @return Color
 		 */
-		Color getSecondaryColor() const { return secondaryColor; }
+		[[nodiscard]] Color getSecondaryColor() const { return secondaryColor; }
 		/**
 		 * Accesseur en lecture pour la rotation.
 		 * @return Rotation
 		 */
-		Rotation getRotation() const { return rotation; }
+		[[nodiscard]] Rotation getRotation() const { return rotation; }
 		/**
 		 * Accesseur en écriture pour la rotation
 		 * @param r Rotation à affecter
 		 */
-		void setRotation(Rotation r) { rotation = r;}
+		void setRotation(const Rotation& r) { rotation = r;}
 	};
 }
 

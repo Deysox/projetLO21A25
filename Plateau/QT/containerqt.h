@@ -15,12 +15,20 @@ namespace Barnabe {
      *
      * Gère le cycle de vie des CellQt
      */
+
+    template <typename T>
     class ContainerQt : public QWidget {
     protected:
         /**
          * Taille des cases à afficher en pixels.
          */
         int size;
+
+        /**
+         * Conteneur des widgets QT.
+         * Peut être un array, un vecteur, une map...
+         */
+        T cells;
     public:
         /**
          * Constructeur de la classe ContainerQt
@@ -30,11 +38,12 @@ namespace Barnabe {
         explicit ContainerQt(QWidget* parent, int s = 40) : QWidget(parent), size(s) {}
 
         /**
-         * Destructeur de la classe ContainerQt
+         * Suppression du constructeur par recopie
          */
-        virtual ~ContainerQt() = default;
-
         ContainerQt(const ContainerQt&) = delete;
+        /**
+         * Suppression de l'opérateur d'affecation
+         */
         ContainerQt& operator=(const ContainerQt&) = delete;
 
         /**
