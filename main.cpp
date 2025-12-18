@@ -73,13 +73,13 @@ int main(int argc, char* argv[])
     return app.exec();
 }
 */
-/*
+
 #include "Gestion/menu2.h"
 int main() {
     Eloise::Menu menu;
 }
-*/
 
+/*
 #include "Gestion/menu.h"
 #include <QApplication>
 int main(int argc, char* argv[])
@@ -90,3 +90,4 @@ int main(int argc, char* argv[])
     menu.show();
     return app.exec();
 }
+*/
