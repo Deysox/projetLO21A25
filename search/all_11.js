@@ -30,7 +30,7 @@ var searchData=
   ['set_5fversion_27',['set_version',['../dd/df7/classAmalena_1_1GameMemento.html#a414103385ccea901e7af7f0aeb4b3d4c',1,'Amalena::GameMemento']]],
   ['setboard_28',['setBoard',['../d3/d79/classBarnabe_1_1Player.html#a77237456d8478156ccdaf180a323732c',1,'Barnabe::Player::setBoard()'],['../d8/de9/classBarnabe_1_1BoardManager.html#aa0a1aad6ef49f13457f47083370ffbf9',1,'Barnabe::BoardManager::setBoard()'],['../db/d91/classBarnabe_1_1BoardQt.html#adc143deb49511d9f5984f2d69c57f22d',1,'Barnabe::BoardQt::setBoard()']]],
   ['setcell_29',['setCell',['../d8/d80/classBarnabe_1_1Board.html#a8e248facee3c563737c652ea53da2e5d',1,'Barnabe::Board::setCell(const Position &amp;pos, unsigned int h, const Cell *c)'],['../d8/d80/classBarnabe_1_1Board.html#aa552e2910dcd1be4a2da6f89ab5a82d3',1,'Barnabe::Board::setCell(int x, int y, unsigned int h, const Cell *c)']]],
-  ['setrotation_30',['setRotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#aa4829e47e6bfc70ad91dac883d7d1dac',1,'Barnabe::BicolorCell']]],
+  ['setrotation_30',['setRotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#a25ce12a062383ee551705ea65d8c1b77',1,'Barnabe::BicolorCell']]],
   ['setstones_31',['setStones',['../d3/d79/classBarnabe_1_1Player.html#a883442325e858b64432398be661e3034',1,'Barnabe::Player']]],
   ['settile_32',['setTile',['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#ae4f4286b20aa0270057c17d94032c01e',1,'Barnabe::ClassicTileQt']]],
   ['setvariant_33',['setVariant',['../d9/d68/classGame.html#a24cc447e86fb537268a58913ce26eabb',1,'Game']]],
