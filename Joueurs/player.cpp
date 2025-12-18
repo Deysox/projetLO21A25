@@ -30,7 +30,7 @@ namespace Barnabe {
     }
 
     ostream& operator<<(ostream& f, const Barnabe::Player& p) {
-        f << "Player " << p.getName() << endl << "Stones : " << p.getStones() << endl << "board : " << endl << p.getBoard() << endl;
+        f << "Player " << p.getName()  << "Stones : " << p.getStones() <<  "board : " <<  p.getBoard();
         return f;
     }
 

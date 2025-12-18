@@ -1,10 +1,10 @@
 #ifndef PROJETLO21A25_PLACEMENT_H
 #define PROJETLO21A25_PLACEMENT_H
 
-#include "position.h"
-#include "rotation.h"
+#include "../Utilitaires/position.h"
+#include "../Utilitaires/rotation.h"
 #include "board.h"
-#include "tile.h"
+#include "../Tuiles/tile.h"
 
 
 

@@ -3,9 +3,9 @@
 
 #include <vector>
 #include <sstream>
-#include "position.h"
+#include "../Utilitaires/position.h"
 #include "cell.h"
-#include "exceptions.h"
+#include "../Utilitaires/exceptions.h"
 
 using std::vector;
 
@@ -181,7 +181,7 @@ namespace Barnabe {
 	 * @param c Tuile à afficher
 	 * @return Flux modifié
 	 */
-	ostream& operator<<(ostream& f, ClassicTile& c);
+	ostream& operator<<(ostream& f,  ClassicTile& c);
 
 	/**
 	 * Tuile bicolore de l'extension Akropolis Athena.

@@ -37,7 +37,7 @@ namespace Barnabe {
             p+(Rotation(1)+r)};
     }
 
-    ostream& operator<<(ostream& f, const ClassicTile& c) {
+    ostream& operator<<(ostream& f,  ClassicTile& c) {
         f << c.getCell(1)->displayTop(1) << "\n";
         f << c.getCell(1)->displayBottom() << c.getCell(2)->displayTop(1) << "\n";
         f << c.getCell(0)->displayTop(1) << c.getCell(2)->displayBottom() << "\n";

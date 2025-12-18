@@ -6,8 +6,8 @@
 #include <unordered_map>
 #include <nlohmann/json.hpp>
 
-#include "cell.h"
-#include "position.h"
+#include "../Tuiles/cell.h"
+#include "../Utilitaires/position.h"
 
 using json = nlohmann::json;
 using std::map, std::unordered_map, std::pair;

@@ -53,10 +53,10 @@ bool GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) 
         do {
             tile = &pickRiver();
             players[current_player]->playTurn(*tile);
-            QMessageBox msgBox;
+            QMessageBox msgbox;
             msgBox.setText("Are you satisfied of your move?");
-            QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
-            QPushButton *noButton = msgBox.addButton("No", QMessageBox::NoRole);
+            QPushButton *yesButton = msgbox.addButton("Yes", QMessageBox::YesRole);
+            QPushButton *noButton = msgbox.addButton("No", QMessageBox::NoRole);
             msgBox.exec();
             if (msgBox.clickedButton() == yesButton) {
                 satisfied = 'Y';
@@ -183,10 +183,10 @@ bool GameQt::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* riv
             int stones_lost = stones_before - stones_after;
             players.at(1)->addStones(stones_lost);
             players[current_player]->playTurn(*tile);
-            QMessageBox msgBox;
+            QMessageBox msgbox;
             msgBox.setText("Are you satisfied of your move?");
-            QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
-            QPushButton *noButton = msgBox.addButton("No", QMessageBox::NoRole);
+            QPushButton *yesButton = msgbox.addButton("Yes", QMessageBox::YesRole);
+            QPushButton *noButton = msgbox.addButton("No", QMessageBox::NoRole);
             msgBox.exec();
             if (msgBox.clickedButton() == yesButton) {
                 satisfied = 'Y';

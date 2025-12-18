@@ -575,6 +575,920 @@
             ],
             "variante": " ",
             "version": "console"
+        },
+        {
+            "boards": {
+                "0": {
+                    "cells": [
+                        {
+                            "cell_id": 34,
+                            "couleur": "Red",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 34,
+                            "couleur": "Purple",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 34,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                },
+                "1": {
+                    "cells": [
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 1,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 1
+                    }
+                }
+            },
+            "currentplayer": 0,
+            "game_id": "prout",
+            "nbplayer": 2,
+            "pileid": [
+                28,
+                37,
+                20,
+                12,
+                5,
+                9,
+                35,
+                26,
+                8,
+                3,
+                19,
+                7,
+                16,
+                14,
+                32,
+                33,
+                30,
+                22,
+                23,
+                21,
+                36,
+                31,
+                1,
+                17,
+                2,
+                27,
+                6,
+                18,
+                24,
+                13,
+                29,
+                10,
+                15
+            ],
+            "playerStone": [
+                1,
+                2
+            ],
+            "playersName": [
+                "elobobo",
+                "Architect"
+            ],
+            "riverid": [
+                4,
+                25,
+                11
+            ],
+            "variante": "variante",
+            "version": "qt"
+        },
+        {
+            "boards": {
+                "0": {
+                    "cells": [
+                        {
+                            "cell_id": 17,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 17,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 17,
+                            "couleur": "Purple",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                },
+                "1": {
+                    "cells": [
+                        {
+                            "cell_id": 11,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 11,
+                            "couleur": "Yellow",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 11,
+                            "couleur": "Purple",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                }
+            },
+            "currentplayer": 0,
+            "game_id": "titi",
+            "nbplayer": 2,
+            "pileid": [
+                26,
+                33,
+                8,
+                13,
+                9,
+                12,
+                14,
+                21,
+                1,
+                2,
+                34,
+                29,
+                25,
+                35,
+                7,
+                27,
+                15,
+                36,
+                6,
+                22,
+                18,
+                10,
+                28,
+                16,
+                32,
+                3,
+                30,
+                37,
+                31,
+                19,
+                20,
+                24,
+                4
+            ],
+            "playerStone": [
+                1,
+                2
+            ],
+            "playersName": [
+                "f",
+                ""
+            ],
+            "riverid": [
+                23,
+                5
+            ],
+            "variante": "variante",
+            "version": "qt"
+        },
+        {
+            "boards": {
+                "0": {
+                    "cells": [
+                        {
+                            "cell_id": 5,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 5,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 5,
+                            "couleur": "Purple",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                },
+                "1": {
+                    "cells": [
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 1,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 1
+                    }
+                }
+            },
+            "currentplayer": 1,
+            "game_id": "",
+            "nbplayer": 2,
+            "pileid": [
+                34,
+                12,
+                18,
+                28,
+                17,
+                16,
+                14,
+                30,
+                26,
+                8,
+                3,
+                22,
+                36,
+                13,
+                7,
+                25,
+                35,
+                24,
+                21,
+                4,
+                23,
+                2,
+                32,
+                29,
+                37,
+                11,
+                6,
+                19,
+                9,
+                27,
+                20,
+                31,
+                10
+            ],
+            "playerStone": [
+                1,
+                2
+            ],
+            "playersName": [
+                "elo",
+                "ela"
+            ],
+            "riverid": [
+                15,
+                33,
+                1
+            ],
+            "variante": "variante",
+            "version": "qt"
+        },
+        {
+            "boards": {
+                "0": {
+                    "cells": [
+                        {
+                            "cell_id": 28,
+                            "couleur": "Yellow",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 0,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 28,
+                            "couleur": "Red",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": -1,
+                            "y": 3
+                        },
+                        {
+                            "cell_id": 28,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 12,
+                            "couleur": "Green",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 12,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 12,
+                            "couleur": "Yellow",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 3
+                    }
+                },
+                "1": {
+                    "cells": [
+                        {
+                            "cell_id": 10,
+                            "couleur": "Purple",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 10,
+                            "couleur": "Yellow",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 10,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                }
+            },
+            "currentplayer": 1,
+            "game_id": "hiboux",
+            "nbplayer": 2,
+            "pileid": [
+                14,
+                36,
+                18,
+                15,
+                22,
+                30,
+                11,
+                20,
+                29,
+                5,
+                1,
+                9,
+                4,
+                17,
+                3,
+                7,
+                19,
+                8,
+                6,
+                16,
+                33,
+                31,
+                32,
+                2,
+                35,
+                26,
+                24,
+                37,
+                21,
+                27
+            ],
+            "playerStone": [
+                1,
+                2
+            ],
+            "playersName": [
+                "elo",
+                "vic"
+            ],
+            "riverid": [
+                25,
+                34,
+                13,
+                23
+            ],
+            "variante": "market",
+            "version": "console"
+        },
+        {
+            "boards": {
+                "0": {
+                    "cells": [
+                        {
+                            "cell_id": 25,
+                            "couleur": "Red",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 2
+                        },
+                        {
+                            "cell_id": 25,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "District",
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 25,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 2,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 38,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 2,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 2
+                    }
+                },
+                "1": {
+                    "cells": [
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": -1,
+                            "y": 0
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Grey",
+                            "hauteur": 1,
+                            "type": "Quarry",
+                            "x": 0,
+                            "y": 1
+                        },
+                        {
+                            "cell_id": 39,
+                            "couleur": "Blue",
+                            "hauteur": 1,
+                            "type": "Place",
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "corner_br": {
+                        "x": 1,
+                        "y": 0
+                    },
+                    "corner_tl": {
+                        "x": -1,
+                        "y": 1
+                    }
+                }
+            },
+            "currentplayer": 0,
+            "game_id": "gogo",
+            "nbplayer": 2,
+            "pileid": [
+                29,
+                11,
+                34,
+                21,
+                4,
+                24,
+                2,
+                26,
+                10,
+                16,
+                6,
+                19,
+                30,
+                8,
+                36,
+                23,
+                31,
+                15,
+                12,
+                27,
+                37,
+                28,
+                20,
+                1,
+                5,
+                17,
+                13,
+                35,
+                32,
+                22,
+                18,
+                7,
+                3
+            ],
+            "playerStone": [
+                1,
+                2
+            ],
+            "playersName": [
+                "n",
+                "Architect"
+            ],
+            "riverid": [
+                14,
+                33,
+                9
+            ],
+            "variante": "variante",
+            "version": "qt"
         }
     ]
 }
