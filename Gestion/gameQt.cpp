@@ -164,9 +164,9 @@ bool GameQt::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* riv
         QMessageBox::information(parent, "Your Turn", QString("Stones: %1").arg(players[0]->getStones()));
         char satisfied = 'N';
         do {
-            Tile* tile = &pickRiver();
             int stones_before = players.at(0)->getStones();
             int architect_stones_before = players.at(1)->getStones();
+            Tile* tile = &pickRiver();
             int stones_after = players.at(0)->getStones();
             int stones_lost = stones_before - stones_after;
             players.at(1)->addStones(stones_lost);
