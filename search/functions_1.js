@@ -9,5 +9,5 @@ var searchData=
   ['boutonafficherreglesclique_6',['boutonAfficherReglesClique',['../d1/d26/classMenuQt.html#a608e84c72982be76a901aa9767b9b788',1,'MenuQt']]],
   ['boutonlancergameclique_7',['boutonLancerGameClique',['../d1/d26/classMenuQt.html#aad7f60e1bab3b49ffe453de8e502a415',1,'MenuQt']]],
   ['boutonreprendregameclique_8',['boutonReprendreGameClique',['../d1/d26/classMenuQt.html#a9fcbcbb4a4c3e37f32c23aa1cd9349a8',1,'MenuQt']]],
-  ['brush_9',['brush',['../d0/d4c/classBarnabe_1_1CellQt.html#a5dbe19097af5ce6e0ebd47d2cf754c2e',1,'Barnabe::CellQt::brush()'],['../d1/dcc/classBarnabe_1_1CellQtFull.html#abffdfacfb2081d790f0a772a37b4497b',1,'Barnabe::CellQtFull::brush()'],['../d9/d03/classBarnabe_1_1CellQtEmpty.html#ab70253d2cc5b6f0730f8ee60e18807c1',1,'Barnabe::CellQtEmpty::brush()']]]
+  ['brush_9',['brush',['../d0/d4c/classBarnabe_1_1CellQt.html#a4208425b164b7eb487c29f718db0f8b5',1,'Barnabe::CellQt::brush()'],['../d1/dcc/classBarnabe_1_1CellQtFull.html#a2524de9449ee0cb2c3cf15028d2c63af',1,'Barnabe::CellQtFull::brush()'],['../d9/d03/classBarnabe_1_1CellQtEmpty.html#a0bbe7f928cda96acc8fe6f3db83a3599',1,'Barnabe::CellQtEmpty::brush()']]]
 ];

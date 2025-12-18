@@ -17,6 +17,6 @@ var searchData=
   ['displayriver_14',['displayRiver',['../d9/d68/classGame.html#a5547fd241704071cf3f0bb5f3452d248',1,'Game::displayRiver()'],['../d6/d73/classGameConsole.html#a44770b0c798053676693b1aae8fa620c',1,'GameConsole::displayRiver()'],['../dc/d9d/classGameQt.html#a95e39ed24929dad192f40ab3efa8d596',1,'GameQt::displayRiver()']]],
   ['displaytop_15',['displayTop',['../d0/db0/classBarnabe_1_1Cell.html#aaa6d164bfccc6f85bed98ff2d97d96e5',1,'Barnabe::Cell']]],
   ['district_16',['DISTRICT',['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82da90b2bdc0f1ec01de1376652cacc36d3c',1,'Barnabe']]],
-  ['draw_17',['draw',['../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f',1,'Barnabe::BoardQt::draw()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a8681cf007e2f9436bed877e7a9206ca6',1,'Barnabe::ContainerQt::draw()'],['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#adfa02b378ce45e7661150d37f35e2bc0',1,'Barnabe::ClassicTileQt::draw()']]],
+  ['draw_17',['draw',['../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f',1,'Barnabe::BoardQt::draw()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a3eac960e1a25bea0d2974ef30e1dbb7e',1,'Barnabe::ContainerQt::draw()'],['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#adfa02b378ce45e7661150d37f35e2bc0',1,'Barnabe::ClassicTileQt::draw()']]],
   ['draw_18',['Draw',['../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88',1,'Amalena::Pile']]]
 ];

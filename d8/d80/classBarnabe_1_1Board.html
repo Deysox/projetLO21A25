@@ -127,8 +127,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a5ee0fb8d47ffd9f5d7fdc4a9ac977174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63f84f62d82d6255063430bf63812006"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a63f84f62d82d6255063430bf63812006">getHeight</a> (int x, int y) const</td></tr>
 <tr class="separator:a63f84f62d82d6255063430bf63812006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5907bb8f5114af2aeb63010d52031ff0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a5907bb8f5114af2aeb63010d52031ff0">setCell</a> (<a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> pos, unsigned int h, const <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a> *c)</td></tr>
-<tr class="separator:a5907bb8f5114af2aeb63010d52031ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e248facee3c563737c652ea53da2e5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a8e248facee3c563737c652ea53da2e5d">setCell</a> (const <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> &amp;pos, unsigned int h, const <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a> *c)</td></tr>
+<tr class="separator:a8e248facee3c563737c652ea53da2e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa552e2910dcd1be4a2da6f89ab5a82d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#aa552e2910dcd1be4a2da6f89ab5a82d3">setCell</a> (int x, int y, unsigned int h, const <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a> *c)</td></tr>
 <tr class="separator:aa552e2910dcd1be4a2da6f89ab5a82d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae583ac838c53ce9191925ef6cb570ad7"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a>, <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#ae583ac838c53ce9191925ef6cb570ad7">getCorners</a> () const</td></tr>
@@ -613,8 +613,50 @@ Amis</h2></td></tr>
 
 </div>
 </div>
+<a id="a8e248facee3c563737c652ea53da2e5d" name="a8e248facee3c563737c652ea53da2e5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e248facee3c563737c652ea53da2e5d">&#9670;&#160;</a></span>setCell() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Barnabe::Board::setCell </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a> *&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Accesseur en écriture de la case de position pos. Assigne l'emplacement pos à la case c et à la hauteur h. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> de l'emplacement à écrire </td></tr>
+    <tr><td class="paramname">h</td><td>Hauteur à écrire </td></tr>
+    <tr><td class="paramname">c</td><td>Pointeur const vers la case à écrire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa552e2910dcd1be4a2da6f89ab5a82d3" name="aa552e2910dcd1be4a2da6f89ab5a82d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa552e2910dcd1be4a2da6f89ab5a82d3">&#9670;&#160;</a></span>setCell() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa552e2910dcd1be4a2da6f89ab5a82d3">&#9670;&#160;</a></span>setCell() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -654,48 +696,6 @@ Amis</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>Coordonnée x de l'emplacement à écrire </td></tr>
     <tr><td class="paramname">y</td><td>Coordonnée y de l'emplacement à écrire </td></tr>
-    <tr><td class="paramname">h</td><td>Hauteur à écrire </td></tr>
-    <tr><td class="paramname">c</td><td>Pointeur const vers la case à écrire </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5907bb8f5114af2aeb63010d52031ff0" name="a5907bb8f5114af2aeb63010d52031ff0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5907bb8f5114af2aeb63010d52031ff0">&#9670;&#160;</a></span>setCell() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Barnabe::Board::setCell </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a>&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>h</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d0/db0/classBarnabe_1_1Cell.html">Cell</a> *&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Accesseur en écriture de la case de position pos. Assigne l'emplacement pos à la case c et à la hauteur h. </p><dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td><a class="el" href="../../d8/d16/classBarnabe_1_1Position.html">Position</a> de l'emplacement à écrire </td></tr>
     <tr><td class="paramname">h</td><td>Hauteur à écrire </td></tr>
     <tr><td class="paramname">c</td><td>Pointeur const vers la case à écrire </td></tr>
   </table>
@@ -846,7 +846,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Coordonnées du coin inférieur droit du plateau. Attribut actualisé lors d'un appel à <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a5907bb8f5114af2aeb63010d52031ff0">setCell()</a>, permettant d'avoir un point de repère pour l'affichage. </p>
+<p >Coordonnées du coin inférieur droit du plateau. Attribut actualisé lors d'un appel à <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a8e248facee3c563737c652ea53da2e5d">setCell()</a>, permettant d'avoir un point de repère pour l'affichage. </p>
 
 </div>
 </div>
@@ -869,7 +869,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Coordonnées du coin supérieur gauche du plateau. Attribut actualisé lors d'un appel à <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a5907bb8f5114af2aeb63010d52031ff0">setCell()</a>, permettant d'avoir un point de repère pour l'affichage. </p>
+<p >Coordonnées du coin supérieur gauche du plateau. Attribut actualisé lors d'un appel à <a class="el" href="../../d8/d80/classBarnabe_1_1Board.html#a8e248facee3c563737c652ea53da2e5d">setCell()</a>, permettant d'avoir un point de repère pour l'affichage. </p>
 
 </div>
 </div>
