@@ -126,7 +126,7 @@ void GameConsole::architectPlaySoloGame(){
     if (chosen_tile_ptr) {
         cout << "Architect took the tile " << chosen_pos << "\n";
         river->giveTile(chosen_pos);
-        players.at(1)->addStones(-chosen_pos);
+        players.at(1)->addStones(-chosen_pos+1);
         players.at(1)->playTurn(*chosen_tile_ptr);
     } else {
         cout << "Architect can't play.\n";
@@ -153,7 +153,7 @@ bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River
             int stones_lost = stones_before - stones_after;
             players.at(1)->addStones(stones_lost);
             players.at(0)->playTurn(*tile);
-            cout << "Are you satisfied with your move? (Y/N) : ";
+            cout << "Are you satisfied of your move? (Y/N) : ";
             cin >> satisfied_player;
             if (satisfied_player == 'N') {
                 players.at(0)->setBoard(*board_copy);

@@ -6,7 +6,7 @@
 #include "river.h"
 #include "pile.h"
 
-
+using namespace Barnabe;
 namespace Amalena
 {
     River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile)
@@ -61,9 +61,7 @@ namespace Amalena
         }
         return oss.str();
     }
-
 }
-
 ostream& operator<<(std::ostream& f, Amalena::River& river) {
     f << "River:\n";
     int pos = 1;

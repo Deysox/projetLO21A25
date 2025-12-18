@@ -5,7 +5,7 @@
 #ifndef PROJETLO21A25_HEXAGON_H
 #define PROJETLO21A25_HEXAGON_H
 
-#include "board.h"
+#include "../../Plateau/board.h"
 #include "cellqt.h"
 #include "containerqt.h"
 

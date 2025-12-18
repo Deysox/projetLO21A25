@@ -35,9 +35,6 @@ MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
         this, &MenuQt::boutonLancerGameClique);
     connect(boutonReprendreGame, &QPushButton::clicked,
         this, &MenuQt::boutonReprendreGameClique);
-
-
-
 }
 
 void MenuQt::boutonAfficherReglesClique() {
