@@ -11,7 +11,7 @@ namespace Eloise {
     using json = nlohmann::json;
     using namespace Barnabe;
 
-    // Tables de conversion des string vers les enumérations
+    //maps of conversion
     map<string, Color> Deck::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
     map<string, Type> Deck::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
 

@@ -22,6 +22,7 @@ namespace Eloise {
             Position pos(x,y);
             Rotation rotation(r);
             try {
+                //place() returns an int which corresponds to the stones earned
                 addStones(board.place(&tile, pos, rotation));
                 placed = true;
             }

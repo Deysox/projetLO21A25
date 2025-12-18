@@ -14,6 +14,7 @@ namespace Eloise {
     }
 
     void PlayerQt::placeTile(const Tile& tile) {
+        //mandatory cast because we need a QWidget for the QInputDialog
         QWidget* wparent = qobject_cast<QWidget*>(parent());
         bool placed = false;
         while (!placed) {
@@ -25,6 +26,7 @@ namespace Eloise {
             Rotation rotation(r);
 
             try {
+                //place returns a int
                 addStones(board.place(&tile, pos, rotation));
                 placed = true;
             }

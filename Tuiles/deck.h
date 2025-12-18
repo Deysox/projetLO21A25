@@ -17,26 +17,43 @@ namespace Eloise {
     using json = nlohmann::json;
     using namespace Barnabe;
 
-    //deck handles lifecycle of tiles
     class Deck {
     public:
+        /*
+         *map that allows a conversion of types : string - Color
+         */
         static map<string, Color> stringToColor;
+        /*
+         *map that allows a conversion of types : string - Type
+         */
         static map<string, Type> stringToType;
     private :
-        //tiles from json
+        /*
+         *attribut tiles is a vector of ClassicTiles that we fill w/ the json file
+         */
         vector <Barnabe::ClassicTile*> tiles;
     public:
-        //constructor which constructs the tiles from json file
+        /*
+         *constructor
+         *@param nb_player_game : so that we can adapt the tiles in the deck
+         */
         Deck(int nb_players_game);
-        //Deck frees the tiles
+        /*
+         *destructor that frees the tiles
+         */
         ~Deck();
+        /*
+         *getter for tiles
+         */
         const vector<Barnabe::ClassicTile*>& getTiles() const{return tiles;}
+        /*
+         *operator =
+         */
         Deck& operator=(const Deck& f) {
             if (this!=&f) this->tiles = f.tiles;
             return *this;
         }
     };
 }
-
 
 #endif //PROJETLO21A25_JEU_H
