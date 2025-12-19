@@ -6,7 +6,7 @@
 #include "menu2.h"
 #include "gameConsole.h"
 #include "../Sauvegarde/savemanager.h"
-using namespace std;
+using std::cout;
 
 namespace Eloise {
     Menu::Menu() {
@@ -26,31 +26,33 @@ namespace Eloise {
  \/__/\/_/ \/_/\/_/\/_/ \/___/  \ \ \/  \/___/ \/____/ \/_/\/___/
                                  \ \_\
                                   \/_/)" << endl;
-                cout << "Marilou, Eloïse, Amalena & Barnabé" << endl << endl;
-                cout << "Welcome in the menu\n"
-                    << "What do you want to do ?\n"
-                    << "1. Launch a game\n"
-                    << "2. Resume a game\n"
-                    << "3. Display rules\n"
-                    << "Your answer : ";
+                cout << "Made by Marilou, Eloïse, Amalena & Barnabé" << "\n" << "\n";
+                cout << "\n=====[Main Menu]====\n"
+                    << "Please choose an action : \n"
+                    << "1 Launch a game\n"
+                    << "2 Resume a game\n"
+                    << "3 Display rules\n"
+                    << ">> ";
                 cin >> choice;
                 switch (choice)
                 {
                     //errors w/out {} because need of a local scope
                     case '1': {
-                        cout << "Choose 0, 1 or several variants between (home - market - barrack - temple - garden)";
+                        cout << "\n== New Game ==\n";
+                        cout << "-- Parameters --\n";
+                        cout << "\nYou may choose to play with one or more modifiers :\n"
+                                "home, market, barrack, temple, garden\nEnter 0 for disabling all.\n>> ";
                         string variant = "";
                         cin >> variant;
-                        cout << "Number of players ? (1, 2, 3 or 4) :";
+                        cout << "\n";
                         size_t nb_players = 0;
-                        cin >> nb_players;
-                        while (nb_players > Game::getNbPlayersMax()) {
-                            cout << "Number must be < to " << Game::getNbPlayersMax() << ". Number of players ? : ";
+                        do {
+                            cout << "How many players will play ? (1 to 4)\n>> ";
                             cin >> nb_players;
-                        }
+                        } while (nb_players > Game::getNbPlayersMax() || nb_players < 1);
                         if (nb_players == 1) {
                             GameConsole& game = GameConsole::giveInstance(nb_players+1,variant);
-                            cout << "Difficulty ? (1 = easy, 2 = medium, 3 = hard) : ";
+                            cout << "Difficulty ? (1 = easy, 2 = medium, 3 = hard)\n>>  ";
                             int difficulty = 0;
                             cin >> difficulty;
 							game.setSolo(true);
@@ -70,7 +72,7 @@ namespace Eloise {
                     }
 {
     case '2':
-    cout << "Game resumption. What was the code of your game? :\n";
+    cout << "== Resume Game ==\n-- Setup --\n Enter game code\n>> ";
     string resumption;
     cin >> resumption;
     Amalena::savemanager save_manager;

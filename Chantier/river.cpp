@@ -62,7 +62,7 @@ namespace Amalena {
     }
 
     ostream& operator<<(std::ostream& f, Amalena::River& river) {
-        f << "River:\n";
+        f << "-- River --\n";
         int pos = 1;
         for (auto it = river.begin(); it != river.end(); ++it) {
             Tile& tile = *it;

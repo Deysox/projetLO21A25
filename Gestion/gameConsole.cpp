@@ -8,9 +8,9 @@ namespace Eloise {
     GameConsole* GameConsole::instanceConsole = nullptr;
 
     void GameConsole::addEachPlayerToGame() {
-        cout << "Start of the game ! \n";
+        cout << "\n-- Name Setup --\n";
         for (size_t i = 0; i < nb_players; i++) {
-            cout << "Name of player " << to_string(i) << " :";
+            cout << "Name of player " << to_string(i) << "\n>> ";
             string name;
             cin >> name;
             addPlayer(name);
@@ -20,7 +20,7 @@ namespace Eloise {
         cout << "Current player : " << *players.at(current_player);
     }
     bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
-        cout << "Do you want to abandon the game ? (Y/N): ";
+        cout << "Do you want to save and quit ? (Y/N)\n>> ";
         string answer;
         cin >> answer;
         if (answer == "Y") {
@@ -35,13 +35,13 @@ namespace Eloise {
                 Tile* tile = &pickRiver();
                 players.at(current_player)->playTurn(*tile);
 
-                cout << "Are you satisfied ? (Y/N): ";
+                cout << "Are you satisfied ? (Y/N)\n>> ";
                 cin >> satisfied_player;
 
-                while (satisfied_player == 'N') {
+                while (satisfied_player == 'N' || satisfied_player == 'n') {
                     players.at(current_player)->setBoard(*board_copy);
                     cout << "Your board : \n" << players.at(current_player)->getBoard();
-                    cout << "Pick another tile (A) or choose another place (B)?: ";
+                    cout << "Pick another tile (A) or choose another place (B) ?\n>> ";
                     cin >> option;
                     if (option == 'A') {
                         Amalena::River* temp_river = new Amalena::River(*river_copy);
@@ -52,11 +52,11 @@ namespace Eloise {
                     }else {
                         players.at(current_player)->playTurn(*tile);
                     }
-                    cout << "Are you satisfied now ? (Y/N): ";
+                    cout << "Are you satisfied now ? (Y/N)\n>> ";
                     cin >> satisfied_player;
                 }
 
-            } while (satisfied_player == 'N');
+            } while (satisfied_player == 'N' || satisfied_player == 'n');
             return true;
         }
     }
@@ -78,11 +78,11 @@ namespace Eloise {
     }
 
     Tile& GameConsole::chooseTileRiver() {
-        cout << "Write the position of the tile you want (first tile at position 1) : ";
+        cout << "\nWrite the position of the tile you want (first tile at position 1)\n>> ";
         int position = 0;
         cin >> position;
         while (players[current_player]->getStones() < position - 1) {
-            cout << "You don't have enough stones, select another position : ";
+            cout << "You don't have enough stones, please select another position\n>> ";
             cin >> position;
         }
         Tile& chosen_tile = river->giveTile(position);
@@ -92,8 +92,8 @@ namespace Eloise {
     }
 
     void GameConsole::askNameSoloGame(){
-        cout << "Start of the solo game ! \n";
-        cout << "What is your name ? :";
+        cout << "-- Solo Game -- \n";
+        cout << "What is your name ?\n>>";
         string name;
         cin >> name;
         addPlayer(name);
@@ -104,7 +104,7 @@ namespace Eloise {
         players.push_back(architect);
     }
     void GameConsole::architectPlaySoloGame(){
-        cout << "Architect's turn!\n";
+        cout << "\n-- Architect's turn --\n";
         cout << "Stones : " << players.at(current_player)->getStones() << "\n";
         Tile* chosen_tile_ptr = nullptr;
         int chosen_pos = 1;
@@ -125,7 +125,7 @@ namespace Eloise {
             chosen_pos = 1;
         }
         if (chosen_tile_ptr) {
-            cout << "Architect took the tile " << chosen_pos << "\n";
+            cout << "Architect took the tile " << chosen_pos << "\n\n";
             river->giveTile(chosen_pos);
             players.at(1)->addStones(-chosen_pos+1);
             players.at(1)->playTurn(*chosen_tile_ptr);
@@ -134,7 +134,7 @@ namespace Eloise {
         }
     }
     bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
-        cout << "Do you want to abandon the game ? (Y/N): ";
+        cout << "Do you want to save and quit ? (Y/N)\n>> ";
         string answer;
         cin >> answer;
         if (answer == "Y") {
@@ -142,7 +142,7 @@ namespace Eloise {
             return false;
         }
         else {
-            cout << "Your turn !" << "\n";
+            cout << "\n";
             cout << *players.at(current_player) << "\n";
             int stones_before = players.at(0)->getStones();
             int architect_stones_before = players.at(1)->getStones();
@@ -154,11 +154,11 @@ namespace Eloise {
                 int stones_lost = stones_before - stones_after;
                 players.at(1)->addStones(stones_lost);
                 players.at(0)->playTurn(*tile);
-                cout << "Are you satisfied of your move? (Y/N) : ";
+                cout << "Are you satisfied of your move? (Y/N)\n>> ";
                 cin >> satisfied_player;
-                if (satisfied_player == 'N') {
+                if (satisfied_player == 'N' || satisfied_player == 'n') {
                     players.at(0)->setBoard(*board_copy);
-                    cout << "Pick another tile (A) or choose a new place (B)? ";
+                    cout << "Pick another tile (A) or choose a new place (B)?\n>> ";
                     do { cin >> option; } while(option != 'A' && option != 'B');
                     if (option == 'A') {
                         players.at(0)->setStones(stones_before);
@@ -175,23 +175,23 @@ namespace Eloise {
                     else {
                         players.at(0)->playTurn(*tile);
                     }
-                    cout << "Are you satisfied now ? (Y/N): ";
+                    cout << "Are you satisfied now ? (Y/N)\n>> ";
                     cin >> satisfied_player;
                 }
-            } while (satisfied_player == 'N');
+            } while (satisfied_player == 'N' || satisfied_player == 'n');
             return true;
         }
     }
 
     string GameConsole::displayAbandonGame1() {
-        cout << "Temporary abandon of the game. \n";
-        cout << "Choose a pseudo for your game : ";
+        cout << "\n-- Saving -- \n";
+        cout << "Please enter an ID\n>> ";
         string id;
         cin >> id;
         return id;
     }
 
     void GameConsole::displayAbandonGame2(){
-        cout << "Registration of game's parameters successful. \n";
+        cout << "[SAVE] Game saved successfully \n";
     }
 }
