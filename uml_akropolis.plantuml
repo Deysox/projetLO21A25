@@ -110,20 +110,34 @@ namespace Barnabe {
 
         together {
           class Board {
+              {static} - stringToColor : map<string, Color>
+              {static} - stringToType : map<string, Type>
+              {static} - colorToString : map<Color, string>
+              {static} - typeToString : map<Type, string>
               - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
               - corner_tl : Position
               - corner_bl : Position
               + Board()
-              + \~Board()
+              + ~Board()
               + Board(const Board&)
               + operator=(const Board&) : Board&
-              + getCell(Position) : const Cell* {const}
+              + getCell(const Position&) : const Cell* {const}
               + getCell(int, int) : const Cell* {const}
-              + getHeight(Position) : unsigned int {const}
+              + getHeight(const Position&) : unsigned int {const}
               + getHeight(int, int) : unsigned int {const}
-              + setCell(Position, unsigned int, const Cell*)
+              + setCell(const Position&, unsigned int, const Cell*)
               + setCell(int, int, unsigned int, const Cell*)
               + getCorners() : pair<Position, Position> {const}
+              + class iterator
+              + class const_iterator
+              + begin() : iterator
+              + end() : iterator
+              + begin() : const_iterator {const}
+              + end() : const_iterator {const}
+              + cbegin() : const_iterator {const}
+              + cend() : const_iterator {const}
+              + toJsonBoard() : json {const}
+              {static} + fromJsonBoard(const json&) : Board
           }
 
           Board "*" o-- "*" Cell
@@ -132,11 +146,13 @@ namespace Barnabe {
               - board : Board*
               - startingTile : StartingTile*
               + BoardManager()
-              + \~BoardManager()
+              + ~BoardManager()
               + BoardManager(const BoardManager&)
+              + BoardManager(const Board& b)
               + operator=(const BoardManager&) : BoardManager&
               + getBoard() : const Board* {const}
-              + place(const Tile*, Position, Rotation, bool)
+              + setBoard(const BoardManager& bm)
+              + place(const Tile*, Position, Rotation, bool) : int
           }
 
           BoardManager "1" *-- "1" Board
@@ -161,6 +177,97 @@ namespace Barnabe {
 
     Color -- Cell
     Type -- Cell
+
+
+    package QT #eeffee {
+        abstract ContainerQt <typename T> {
+            # size : int
+            # cells : T
+            + ContainerQt(QWidget*, int)
+            + updateDisplay()
+            # {abstract} draw()
+            # {abstract} empty()
+        }
+
+        abstract CellQt {
+            # size : int
+            # w : int
+            # h : int
+            # pos : Position
+            # locked : bool
+            + CellQt(QWidget*, const Position&, bool, int)
+            + paintEvent(QPaintEvent*) {override}
+            {abstract} # brush() : QBrush {const}
+            {abstract} # pen() : QPen {const}
+            {abstract} # endPaintEventActions()
+            + lock()
+            + unlock()
+
+        }
+
+        class CellQtFull {
+            {static} - colors : map<Color, pair<QColor, QColor>>
+            {static} - colorText : map<Color, string>
+            {static} - placeText : map<Color, string>
+            - color : Color
+            - type : Type
+            - height : unsigned int
+            - label : QLabel*
+            + CellQtFull(Qwidget*, const Position&, bool, int, Color, Type, unsigned int)
+            # brush() : QBrush {const} {override}
+            # pen() : QPen {const} {override}
+            # endPaintEventActions() {override}
+
+        }
+
+        Color -- CellQtFull
+        Type -- CellQtFull
+
+        CellQtFull --> CellQt
+
+        class CellQtEmpty {
+            + CellQtEmpty(QWidget*, const Position&, bool, int)
+            # brush() : QBrush {const} {override}
+            # pen() : QPen {const} {override}
+            # endPaintEventActions() {override}
+        }
+
+        CellQtEmpty --> CellQt
+
+        abstract TileQt {
+            - tile : const Tile* t
+            + TileQt(QWidget*, const Tile*, int)
+            + empty() {override}
+        }
+
+        TileQt --> ContainerQt
+        TileQt "*" o-- "1" Tile
+        TileQt *-- "*" CellQt
+
+        class ClassicTileQt {
+            +ClassicTileQt(QWidget*, const ClassicTile*, int)
+            +getTile() : const ClassicTile* {const}
+            +setTile(const ClassicTile*)
+            +draw() {override}
+        }
+
+        ClassicTileQt "*" o-- "1" ClassicTile
+
+
+        class BoardQt {
+            - board : const Board*
+            + BoardQt(QWidget*, const Board*, int)
+            + empty()  {override}
+            + draw() {override}
+            + getBoard() : const Board* {const}
+            + setBoard(const Board*) {const}
+            + lock()
+            + unlock()
+        }
+
+        BoardQt --> ContainerQt
+        BoardQt "*" o-- "1" Board
+    }
 
 }
 

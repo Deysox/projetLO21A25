@@ -13,8 +13,6 @@ using json = nlohmann::json;
 using std::map, std::unordered_map, std::pair;
 
 namespace Barnabe {
-    //using namespace Marilou;
-
     /**
      * Modélise un plateau de joueur du jeu Akropolis.
      * Le contenu du plateau est modélisé par des pointeurs const vers des cases Cell. Les cases sont indexées
@@ -195,8 +193,6 @@ namespace Barnabe {
          * Accesseur en lecture des coins du plateau.
          * Les coins ne sont pas nécessairement des cases du plateau, mais plutôt des positions.
          * @return pair contenant le coin supérieur gauche et le coin inférieur droit, dans cet ordre.
-         *
-         *
          */
         std::pair<Position, Position> getCorners() const;
         friend ostream& operator<<(ostream& f, const Board& p);
