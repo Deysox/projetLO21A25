@@ -22,7 +22,9 @@ namespace Amalena {
     }
     void River::fillriver()
     {
-        while (tiles.size()<max_tiles) tiles.push_back(pile.Draw());
+        while (tiles.size() < max_tiles && !pile.isEmpty()) {
+            tiles.push_back(pile.Draw());
+        }
     }
 
     Barnabe::Tile& River::giveTile(size_t position)
@@ -32,7 +34,6 @@ namespace Amalena {
         tiles.erase(tiles.begin()+(position-1));
         if (stay1()) fillriver();
         return *t;
-
     }
 
     bool River::stay1() const

@@ -16,46 +16,89 @@
 using namespace Barnabe;
 using namespace std;
 namespace Eloise {
+	/**
+	 * Classe abstraite
+	 * Classe qui régit le fonctionnement d'une partie
+	 * Design pattern template method
+	 */
 	class Game {
 	protected:
-		//game handles lifecycle of players
+		/**
+		 * Vecteur de joueurs
+		 */
 		vector<Player*> players;
+		/**
+		 * Joueur actuel, entier qui représente un indice du tableau
+		 */
 		size_t current_player = 0;
+		/**
+		 * Nombre de joueurs de la partie
+		 */
 		size_t nb_players;
-		//default value
+		/**
+		 * Attribut static qui représente le nombre maximal de joueurs pour une partie
+		 */
 		static size_t nb_players_max;
-
-		//game handles deck
-		Eloise::Deck* deck = nullptr;
-
-		//game handles pile, pile created when game starts
+		/**
+		 * Pointeur sur un deck, créé par le constructeur de Game
+		 */
+		Deck* deck = nullptr;
+		/**
+		 * Pointeur sur une pile, créée par le constructeur de Game
+		 */
 		Amalena::Pile* pile = nullptr;
-
-		//game handles river, river created when game starts
+		/**
+		 * Pointeur sur la rivière, créée par le constructeur de Game
+		 */
 		Amalena::River* river = nullptr;
-
-		//game has potentially a variant
+		/**
+		 * Chaine de caractère pour la variante
+		 */
 		string variant = "";
 
 		bool isSolo = false;
 		int difficulty = 0;
-
-		//constructor for new game
+		/**
+		 * Premier constructeur de Game pour la création d'une nouvelle partie
+		 * @param nb_players le nombre de joueurs
+		 * @param variant la ou les variantes
+		 */
 		Game(size_t nb_players, string variant);
-
-		//constructor for old game
+		/**
+		 * Deuxième constructeur de Game pour le lancement d'une partie interrompue
+		 * @param game_memento le game memento avec toutes les informations de la partie
+		 */
 		Game(const Amalena::GameMemento& game_memento);
-
+		/**
+		 * Destructeur virtuel pour l'héritage
+		 */
 		virtual ~Game();
 
-		//singleton so delete
+		/**
+		 * On delete le constructeur de recopie
+		 * @param c une autre partie
+		 */
 		Game(const Game& c) = delete;
+
+		/**
+		 * Operateur d'affectation interdit
+		 * @param c une autre partie
+		 * @return reference vers game
+		 */
 		Game& operator=(const Game& c) = delete;
 	public:
-		//getters et setters
+		/**
+		 * Setter de la variante
+		 * @param v variante
+		 */
 		void setVariant(const string& v) {
 			variant = v;
 		}
+
+		/**
+		 * Getter de la variante
+		 * @return une reference constante vers la variante
+		 */
 		const string& getVariant() const {
 			return variant;
 		}
@@ -73,28 +116,45 @@ namespace Eloise {
 		{
 			return difficulty;
 		}
+
+		/**
+		 * Getter du nombre de joueurs
+		 * @return le nombre de joueurs
+		 */
 		const size_t& getNbPlayers() const {
 			return nb_players;
 		}
+
+		/**
+		 * Getter du nombre de joueurs max
+		 * @return le nombre de joueurs max
+		 */
 		static const size_t& getNbPlayersMax() {
 			return nb_players_max;
 		}
 
+		/**
+		 * Getter du joueur courant
+		 * @return l'indice du joueur courant
+		 */
 		const size_t& getCurrentPlayer() const {
 			return current_player;
 		}
-		//display and access player
+
+		/**
+		 * Méthode virtuelle pure pour ajouter un joueur
+		 * @param name of the player
+		 */
 		virtual void addPlayer(const string& name) = 0;
 
+		/**
+		 * Getter d'un joueur à partir d'une certaine position dans le tableau
+		 * @param position
+		 * @return
+		 */
 		Player* getPlayer(size_t position);
-
-		//display players
 		void displayPlayers();
-
-		//set next player and architect so that the game continues
 		void nextPlayer();
-
-		//main method of the game
 		void manageGame() {
 			bool ok = true;
 			addEachPlayerToGame();
@@ -113,12 +173,9 @@ namespace Eloise {
 				}
 			}
 		}
-
 		virtual void addEachPlayerToGame() = 0;
 		virtual void displayCurrentPlayerInfo() = 0;
 		virtual bool actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) = 0;
-
-		//main method if solo game
 		virtual void manageSoloGame(int difficulty) {
 			bool ok = true;
 			askNameSoloGame();
@@ -140,26 +197,18 @@ namespace Eloise {
 				}
 			}
 		}
-
 		virtual void askNameSoloGame() = 0;
 		virtual void architectCreation(int difficulty) = 0;
 		virtual void architectPlaySoloGame() = 0;
 		virtual bool realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy) = 0;
-
-		//design pattern : template method
 		Tile& pickRiver() {
 			displayRiver();
 			Tile& chosen_tile = chooseTileRiver();
 			return chosen_tile;
 		};
-
 		virtual Tile& chooseTileRiver() = 0;
 		virtual void displayRiver() = 0;
-
-		//display scores at the end of the game
 		void endGame() ;
-
-		//quit and register game
 		void abandonGame() {
 			string version = " ";
 			PlayerConsole* pC = dynamic_cast<PlayerConsole*>(players.at(0));
@@ -201,10 +250,8 @@ namespace Eloise {
 			save_manager.save();
 			displayAbandonGame2();
 		}
-
 		virtual string displayAbandonGame1() = 0;
 		virtual void displayAbandonGame2() = 0;
-
 		void manageResumeGame() {
 			bool ok = true;
 			while (!(river->stay1() && pile->isEmpty())) {

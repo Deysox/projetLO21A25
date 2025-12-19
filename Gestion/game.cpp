@@ -11,7 +11,7 @@
 #include <nlohmann/json.hpp>
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
-#include "score.h"
+#include "../Joueurs/score.h"
 
 using json = nlohmann::json;
 
@@ -108,7 +108,7 @@ namespace Eloise {
         json player_boards = game_memento.get_boards();
         size_t k = 0;
         for (auto& [boardKey, j_board] : player_boards.items()) {
-            //boardKey et j_board.dump(4) pour debugger, je les ai laissé
+            //boardKey et j_board.dump(4) pour debugger, je les ai laissé volontairement
             boardKey;
             j_board.dump(4);
             try {
