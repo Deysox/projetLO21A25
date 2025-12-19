@@ -12,11 +12,18 @@ namespace Marilou
 
 	struct ScoreVariants
 	{
-		bool habitations = false;
-		bool marches = false;
-		bool casernes = false;
-		bool temples = false;
-		bool jardins = false;
+		bool home = false;
+		bool market = false;
+		bool barrack = false;
+		bool temple = false;
+		bool garden = false;
+	};
+
+	enum class ArchitectDifficulty
+	{
+		HIPPODAMOS, // facile
+		METAGENES,	// moyen
+		CALLICRATES // difficile
 	};
 
 	/**
@@ -38,6 +45,16 @@ namespace Marilou
 	public:
 		int compute(const Barnabe::Player &player,
 					const ScoreVariants &variants) const override;
+	};
+
+	class ScoreArchitecte : public Score
+	{
+		ArchitectDifficulty difficulty;
+
+	public:
+		explicit ScoreArchitecte(ArchitectDifficulty d): difficulty(d){}
+
+		int compute(const Barnabe::Player &player,const ScoreVariants &variants) const override;
 	};
 
 	/**

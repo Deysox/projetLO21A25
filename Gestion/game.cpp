@@ -154,5 +154,115 @@ namespace Eloise {
 
     void Game::endGame() {
         //displaying of each player's score thanks to method of Player
-    }
+		using namespace Marilou;
+
+		ScoreVariants variants{};
+		variants.home = variant.find("home") != std::string::npos;
+		variants.market = variant.find("market") != std::string::npos;
+		variants.barrack = variant.find("barrack") != std::string::npos;
+		variants.temple = variant.find("temple") != std::string::npos;
+		variants.garden = variant.find("garden") != std::string::npos;
+
+		static ScoreBleu scoreBleu;
+		static ScoreJaune scoreJaune;
+		static ScoreRouge scoreRouge;
+		static ScoreViolet scoreViolet;
+		static ScoreVert scoreVert;
+		static ScorePierre scorePierre;
+
+		ScoreGeneral<> scoreGen;
+		scoreGen.addScore(&scoreBleu);
+		scoreGen.addScore(&scoreJaune);
+		scoreGen.addScore(&scoreRouge);
+		scoreGen.addScore(&scoreViolet);
+		scoreGen.addScore(&scoreVert);
+		scoreGen.addScore(&scorePierre);
+
+		std::cout << "\n===== End of game, scores =====\n";
+
+		struct Result
+		{
+			Eloise::Player *player;
+			int score;
+			int stones;
+		};
+		std::vector<Result> results;
+
+		if (isSolo && nb_players == 2)
+		{
+			Eloise::Player *joueur = players[0];
+			Eloise::Player *architecte = players[1];
+
+			int scoreJoueur = scoreGen.compute(*joueur, variants);
+			int stonesJoueur = joueur->getStones();
+			results.push_back({joueur, scoreJoueur, stonesJoueur});
+			std::cout << joueur->getName() << " : " << scoreJoueur << " (nb pierres : " << stonesJoueur << ")\n";
+
+			ArchitectDifficulty diff =
+				(difficulty == 1) ? ArchitectDifficulty::HIPPODAMOS : (difficulty == 2) ? ArchitectDifficulty::METAGENES
+																						: ArchitectDifficulty::CALLICRATES;
+
+			ScoreArchitecte scoreArch(diff);
+			int scoreArchitecte = scoreArch.compute(*architecte, variants);
+			int stonesArchitecte = architecte->getStones();
+			results.push_back({architecte, scoreArchitecte, stonesArchitecte});
+			std::cout << architecte->getName() << " : " << scoreArchitecte
+					  << " (nb pierres : " << stonesArchitecte << ")\n";
+		}
+		else
+		{
+			for (size_t i = 0; i < nb_players; ++i)
+			{
+				Eloise::Player *p = players[i];
+				int score = scoreGen.compute(*p, variants);
+				int stones = p->getStones();
+				results.push_back({p, score, stones});
+				std::cout << p->getName() << " : " << score << " (nb pierres : " << stones << ")\n";
+			}
+		}
+
+		int bestScore = std::numeric_limits<int>::min();
+		int bestStones = std::numeric_limits<int>::min();
+		std::vector<Result *> winners;
+
+		for (auto &r : results)
+		{
+			if (r.score > bestScore)
+			{
+				bestScore = r.score;
+				bestStones = r.stones;
+				winners.clear();
+				winners.push_back(&r);
+			}
+			else if (r.score == bestScore)
+			{
+				if (r.stones > bestStones)
+				{
+					bestStones = r.stones;
+					winners.clear();
+					winners.push_back(&r);
+				}
+				else if (r.stones == bestStones)
+				{
+					winners.push_back(&r);
+				}
+			}
+		}
+
+		if (winners.size() == 1)
+		{
+			std::cout << "\n"<< winners[0]->player->getName() << " a gagné !\n";
+		}
+		else
+		{
+			std::cout << "\nÉgalité entre : ";
+			for (size_t i = 0; i < winners.size(); ++i)
+			{
+				if (i > 0)
+					std::cout << ", ";
+				std::cout << winners[i]->player->getName();
+			}
+			std::cout << "\n";
+		}
+	}
 }

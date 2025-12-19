@@ -1,4 +1,3 @@
-/*
 #include <map>
 #include <stack>
 #include <vector>
@@ -60,6 +59,48 @@ namespace
 int Marilou::ScorePierre::compute(const Player &player, const ScoreVariants &) const
 {
 	return player.getStones();
+}
+
+// ===== ScoreArchitecte =====
+int Marilou::ScoreArchitecte::compute(const Barnabe::Player &player,const ScoreVariants &) const
+{
+	const Board &board = *(player.getBoard().getBoard());
+
+	std::map<Color, int> districtsPerColor;
+	std::map<Color, int> placesPerColor;
+	int quarries = 0;
+
+	for (auto it = board.cbegin(); it != board.cend(); ++it)
+	{
+		const Cell *cell = it->second.first;
+		if (!cell) continue;
+
+		Color col = cell->getColor();
+		Type t = cell->getType();
+
+		if (t == Type::DISTRICT) districtsPerColor[col]++;
+		else if (t == Type::PLACE) placesPerColor[col]++;
+		else if (t == Type::QUARRY) quarries++;
+	}
+
+	int score = 0;
+	for (const auto &[col, nbDistricts] : districtsPerColor)
+	{
+		int nbPlaces = placesPerColor[col];
+		int stars = starsForColor(col); // réutilisation de ta fonction
+		score += nbDistricts * (nbPlaces * stars);
+	}
+
+	switch (difficulty)
+	{
+	case ArchitectDifficulty::HIPPODAMOS:
+		return score;
+	case ArchitectDifficulty::METAGENES:
+		return score + (quarries*2);
+	case ArchitectDifficulty::CALLICRATES:
+		return score * 2;
+	}
+	return score;
 }
 
 // ===== ScoreBleu : Habitations =====
@@ -406,4 +447,3 @@ int Marilou::ScoreVert::compute(const Player &player,
 
 	return score;
 }
-*/

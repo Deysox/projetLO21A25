@@ -53,13 +53,17 @@ namespace Eloise {
                             cout << "Difficulty ? (1 = easy, 2 = medium, 3 = hard) : ";
                             int difficulty = 0;
                             cin >> difficulty;
+							game.setSolo(true);
+							game.setDifficulty(difficulty);
                             game.manageSoloGame(difficulty);
-                            //game.endGame();
+                            game.endGame();
                         }
                         else {
                             GameConsole& game = GameConsole::giveInstance(nb_players,variant);
+							game.setSolo(false);
+							game.setDifficulty(0);
                             game.manageGame();
-                            //game.endGame();
+                            game.endGame();
                         }
                         GameConsole::freeInstance();
                         break;

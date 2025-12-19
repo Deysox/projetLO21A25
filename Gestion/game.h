@@ -37,6 +37,9 @@ namespace Eloise {
 		//game has potentially a variant
 		string variant = "";
 
+		bool isSolo = false;
+		int difficulty = 0;
+
 		//constructor for new game
 		Game(size_t nb_players, string variant);
 
@@ -55,6 +58,20 @@ namespace Eloise {
 		}
 		const string& getVariant() const {
 			return variant;
+		}
+		void setSolo(const bool solo) {
+			isSolo = solo;
+		}
+		const bool& isSolo() const {
+			return isSolo;
+		}
+		void setDifficulty(const int dif)
+		{
+			difficulty = dif;
+		}
+		const int& getDifficulty() const
+		{
+			return difficulty;
 		}
 		const size_t& getNbPlayers() const {
 			return nb_players;
