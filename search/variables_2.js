@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cell_0',['cell',['../de/d78/classBarnabe_1_1AthenaTile.html#a28fed0e57a1d6565e9e7f6858f152566',1,'Barnabe::AthenaTile']]],
-  ['cells_1',['cells',['../d8/d80/classBarnabe_1_1Board.html#a3ceabe4cf944ca350c75c1457d6767e9',1,'Barnabe::Board::cells()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a9b7db40b5a2791597eea34966cfbb238',1,'Barnabe::ContainerQt::cells()'],['../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb',1,'Barnabe::Tile::cells()']]],
+  ['cells_1',['cells',['../d8/d80/classBarnabe_1_1Board.html#a3ceabe4cf944ca350c75c1457d6767e9',1,'Barnabe::Board::cells()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#af831698ad1cce7d4bd8dcb874040720a',1,'Barnabe::ContainerQt::cells()'],['../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb',1,'Barnabe::Tile::cells()']]],
   ['color_2',['color',['../d1/dcc/classBarnabe_1_1CellQtFull.html#ac64902c2adaed3cb19bd3d256190bb38',1,'Barnabe::CellQtFull::color()'],['../d0/db0/classBarnabe_1_1Cell.html#ac93d46dc99381ec5b5b32a172f80e638',1,'Barnabe::Cell::color()']]],
   ['colors_3',['colors',['../d1/dcc/classBarnabe_1_1CellQtFull.html#a82d38c9f90b0a76f53159270462f6bd5',1,'Barnabe::CellQtFull']]],
   ['colortext_4',['colorText',['../d1/dcc/classBarnabe_1_1CellQtFull.html#afb325b4992c16b50cfcd2353ec62cccf',1,'Barnabe::CellQtFull']]],
