@@ -118,9 +118,9 @@ namespace Amalena {
 
 
     };
-}
     /*
-     *surcharde de l'opérateur << pour l'affichage en mode console
-     */
-ostream& operator<<(ostream& f, Amalena::River& r);
+ *surcharde de l'opérateur << pour l'affichage en mode console
+ */
+    ostream& operator<<(ostream& f, Amalena::River& r);
+}
 #endif //PROJETLO21A25_RIVER_H

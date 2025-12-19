@@ -7,8 +7,7 @@
 #include "pile.h"
 
 using namespace Barnabe;
-namespace Amalena
-{
+namespace Amalena {
     River::River(size_t nb, Pile& pile):max_tiles(nb), pile(pile)
     {
         River::fillriver();
@@ -61,17 +60,18 @@ namespace Amalena
         }
         return oss.str();
     }
-}
-ostream& operator<<(std::ostream& f, Amalena::River& river) {
-    f << "River:\n";
-    int pos = 1;
-    for (auto it = river.begin(); it != river.end(); ++it) {
-        Tile& tile = *it;
-        if (ClassicTile* ct = dynamic_cast<ClassicTile*>(&tile)) {
-            f << "Tile " << pos++ << " :\n" << *ct << "\n";
-        } else {
-            f << "Can't display Tile " << pos++ << "\n";
+
+    ostream& operator<<(std::ostream& f, Amalena::River& river) {
+        f << "River:\n";
+        int pos = 1;
+        for (auto it = river.begin(); it != river.end(); ++it) {
+            Tile& tile = *it;
+            if (ClassicTile* ct = dynamic_cast<ClassicTile*>(&tile)) {
+                f << "Tile " << pos++ << " :\n" << *ct << "\n";
+            } else {
+                f << "Can't display Tile " << pos++ << "\n";
+            }
         }
+        return f;
     }
-    return f;
 }

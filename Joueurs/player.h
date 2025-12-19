@@ -12,8 +12,8 @@
 #include <QObject>
 #include <QString>
 
-//missing score in attributs' list
-namespace Barnabe {
+using namespace Barnabe;
+namespace Eloise {
     class Player {
     protected:
         //parameter that allows the good initial distribution of stones

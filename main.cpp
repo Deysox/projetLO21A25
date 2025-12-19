@@ -85,7 +85,7 @@ int main() {
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    MenuQt menu;
+    Eloise::MenuQt menu;
     menu.setFixedSize(500, 400);
     menu.show();
     return app.exec();

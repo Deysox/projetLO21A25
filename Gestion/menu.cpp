@@ -12,51 +12,51 @@
 #include <QObject>
 #include <QInputDialog>
 
+namespace Eloise {
+    MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
+        //Boutons
+        boutonLancerGame = new QPushButton("Launch a game");
+        boutonReprendreGame = new QPushButton("Resume a game");
+        boutonAfficherRegles = new QPushButton("Display rules");
 
-MenuQt::MenuQt(QWidget* parent) : QWidget(parent) {
-    //Boutons
-    boutonLancerGame = new QPushButton("Launch a game");
-    boutonReprendreGame = new QPushButton("Resume a game");
-    boutonAfficherRegles = new QPushButton("Display rules");
-
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    layout->addWidget(boutonLancerGame);
-    layout->addSpacing(15);
-    layout->addWidget(boutonReprendreGame);
-    layout->addSpacing(15);
-    layout->addWidget(boutonAfficherRegles);
-    setLayout(layout);
-    setWindowTitle("Menu du jeu");
+        QVBoxLayout* layout = new QVBoxLayout(this);
+        layout->addWidget(boutonLancerGame);
+        layout->addSpacing(15);
+        layout->addWidget(boutonReprendreGame);
+        layout->addSpacing(15);
+        layout->addWidget(boutonAfficherRegles);
+        setLayout(layout);
+        setWindowTitle("Menu du jeu");
 
 
-    connect(boutonAfficherRegles, &QPushButton::clicked,
-        this, &MenuQt::boutonAfficherReglesClique);
-    connect(boutonLancerGame, &QPushButton::clicked,
-        this, &MenuQt::boutonLancerGameClique);
-    connect(boutonReprendreGame, &QPushButton::clicked,
-        this, &MenuQt::boutonReprendreGameClique);
-}
+        connect(boutonAfficherRegles, &QPushButton::clicked,
+            this, &MenuQt::boutonAfficherReglesClique);
+        connect(boutonLancerGame, &QPushButton::clicked,
+            this, &MenuQt::boutonLancerGameClique);
+        connect(boutonReprendreGame, &QPushButton::clicked,
+            this, &MenuQt::boutonReprendreGameClique);
+    }
 
-void MenuQt::boutonAfficherReglesClique() {
-    QMessageBox::information(this,
-        "Rules",
-        "In this tile-laying game, players take on the role of architects who compete against each other "
-               "by each creating a city using city tiles. Each city tile is composed of 3 "
-               "construction hexagons, each hexagon representing a neighbourhood, a square or a quarry. "
-               "There are several types of neighbourhood. Each neighbourhood earns victory points "
-               "if they are correctly placed according to their type.");
-}
+    void MenuQt::boutonAfficherReglesClique() {
+        QMessageBox::information(this,
+            "Rules",
+            "In this tile-laying game, players take on the role of architects who compete against each other "
+                   "by each creating a city using city tiles. Each city tile is composed of 3 "
+                   "construction hexagons, each hexagon representing a neighbourhood, a square or a quarry. "
+                   "There are several types of neighbourhood. Each neighbourhood earns victory points "
+                   "if they are correctly placed according to their type.");
+    }
 
-void MenuQt::boutonLancerGameClique() {
+    void MenuQt::boutonLancerGameClique() {
 
-    int nb_players = QInputDialog::getInt(this,
-                                          "Nombre de joueurs",
-                                          "Number of players ? (1-4)",
-                                          1,
-                                          1,
-                                          Game::getNbPlayersMax(),
+        int nb_players = QInputDialog::getInt(this,
+                                              "Nombre de joueurs",
+                                              "Number of players ? (1-4)",
+                                              1,
+                                              1,
+                                              Game::getNbPlayersMax(),
 
-                                          1);
+                                              1);
         string s ="variante";
         if (nb_players != 1) {
 
@@ -72,20 +72,21 @@ void MenuQt::boutonLancerGameClique() {
                                                   1, 1, 3, 1);
             game.manageSoloGame(difficulty);
         }
-    GameQt::freeInstance();
-}
+        GameQt::freeInstance();
+    }
 
 
 
-void MenuQt::boutonReprendreGameClique() {
-    QString pseudo_game = QInputDialog::getText(this, "Game", "What was the pseudo of your game ?");
-    string game_name = pseudo_game.toStdString();
-    Amalena::savemanager save_manager;
-    Amalena::GameMemento* game_memento = save_manager.restore(game_name);
-    //little security because instance is unique
-    GameQt::freeInstance();
-    GameQt& game = GameQt::giveInstance(*game_memento);
-    game.manageResumeGame();
-    //game.endGame();
-    GameQt::freeInstance();
+    void MenuQt::boutonReprendreGameClique() {
+        QString pseudo_game = QInputDialog::getText(this, "Game", "What was the pseudo of your game ?");
+        string game_name = pseudo_game.toStdString();
+        Amalena::savemanager save_manager;
+        Amalena::GameMemento* game_memento = save_manager.restore(game_name);
+        //little security because instance is unique
+        GameQt::freeInstance();
+        GameQt& game = GameQt::giveInstance(*game_memento);
+        game.manageResumeGame();
+        //game.endGame();
+        GameQt::freeInstance();
+    }
 }

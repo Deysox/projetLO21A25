@@ -5,8 +5,8 @@
 #ifndef PROJETLO21A25_PLAYERCONSOLE_H
 #define PROJETLO21A25_PLAYERCONSOLE_H
 #include "player.h"
-
-namespace Barnabe {
+using namespace Barnabe;
+namespace Eloise{
     class PlayerConsole : public Player {
     public:
         PlayerConsole(const string& s) : Player(s){}

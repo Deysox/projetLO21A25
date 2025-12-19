@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace Barnabe {
+namespace Eloise {
 
     void PlayerConsole::displayBoard() {
         cout << "\n" << board << endl;

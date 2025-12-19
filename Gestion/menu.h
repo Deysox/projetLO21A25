@@ -9,22 +9,23 @@
 #include <QLineEdit>
 #include <QLabel>
 #include "../UI/init.h"
+namespace Eloise {
+    class MenuQt : public QWidget {
+        Q_OBJECT
+    public:
+        explicit MenuQt(QWidget* parent = 0);
+        signals:
+        private slots:
+        void boutonLancerGameClique();
+        void boutonReprendreGameClique();
+        void boutonAfficherReglesClique();
 
-class MenuQt : public QWidget {
-    Q_OBJECT
-public:
-    explicit MenuQt(QWidget* parent = 0);
-    signals:
-    private slots:
-    void boutonLancerGameClique();
-    void boutonReprendreGameClique();
-    void boutonAfficherReglesClique();
+    private:
+        QPushButton* boutonLancerGame;
+        QPushButton* boutonReprendreGame;
+        QPushButton* boutonAfficherRegles;
 
-private:
-    QPushButton* boutonLancerGame;
-    QPushButton* boutonReprendreGame;
-    QPushButton* boutonAfficherRegles;
-
-};
+    };
+}
 #endif //PROJETLO21A25_MENU_H
 
