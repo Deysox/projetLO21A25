@@ -8,5 +8,6 @@ var searchData=
   ['instanceqt_5',['instanceQt',['../dd/dbf/classEloise_1_1GameQt.html#a2999ed397f64f79fd33255ae040f5a83',1,'Eloise::GameQt']]],
   ['isempty_6',['isEmpty',['../df/d05/classAmalena_1_1Pile.html#a8d00084ea5924fb45fbea0750074c15d',1,'Amalena::Pile']]],
   ['isneighbour_7',['isNeighbour',['../d8/d16/classBarnabe_1_1Position.html#a515f87663564db31a6c8a8b62623457a',1,'Barnabe::Position']]],
-  ['iterator_8',['iterator',['../df/d0b/classBarnabe_1_1Board_1_1iterator.html',1,'Barnabe::Board::iterator'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html',1,'Barnabe::Position::iterator'],['../df/d0b/classBarnabe_1_1Board_1_1iterator.html#a689353a54ccb3e41341675c83be30992',1,'Barnabe::Board::iterator::iterator()'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#abc76b0c373642ce922a2eb8284d67cd5',1,'Barnabe::Position::iterator::iterator()']]]
+  ['issolo_8',['isSolo',['../da/d38/classEloise_1_1Game.html#a563f13f8c3052dec13ffabc9efdd167a',1,'Eloise::Game::isSolo()'],['../da/d38/classEloise_1_1Game.html#aca615f2492d25abc4fbb473d2d0716e1',1,'Eloise::Game::isSolo() const']]],
+  ['iterator_9',['iterator',['../df/d0b/classBarnabe_1_1Board_1_1iterator.html',1,'Barnabe::Board::iterator'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html',1,'Barnabe::Position::iterator'],['../df/d0b/classBarnabe_1_1Board_1_1iterator.html#a689353a54ccb3e41341675c83be30992',1,'Barnabe::Board::iterator::iterator()'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#abc76b0c373642ce922a2eb8284d67cd5',1,'Barnabe::Position::iterator::iterator()']]]
 ];

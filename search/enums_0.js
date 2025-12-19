@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['color_0',['Color',['../dd/df6/namespaceBarnabe.html#ada57d41eb3e7d129da8767aecc2b2640',1,'Barnabe']]]
+  ['architectdifficulty_0',['ArchitectDifficulty',['../d8/dca/namespaceMarilou.html#ad101f09fccab984a2107315113899f42',1,'Marilou']]]
 ];

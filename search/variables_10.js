@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['variant_0',['variant',['../da/d38/classEloise_1_1Game.html#a0a32303716b47e130db8951323f69e62',1,'Eloise::Game']]],
-  ['variante_1',['variante',['../dd/df7/classAmalena_1_1GameMemento.html#a1aedf9bec6aee618cfa57cb2db28f408',1,'Amalena::GameMemento']]],
-  ['version_2',['version',['../dd/df7/classAmalena_1_1GameMemento.html#a5237e15325815069633811c1e1e5e7c4',1,'Amalena::GameMemento']]]
+  ['w_0',['w',['../d0/d4c/classBarnabe_1_1CellQt.html#a53711382e8b44682043a65f717641612',1,'Barnabe::CellQt']]]
 ];

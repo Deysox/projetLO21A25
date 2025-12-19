@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['r_0',['r',['../dc/dc0/classBarnabe_1_1Rotation.html#ad027a7e8293593d465d421c86c6a97db',1,'Barnabe::Rotation']]],
-  ['river_1',['river',['../da/d38/classEloise_1_1Game.html#a1e44550b169371610ac01c5608ef2417',1,'Eloise::Game']]],
-  ['riverid_2',['riverid',['../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5',1,'Amalena::GameMemento']]],
-  ['rot_3',['rot',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a5eb9429ae1450b6e0cf1728ef80a7189',1,'Barnabe::Position::iterator']]],
-  ['rotation_4',['rotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#a607c8a530c959f30b7f133c66acaf047',1,'Barnabe::BicolorCell']]]
+  ['scores_0',['scores',['../d6/d25/classMarilou_1_1ScoreGeneral.html#a2020dd57c877ffdca2e0d3cb5d6861bb',1,'Marilou::ScoreGeneral']]],
+  ['secondarycolor_1',['secondaryColor',['../dd/d02/classBarnabe_1_1BicolorCell.html#a2330d30f411f42d4c61b49a26698464f',1,'Barnabe::BicolorCell']]],
+  ['size_2',['size',['../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29',1,'Barnabe::CellQt::size()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a38712c751315e85c27fce29bf2bf397f',1,'Barnabe::ContainerQt::size()']]],
+  ['spinlevel_3',['spinlevel',['../d2/dfd/classinit.html#aed0fae512cfa48069b08611d23e41bba',1,'init']]],
+  ['startingtile_4',['startingTile',['../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301',1,'Barnabe::BoardManager']]],
+  ['stones_5',['stones',['../d7/de2/classEloise_1_1Player.html#a7e6857dcfd63906903ec4f87d0928385',1,'Eloise::Player']]],
+  ['stones_5fdistribution_6',['stones_distribution',['../d7/de2/classEloise_1_1Player.html#a4b4058bf78b1eb94badedc9e457600d4',1,'Eloise::Player']]],
+  ['stringtocolor_7',['stringToColor',['../d8/d80/classBarnabe_1_1Board.html#a8a42499d21d94f9800dea106e11bf43e',1,'Barnabe::Board::stringToColor()'],['../d1/d55/classEloise_1_1Deck.html#a07c4e221ea911820cee83222be89f08a',1,'Eloise::Deck::stringToColor()']]],
+  ['stringtotype_8',['stringToType',['../d8/d80/classBarnabe_1_1Board.html#ada734d258d642958fdf75a24d70f97fd',1,'Barnabe::Board::stringToType()'],['../d1/d55/classEloise_1_1Deck.html#a6fd02a37b5bd83d71d23e72e8b1c9888',1,'Eloise::Deck::stringToType()']]]
 ];

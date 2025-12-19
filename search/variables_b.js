@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['parent_0',['parent',['../dd/dbf/classEloise_1_1GameQt.html#abfcf9175a349a48b45f7e31a32715639',1,'Eloise::GameQt']]],
-  ['pile_1',['pile',['../dc/d76/classAmalena_1_1River.html#a5233d9ae0a0019a7ec8c9397719689d2',1,'Amalena::River::pile()'],['../da/d38/classEloise_1_1Game.html#a92715390f67704c085f05d9a4ab6eca8',1,'Eloise::Game::pile()']]],
-  ['pileid_2',['pileid',['../dd/df7/classAmalena_1_1GameMemento.html#a6eebe9a03e77b2c5550afb2f1da07974',1,'Amalena::GameMemento']]],
-  ['placetext_3',['placeText',['../d1/dcc/classBarnabe_1_1CellQtFull.html#acc50a82968056f5627f07a8f3e9c4b45',1,'Barnabe::CellQtFull']]],
-  ['players_4',['players',['../da/d38/classEloise_1_1Game.html#a8ae46c0bb98ebe8441651627a46e2865',1,'Eloise::Game']]],
-  ['playersname_5',['PlayersName',['../dd/df7/classAmalena_1_1GameMemento.html#ae496f5ee7177fecb9336d4846bd46778',1,'Amalena::GameMemento']]],
-  ['playersstone_6',['PlayersStone',['../dd/df7/classAmalena_1_1GameMemento.html#a905c68b54724b1580340d5a9a11a1b63',1,'Amalena::GameMemento']]],
-  ['pos_7',['pos',['../d0/d4c/classBarnabe_1_1CellQt.html#a1d1f5e693b0324af66564b19dd59c66e',1,'Barnabe::CellQt']]],
-  ['posx_8',['posX',['../d8/d16/classBarnabe_1_1Position.html#a7825e4720b059db31af3e01f817c11aa',1,'Barnabe::Position']]],
-  ['posy_9',['posY',['../d8/d16/classBarnabe_1_1Position.html#a4eb95fc91865983beafc2c2c224abd58',1,'Barnabe::Position']]]
+  ['r_0',['r',['../dc/dc0/classBarnabe_1_1Rotation.html#ad027a7e8293593d465d421c86c6a97db',1,'Barnabe::Rotation']]],
+  ['river_1',['river',['../da/d38/classEloise_1_1Game.html#a1e44550b169371610ac01c5608ef2417',1,'Eloise::Game']]],
+  ['riverid_2',['riverid',['../dd/df7/classAmalena_1_1GameMemento.html#a860b8546615e680d1672afa96d298dd5',1,'Amalena::GameMemento']]],
+  ['rot_3',['rot',['../da/d6e/classBarnabe_1_1Position_1_1iterator.html#a5eb9429ae1450b6e0cf1728ef80a7189',1,'Barnabe::Position::iterator']]],
+  ['rotation_4',['rotation',['../dd/d02/classBarnabe_1_1BicolorCell.html#a607c8a530c959f30b7f133c66acaf047',1,'Barnabe::BicolorCell']]]
 ];
