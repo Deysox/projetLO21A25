@@ -1,7 +1,7 @@
 var searchData=
 [
   ['read_5ffile_0',['read_file',['../d8/d62/tilesjson_8cpp.html#a7b35ce27806462ceb0681745fc16ed0b',1,'tilesjson.cpp']]],
-  ['realplayerplaysologame_1',['realPlayerPlaySoloGame',['../d9/d68/classGame.html#ab20794737c7f4434a5f9870b9c0f6dd4',1,'Game::realPlayerPlaySoloGame()'],['../d6/d73/classGameConsole.html#ae8cbbba6044253f278ecefc37a6d83ea',1,'GameConsole::realPlayerPlaySoloGame()'],['../dc/d9d/classGameQt.html#aa67c92caa5b21ecf2b329f2b3623e395',1,'GameQt::realPlayerPlaySoloGame()']]],
+  ['realplayerplaysologame_1',['realPlayerPlaySoloGame',['../da/d38/classEloise_1_1Game.html#a22211b9fdeab996d405b2dbc9a4683dc',1,'Eloise::Game::realPlayerPlaySoloGame()'],['../da/d62/classEloise_1_1GameConsole.html#a2688e695750a22baa15c5992c88e39af',1,'Eloise::GameConsole::realPlayerPlaySoloGame()'],['../dd/dbf/classEloise_1_1GameQt.html#a43e795909b594531841ce5ce2aa60a2d',1,'Eloise::GameQt::realPlayerPlaySoloGame()']]],
   ['restore_2',['restore',['../d2/de2/classAmalena_1_1savemanager.html#a080b7adeb7c9b920c74af6e53c886c82',1,'Amalena::savemanager']]],
   ['river_3',['River',['../dc/d76/classAmalena_1_1River.html#af7b9f7c43b81431a74ef0f1ef2aad28a',1,'Amalena::River::River(size_t nb, Pile &amp;pile)'],['../dc/d76/classAmalena_1_1River.html#a7bfe9e81f40fb64a76fb2c1707fcd898',1,'Amalena::River::River(vector&lt; Tile * &gt; &amp;tiles, size_t nb, Pile &amp;pile)'],['../dc/d76/classAmalena_1_1River.html#a2a5fd3ec588213d3f66642e61eda9797',1,'Amalena::River::River(const River &amp;r)']]],
   ['riveriterator_4',['RiverIterator',['../da/ddb/classAmalena_1_1River_1_1RiverIterator.html#aecd2fd270d9edb878cbe5d012b2c510b',1,'Amalena::River::RiverIterator']]],

@@ -10,6 +10,6 @@ var searchData=
   ['corner_5fbr_7',['corner_br',['../d8/d80/classBarnabe_1_1Board.html#a0804262fe24a3f7f900b54a8811cc3de',1,'Barnabe::Board']]],
   ['corner_5ftl_8',['corner_tl',['../d8/d80/classBarnabe_1_1Board.html#a3608b06e678641494d63a9c31b3ccfc4',1,'Barnabe::Board']]],
   ['current_9',['current',['../d6/d87/classAmalena_1_1Pile_1_1PileIterator.html#a1ee1fbc6c492046bfcc32f9a474f9a2f',1,'Amalena::Pile::PileIterator::current()'],['../da/ddb/classAmalena_1_1River_1_1RiverIterator.html#a5be279690393917fd3521ad03d3716fe',1,'Amalena::River::RiverIterator::current()']]],
-  ['current_5fplayer_10',['current_player',['../d9/d68/classGame.html#a6825cfe4147c0491f807fa38ab95f350',1,'Game']]],
+  ['current_5fplayer_10',['current_player',['../da/d38/classEloise_1_1Game.html#a6a7d1d3e5e139ec61381c0fb5b58a415',1,'Eloise::Game']]],
   ['currentplayer_11',['currentplayer',['../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970',1,'Amalena::GameMemento']]]
 ];

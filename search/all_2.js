@@ -16,7 +16,7 @@ var searchData=
   ['cellqtfull_13',['CellQtFull',['../d1/dcc/classBarnabe_1_1CellQtFull.html',1,'Barnabe::CellQtFull'],['../d1/dcc/classBarnabe_1_1CellQtFull.html#ab81ad8412395b9eda60838705cf0b4e3',1,'Barnabe::CellQtFull::CellQtFull()']]],
   ['cells_14',['cells',['../d8/d80/classBarnabe_1_1Board.html#a3ceabe4cf944ca350c75c1457d6767e9',1,'Barnabe::Board::cells()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a9b7db40b5a2791597eea34966cfbb238',1,'Barnabe::ContainerQt::cells()'],['../d8/dcb/classBarnabe_1_1Tile.html#a28abccd23372083df8fc97f820c2acfb',1,'Barnabe::Tile::cells()']]],
   ['cend_15',['cend',['../d8/d80/classBarnabe_1_1Board.html#ad7fdbb061d60d1c22fd1995bf6eaacba',1,'Barnabe::Board::cend()'],['../d8/dcb/classBarnabe_1_1Tile.html#adcde2b7e80ce4b1e625cf616b302fd85',1,'Barnabe::Tile::cend()'],['../d8/d16/classBarnabe_1_1Position.html#a71ba1697cf1a4ddaccd7f405dd31e6b5',1,'Barnabe::Position::cend()']]],
-  ['choosetileriver_16',['chooseTileRiver',['../d9/d68/classGame.html#a3fb2710dc95699c3266a4aff3189a521',1,'Game::chooseTileRiver()'],['../d6/d73/classGameConsole.html#a2de149d03474517d4f74fcc709533098',1,'GameConsole::chooseTileRiver()'],['../dc/d9d/classGameQt.html#ad36f4efd8115e4f998c5e000ad04c6d2',1,'GameQt::chooseTileRiver()']]],
+  ['choosetileriver_16',['chooseTileRiver',['../da/d38/classEloise_1_1Game.html#ab6eddb9aae1850501cfef6896442b461',1,'Eloise::Game::chooseTileRiver()'],['../da/d62/classEloise_1_1GameConsole.html#ab5fb4f026cce0ac9db2fba817be09574',1,'Eloise::GameConsole::chooseTileRiver()'],['../dd/dbf/classEloise_1_1GameQt.html#ac16dce9606f8b6ba9c3bca562f0ac985',1,'Eloise::GameQt::chooseTileRiver()']]],
   ['classictile_17',['ClassicTile',['../d0/d23/classBarnabe_1_1ClassicTile.html',1,'Barnabe::ClassicTile'],['../d0/d23/classBarnabe_1_1ClassicTile.html#a12407ca57cffd3d8516becb6b1702ccb',1,'Barnabe::ClassicTile::ClassicTile()']]],
   ['classictileqt_18',['ClassicTileQt',['../d6/dbf/classBarnabe_1_1ClassicTileQt.html',1,'Barnabe::ClassicTileQt'],['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#a1d18608b998373dcbb0af389a5409c01',1,'Barnabe::ClassicTileQt::ClassicTileQt()']]],
   ['clearvectorpile_19',['clearVectorPile',['../df/d05/classAmalena_1_1Pile.html#afeea883a19e511e7595ecdaabbcbb144',1,'Amalena::Pile']]],
@@ -37,6 +37,6 @@ var searchData=
   ['corner_5fbr_34',['corner_br',['../d8/d80/classBarnabe_1_1Board.html#a0804262fe24a3f7f900b54a8811cc3de',1,'Barnabe::Board']]],
   ['corner_5ftl_35',['corner_tl',['../d8/d80/classBarnabe_1_1Board.html#a3608b06e678641494d63a9c31b3ccfc4',1,'Barnabe::Board']]],
   ['current_36',['current',['../d6/d87/classAmalena_1_1Pile_1_1PileIterator.html#a1ee1fbc6c492046bfcc32f9a474f9a2f',1,'Amalena::Pile::PileIterator::current()'],['../da/ddb/classAmalena_1_1River_1_1RiverIterator.html#a5be279690393917fd3521ad03d3716fe',1,'Amalena::River::RiverIterator::current()']]],
-  ['current_5fplayer_37',['current_player',['../d9/d68/classGame.html#a6825cfe4147c0491f807fa38ab95f350',1,'Game']]],
+  ['current_5fplayer_37',['current_player',['../da/d38/classEloise_1_1Game.html#a6a7d1d3e5e139ec61381c0fb5b58a415',1,'Eloise::Game']]],
   ['currentplayer_38',['currentplayer',['../dd/df7/classAmalena_1_1GameMemento.html#ac70d528437528170bf139215b2434970',1,'Amalena::GameMemento']]]
 ];

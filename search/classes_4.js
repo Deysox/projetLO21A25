@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['game_0',['Game',['../d9/d68/classGame.html',1,'']]],
-  ['gameconsole_1',['GameConsole',['../d6/d73/classGameConsole.html',1,'']]],
+  ['game_0',['Game',['../da/d38/classEloise_1_1Game.html',1,'Eloise']]],
+  ['gameconsole_1',['GameConsole',['../da/d62/classEloise_1_1GameConsole.html',1,'Eloise']]],
   ['gamememento_2',['GameMemento',['../dd/df7/classAmalena_1_1GameMemento.html',1,'Amalena']]],
-  ['gameqt_3',['GameQt',['../dc/d9d/classGameQt.html',1,'']]]
+  ['gameqt_3',['GameQt',['../dd/dbf/classEloise_1_1GameQt.html',1,'Eloise']]]
 ];
