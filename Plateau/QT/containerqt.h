@@ -59,7 +59,7 @@ namespace Barnabe {
          * - Création des widgets pour l'affichage
          * - Actualisation de l'affichage grâce à la méthode update() de Qt
          */
-        void updateDisplay() {empty(); draw(); update();}
+        void updateDisplay() {hide(); empty(); draw(); update(); show();}
 
         /**
          * Accesseur en lecture sur l'objet à afficher.
