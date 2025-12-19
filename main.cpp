@@ -81,7 +81,7 @@ int main() {
 */
 
 #include "Gestion/menu.h"
-#include "menu2.h"
+#include "Gestion/menu2.h"
 #include <QApplication>
 int main(int argc, char* argv[])
 {

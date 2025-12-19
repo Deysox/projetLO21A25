@@ -19,7 +19,7 @@ namespace Eloise {
         QWidget* wparent = qobject_cast<QWidget*>(parent());
         bool placed = false;
         while (!placed) {
-            //source : https://stackoverflow.com/questions/17512542/getting-multiple-inputs-from-qinputdialog-in-qt
+
             QDialog dialog(wparent);
             QFormLayout form(&dialog);
             form.addRow(new QLabel("Position (x,y) and rotation (r)"));
