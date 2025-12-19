@@ -10,8 +10,9 @@ var searchData=
   ['_7epile_7',['~Pile',['../df/d05/classAmalena_1_1Pile.html#ac1568f68e2313f20f57369b1452b5697',1,'Amalena::Pile']]],
   ['_7eplayer_8',['~Player',['../d7/de2/classEloise_1_1Player.html#a2409851bfc34ca6cb31b7811da5951cb',1,'Eloise::Player']]],
   ['_7eriver_9',['~River',['../dc/d76/classAmalena_1_1River.html#a750391f5508ea44912a0c9db05a3931a',1,'Amalena::River']]],
-  ['_7esavemanager_10',['~savemanager',['../d2/de2/classAmalena_1_1savemanager.html#a7cac4b204584c2c61a8bf2d5bc4cd36d',1,'Amalena::savemanager']]],
-  ['_7escore_11',['~Score',['../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18',1,'Marilou::Score']]],
-  ['_7escorecouleur_12',['~ScoreCouleur',['../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44',1,'Marilou::ScoreCouleur']]],
-  ['_7etile_13',['~Tile',['../d8/dcb/classBarnabe_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2',1,'Barnabe::Tile']]]
+  ['_7eriverqt_10',['~riverQT',['../d9/da4/classAmalena_1_1riverQT.html#a830f372cc2d5b2eb992cc2265c91ea2b',1,'Amalena::riverQT']]],
+  ['_7esavemanager_11',['~savemanager',['../d2/de2/classAmalena_1_1savemanager.html#a7cac4b204584c2c61a8bf2d5bc4cd36d',1,'Amalena::savemanager']]],
+  ['_7escore_12',['~Score',['../dc/d0b/classMarilou_1_1Score.html#a8ecf583969ce565d47b4da87af06ea18',1,'Marilou::Score']]],
+  ['_7escorecouleur_13',['~ScoreCouleur',['../d9/d4b/classMarilou_1_1ScoreCouleur.html#a93570e9550ba1e68952abed10dee4a44',1,'Marilou::ScoreCouleur']]],
+  ['_7etile_14',['~Tile',['../d8/dcb/classBarnabe_1_1Tile.html#aaa00e28f8e3fcab6f9e9d7c990cdcbc2',1,'Barnabe::Tile']]]
 ];
