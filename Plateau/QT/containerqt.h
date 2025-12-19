@@ -16,7 +16,7 @@ namespace Barnabe {
      * Gère le cycle de vie des CellQt
      */
 
-    template <typename T>
+    template <typename Container_Type, typename Item>
     class ContainerQt : public QWidget {
     protected:
         /**
@@ -28,14 +28,20 @@ namespace Barnabe {
          * Conteneur des widgets QT.
          * Peut être un array, un vecteur, une map...
          */
-        T cells;
+        Container_Type cells;
+
+        /**
+         * Objet à afficher.
+         * Peut être un plateau, une tuile...
+         */
+        const Item* item;
     public:
         /**
          * Constructeur de la classe ContainerQt
          * @param parent Widget parent du conteneur
          * @param s Taille des cases en pixels
          */
-        explicit ContainerQt(QWidget* parent, int s = 40) : QWidget(parent), size(s) {}
+        explicit ContainerQt(QWidget* parent, const Item* i, int s = 40) : QWidget(parent), item(i), size(s) {}
 
         /**
          * Suppression du constructeur par recopie
@@ -54,6 +60,17 @@ namespace Barnabe {
          * - Actualisation de l'affichage grâce à la méthode update() de Qt
          */
         void updateDisplay() {empty(); draw(); update();}
+
+        /**
+         * Accesseur en lecture sur l'objet à afficher.
+         * @return Pointeur vers l'objet à afficher
+         */
+        virtual const Item* getItem() const {return item;}
+        /**
+         * Accesseur en écriture sur l'objet à afficher.
+         * @param it Objet à afficher
+         */
+        virtual void setItem(const Item* it) {item = it;}
 
     protected:
         /**

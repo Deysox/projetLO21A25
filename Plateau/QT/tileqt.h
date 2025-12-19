@@ -14,12 +14,7 @@ namespace Barnabe {
      * Représentation graphique d'une tuile du jeu Akropolis.
      * Version abstraite d'une tuile pour permettre les déclinaisons d'affichage simples.
      */
-    class TileQt : public ContainerQt<vector<CellQtFull*>> {
-    protected:
-        /**
-         * Tuile à représenter
-         */
-        const Tile* tile;
+    class TileQt : public ContainerQt<vector<CellQtFull*>,Tile> {
     public:
         /**
          * Constructeur de la classe TileQt
@@ -27,7 +22,7 @@ namespace Barnabe {
          * @param t Tuile à représenter
          * @param s Taille des cases (rayon)
          */
-        TileQt(QWidget* parent, const Tile* t, int s = 40) : ContainerQt(parent, s), tile(t) {
+        TileQt(QWidget* parent, const Tile* t, int s = 40) : ContainerQt(parent, t, s) {
             setStyleSheet("background-color: rgba(0,0,0,0)");
         }
 
@@ -58,15 +53,21 @@ namespace Barnabe {
         }
 
         /**
-         * Accesseur en écriture de la tuile à afficher
-         * @param ct Tuile à afficher
+         * Accesseur en écriture pour la ClassicTile à afficher
+         * Tente de convertir t en const ClassicTile*. Si impossible, lève une exception
+         * @param t ClassicTile à utiliser comme objet à afficher
          */
-        void setTile(const ClassicTile *ct) {tile = ct;}
+        void setItem(const Tile* t) override {
+            const ClassicTile* ptr = dynamic_cast<const ClassicTile *>(t);
+            if (ptr) item = ptr;
+            else throw TileException("Impossible to cast to ClassicTile");
+        }
+
         /**
-         * Accesseur en lecture de la tuile à afficher
-         * @return Pointeur vers Tile
+         * Accesseur en écriture pour la ClassicTile à afficher
+         * @param t ClassicTile à utiliser comme objet à afficher
          */
-        [[nodiscard]] const Tile* getTile() const {return tile;}
+        void setItem(const ClassicTile* t) {item = t;}
 
         /**
          * Construction de l'affichage de la tuile.
