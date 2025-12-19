@@ -8,10 +8,8 @@
 #include <vector>
 using json = nlohmann::json;
 
-
 namespace Amalena
 {
-
     json savemanager::tojson()
     {
         json j;
@@ -26,7 +24,6 @@ namespace Amalena
         j["currentplayer"]=gameMemento->get_currentplayer();
         j["variante"]=gameMemento->get_variante();
         return j;
-
     }
 
     void savemanager::fromjson(json data)
@@ -85,7 +82,7 @@ namespace Amalena
     {
         ifstream file("../sauvegarde.json");
         if (!file.is_open()) {
-            cout << "Failed to open file" << endl;
+            cout << "Failed to open file";
             return nullptr;
         }
         json data;

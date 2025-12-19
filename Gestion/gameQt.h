@@ -16,6 +16,10 @@
 namespace Eloise {
     using namespace std;
 
+    /**
+     * Design pattern singleton
+     * Classe fille de Game pour la version console
+     */
     class GameQt : public Game {
     private:
         QWidget* parent = nullptr;
