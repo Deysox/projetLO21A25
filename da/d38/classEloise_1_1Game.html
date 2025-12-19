@@ -183,8 +183,8 @@ Attributs protégés</h2></td></tr>
 <tr class="separator:a6a7d1d3e5e139ec61381c0fb5b58a415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0df996a50d232b8d93f5e6e36825347d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#a0df996a50d232b8d93f5e6e36825347d">nb_players</a></td></tr>
 <tr class="separator:a0df996a50d232b8d93f5e6e36825347d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aef6c859582306304bd2e46eed11d98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d55/classEloise_1_1Deck.html">Eloise::Deck</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#a8aef6c859582306304bd2e46eed11d98">deck</a> = nullptr</td></tr>
-<tr class="separator:a8aef6c859582306304bd2e46eed11d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a0b39b7539cf6f5caa630920e4ddcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d55/classEloise_1_1Deck.html">Deck</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#a02a0b39b7539cf6f5caa630920e4ddcc">deck</a> = nullptr</td></tr>
+<tr class="separator:a02a0b39b7539cf6f5caa630920e4ddcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92715390f67704c085f05d9a4ab6eca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html">Amalena::Pile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#a92715390f67704c085f05d9a4ab6eca8">pile</a> = nullptr</td></tr>
 <tr class="separator:a92715390f67704c085f05d9a4ab6eca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e44550b169371610ac01c5608ef2417"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d76/classAmalena_1_1River.html">Amalena::River</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#a1e44550b169371610ac01c5608ef2417">river</a> = nullptr</td></tr>
@@ -201,7 +201,9 @@ Attributs protégés statiques</h2></td></tr>
 <tr class="memitem:aebfb9fe7f90e7a900f9cfa309076b3b5"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#aebfb9fe7f90e7a900f9cfa309076b3b5">nb_players_max</a> = 4</td></tr>
 <tr class="separator:aebfb9fe7f90e7a900f9cfa309076b3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Classe abstraite Classe qui régit le fonctionnement d'une partie Design pattern template method </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a978dbe8542ab40957c2798b882ded7f7" name="a978dbe8542ab40957c2798b882ded7f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a978dbe8542ab40957c2798b882ded7f7">&#9670;&#160;</a></span>Game() <span class="overload">[1/3]</span></h2>
 
@@ -235,6 +237,13 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Premier constructeur de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> pour la création d'une nouvelle partie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_players</td><td>le nombre de joueurs </td></tr>
+    <tr><td class="paramname">variant</td><td>la ou les variantes </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -261,6 +270,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Deuxième constructeur de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> pour le lancement d'une partie interrompue </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_memento</td><td>le game memento avec toutes les informations de la partie </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -286,6 +301,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Destructeur virtuel pour l'héritage </p>
 
 </div>
 </div>
@@ -312,6 +328,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >On delete le constructeur de recopie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>une autre partie </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -429,6 +451,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour ajouter un joueur </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>of the player </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implémenté dans <a class="el" href="../../da/d62/classEloise_1_1GameConsole.html#a5b043d8bc189b3aa3f33b9e4d990e049">Eloise::GameConsole</a>, et <a class="el" href="../../dd/dbf/classEloise_1_1GameQt.html#ae94208f231e2faae1dab51f19d200f0b">Eloise::GameQt</a>.</p>
 
@@ -707,6 +735,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Getter du joueur courant </p><dl class="section return"><dt>Renvoie</dt><dd>l'indice du joueur courant </dd></dl>
 
 </div>
 </div>
@@ -757,6 +786,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Getter du nombre de joueurs </p><dl class="section return"><dt>Renvoie</dt><dd>le nombre de joueurs </dd></dl>
 
 </div>
 </div>
@@ -782,6 +812,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Getter du nombre de joueurs max </p><dl class="section return"><dt>Renvoie</dt><dd>le nombre de joueurs max </dd></dl>
 
 </div>
 </div>
@@ -800,6 +831,13 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter d'un joueur à partir d'une certaine position dans le tableau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -825,6 +863,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Getter de la variante </p><dl class="section return"><dt>Renvoie</dt><dd>une reference constante vers la variante </dd></dl>
 
 </div>
 </div>
@@ -969,6 +1008,13 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Operateur d'affectation interdit </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>une autre partie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>reference vers game </dd></dl>
 
 </div>
 </div>
@@ -1110,6 +1156,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Setter de la variante </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>variante </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1133,11 +1185,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Joueur actuel, entier qui représente un indice du tableau </p>
 
 </div>
 </div>
-<a id="a8aef6c859582306304bd2e46eed11d98" name="a8aef6c859582306304bd2e46eed11d98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aef6c859582306304bd2e46eed11d98">&#9670;&#160;</a></span>deck</h2>
+<a id="a02a0b39b7539cf6f5caa630920e4ddcc" name="a02a0b39b7539cf6f5caa630920e4ddcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02a0b39b7539cf6f5caa630920e4ddcc">&#9670;&#160;</a></span>deck</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1146,7 +1199,7 @@ Attributs protégés statiques</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d1/d55/classEloise_1_1Deck.html">Eloise::Deck</a>* Eloise::Game::deck = nullptr</td>
+          <td class="memname"><a class="el" href="../../d1/d55/classEloise_1_1Deck.html">Deck</a>* Eloise::Game::deck = nullptr</td>
         </tr>
       </table>
   </td>
@@ -1155,6 +1208,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointeur sur un deck, créé par le constructeur de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> </p>
 
 </div>
 </div>
@@ -1221,6 +1275,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Nombre de joueurs de la partie </p>
 
 </div>
 </div>
@@ -1243,6 +1298,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Attribut static qui représente le nombre maximal de joueurs pour une partie </p>
 
 </div>
 </div>
@@ -1265,6 +1321,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointeur sur une pile, créée par le constructeur de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> </p>
 
 </div>
 </div>
@@ -1287,6 +1344,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Vecteur de joueurs </p>
 
 </div>
 </div>
@@ -1309,6 +1367,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Pointeur sur la rivière, créée par le constructeur de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> </p>
 
 </div>
 </div>
@@ -1331,6 +1390,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Chaine de caractère pour la variante </p>
 
 </div>
 </div>
