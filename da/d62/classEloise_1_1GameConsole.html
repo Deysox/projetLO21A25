@@ -337,6 +337,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui permet au joueur de piocher, de placer sa tuile et éventuellement de se raviser </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">river_copy</td><td>pour avoir l'état original de la rivière </td></tr>
+    <tr><td class="paramname">board_copy</td><td>pour avoir l'état original du plateau </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un booléen qui indique si on doit stopper la partie ou pas </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ad1009eadf437b9fb1c42f2c7ecf36798">Eloise::Game</a>.</p>
 
@@ -364,6 +372,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour ajouter tous les joueurs au début de la partie </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a973b3e211f6463f41ecea31107c3e130">Eloise::Game</a>.</p>
 
@@ -426,6 +435,12 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour créer l'architecte </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">difficulty</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a1f70e54dfffe950abf8f3e6f29a80163">Eloise::Game</a>.</p>
 
@@ -453,6 +468,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour le tour de l'architecte </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a73d26069f8dc4784163d36641c4061dd">Eloise::Game</a>.</p>
 
@@ -480,6 +496,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour créer le joueur solo </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a1b95e13bd84c10c6bd61df54cfee7cd9">Eloise::Game</a>.</p>
 
@@ -507,6 +524,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour choisir la tuile dans la rivière </p><dl class="section return"><dt>Renvoie</dt><dd>référence sur tuile choisie </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ab6eddb9aae1850501cfef6896442b461">Eloise::Game</a>.</p>
 
@@ -534,6 +552,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui permet de choisir un pseudo pour identifier la partie abandonnée </p><dl class="section return"><dt>Renvoie</dt><dd>le pseudo de la partie sauvegardée </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ad6eb13c10cd2e5dcbceab951bbc15127">Eloise::Game</a>.</p>
 
@@ -588,6 +607,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui affiche toutes les informations du joueur en cours </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a1ed45e47dfea70302654f14e7101efd2">Eloise::Game</a>.</p>
 
@@ -615,6 +635,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour afficher la rivière </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#aa86a0f638a53e23ee66f78f8e05f9e59">Eloise::Game</a>.</p>
 
@@ -740,6 +761,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour le tour du joueur </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board_copy</td><td></td></tr>
+    <tr><td class="paramname">river_copy</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un booléen pour savoir si on continue la partie </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a22211b9fdeab996d405b2dbc9a4683dc">Eloise::Game</a>.</p>
 
