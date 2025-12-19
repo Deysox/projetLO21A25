@@ -33,7 +33,7 @@ namespace Marilou
 	{
 	public:
 		virtual ~Score() = default;
-		virtual int compute(const Barnabe::Player &player,
+		virtual int compute(const Eloise::Player &player,
 							const ScoreVariants &variants) const = 0;
 	};
 
@@ -43,7 +43,7 @@ namespace Marilou
 	class ScorePierre : public Score
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -54,7 +54,7 @@ namespace Marilou
 	public:
 		explicit ScoreArchitecte(ArchitectDifficulty d): difficulty(d){}
 
-		int compute(const Barnabe::Player &player,const ScoreVariants &variants) const override;
+		int compute(const Eloise::Player &player,const ScoreVariants &variants) const override;
 	};
 
 	/**
@@ -72,7 +72,7 @@ namespace Marilou
 	class ScoreBleu : public ScoreCouleur
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -82,7 +82,7 @@ namespace Marilou
 	class ScoreJaune : public ScoreCouleur
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -92,7 +92,7 @@ namespace Marilou
 	class ScoreRouge : public ScoreCouleur
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -102,7 +102,7 @@ namespace Marilou
 	class ScoreViolet : public ScoreCouleur
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -112,7 +112,7 @@ namespace Marilou
 	class ScoreVert : public ScoreCouleur
 	{
 	public:
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override;
 	};
 
@@ -141,7 +141,7 @@ namespace Marilou
 		// Ajout d'une stratégie de score.
 		void addScore(const Score *s) { scores.push_back(s); }
 
-		int compute(const Barnabe::Player &player,
+		int compute(const Eloise::Player &player,
 					const ScoreVariants &variants) const override
 		{
 			int total = 0;

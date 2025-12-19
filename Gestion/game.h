@@ -62,7 +62,7 @@ namespace Eloise {
 		void setSolo(const bool solo) {
 			isSolo = solo;
 		}
-		const bool& isSolo() const {
+		const bool& isGameSolo() const {
 			return isSolo;
 		}
 		void setDifficulty(const int dif)

@@ -267,6 +267,7 @@ namespace Barnabe {
 
         BoardQt --> ContainerQt
         BoardQt "*" o-- "1" Board
+        BoardQt *-- "*" CellQt
     }
 
 }

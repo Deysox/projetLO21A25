@@ -81,12 +81,11 @@ int main() {
 */
 
 #include "Gestion/menu.h"
+#include "menu2.h"
 #include <QApplication>
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    Eloise::MenuQt menu;
-    menu.setFixedSize(500, 400);
-    menu.show();
+    Eloise::Menu menu;
     return app.exec();
 }

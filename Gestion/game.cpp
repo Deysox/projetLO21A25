@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 #include "../Plateau/board.h"
 #include "../Plateau/boardmanager.h"
+#include "score.h"
 
 using json = nlohmann::json;
 

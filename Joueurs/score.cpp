@@ -3,9 +3,10 @@
 #include <vector>
 #include "score.h"
 
+using namespace Eloise;
 using namespace Barnabe;
 
-namespace
+namespace Marilou
 {
 
 	// Helpers internes
@@ -62,7 +63,7 @@ int Marilou::ScorePierre::compute(const Player &player, const ScoreVariants &) c
 }
 
 // ===== ScoreArchitecte =====
-int Marilou::ScoreArchitecte::compute(const Barnabe::Player &player,const ScoreVariants &) const
+int Marilou::ScoreArchitecte::compute(const Eloise::Player &player,const ScoreVariants &) const
 {
 	const Board &board = *(player.getBoard().getBoard());
 
@@ -113,7 +114,7 @@ int Marilou::ScoreBleu::compute(const Player &player,
 	if (stars == 0)
 		return 0;
 
-	std::map<Position, bool, PosCmp> visited;
+	std::unordered_map<Position, bool, PositionHasher> visited;
 	int bestValue = 0;
 
 	for (auto it = board.cbegin(); it != board.cend(); ++it)
@@ -160,7 +161,7 @@ int Marilou::ScoreBleu::compute(const Player &player,
 	int score = bestValue * stars;
 
 	// Variante : valeur du plus grand groupe >= 10 -> double
-	if (variants.habitations && bestValue >= 10 && score > 0)
+	if (variants.home && bestValue >= 10 && score > 0)
 		score *= 2;
 
 	return score;
@@ -168,7 +169,7 @@ int Marilou::ScoreBleu::compute(const Player &player,
 
 // ===== ScoreJaune : Marchés =====
 
-int Marilou::ScoreJaune::compute(const Player &player, const ScoreVariants &variants) const
+int Marilou::ScoreJaune::compute(const Eloise::Player &player, const ScoreVariants &variants) const
 {
 	const Board &board = getBoardFromPlayer(player);
 	int stars = countStarsForColor(board, Color::YELLOW);
@@ -206,7 +207,7 @@ int Marilou::ScoreJaune::compute(const Player &player, const ScoreVariants &vari
 	int score = value * stars;
 
 	// 2) Variante : s'il existe un marché adjacent à une place jaune, double
-	if (variants.marches && score > 0)
+	if (variants.market && score > 0)
 	{
 		bool hasMarketAdjacentToPlace = false;
 
@@ -278,7 +279,7 @@ int Marilou::ScoreRouge::compute(const Player &player, const ScoreVariants &vari
 	int score = value * stars;
 
 	// Variante : une caserne avec 3 ou 4 vides adjacents -> double
-	if (variants.casernes && score > 0)
+	if (variants.barrack && score > 0)
 	{
 		bool satisfiesVariant = false;
 
@@ -352,7 +353,7 @@ int Marilou::ScoreViolet::compute(const Player &player, const ScoreVariants &var
 	int score = value * stars;
 
 	// Variante : au moins un temple sur un niveau >= 2 -> double
-	if (variants.temples && score > 0)
+	if (variants.temple && score > 0)
 	{
 		bool hasTempleAboveGround = false;
 
@@ -401,7 +402,7 @@ int Marilou::ScoreVert::compute(const Player &player,
 	int score = value * stars;
 
 	// Variante : jardin adjacent à un lac (case vide entourée de cases non vides)
-	if (variants.jardins && score > 0)
+	if (variants.garden && score > 0)
 	{
 		bool hasGardenAdjacentToLake = false;
 

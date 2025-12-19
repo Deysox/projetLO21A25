@@ -30,7 +30,7 @@ namespace Eloise {
     }
 
     ostream& operator<<(ostream& f, const Player& p) {
-        f << "Player " << p.getName()  << "Stones : " << p.getStones() <<  "board : " <<  p.getBoard();
+        f << "Player " << p.getName()  << "\nStones : " << p.getStones() <<  "\nboard :\n" <<  p.getBoard();
         return f;
     }
 
