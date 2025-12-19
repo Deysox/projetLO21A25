@@ -18,7 +18,7 @@ namespace Eloise {
 
     /**
      * Design pattern singleton
-     * Classe fille de Game pour la version console
+     * Classe fille de Game pour la version Qt
      */
     class GameQt : public Game {
     private:
