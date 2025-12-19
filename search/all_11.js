@@ -40,11 +40,13 @@ var searchData=
   ['size_37',['size',['../d0/d4c/classBarnabe_1_1CellQt.html#a2b2591b36ff9ef3ec1669a6e77549c29',1,'Barnabe::CellQt::size()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a38712c751315e85c27fce29bf2bf397f',1,'Barnabe::ContainerQt::size()']]],
   ['sologameparametersready_38',['sologameparametersReady',['../d2/dfd/classinit.html#a48e0374a71a5bef1b91b02673d0d172b',1,'init']]],
   ['spinlevel_39',['spinlevel',['../d2/dfd/classinit.html#aed0fae512cfa48069b08611d23e41bba',1,'init']]],
-  ['startingtile_40',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html',1,'Barnabe::StartingTile'],['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile::StartingTile()']]],
-  ['startingtile_41',['startingTile',['../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301',1,'Barnabe::BoardManager']]],
-  ['stay1_42',['stay1',['../dc/d76/classAmalena_1_1River.html#a725938b41dd7aa51ea940e4372884dd4',1,'Amalena::River']]],
-  ['stones_43',['stones',['../d7/de2/classEloise_1_1Player.html#a7e6857dcfd63906903ec4f87d0928385',1,'Eloise::Player']]],
-  ['stones_5fdistribution_44',['stones_distribution',['../d7/de2/classEloise_1_1Player.html#a4b4058bf78b1eb94badedc9e457600d4',1,'Eloise::Player']]],
-  ['stringtocolor_45',['stringToColor',['../d8/d80/classBarnabe_1_1Board.html#a8a42499d21d94f9800dea106e11bf43e',1,'Barnabe::Board::stringToColor()'],['../d1/d55/classEloise_1_1Deck.html#a07c4e221ea911820cee83222be89f08a',1,'Eloise::Deck::stringToColor()']]],
-  ['stringtotype_46',['stringToType',['../d8/d80/classBarnabe_1_1Board.html#ada734d258d642958fdf75a24d70f97fd',1,'Barnabe::Board::stringToType()'],['../d1/d55/classEloise_1_1Deck.html#a6fd02a37b5bd83d71d23e72e8b1c9888',1,'Eloise::Deck::stringToType()']]]
+  ['starsforcolor_40',['starsForColor',['../d8/dca/namespaceMarilou.html#acea57c5586764cd6ef932bacb2533a3f',1,'Marilou']]],
+  ['startingtile_41',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html',1,'Barnabe']]],
+  ['startingtile_42',['startingTile',['../d8/de9/classBarnabe_1_1BoardManager.html#a1e14d3d97d473a8347ea614be2a53301',1,'Barnabe::BoardManager']]],
+  ['startingtile_43',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile']]],
+  ['stay1_44',['stay1',['../dc/d76/classAmalena_1_1River.html#a725938b41dd7aa51ea940e4372884dd4',1,'Amalena::River']]],
+  ['stones_45',['stones',['../d7/de2/classEloise_1_1Player.html#a7e6857dcfd63906903ec4f87d0928385',1,'Eloise::Player']]],
+  ['stones_5fdistribution_46',['stones_distribution',['../d7/de2/classEloise_1_1Player.html#a4b4058bf78b1eb94badedc9e457600d4',1,'Eloise::Player']]],
+  ['stringtocolor_47',['stringToColor',['../d8/d80/classBarnabe_1_1Board.html#a8a42499d21d94f9800dea106e11bf43e',1,'Barnabe::Board::stringToColor()'],['../d1/d55/classEloise_1_1Deck.html#a07c4e221ea911820cee83222be89f08a',1,'Eloise::Deck::stringToColor()']]],
+  ['stringtotype_48',['stringToType',['../d8/d80/classBarnabe_1_1Board.html#ada734d258d642958fdf75a24d70f97fd',1,'Barnabe::Board::stringToType()'],['../d1/d55/classEloise_1_1Deck.html#a6fd02a37b5bd83d71d23e72e8b1c9888',1,'Eloise::Deck::stringToType()']]]
 ];

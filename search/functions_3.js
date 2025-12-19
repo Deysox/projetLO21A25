@@ -10,6 +10,6 @@ var searchData=
   ['displayplayers_7',['displayPlayers',['../da/d38/classEloise_1_1Game.html#a9e40b5877a8bf12bbd47dcc33b994c48',1,'Eloise::Game']]],
   ['displayriver_8',['displayRiver',['../da/d38/classEloise_1_1Game.html#aa86a0f638a53e23ee66f78f8e05f9e59',1,'Eloise::Game::displayRiver()'],['../da/d62/classEloise_1_1GameConsole.html#a41e29b13b360b4fe4186a7d1ac50b570',1,'Eloise::GameConsole::displayRiver()'],['../dd/dbf/classEloise_1_1GameQt.html#a0041421a3e654bebaa6eadbbaca54e7b',1,'Eloise::GameQt::displayRiver()']]],
   ['displaytop_9',['displayTop',['../d0/db0/classBarnabe_1_1Cell.html#aaa6d164bfccc6f85bed98ff2d97d96e5',1,'Barnabe::Cell']]],
-  ['draw_10',['draw',['../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f',1,'Barnabe::BoardQt::draw()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a3eac960e1a25bea0d2974ef30e1dbb7e',1,'Barnabe::ContainerQt::draw()'],['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#adfa02b378ce45e7661150d37f35e2bc0',1,'Barnabe::ClassicTileQt::draw()']]],
-  ['draw_11',['Draw',['../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88',1,'Amalena::Pile']]]
+  ['draw_10',['Draw',['../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88',1,'Amalena::Pile']]],
+  ['draw_11',['draw',['../db/d91/classBarnabe_1_1BoardQt.html#a27a12b62a34e3a4c20b188f2fa40b62f',1,'Barnabe::BoardQt::draw()'],['../d5/d12/classBarnabe_1_1ContainerQt.html#a3eac960e1a25bea0d2974ef30e1dbb7e',1,'Barnabe::ContainerQt::draw()'],['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#adfa02b378ce45e7661150d37f35e2bc0',1,'Barnabe::ClassicTileQt::draw()']]]
 ];

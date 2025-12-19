@@ -1,7 +1,7 @@
 var searchData=
 [
   ['save_0',['save',['../d2/de2/classAmalena_1_1savemanager.html#a5c9e1b14251ee4de17254df27392fc03',1,'Amalena::savemanager']]],
-  ['savemanager_1',['savemanager',['../d2/de2/classAmalena_1_1savemanager.html#abf0c25c74f4ee16ab32e01999aa99751',1,'Amalena::savemanager::savemanager(GameMemento *g)'],['../d2/de2/classAmalena_1_1savemanager.html#a5d560598c0dfa9dba33fbd71e2b0fecb',1,'Amalena::savemanager::savemanager()'],['../d2/de2/classAmalena_1_1savemanager.html#afcd660e482f9c14f028852cb4117d575',1,'Amalena::savemanager::savemanager(const savemanager &amp;s)=delete']]],
+  ['savemanager_1',['savemanager',['../d2/de2/classAmalena_1_1savemanager.html#abf0c25c74f4ee16ab32e01999aa99751',1,'Amalena::savemanager::savemanager(GameMemento *g)'],['../d2/de2/classAmalena_1_1savemanager.html#afcd660e482f9c14f028852cb4117d575',1,'Amalena::savemanager::savemanager(const savemanager &amp;s)=delete'],['../d2/de2/classAmalena_1_1savemanager.html#a5d560598c0dfa9dba33fbd71e2b0fecb',1,'Amalena::savemanager::savemanager()']]],
   ['scorearchitecte_2',['ScoreArchitecte',['../db/d00/classMarilou_1_1ScoreArchitecte.html#aaea6fc1d4e398440befdf241c3407956',1,'Marilou::ScoreArchitecte']]],
   ['scoregeneral_3',['ScoreGeneral',['../d6/d25/classMarilou_1_1ScoreGeneral.html#ab9158de80b5a5541b3382c93bec9beaf',1,'Marilou::ScoreGeneral::ScoreGeneral()=default'],['../d6/d25/classMarilou_1_1ScoreGeneral.html#a89dd36f4cb16525bf571f93a492d0792',1,'Marilou::ScoreGeneral::ScoreGeneral(const CONT &amp;c)']]],
   ['set_5fboards_4',['set_boards',['../dd/df7/classAmalena_1_1GameMemento.html#a5f01fb0e653938fc2a2f84ecd42dbced',1,'Amalena::GameMemento']]],
@@ -23,6 +23,7 @@ var searchData=
   ['settile_20',['setTile',['../d6/dbf/classBarnabe_1_1ClassicTileQt.html#ae4f4286b20aa0270057c17d94032c01e',1,'Barnabe::ClassicTileQt']]],
   ['setvariant_21',['setVariant',['../da/d38/classEloise_1_1Game.html#aadc2c00648483c601c137731e304d1c9',1,'Eloise::Game']]],
   ['sologameparametersready_22',['sologameparametersReady',['../d2/dfd/classinit.html#a48e0374a71a5bef1b91b02673d0d172b',1,'init']]],
-  ['startingtile_23',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile']]],
-  ['stay1_24',['stay1',['../dc/d76/classAmalena_1_1River.html#a725938b41dd7aa51ea940e4372884dd4',1,'Amalena::River']]]
+  ['starsforcolor_23',['starsForColor',['../d8/dca/namespaceMarilou.html#acea57c5586764cd6ef932bacb2533a3f',1,'Marilou']]],
+  ['startingtile_24',['StartingTile',['../dd/df0/classBarnabe_1_1StartingTile.html#ad8bd171583bc2909098a52760360cbef',1,'Barnabe::StartingTile']]],
+  ['stay1_25',['stay1',['../dc/d76/classAmalena_1_1River.html#a725938b41dd7aa51ea940e4372884dd4',1,'Amalena::River']]]
 ];
