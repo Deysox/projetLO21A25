@@ -240,7 +240,9 @@ Membres hérités additionnels</h2></td></tr>
 <tr class="memitem:aebfb9fe7f90e7a900f9cfa309076b3b5 inherit pro_static_attribs_classEloise_1_1Game"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d38/classEloise_1_1Game.html#aebfb9fe7f90e7a900f9cfa309076b3b5">nb_players_max</a> = 4</td></tr>
 <tr class="separator:aebfb9fe7f90e7a900f9cfa309076b3b5 inherit pro_static_attribs_classEloise_1_1Game"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Design pattern singleton Classe fille de <a class="el" href="../../da/d38/classEloise_1_1Game.html">Game</a> pour la version console </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a8ffa243776e2284af489294a5850b9a1" name="a8ffa243776e2284af489294a5850b9a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ffa243776e2284af489294a5850b9a1">&#9670;&#160;</a></span>GameConsole() <span class="overload">[1/2]</span></h2>
 
@@ -274,6 +276,13 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur pour lancer une nouvelle partie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_players</td><td>le nombre de joueurs </td></tr>
+    <tr><td class="paramname">v</td><td>la ou les variantes </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -300,6 +309,12 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur pour reprendre une partie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_memento</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -337,14 +352,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode qui permet au joueur de piocher, de placer sa tuile et éventuellement de se raviser </p><dl class="params"><dt>Paramètres</dt><dd>
+<p >Méthode qui permet au joueur d'effectuer toutes ses actions (pioche, placement, rollback) durant son tour </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">river_copy</td><td>pour avoir l'état original de la rivière </td></tr>
-    <tr><td class="paramname">board_copy</td><td>pour avoir l'état original du plateau </td></tr>
+    <tr><td class="paramname">river_copy</td><td></td></tr>
+    <tr><td class="paramname">board_copy</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>un booléen qui indique si on doit stopper la partie ou pas </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>un booléen qui indique s'il faut continuer la partie ou la stopper </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ad1009eadf437b9fb1c42f2c7ecf36798">Eloise::Game</a>.</p>
 
@@ -372,7 +387,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour ajouter tous les joueurs au début de la partie </p>
+<p >Méthode qui boucle et ajoute chacun des joueurs </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a973b3e211f6463f41ecea31107c3e130">Eloise::Game</a>.</p>
 
@@ -401,9 +416,9 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour ajouter un joueur </p><dl class="params"><dt>Paramètres</dt><dd>
+<p >Méthode qui crée et ajoute un joueur </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>of the player </td></tr>
+    <tr><td class="paramname">name</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -435,9 +450,9 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour créer l'architecte </p><dl class="params"><dt>Paramètres</dt><dd>
+<p >Méthode qui crée l'architecte </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">difficulty</td><td></td></tr>
+    <tr><td class="paramname">difficulty</td><td>difficulté pour le compte du score de l'architecte </td></tr>
   </table>
   </dd>
 </dl>
@@ -468,7 +483,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour le tour de l'architecte </p>
+<p >Méthode qui régie le tour de l'architecte </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a73d26069f8dc4784163d36641c4061dd">Eloise::Game</a>.</p>
 
@@ -496,7 +511,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour créer le joueur solo </p>
+<p >Méthode qui crée le joueur solo à partir du nom qu'il indique </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a1b95e13bd84c10c6bd61df54cfee7cd9">Eloise::Game</a>.</p>
 
@@ -524,7 +539,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour choisir la tuile dans la rivière </p><dl class="section return"><dt>Renvoie</dt><dd>référence sur tuile choisie </dd></dl>
+<p >Méthode pour choisir la tuile dans la rivière </p><dl class="section return"><dt>Renvoie</dt><dd>référence sur la tuile choisie </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ab6eddb9aae1850501cfef6896442b461">Eloise::Game</a>.</p>
 
@@ -552,7 +567,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode qui permet de choisir un pseudo pour identifier la partie abandonnée </p><dl class="section return"><dt>Renvoie</dt><dd>le pseudo de la partie sauvegardée </dd></dl>
+<p >Méthode qui permet de choisir le nom pour sauvegarder la partie </p><dl class="section return"><dt>Renvoie</dt><dd>le pseudo de game choisi </dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ad6eb13c10cd2e5dcbceab951bbc15127">Eloise::Game</a>.</p>
 
@@ -580,6 +595,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui affiche un message de confirmation </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#ab7a2bb41b72486187ba94c780c3e9fdc">Eloise::Game</a>.</p>
 
@@ -607,7 +623,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode qui affiche toutes les informations du joueur en cours </p>
+<p >Méthode qui affiche toutes les informations du joueur courant </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a1ed45e47dfea70302654f14e7101efd2">Eloise::Game</a>.</p>
 
@@ -635,7 +651,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour afficher la rivière </p>
+<p >Méthode qui affiche la rivière </p>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#aa86a0f638a53e23ee66f78f8e05f9e59">Eloise::Game</a>.</p>
 
@@ -663,6 +679,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui libère l'instance unique </p>
 
 </div>
 </div>
@@ -689,6 +706,13 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode pour accéder à l'instance unique </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game_memento</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>référence sur l'instance </dd></dl>
 
 </div>
 </div>
@@ -725,6 +749,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode pour accéder à l'instance unique </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nb_players</td><td>le nombre de joueurs </td></tr>
+    <tr><td class="paramname">v</td><td>la ou les variantes </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>référence sur l'instance unique </dd></dl>
 
 </div>
 </div>
@@ -761,14 +793,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Méthode virtuelle pure pour le tour du joueur </p><dl class="params"><dt>Paramètres</dt><dd>
+<p >Méthode qui régit le tour du player solo </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">board_copy</td><td></td></tr>
-    <tr><td class="paramname">river_copy</td><td></td></tr>
+    <tr><td class="paramname">board_copy</td><td>version originale du plateau avant le tour </td></tr>
+    <tr><td class="paramname">river_copy</td><td>version originale de la rivière avant le tour </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>un booléen pour savoir si on continue la partie </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
 
 <p>Implémente <a class="el" href="../../da/d38/classEloise_1_1Game.html#a22211b9fdeab996d405b2dbc9a4683dc">Eloise::Game</a>.</p>
 
@@ -794,6 +826,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Instance unique </p>
 
 </div>
 </div>
