@@ -13,16 +13,22 @@
 #include "../Gestion/game.h"
 #include <QWidget>
 #include <QObject>
+
+
+#include "../Chantier/riverQT.h"
+
+using namespace std;
 namespace Eloise {
-    using namespace std;
 
     /**
      * Design pattern singleton
      * Classe fille de Game pour la version Qt
      */
-    class GameQt : public Game {
+    class GameQt :  public QObject,public Game{
+Q_OBJECT
     private:
         QWidget* parent = nullptr;
+        Amalena::riverQT* riverWindow =nullptr;
         static GameQt* instanceQt;
         GameQt(size_t nb_players,string v) : Game(nb_players,v) {}
         GameQt(const Amalena::GameMemento& game_memento) : Game(game_memento) {}

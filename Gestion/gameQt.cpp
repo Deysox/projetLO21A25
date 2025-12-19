@@ -4,6 +4,7 @@
 #include "gameQt.h"
 #include "../Joueurs/playerQt.h"
 #include "../Chantier/river.h"
+#include"../Chantier/riverQT.h"
 #include <iostream>
 #include <vector>
 #include "../Tuiles/deck.h"
@@ -104,12 +105,33 @@ namespace Eloise {
         }
     }
 
-    void GameQt::displayRiver() {
-        QString riverStr = QString::fromStdString(river->toString());
-        QMessageBox::information(parent, "River", riverStr);
+void GameQt::displayRiver() {
+
+   /* riverWindow = new Amalena::riverQT(parent, *river);
+    riverWindow->setWindowTitle("Rivière");
+    riverWindow->resize(800, 200);
+    riverWindow->setAttribute(Qt::WA_DeleteOnClose); // auto-supprime à la fermeture
+    riverWindow->show();*/
+   if (!riverWindow)
+    {
+        riverWindow = new Amalena::riverQT(parent, *river);
+        riverWindow->setWindowTitle("Rivière");
+        riverWindow->resize(800, 200);
+        riverWindow->setAttribute(Qt::WA_DeleteOnClose); // auto-supprime à la fermeture
+        riverWindow->show();
+    }else
+    {
+    riverWindow->updateDisplay();
+        riverWindow->show();
     }
-    Tile& GameQt::chooseTileRiver() {
-        int position = 1;
+
+}
+ /*   void GameQt::displayRiver() {
+    QString riverStr = QString::fromStdString(river->toString());
+    QMessageBox::information(parent, "River", riverStr);
+}  */
+Tile& GameQt::chooseTileRiver() {
+    int position = 1;
 
         do {
             position = QInputDialog::getInt(parent, "Pick a Tile",
