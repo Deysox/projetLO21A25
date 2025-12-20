@@ -7,7 +7,7 @@
 #include <nlohmann/json.hpp>
 #include <vector>
 using json = nlohmann::json;
-
+using namespace std;
 namespace Amalena
 {
     json savemanager::tojson()
@@ -45,20 +45,21 @@ namespace Amalena
 
     void savemanager::save()
     {
+        //appel à tojson() pour sauvegarder
         json newGame = tojson();
         json data;
         //ouverture fichier et sécurité
-        std::ifstream in("../sauvegarde.json");
+        ifstream in("../sauvegarde.json");
         if (in.is_open()) {
             try {
                 in >> data;
-            //évite crash
+            //évite crash, catch général
             } catch (...) {
                 data = json::object();
             }
             in.close();
         }
-        //games = conteneur de toutes les parties ==> sécurité car il doit exister donc init
+        //games = conteneur de toutes les parties ==> sécurité car il doit exister donc init éventuellement
         if (!data.contains("games") || !data["games"].is_array()) {
             data["games"] = json::array();
         }
@@ -68,6 +69,7 @@ namespace Amalena
             if (game.contains("game_id") &&
                 game["game_id"] == newGame["game_id"]) {
                 game = newGame;
+                //maj booléen
                 replaced = true;
                 break;
             }
@@ -76,12 +78,12 @@ namespace Amalena
         if (!replaced) {
             data["games"].push_back(newGame);
         }
-        std::ofstream out("../sauvegarde.json");
+        ofstream out("../sauvegarde.json");
         if (!out.is_open()) {
-            std::cerr << "Failed to open save file for writing" << std::endl;
+            cerr << "Failed to open save file for writing";
             return;
         }
-        out << std::setw(4) << data << std::endl;
+        out << setw(4) << data;
     }
 
     GameMemento* savemanager::restore(string id)
@@ -92,6 +94,7 @@ namespace Amalena
             cout << "Failed to open file" ;
             return nullptr;
         }
+        //on va chercher les données dans le json
         json data;
         try {
             file >> data;
@@ -100,6 +103,7 @@ namespace Amalena
             return nullptr;
         }
         //sécurité json
+        //on vérifie qu'on a bien le conteneur games au format tableau
         if (!data.contains("games") || !data["games"].is_array()) {
             cout << "Invalid save file: 'games' missing or not an array";
             return nullptr;
@@ -109,6 +113,7 @@ namespace Amalena
             if (!game.contains("game_id")) continue;
             if (game["game_id"].get<std::string>() == id) {
                 //quand on trouve on convertit en game memento et on le renvoie
+                //via appel à fromjson()
                 fromjson(game);
                 return gameMemento;
             }

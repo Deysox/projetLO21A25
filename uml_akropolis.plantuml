@@ -455,7 +455,7 @@ namespace Eloise {
         {abstract} # placeTile(tile: Tile)
     }
 
-    Player *-- Boardmanager
+    Player *-- "1" Boardmanager
 
     class PlayerQt {
         + BoardWidget : BoardQt*
