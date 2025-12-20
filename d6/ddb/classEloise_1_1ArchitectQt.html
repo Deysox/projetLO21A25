@@ -155,7 +155,9 @@ Membres hérités additionnels</h2></td></tr>
 <tr class="memitem:a4b4058bf78b1eb94badedc9e457600d4 inherit pro_static_attribs_classEloise_1_1Player"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de2/classEloise_1_1Player.html#a4b4058bf78b1eb94badedc9e457600d4">stones_distribution</a> = 1</td></tr>
 <tr class="separator:a4b4058bf78b1eb94badedc9e457600d4 inherit pro_static_attribs_classEloise_1_1Player"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Classe architecte pour la version qt Permet de gérer l'illustre architecte pour la variante solo </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a524ae7b07872e56267e03b301379a748" name="a524ae7b07872e56267e03b301379a748"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a524ae7b07872e56267e03b301379a748">&#9670;&#160;</a></span>ArchitectQt()</h2>
 
@@ -195,6 +197,14 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td></td></tr>
+    <tr><td class="paramname">d</td><td>difficulté </td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -212,7 +222,7 @@ Membres hérités additionnels</h2></td></tr>
           <td class="memname">void Eloise::ArchitectQt::playTurn </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d8/dcb/classBarnabe_1_1Tile.html">Tile</a> &amp;&#160;</td>
-          <td class="paramname"><em>tile</em></td><td>)</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -222,9 +232,9 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Template method Méthode qui affiche le plateau et permet de placer une tuile dessus </p><dl class="params"><dt>Paramètres</dt><dd>
+<p >Méthode qui permet d'ajouter la tuile choisie au vecteur </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tile</td><td>référence sur la tuile à placer </td></tr>
+    <tr><td class="paramname">t</td><td>référence sur tuile </td></tr>
   </table>
   </dd>
 </dl>
@@ -253,6 +263,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Vecteur de tuiles car l'architecte ne place pas vraiment ses tuiles sur un plateau </p>
 
 </div>
 </div>
@@ -275,6 +286,7 @@ Membres hérités additionnels</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Attribut difficulté pour le score </p>
 
 </div>
 </div>
