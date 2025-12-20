@@ -123,8 +123,9 @@ class Marilou::ScoreGeneral&lt; CONT &gt;</div><p ><a class="el" href="../../d6/
 <ul>
 <li>CONT joue le rôle du conteneur de stratégies (par défaut std::list&lt;const Score*&gt;).</li>
 <li><a class="el" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html">ScoreGeneral</a> n'a aucune connaissance des classes concrètes.</li>
-<li>Pour ajouter un nouveau scoreur, on crée une nouvelle classe dérivant de <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> et on l'ajoute via <a class="el" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#afd5e857f47c4762c6b85908b51c9a885">addScore()</a> dans le code client. </li>
+<li>Pour ajouter un nouveau scoreur, on crée une nouvelle classe dérivant de <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> et on l'ajoute via <a class="el" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#afd5e857f47c4762c6b85908b51c9a885">addScore()</a> dans le code client.</li>
 </ul>
+<p >Cette classe permet d'agréger plusieurs stratégies de score et de sommer leurs résultats. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ab9158de80b5a5541b3382c93bec9beaf" name="ab9158de80b5a5541b3382c93bec9beaf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9158de80b5a5541b3382c93bec9beaf">&#9670;&#160;</a></span>ScoreGeneral() <span class="overload">[1/2]</span></h2>
@@ -150,6 +151,7 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur par défaut : crée un agrégateur vide. </p>
 
 </div>
 </div>
@@ -178,6 +180,12 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur à partir d'un conteneur de stratégies déjà configuré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Conteneur de pointeurs vers des objets <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -207,6 +215,12 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Ajoute une nouvelle stratégie de score à l'agrégateur. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Pointeur vers une stratégie de score (non possédée) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -245,6 +259,14 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Calcule le score total en sommant les contributions de chaque stratégie. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Joueur dont on veut calculer le score </td></tr>
+    <tr><td class="paramname">variants</td><td>Variantes de scoring à transmettre à chaque stratégie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Somme des scores calculés par toutes les stratégies agrégées </dd></dl>
 
 <p>Implémente <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html#aa88b5e3c3c402c44bb32bae3ede943af">Marilou::Score</a>.</p>
 
@@ -274,6 +296,12 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur à partir d'un conteneur de stratégies déjà configuré. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Conteneur de pointeurs vers des objets <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -301,6 +329,7 @@ template&lt;class CONT  = std::list&lt;const Score *&gt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Renvoie</dt><dd>Référence constante vers le conteneur interne de stratégies </dd></dl>
 
 </div>
 </div>

@@ -107,7 +107,7 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:aa88b5e3c3c402c44bb32bae3ede943af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p >Interface de base pour tout calcul de score. </p>
+<div class="textblock"><p >Interface de base pour tout calcul de score. Toute startégie de scoring doit dériver de cette classe et redéfinir <a class="el" href="../../dc/d0b/classMarilou_1_1Score.html#aa88b5e3c3c402c44bb32bae3ede943af">compute()</a>. </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="a8ecf583969ce565d47b4da87af06ea18" name="a8ecf583969ce565d47b4da87af06ea18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ecf583969ce565d47b4da87af06ea18">&#9670;&#160;</a></span>~Score()</h2>
@@ -168,6 +168,14 @@ Fonctions membres publiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Calcule le score associé à un joueur selon la stratégie implémentée. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Joueur dont on veut calculer le score </td></tr>
+    <tr><td class="paramname">variants</td><td>Variantes de scoring actuellement activées </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../dc/d0b/classMarilou_1_1Score.html">Score</a> entier obtenu par le joueur </dd></dl>
 
 <p>Implémenté dans <a class="el" href="../../d1/d49/classMarilou_1_1ScorePierre.html#afbe20a0d3451ffa825e008ef26a16213">Marilou::ScorePierre</a>, <a class="el" href="../../db/d00/classMarilou_1_1ScoreArchitecte.html#a1121ebcef5edb2d9c6b6a3b1779eca22">Marilou::ScoreArchitecte</a>, <a class="el" href="../../d8/de4/classMarilou_1_1ScoreBleu.html#a756bded55ed3920b69b9b7812fe4296a">Marilou::ScoreBleu</a>, <a class="el" href="../../dd/dd6/classMarilou_1_1ScoreJaune.html#a212b71b3485d97b5cbf1cf61823ac7ea">Marilou::ScoreJaune</a>, <a class="el" href="../../d7/d78/classMarilou_1_1ScoreRouge.html#ad05e3555a35b848941694d7295a11a44">Marilou::ScoreRouge</a>, <a class="el" href="../../d0/d07/classMarilou_1_1ScoreViolet.html#a1bf029c8a58753a7b2fe0a3ec0e5d63c">Marilou::ScoreViolet</a>, <a class="el" href="../../db/d01/classMarilou_1_1ScoreVert.html#a4c9cea9f03b5224ace7ddf1b33268ea5">Marilou::ScoreVert</a>, et <a class="el" href="../../d6/d25/classMarilou_1_1ScoreGeneral.html#a368a92e5b7024d57f8ed69212ba393b1">Marilou::ScoreGeneral&lt; CONT &gt;</a>.</p>
 
