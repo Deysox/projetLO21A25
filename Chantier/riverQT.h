@@ -17,16 +17,20 @@ namespace Amalena
 
     public:
         /**
-         *
+         * constucteur de widget river
          * @param parent
-         * @param r
+         * @param r river&
          */
         riverQT(QWidget* parent,River& r);
+        /**
+         * destructeur
+         */
         ~riverQT() override =default;
+        /**
+         * mise à jour de la rivière
+         */
         void updateDisplay();
 
-        //verif okay par autre => mà jour riverqt
-        //refresh riverQT or display
 
     };
 }

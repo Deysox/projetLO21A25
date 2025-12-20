@@ -39,11 +39,14 @@ namespace Amalena {
         /**
          *constructeur
          *@param nb le nombre de tuiles max dans la rivière (relatif au nombre de joueur)
+         *@param pile : reférence vers la pile associée
          */
         River(size_t nb, Pile& pile);
         /**
          *constructeur pour la sauvegarde
-         * prenant en plus en paramètre un vecteur des tuiles présents dans la rivière
+         *@param tiles :vecteur de pointeur sur les tuiles de la rivière présente dans la sauvegarde
+         *@param nb le nombre de tuiles max dans la rivière (relatif au nombre de joueur)
+         *@param pile : reférence vers la pile associée
          */
 
         River(vector<Tile*>& tiles, size_t nb, Pile& pile): tiles(tiles), max_tiles(nb), pile(pile){};
@@ -53,14 +56,16 @@ namespace Amalena {
         ~River();
         /**
          * constructeur par recopie
+         * @param r river
          */
         River(const River& r):tiles(r.tiles), max_tiles(r.max_tiles), pile(r.pile){};
         /**
          *opérateur d'affectation
+         *@param f : river
          */
         River& operator=(const River& f);
         /**
-         *transcription en chaine pour la sauvegarde
+         *transcription en chaine
          */
         string toString() const;
         /**
@@ -71,16 +76,29 @@ namespace Amalena {
             return tiles.size();
         }
         /**
-         *getter
+         *getter pour obtenir les tuiles
+         *return tiles
          */
         const vector<Tile*>& getTiles() const { return tiles; }
+
+        /**
+         *
+         * @param tile pointeur vers tuiles à ajouter
+         */
         void addTilesInRiver(Tile* tile) {
             tiles.push_back(tile);
         }
+
+        /**
+         * nettoie rivière
+         */
         void clearVectorRiver() {
             tiles.clear();
         }
     private:
+        /**
+         * iterateur basé sur celui d'un vector
+         */
         class RiverIterator {
             std::vector<Tile*>::iterator current;
             friend class River;
@@ -118,6 +136,7 @@ namespace Amalena {
     };
     /**
     *surcharde de l'opérateur << pour l'affichage en mode console
+    *@param r reference vers une rivière
     */
     ostream& operator<<(ostream& f, Amalena::River& r);
 }
