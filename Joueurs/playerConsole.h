@@ -52,6 +52,12 @@ namespace Eloise{
         ArchitectConsole(const std::string& name, int d)
             : PlayerConsole(name), difficulty(d) {}
 
+		/**
+		 * Getteur du vecteur de Tile
+		 * @return le Vecteur de Tiles de l'architecte
+		 */
+		const vector<Tile*>& getArchitetctTiles() const {return architect_tiles;}
+
         /**
          * Méthode qui ajoute la tuile choisie au vecteur de tuiles
          * @param t référence sur la tuile à placer

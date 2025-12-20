@@ -206,7 +206,7 @@ namespace Eloise {
 			int scoreJoueur = scoreGen.compute(*joueur, variants);
 			int stonesJoueur = joueur->getStones();
 			results.push_back({joueur, scoreJoueur, stonesJoueur});
-			std::cout << joueur->getName() << " : " << scoreJoueur << " (nb pierres : " << stonesJoueur << ")\n";
+			std::cout << joueur->getName() << " : " << scoreJoueur << " (stones : " << stonesJoueur << ")\n";
 
 			ArchitectDifficulty diff =
 				(difficulty == 1) ? ArchitectDifficulty::HIPPODAMOS : (difficulty == 2) ? ArchitectDifficulty::METAGENES
@@ -217,7 +217,7 @@ namespace Eloise {
 			int stonesArchitecte = architecte->getStones();
 			results.push_back({architecte, scoreArchitecte, stonesArchitecte});
 			std::cout << architecte->getName() << " : " << scoreArchitecte
-					  << " (nb pierres : " << stonesArchitecte << ")\n";
+					  << " (stones : " << stonesArchitecte << ")\n";
 		}
 		else
 		{
@@ -227,7 +227,7 @@ namespace Eloise {
 				int score = scoreGen.compute(*p, variants);
 				int stones = p->getStones();
 				results.push_back({p, score, stones});
-				std::cout << p->getName() << " : " << score << " (nb pierres : " << stones << ")\n";
+				std::cout << p->getName() << " : " << score << " (stones : " << stones << ")\n";
 			}
 		}
 
@@ -261,11 +261,11 @@ namespace Eloise {
 
 		if (winners.size() == 1)
 		{
-			std::cout << "\n"<< winners[0]->player->getName() << " a gagné !\n";
+			std::cout << "\n"<< winners[0]->player->getName() << " won !\n";
 		}
 		else
 		{
-			std::cout << "\nÉgalité entre : ";
+			std::cout << "\nTie between : ";
 			for (size_t i = 0; i < winners.size(); ++i)
 			{
 				if (i > 0)
