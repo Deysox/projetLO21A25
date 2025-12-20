@@ -16,32 +16,32 @@
 using json = nlohmann::json;
 
 namespace Eloise {
-    //static attributs
     size_t Game::nb_players_max = 4;
 
     Game::Game(size_t nb_players,string v) :
         nb_players(nb_players),
-        deck(new Eloise::Deck(nb_players)),
+        deck(new Deck(nb_players)),
         pile(new Amalena::Pile(*deck)),
         river(new Amalena::River(nb_players+2,*pile)),
         variant(v){}
 
-    //retrieve tiles' id
     Game::Game(const Amalena::GameMemento& game_memento) :
         nb_players(game_memento.get_nbplayer()),
         current_player(game_memento.get_currentplayer()),
         variant(game_memento.get_variante()){
         if (nb_players == 1) {
-            deck = new Eloise::Deck(nb_players+1);
+            deck = new Deck(nb_players+1);
         }
         else {
-            deck = new Eloise::Deck(nb_players);
+            deck = new Deck(nb_players);
         }
         pile = new Amalena::Pile(*deck);
         if (nb_players== 1) river = new Amalena::River(nb_players+3,*pile);
         else river = new Amalena::River(nb_players+2,*pile);
+    	//on vide pile et rivière pour pouvoir les remplir avec les bonnes tuiles
         pile->clearVectorPile();
         river->clearVectorRiver();
+    	//ouverture du fichier avec les tuiles
         ifstream fichier("../tiles_2.json");
         json data;
         if (fichier.is_open()){
@@ -50,6 +50,8 @@ namespace Eloise {
         } else {
             cout << "Error w/ file." << endl;
         }
+    	//ici on va créer les tuiles correspondant aux identifiants récupérés
+    	//rivière
         vector<int> river_ids = game_memento.get_riverid();
         for (auto it=river_ids.begin(); it!=river_ids.end(); ++it) {
             for (const auto& tile : data) {
@@ -69,6 +71,7 @@ namespace Eloise {
                 }
             }
         }
+    	//pile
         vector<int> pile_ids = game_memento.get_pileid();
         for (auto it=pile_ids.begin(); it!=pile_ids.end(); ++it) {
             for (const auto& tile : data) {
@@ -91,6 +94,7 @@ namespace Eloise {
         vector<string> player_names = game_memento.get_players_name();
         int j = 0;
         for (auto it=player_names.begin(); it!=player_names.end(); ++it) {
+        	//en fonction de la version on crée des joueurs qt ou des joueurs console
             if (game_memento.get_version() == "console") {
                 players.push_back(new PlayerConsole(*it));
             }
@@ -105,15 +109,22 @@ namespace Eloise {
             players.at(i)->setStones(*it);
             i++;
         }
+    	//on récupère le json avec les plateaux
         json player_boards = game_memento.get_boards();
         size_t k = 0;
+    	//boucle pour affecter à chaque joueur son plateau venant du json
         for (auto& [boardKey, j_board] : player_boards.items()) {
+        	//sécurités
             boardKey;
             j_board.dump(4);
+        	//boucle try catch par sécurité
             try {
+            	//conversion du json en plateau
                 Board board = Board::fromJsonBoard(j_board);
+            	//construction du board manager
                 BoardManager bm(board);
                 auto& player = players.at(k);
+            	//affectation du plateau
                 player->setBoard(bm);
             } catch (const exception& e) {
                 cout << "Erreur : " << e.what();
@@ -153,7 +164,6 @@ namespace Eloise {
     }
 
     void Game::endGame() {
-        //displaying of each player's score thanks to method of Player
 		using namespace Marilou;
 
 		ScoreVariants variants{};
@@ -182,7 +192,7 @@ namespace Eloise {
 
 		struct Result
 		{
-			Eloise::Player *player;
+			Player *player;
 			int score;
 			int stones;
 		};
@@ -190,8 +200,8 @@ namespace Eloise {
 
 		if (isSolo && nb_players == 2)
 		{
-			Eloise::Player *joueur = players[0];
-			Eloise::Player *architecte = players[1];
+			Player *joueur = players[0];
+			Player *architecte = players[1];
 
 			int scoreJoueur = scoreGen.compute(*joueur, variants);
 			int stonesJoueur = joueur->getStones();

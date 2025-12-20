@@ -4,7 +4,7 @@ using std::to_string;
 
 namespace Barnabe {
 
-    // ===== maps utilisées pour le chargement/enrgistrement de la sauvegarde =====
+    // ===== maps utilisées pour le chargement/enregistrement de la sauvegarde =====
     map<string, Color> Board::stringToColor = {{"Blue",Color::BLUE},{"Red",Color::RED},{"Green",Color::GREEN},{"Yellow",Color::YELLOW},{"Grey",Color::GREY},{"Purple",Color::PURPLE}};
     map<string, Type> Board::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
     map<Color, string> Board::colorToString = {

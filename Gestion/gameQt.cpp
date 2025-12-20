@@ -39,11 +39,13 @@ namespace Eloise {
         QMessageBox::information(parent, "Player Turn", info);
     }
     bool GameQt::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
+        //pour abandonner la partie
         QMessageBox msgBox;
         msgBox.setText("Do you want to abandon the game ?");
         QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
         QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
         msgBox.exec();
+        //on appelle abandonGame() puis on renvoie false et on sort
         if (msgBox.clickedButton() == yesButton) {
             abandonGame();
             return false;
@@ -52,31 +54,41 @@ namespace Eloise {
             Tile* tile = nullptr;
             char satisfied = 'N';
             do {
+                //pioche
                 tile = &pickRiver();
+                //placement de la tuile
                 players[current_player]->playTurn(*tile);
                 QMessageBox msgbox;
                 msgbox.setText("Are you satisfied of your move?");
                 QPushButton *yesButton = msgbox.addButton("Yes", QMessageBox::YesRole);
                 QPushButton *noButton = msgbox.addButton("No", QMessageBox::NoRole);
                 msgbox.exec();
+                //si satisfait on peut sortir de la boucle
                 if (msgbox.clickedButton() == yesButton) {
                     satisfied = 'Y';
                 } else {
+                    //rollback plateau
                     players[current_player]->setBoard(*board_copy);
                     QMessageBox optionBox;
+                    //2 options de rollback
                     optionBox.setText("Pick another tile (A) or choose another place (B)?");
                     QPushButton *A_btn = optionBox.addButton("A", QMessageBox::AcceptRole);
                     QPushButton *B_btn = optionBox.addButton("B", QMessageBox::AcceptRole);
                     optionBox.exec();
-
+                    //nouvelle pioche
                     if (optionBox.clickedButton() == A_btn) {
+                        //copie de copie
                         Amalena::River* temp_river = new Amalena::River(*river_copy);
+                        //rollback rivière
                         *river = *temp_river;
+                        //nouvelle pioche
                         Tile* new_tile = &pickRiver();
+                        //nouveau placement
                         players[current_player]->playTurn(*new_tile);
                         delete temp_river;
                     }
                     else {
+                        //nouveau placement
                         players[current_player]->playTurn(*tile);
                     }
                     QMessageBox finalBox;
@@ -136,14 +148,15 @@ Tile& GameQt::chooseTileRiver() {
             position = QInputDialog::getInt(parent, "Pick a Tile",
                                             "Write the position of the tile you want (first tile at position 1):",
                                             1, 1, static_cast<int>(river->getSize()), 1);
-
+            //vérification du nombre de pierres par rapport à la position
             if (players[current_player]->getStones() < static_cast<size_t>(position - 1)) {
                 QMessageBox::warning(parent, "Not enough stones",
                                      "You don't have enough stones, select another position.");
             }
         } while (players[current_player]->getStones() < static_cast<size_t>(position - 1));
-
+        //on récupère la tuile grâce à giveTile()
         Tile& chosen_tile = river->giveTile(position);
+        //mise à jour des pierres
         size_t newStones = players[current_player]->getStones() - (position - 1);
         players[current_player]->setStones(newStones);
         return chosen_tile;
@@ -160,9 +173,11 @@ Tile& GameQt::chooseTileRiver() {
     }
     void GameQt::architectPlaySoloGame(){
         QMessageBox::information(parent, "Architect's Turn", "Architect is playing");
+        //pointeur sur la tuile choisie et sa position
         Tile* chosen_tile_ptr = nullptr;
         int chosen_pos = 1;
         int pos = 1;
+        //boucle pour trouver la première tuile avec une cellule PLACE
         for (auto& t : *river) {
             for (const Cell* cell : t) {
                 if (cell->getType() == Type::PLACE) {
@@ -174,11 +189,14 @@ Tile& GameQt::chooseTileRiver() {
             if (chosen_tile_ptr) break;
             ++pos;
         }
+        //si on a pas trouvé ou pas assez de pierres on prend la première tuile
         if (!chosen_tile_ptr || (chosen_pos - 1) > players[current_player]->getStones()) {
             chosen_tile_ptr = &*river->begin();
             chosen_pos = 1;
         }
+        //mise à jour des pierres
         players[current_player]->addStones(-static_cast<int>(chosen_pos - 1));
+        //ajout de la tuile au vecteur
         players[current_player]->playTurn(*chosen_tile_ptr);
     }
 
@@ -188,6 +206,7 @@ Tile& GameQt::chooseTileRiver() {
         QPushButton *yesButton = msgBox.addButton("Yes", QMessageBox::YesRole);
         QPushButton *noButton  = msgBox.addButton("No", QMessageBox::NoRole);
         msgBox.exec();
+        //abandon de la partie ==> on appelle abandonGame() et on retourne false
         if (msgBox.clickedButton() == yesButton) {
             abandonGame();
             return false;
@@ -195,42 +214,57 @@ Tile& GameQt::chooseTileRiver() {
         else {
             Tile* tile = nullptr;
             QMessageBox::information(parent, "Your Turn", QString("Stones: %1").arg(players[0]->getStones()));
+            //enregsitrement des pierres pour pouvoir rollback
             int stones_before = players.at(0)->getStones();
             int architect_stones_before = players.at(1)->getStones();
             char satisfied = 'N';
             do {
+                //pioche
                 tile = &pickRiver();
+                //affectation des pierres
                 int stones_after = players.at(0)->getStones();
                 int stones_lost = stones_before - stones_after;
                 players.at(1)->addStones(stones_lost);
+                //placement
                 players[current_player]->playTurn(*tile);
                 QMessageBox msgbox;
                 msgbox.setText("Are you satisfied of your move?");
                 QPushButton *yesButton = msgbox.addButton("Yes", QMessageBox::YesRole);
                 QPushButton *noButton = msgbox.addButton("No", QMessageBox::NoRole);
                 msgbox.exec();
+                //si satisfait on sort de la boucle
                 if (msgbox.clickedButton() == yesButton) {
                     satisfied = 'Y';
                 } else {
+                    //si pas satisfait rollback plateau
                     players[current_player]->setBoard(*board_copy);
                     QMessageBox optionBox;
+                    //2 options de rollback
                     optionBox.setText("Pick another tile (A) or choose another place (B)?");
                     QPushButton *A_btn = optionBox.addButton("A", QMessageBox::AcceptRole);
                     QPushButton *B_btn = optionBox.addButton("B", QMessageBox::AcceptRole);
                     optionBox.exec();
+                    //nouvelle pioche
                     if (optionBox.clickedButton() == A_btn) {
+                        //rollabck des pierres
                         players.at(0)->setStones(stones_before);
                         players.at(1)->setStones(architect_stones_before);
+                        //copie de copie
                         Amalena::River* temp_river = new Amalena::River(*river_copy);
+                        //rollback rivière
                         *river = *temp_river;
+                        //nouvelle pioche
                         Tile* new_tile = &pickRiver();
+                        //nouvelle affectation de pierres
                         int new_stones_after = players.at(0)->getStones();
                         int new_stones_lost = stones_before - new_stones_after;
                         players.at(1)->addStones(new_stones_lost);
+                        //nouveau placement
                         players[current_player]->playTurn(*new_tile);
                         delete temp_river;
                     }
                     else {
+                        //nouveau placement
                         players[current_player]->playTurn(*tile);
                     }
                     QMessageBox finalBox;

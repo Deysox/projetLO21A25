@@ -28,6 +28,7 @@ namespace Amalena
 
     void savemanager::fromjson(json data)
     {
+        //appel constructeur game memento
         gameMemento = new GameMemento(
         data["game_id"],
         data["version"],
@@ -46,18 +47,22 @@ namespace Amalena
     {
         json newGame = tojson();
         json data;
+        //ouverture fichier et sécurité
         std::ifstream in("../sauvegarde.json");
         if (in.is_open()) {
             try {
                 in >> data;
+            //évite crash
             } catch (...) {
                 data = json::object();
             }
             in.close();
         }
+        //games = conteneur de toutes les parties ==> sécurité car il doit exister donc init
         if (!data.contains("games") || !data["games"].is_array()) {
             data["games"] = json::array();
         }
+        //si le pseudo choisi existe déjà on va remplacer
         bool replaced = false;
         for (auto& game : data["games"]) {
             if (game.contains("game_id") &&
@@ -67,6 +72,7 @@ namespace Amalena
                 break;
             }
         }
+        //pas de remplacement, on ajoute juste la nouvelle partie
         if (!replaced) {
             data["games"].push_back(newGame);
         }
@@ -80,9 +86,10 @@ namespace Amalena
 
     GameMemento* savemanager::restore(string id)
     {
+        //on ouvre le fichier et on vérifie que tout va bien
         ifstream file("../sauvegarde.json");
         if (!file.is_open()) {
-            cout << "Failed to open file";
+            cout << "Failed to open file" ;
             return nullptr;
         }
         json data;
@@ -92,17 +99,21 @@ namespace Amalena
             cout << "JSON parse error: " << e.what();
             return nullptr;
         }
+        //sécurité json
         if (!data.contains("games") || !data["games"].is_array()) {
             cout << "Invalid save file: 'games' missing or not an array";
             return nullptr;
         }
+        //on cherche la partie correspondant à l'id
         for (const auto& game : data["games"]) {
             if (!game.contains("game_id")) continue;
             if (game["game_id"].get<std::string>() == id) {
+                //quand on trouve on convertit en game memento et on le renvoie
                 fromjson(game);
                 return gameMemento;
             }
         }
+        //cas où id pas trouvé
         cout << "Game with id '" << id << "' not found";
         return nullptr;
     }

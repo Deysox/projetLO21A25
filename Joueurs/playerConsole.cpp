@@ -22,9 +22,11 @@ namespace Eloise {
             Position pos(x,y);
             Rotation rotation(r);
             try {
+                //on tente de placer la tuile et si recouvrement on ajoute des pierres
                 addStones(board.place(&tile, pos, rotation));
                 placed = true;
             }
+            //différentes erreurs de placement possible
             catch(const PlacementException& pe) {
                 cout << "Error : " << pe.what() << "\n";
             }

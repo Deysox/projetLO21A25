@@ -330,34 +330,180 @@ namespace Amalena {
 }
 
 namespace Eloise {
-    class Player {
-            - static stones_distribution : size_t
-            - name : string
-            - board : BoardManager
-            - stones : int
 
-            + Player(s : string)
-            + ~Player()
-            + getName() : const string&
-            + getStones() : int
-            + getBoard() : const BoardManager&
-            + setBoard(b : BoardManager)
-            + setStones(n : int)
-            + addStones(n : int)
-            + playTurn(t : Tile) <<virtual>>
-        }
+    abstract Game {
+        # players : vector<Player*>
+        # current_player : size_t
+        # nb_players : size_t
+        # {static} nb_players_max : size_t
+        # deck : Deck*
+        # pile : Amalena::Pile*
+        # river : Amalena::River*
+        # variant : string
+        # isSolo : bool
+        # difficulty : int
+        # Game(nb_players: size_t, variant: string)
+        # Game(game_memento: Amalena::GameMemento)
+        # ~Game()
+        + setVariant(v: string)
+        + getVariant() : string {const}
+        + setSolo(solo: bool)
+        + isGameSolo() : bool {const}
+        + setDifficulty(dif: int)
+        + getDifficulty() : int {const}
+        + getNbPlayers() : size_t {const}
+        + static getNbPlayersMax() : size_t
+        + getCurrentPlayer() : size_t {const}
+        + getPlayer(position: size_t) : Player*
+        + displayPlayers()
+        + nextPlayer()
+        + manageGame()
+        + manageSoloGame(difficulty: int)
+        + pickRiver() : Tile&
+        + endGame()
+        + abandonGame()
+        + manageResumeGame()
+        {abstract} # addPlayer(name: string)
+        {abstract} # addEachPlayerToGame()
+        {abstract} # displayCurrentPlayerInfo()
+        {abstract} # actionsPlayer(river_copy: Amalena::River*, board_copy: BoardManager*) : bool
+        {abstract} # askNameSoloGame()
+        {abstract} # architectCreation(difficulty: int)
+        {abstract} # architectPlaySoloGame()
+        {abstract} # realPlayerPlaySoloGame(board_copy: BoardManager*, river_copy: Amalena::River*) : bool
+        {abstract} # chooseTileRiver() : Tile&
+        {abstract} # displayRiver()
+        {abstract} # displayAbandonGame1() : string
+        {abstract} # displayAbandonGame2()
+    }
 
-        Player *-- "1" BoardManager
+    Game *-- "1" River
+    Game *-- "1" Deck
+    Game *-- "1" Pile
+    Game *-- "*" Player
 
-        class Architect {
-            - difficulty : int
-            - architect_tiles : vector<Tile*>
+    class GameConsole {
+        - static instanceConsole : GameConsole*
+        - GameConsole(nb_players: size_t, v: string)
+        - GameConsole(game_memento: Amalena::GameMemento)
+        + static giveInstance(nb_players: size_t, v: string) : GameConsole&
+        + static giveInstance(game_memento: Amalena::GameMemento) : GameConsole&
+        + static freeInstance()
+        + addPlayer(name: string)
+        + addEachPlayerToGame()
+        + displayCurrentPlayerInfo()
+        + actionsPlayer(river_copy: Amalena::River*, board_copy: BoardManager*) : bool
+        + askNameSoloGame()
+        + architectCreation(difficulty: int)
+        + architectPlaySoloGame()
+        + realPlayerPlaySoloGame(board_copy: BoardManager*, river_copy: Amalena::River*) : bool
+        + displayRiver()
+        + chooseTileRiver() : Tile&
+        + displayAbandonGame1() : string
+        + displayAbandonGame2()
+    }
 
-            + Architect(name : string, d : int)
-            + playTurn(t : Tile) <<override>>
-        }
+    Game <|-- GameConsole
 
-        Player <|-- Architect
+    class GameQt {
+        - parent : QWidget*
+        - riverWindow : Amalena::riverQT*
+        - static instanceQt : GameQt*
+        - GameQt(nb_players: size_t, v: string)
+        - GameQt(game_memento: Amalena::GameMemento)
+        + static giveInstance(nb_players: size_t, v: string) : GameQt&
+        + static giveInstance(game_memento: Amalena::GameMemento) : GameQt&
+        + static freeInstance()
+        + addPlayer(name: string)
+        + addEachPlayerToGame()
+        + displayCurrentPlayerInfo()
+        + actionsPlayer(river_copy: Amalena::River*, board_copy: BoardManager*) : bool
+        + askNameSoloGame()
+        + architectCreation(difficulty: int)
+        + architectPlaySoloGame()
+        + realPlayerPlaySoloGame(board_copy: BoardManager*, river_copy: Amalena::River*) : bool
+        + displayRiver()
+        + chooseTileRiver() : Tile&
+        + displayAbandonGame1() : string
+        + displayAbandonGame2()
+    }
+
+    Game <|-- GameQt
+
+    abstract Player {
+        # static stones_distribution : size_t
+        # name : string
+        # board : BoardManager
+        # stones : int
+        + Player(s: string)
+        + virtual ~Player()
+        + getName() : string {const}
+        + getStones() : int
+        + getBoard() : BoardManager {const}
+        + setBoard(b: BoardManager)
+        + setStones(n: int)
+        + addStones(n: int)
+        + virtual playTurn(tile: Tile)
+        {abstract} # displayBoard()
+        {abstract} # placeTile(tile: Tile)
+    }
+
+    Player *-- Boardmanager
+
+    class PlayerQt {
+        + BoardWidget : BoardQt*
+        + window : QWidget*
+        + PlayerQt(s: string, parent: QObject*)
+        + displayBoard()
+        + placeTile(tile: Tile)
+    }
+
+    Player <|-- PlayerQt
+
+    class ArchitectQt {
+        - difficulty : int
+        - architect_tiles : vector<Tile*>
+        + ArchitectQt(name: string, d: int, parent: QObject*)
+        + playTurn(t: Tile)
+    }
+
+    PlayerQt <|-- ArchitectQt
+
+    class PlayerConsole {
+        + PlayerConsole(s: string)
+        + displayBoard()
+        + placeTile(tile: Tile)
+     }
+
+     Player <|-- PlayerConsole
+
+    class ArchitectConsole {
+        - difficulty : int
+        - architect_tiles : vector<Tile*>
+        + ArchitectConsole(name: string, d: int)
+        + playTurn(t: Tile)
+    }
+
+    PlayerConsole <|-- ArchitectConsole
+
+    class Menu{
+        + Menu()
+        + display()
+    }
+
+    Menu *-- "1" Game
+
+    class MenuQt{
+        - boutonLancerGame : QPushButton*
+        - boutonReprendreGame : QPushButton*
+        - boutonAfficherRegles : QPushButton*
+        + MenuQt(parent: QWidget*)
+        # boutonLancerGameClique()
+        # boutonReprendreGameClique()
+        # boutonAfficherReglesClique()
+    }
+
+    MenuQt *-- "1" Game
 
     class Deck {
        + {static} stringToColor : map<string, Color>
@@ -365,50 +511,11 @@ namespace Eloise {
        - tiles : vector<ClassicTile*>
        + Deck()
        + ~Deck()
-
     }
 
-    class Game {
-        - players : vector<Player*>
-        - current_player : size_t
-        - nb_players : size_t
-        - static nb_players_max : size_t
+    Deck *-- "*" Tile
 
-        - deck : Eloise::Deck*
-        - pile : Amalena::Pile*
-        - river : Amalena::River*
-
-        - Game(nb_players : size_t)
-        - ~Game()
-
-        - Game(Game) = delete
-        - operator=(Game) = delete
-
-        - static instance : Game*
-
-        + static giveInstance(nb_players : size_t) : Game&
-        + static freeInstance() : void
-        + getNbPlayers() : const size_t&
-        + static getNbPlayersMax() : const size_t&
-        + getCurrentPlayer() : const size_t&
-        + addPlayer(name : string) : void
-        + getPlayer(position : size_t) : Player*
-        + displayPlayers() : void
-        + nextPlayer() : void
-        + manageGame() : void
-        + manageSoloGame(difficulty : int) : void
-        + abandonGame() : void
-        + pickRiver() : Tile&
-        + endGame() : void
-    }
 }
-
-
-
-Game *-- "1..*" Player
-Game *-- "1" Deck
-Game *-- "1" Pile
-Game *-- "1" River
 
 namespace Marilou {
 

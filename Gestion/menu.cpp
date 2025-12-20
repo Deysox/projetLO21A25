@@ -19,6 +19,7 @@ namespace Eloise {
         boutonReprendreGame = new QPushButton("Resume a game");
         boutonAfficherRegles = new QPushButton("Display rules");
 
+        //layout pour affichage
         QVBoxLayout* layout = new QVBoxLayout(this);
         layout->addWidget(boutonLancerGame);
         layout->addSpacing(15);
@@ -28,7 +29,7 @@ namespace Eloise {
         setLayout(layout);
         setWindowTitle("Menu du jeu");
 
-
+        //connections
         connect(boutonAfficherRegles, &QPushButton::clicked,
             this, &MenuQt::boutonAfficherReglesClique);
         connect(boutonLancerGame, &QPushButton::clicked,
@@ -61,16 +62,22 @@ namespace Eloise {
         if (nb_players != 1) {
 
             GameQt& game = GameQt::giveInstance(nb_players,s);
+            //la partie se déroule
             game.manageGame();
+            //affichage score
             game.endGame();
         }
+        //version solo
         else {
             GameQt& game = GameQt::giveInstance(nb_players+1,s);
             int difficulty = QInputDialog::getInt(this,
                                                   "Difficulty",
                                                   "Difficulty ? (1 = easy, 2 = medium, 3 = hard)",
                                                   1, 1, 3, 1);
+            //la partie se déroule
             game.manageSoloGame(difficulty);
+            //affichage score
+            game.endGame();
         }
         GameQt::freeInstance();
     }
@@ -81,12 +88,16 @@ namespace Eloise {
         QString pseudo_game = QInputDialog::getText(this, "Game", "What was the pseudo of your game ?");
         string game_name = pseudo_game.toStdString();
         Amalena::savemanager save_manager;
+        //appel à restore() avec pseudo saisi
         Amalena::GameMemento* game_memento = save_manager.restore(game_name);
         //little security because instance is unique
         GameQt::freeInstance();
+        //instance de game version qt
         GameQt& game = GameQt::giveInstance(*game_memento);
+        //la partie se déroule
         game.manageResumeGame();
-        //game.endGame();
+        //affichage score
+        game.endGame();
         GameQt::freeInstance();
     }
 }

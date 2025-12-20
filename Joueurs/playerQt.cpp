@@ -37,14 +37,11 @@ namespace Eloise {
          }
          }
 
-
-
-
     void PlayerQt::placeTile(const Tile& tile) {
         QWidget* wparent = qobject_cast<QWidget*>(parent());
         bool placed = false;
         while (!placed) {
-
+            //Dialog qui va permettre de saisir position et rotation
             QDialog dialog(wparent);
             QFormLayout form(&dialog);
             form.addRow(new QLabel("Position (x,y) and rotation (r)"));
@@ -71,6 +68,7 @@ namespace Eloise {
             connect(&buttonBox, SIGNAL(accepted()), &dialog, SLOT(accept()));
             connect(&buttonBox, SIGNAL(rejected()), &dialog, SLOT(reject()));
 
+            //on récupère des entiers du dialog
             int x = 0, y = 0, r = 0;
             if (dialog.exec() == QDialog::Accepted) {
                 x = fields[0]->text().toInt();
@@ -83,9 +81,11 @@ namespace Eloise {
             int y = QInputDialog::getInt(wparent, "Place a tile", "y :");
             int r = QInputDialog::getInt(wparent, "Rotation", "Rotation (0 à 5) :", 0, 0, 5);
             */
+            //on affecte ces entiers à la position et la rotation
             Position pos(x, y);
             Rotation rotation(r);
             try {
+                //on tente de placer la tuile et si recouvrement on ajoute des pierres
                 addStones(board.place(&tile, pos, rotation));
                 placed = true;
             }

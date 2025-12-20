@@ -63,13 +63,16 @@ namespace Barnabe {
          */
         Position corner_br;
     public:
-        /*
-         *A faire
+        /**
+         * Méthode qui convertit le plateau en json
+         * Récupère toutes les informations qui le caractérisent
+         * Boucle sur chacune de ses cellules
          */
         json toJsonBoard() const;
 
-        /*
-         *A faire
+        /**
+         * Méthode statique qui crée et constitue un plateau à partir d'un plateau au format json pris en paramètre
+         * Reconstitue chacune des cellules
          */
         static Board fromJsonBoard(const json& j);
 
