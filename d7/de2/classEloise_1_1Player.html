@@ -135,7 +135,9 @@ Attributs protégés statiques</h2></td></tr>
 <tr class="memitem:a4b4058bf78b1eb94badedc9e457600d4"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/de2/classEloise_1_1Player.html#a4b4058bf78b1eb94badedc9e457600d4">stones_distribution</a> = 1</td></tr>
 <tr class="separator:a4b4058bf78b1eb94badedc9e457600d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Classe abstraite du joueur Design pattern template method </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ade756967867dc4c4cdea76c72db1d17e" name="ade756967867dc4c4cdea76c72db1d17e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade756967867dc4c4cdea76c72db1d17e">&#9670;&#160;</a></span>Player()</h2>
 
@@ -151,6 +153,12 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Contructeur du joueur </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>le nom du joueur </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -176,6 +184,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Destructeur virtuel car héritage </p>
 
 </div>
 </div>
@@ -195,6 +204,12 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Méthode qui ajoute un certain nombre de pierres </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>le nombre de pierres à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -220,6 +235,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode virtuelle pure pour afficher le plateau </p>
 
 <p>Implémenté dans <a class="el" href="../../d7/d3d/classEloise_1_1PlayerConsole.html#a31a2591304a8a35c14cbc56c53d0b38c">Eloise::PlayerConsole</a>, et <a class="el" href="../../d0/d79/classEloise_1_1PlayerQt.html#a414f29cf8e805b14f692a45709a580c7">Eloise::PlayerQt</a>.</p>
 
@@ -239,6 +255,7 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter du plateau </p><dl class="section return"><dt>Renvoie</dt><dd>référence sur le plateau </dd></dl>
 
 </div>
 </div>
@@ -256,6 +273,7 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter du nom du joueur </p><dl class="section return"><dt>Renvoie</dt><dd>référence sur le nom </dd></dl>
 
 </div>
 </div>
@@ -273,6 +291,7 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Getter du nombre de pierres </p><dl class="section return"><dt>Renvoie</dt><dd>le nombre de pierres </dd></dl>
 
 </div>
 </div>
@@ -299,6 +318,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Méthode qui permet de placer la tuile sur le plateau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>référence sur la tuile à placer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implémenté dans <a class="el" href="../../d7/d3d/classEloise_1_1PlayerConsole.html#a1cf8385a5c7c2c42aeff0b8bc52d6592">Eloise::PlayerConsole</a>, et <a class="el" href="../../d0/d79/classEloise_1_1PlayerQt.html#a7d18472e9c10bffb53fb68316260bb93">Eloise::PlayerQt</a>.</p>
 
@@ -327,6 +352,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Template method Méthode qui affiche le plateau et permet de placer une tuile dessus </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>référence sur la tuile à placer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Réimplémentée dans <a class="el" href="../../db/dae/classEloise_1_1ArchitectConsole.html#aa72c677a9ee836dce8b87234e909e2f8">Eloise::ArchitectConsole</a>, et <a class="el" href="../../d6/ddb/classEloise_1_1ArchitectQt.html#a2ce97ebcef1c4c22771df73e05c5b139">Eloise::ArchitectQt</a>.</p>
 
@@ -355,6 +386,12 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Setter du plateau </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>le plateau </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -373,6 +410,12 @@ Attributs protégés statiques</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Setter du nombre de pierres </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>le nombre de pierres </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -396,6 +439,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Plateau du joueur </p>
 
 </div>
 </div>
@@ -418,6 +462,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Nom du joueur </p>
 
 </div>
 </div>
@@ -440,6 +485,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Nombre de pierres détenues </p>
 
 </div>
 </div>
@@ -462,6 +508,7 @@ Attributs protégés statiques</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Attribut static qui s'incrémente pour la distribution des pierres </p>
 
 </div>
 </div>
