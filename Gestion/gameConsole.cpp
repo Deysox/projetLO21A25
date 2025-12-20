@@ -64,7 +64,7 @@ namespace Eloise {
     void GameConsole::addPlayer(const string& name) {
         if (nb_players > nb_players_max)
         {
-            cout << "Can't add an additionnal player, you have reached the maximum.";
+            throw MaxPlayerException();
         }
         else {
             PlayerConsole* p = new PlayerConsole(name);

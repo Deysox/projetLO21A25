@@ -43,6 +43,32 @@ public:
     }
 };
 
+/**
+ * Exception pour dire qu'on ne peut plus ajouter de joueur
+ */
+class MaxPlayerException : public exception {
+    string message_;
+public:
+    explicit MaxPlayerException(const string& message) : message_(message) {}
+    MaxPlayerException() : message_("Erreur : max de joueurs atteint.") {}
+    [[nodiscard]] const char* what() const noexcept override
+    {
+        return message_.c_str();
+    }
+};
 
+/**
+ * Exception lors de tentative d'accès à un joueur hors vecteur
+ */
+class InvalidPositionException : public exception {
+    string message_;
+public:
+    explicit InvalidPositionException(const string& message) : message_(message) {}
+    InvalidPositionException() : message_("Erreur : position invalide.") {}
+    [[nodiscard]] const char* what() const noexcept override
+    {
+        return message_.c_str();
+    }
+};
 
 #endif //PROJETLO21A25_EXCEPTIONS_H

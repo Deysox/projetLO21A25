@@ -108,7 +108,6 @@ namespace Eloise {
         json player_boards = game_memento.get_boards();
         size_t k = 0;
         for (auto& [boardKey, j_board] : player_boards.items()) {
-            //boardKey et j_board.dump(4) pour debugger, je les ai laissé volontairement
             boardKey;
             j_board.dump(4);
             try {
@@ -117,7 +116,7 @@ namespace Eloise {
                 auto& player = players.at(k);
                 player->setBoard(bm);
             } catch (const exception& e) {
-                cout << "Exception caught: " << e.what() << endl;
+                cout << "Erreur : " << e.what();
             }
             ++k;
         }
@@ -143,7 +142,7 @@ namespace Eloise {
             return players.at(position);
         }
         else {
-            cout << "Invalid position.";
+            throw InvalidPositionException();
             return nullptr;
         }
     }
