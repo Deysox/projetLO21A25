@@ -51,8 +51,7 @@ namespace Amalena
     {
         return tiles.empty();
     }
-    Pile::~Pile(){
-    }
+
 
 
 

@@ -1,3 +1,4 @@
+
 @startuml
 
 namespace Barnabe {
@@ -276,26 +277,56 @@ namespace Amalena {
     class River{
         - tiles : vector<Tile*>
         - pile : Pile&
+        - max_tiles : int
         - fillriver() : void
         + River(nb :size_t, pile : Pile&)
+        + River(tiles : vector<Tile*>, nb :size_t, pile : Pile&)
         + operator=(f : River&)
-        +River (r : const River&)
-        +~River()
-        + giveTile(t : const Tile*)  : size_t {const}
+        + River (r : const River&)
+        + ~River()
+        + River (r : const River&)
+        + operator= (f: const River&)
+        + getPosition(t : const Tile*)  : size_t {const}
+        + giveTile (position : size_t){const}
+        + stay1() : bool {const}
+        + toString() {const}
+        + getSize() : size_t {const}
+        + getTiles() : vector<Tile*> {const}
+        + addTilesInriver(tile : Tile*) : void
+        + clearVectorRiver() : void
+        + begin() :RiverIterator
+        + end() : RiverIterator
+
+
+
 
     }
     River o-- "1..*" Tile
     class Pile{
         - tiles : vector<Tile*>
         - deck : Deck&
-        + Pile (d: deck, t: vector<Tile*>)
+        +Pile (d:Deck)
+        + Pile (d: Deck, t: vector<Tile*>)
         +~Pile()
         + isempty() : bool {const}
         + Draw() :Tile*
+        +operator=(p : const Pile&)
+        + void addTilesInPile(tile: Tile*)
+        + void clearVectorPile()
+        + begin() PileIterator
+        + end() PileIterator
 
     }
     Pile o-- "1..*" Tile
-
+     package QT #eeffee {
+    class RiverQT{
+    - river : River&
+    +riverQT (parent : QWidget*, r : River&)
+    + ~riverQT()
+    +updateDisplay() : void
+    }
+    }
+    RiverQT o-- "1--1" River
 }
 
 namespace Eloise {

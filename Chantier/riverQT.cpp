@@ -19,10 +19,7 @@ namespace Amalena
            {
                layout->addWidget(new Barnabe::ClassicTileQt(this,ct));
            }
-          /* }else
-           {
-               throw std::exception ("Impossible to draw river widget");
-           }*/
+
         }
 
 
@@ -32,12 +29,13 @@ namespace Amalena
        {
          auto* layout =this->layout();
          QLayoutItem *child;
+         //suppresion des widgets présents dans le layout
          while ((child = layout->takeAt(0)) != nullptr) {
 
-             delete child->widget(); // delete the widget
-             delete child;   // delete the layout item
+             delete child->widget();
+             delete child;
          }
-
+        //ajout des nouveau widgets
          for (auto it=river.begin();it!=river.end();++it)
          {
              Barnabe::Tile& t=*it;
@@ -46,10 +44,9 @@ namespace Amalena
                  layout->addWidget(new Barnabe::ClassicTileQt(this,ct));
              }
          }
+        layout->invalidate();
+        update();
 
-         layout->invalidate();
-         update();
-
-       };
+    };
 
 }
