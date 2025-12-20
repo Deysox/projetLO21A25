@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include "score.h"
+#include "../Joueurs/playerConsole.h"
 
 using namespace Eloise;
 using namespace Barnabe;
@@ -65,41 +66,36 @@ int Marilou::ScorePierre::compute(const Player &player, const ScoreVariants &) c
 // ===== ScoreArchitecte =====
 int Marilou::ScoreArchitecte::compute(const Eloise::Player &player,const ScoreVariants &) const
 {
-	const Board &board = *(player.getBoard().getBoard());
+	const Eloise::ArchitectConsole* arch = dynamic_cast<const Eloise::ArchitectConsole*>(&player);
+	if (!arch) return 0;
 
+	const auto& tiles = arch->getArchitetctTiles();
 	std::map<Color, int> districtsPerColor;
 	std::map<Color, int> placesPerColor;
 	int quarries = 0;
 
-	for (auto it = board.cbegin(); it != board.cend(); ++it)
-	{
-		const Cell *cell = it->second.first;
-		if (!cell) continue;
+	for (const Barnabe::Tiles* t : tiles) {
+		if (!t) continue;
+		for (auto it = t->cbegin(); it != t->cend(); ++it) {
+			const Cell* cell = *it;
+			if (!cell) continue;
+			Color col = cell->getColor();
+			Type ty = cell->getType();
 
-		Color col = cell->getColor();
-		Type t = cell->getType();
-
-		if (t == Type::DISTRICT) districtsPerColor[col]++;
-		else if (t == Type::PLACE) placesPerColor[col]++;
-		else if (t == Type::QUARRY) quarries++;
+			if (ty == Type::DISTRICT) districtsPerColor[col]++;
+			else if (ty == Type::PLACE) placesPerColor[col]++;
+			else if (ty == Type::QUARRY) quarries++;
+		}
 	}
 
 	int score = 0;
-	for (const auto &[col, nbDistricts] : districtsPerColor)
-	{
-		int nbPlaces = placesPerColor[col];
-		int stars = starsForColor(col); // réutilisation de ta fonction
-		score += nbDistricts * (nbPlaces * stars);
-	}
+	for (const auto& [col, nbDistricts] : districtsPerColor)
+		score += nbDistricts * (placesPerColor[col] * starsForColor(col));
 
-	switch (difficulty)
-	{
-	case ArchitectDifficulty::HIPPODAMOS:
-		return score;
-	case ArchitectDifficulty::METAGENES:
-		return score + (quarries*2);
-	case ArchitectDifficulty::CALLICRATES:
-		return score * 2;
+	switch (difficulty) {
+		case ArchitectDifficulty::HIPPODAMOS: return score;
+		case ArchitectDifficulty::METAGENES: return score + (quarries*2);
+		case ArchitectDifficulty::CALLICRATES: return score * 2;
 	}
 	return score;
 }
