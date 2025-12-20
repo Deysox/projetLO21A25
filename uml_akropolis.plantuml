@@ -510,6 +510,8 @@ namespace Eloise {
        + {static} stringToType : map<string, Color>
        - tiles : vector<ClassicTile*>
        + Deck()
+       + getTiles() : vector<ClassicTile*> {const}
+       + operator=(f: Deck) : Deck
        + ~Deck()
     }
 
