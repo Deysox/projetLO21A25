@@ -71,8 +71,9 @@ namespace Barnabe {
          */
         virtual int place(const Tile* t, const Position& p, const Rotation& r, bool adjacentIgnore = false);
 
-        /*
-         * Ici aussi
+        /**
+         * Méthode qui permet de construire un nouveau boardmanager à partir d'un autre
+         * Sans oublier de positionner la tuile de départ
          */
         void setBoard(const BoardManager& bm) {
             delete board;
