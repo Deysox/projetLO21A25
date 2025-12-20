@@ -73,6 +73,8 @@ namespace Barnabe {
         }
 
         BicolorCell --> Cell
+        BicolorCell "*" o-- "1" Rotation
+
         abstract Tile {
            # {static} id : int
            # cells : vector<const Cell*>*
@@ -115,7 +117,7 @@ namespace Barnabe {
               {static} - stringToType : map<string, Type>
               {static} - colorToString : map<Color, string>
               {static} - typeToString : map<Type, string>
-              - cells : unordered_map<Position, pair<const Cell*, unsigned int>>
+              - cells : unordered_map<Position, pair<const Cell*, unsigned int>, PositionHasher>
               - corner_tl : Position
               - corner_bl : Position
               + Board()
@@ -139,9 +141,12 @@ namespace Barnabe {
               + cend() : const_iterator {const}
               + toJsonBoard() : json {const}
               {static} + fromJsonBoard(const json&) : Board
+
           }
 
           Board "*" o-- "*" Cell
+          Board "0..1" o-- "*" Position
+          Board "1" *-- "1" PositionHasher
 
           class BoardManager {
               - board : Board*
@@ -157,7 +162,7 @@ namespace Barnabe {
           }
 
           BoardManager "1" *-- "1" Board
-          BoardManager *-- "1" StartingTile
+          BoardManager "1" *-- "1" StartingTile
         }
     }
 
@@ -181,13 +186,16 @@ namespace Barnabe {
 
 
     package QT #eeffee {
-        abstract ContainerQt <typename T> {
+        abstract ContainerQt <typename Container_Type \n typename Item> {
             # size : int
-            # cells : T
+            # cells : Container_Type
+            # item : Item
             + ContainerQt(QWidget*, int)
             + updateDisplay()
             # {abstract} draw()
             # {abstract} empty()
+            + setItem(const Item*) {virtual}
+            + getItem() : const Item* {const} {virtual}
         }
 
         abstract CellQt {
@@ -236,39 +244,38 @@ namespace Barnabe {
         CellQtEmpty --> CellQt
 
         abstract TileQt {
-            - tile : const Tile* t
             + TileQt(QWidget*, const Tile*, int)
             + empty() {override}
         }
 
-        TileQt --> ContainerQt
+        TileQt --> ContainerQt : "ContainerQt<vector<CellQt*>,Tile>"
         TileQt "*" o-- "1" Tile
         TileQt *-- "*" CellQt
 
         class ClassicTileQt {
             +ClassicTileQt(QWidget*, const ClassicTile*, int)
-            +getTile() : const ClassicTile* {const}
-            +setTile(const ClassicTile*)
+            +setItem(const ClassicTile*) {override}
             +draw() {override}
         }
 
         ClassicTileQt "*" o-- "1" ClassicTile
+        ClassicTileQt --> TileQt
 
 
         class BoardQt {
-            - board : const Board*
             + BoardQt(QWidget*, const Board*, int)
             + empty()  {override}
             + draw() {override}
-            + getBoard() : const Board* {const}
-            + setBoard(const Board*) {const}
             + lock()
             + unlock()
         }
 
-        BoardQt --> ContainerQt
+        BoardQt --> ContainerQt : "ContainerQt<unordered_map<Position,CellQt*>,Board, PositionHasher>"
         BoardQt "*" o-- "1" Board
-        BoardQt *-- "*" CellQt
+        BoardQt "0..1" *-- "*" CellQt
+        BoardQt "0..1" *-- "*" Position
+        BoardQt "1" *-- "1" PositionHasher
+
     }
 
 }
