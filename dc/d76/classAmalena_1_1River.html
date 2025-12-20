@@ -168,6 +168,7 @@ Attributs privés</h2></td></tr>
 <p >constructeur </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">nb</td><td>le nombre de tuiles max dans la rivière (relatif au nombre de joueur) </td></tr>
+    <tr><td class="paramname">pile</td><td>: reférence vers la pile associée </td></tr>
   </table>
   </dd>
 </dl>
@@ -213,7 +214,14 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >constructeur pour la sauvegarde prenant en plus en paramètre un vecteur des tuiles présents dans la rivière </p>
+<p >constructeur pour la sauvegarde </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tiles</td><td>:vecteur de pointeur sur les tuiles de la rivière présente dans la sauvegarde </td></tr>
+    <tr><td class="paramname">nb</td><td>le nombre de tuiles max dans la rivière (relatif au nombre de joueur) </td></tr>
+    <tr><td class="paramname">pile</td><td>: reférence vers la pile associée </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -258,7 +266,12 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >constructeur par recopie </p>
+<p >constructeur par recopie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>river </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -286,6 +299,12 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>pointeur vers tuiles à ajouter </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -336,6 +355,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >nettoie rivière </p>
 
 </div>
 </div>
@@ -463,7 +483,7 @@ Attributs privés</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >getter </p>
+<p >getter pour obtenir les tuiles return tiles </p>
 
 </div>
 </div>
@@ -507,7 +527,12 @@ Attributs privés</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >opérateur d'affectation </p>
+<p >opérateur d'affectation </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>: river </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -543,7 +568,7 @@ Attributs privés</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >transcription en chaine pour la sauvegarde </p>
+<p >transcription en chaine </p>
 
 </div>
 </div>

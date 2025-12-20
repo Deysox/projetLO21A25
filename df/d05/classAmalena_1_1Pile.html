@@ -103,8 +103,8 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a8d00084ea5924fb45fbea0750074c15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7254f7ab0b7ee9cd35cf4bb420ed7a88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/dcb/classBarnabe_1_1Tile.html">Barnabe::Tile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#a7254f7ab0b7ee9cd35cf4bb420ed7a88">Draw</a> ()</td></tr>
 <tr class="separator:a7254f7ab0b7ee9cd35cf4bb420ed7a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1568f68e2313f20f57369b1452b5697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#ac1568f68e2313f20f57369b1452b5697">~Pile</a> ()</td></tr>
-<tr class="separator:ac1568f68e2313f20f57369b1452b5697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dfb3afc8fa4d25e4a202641941f3a91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#a7dfb3afc8fa4d25e4a202641941f3a91">~Pile</a> ()=default</td></tr>
+<tr class="separator:a7dfb3afc8fa4d25e4a202641941f3a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e46880fae37192aae96f56c3051172e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#a8e46880fae37192aae96f56c3051172e">addTilesInPile</a> (<a class="el" href="../../d8/dcb/classBarnabe_1_1Tile.html">Barnabe::Tile</a> *tile)</td></tr>
 <tr class="separator:a8e46880fae37192aae96f56c3051172e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeea883a19e511e7595ecdaabbcbb144"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#afeea883a19e511e7595ecdaabbcbb144">clearVectorPile</a> ()</td></tr>
@@ -131,7 +131,9 @@ Amis</h2></td></tr>
 <tr class="memitem:a3050d231cac4366110d9611cc0ac9bdc"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d05/classAmalena_1_1Pile.html#a3050d231cac4366110d9611cc0ac9bdc">river</a></td></tr>
 <tr class="separator:a3050d231cac4366110d9611cc0ac9bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p >Au départ identique au deck puis mise à jour au fur et à mesure du remplissage de la rivière </p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
 <a id="ac43091344473da907c3cf2f144c6dc3b" name="ac43091344473da907c3cf2f144c6dc3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac43091344473da907c3cf2f144c6dc3b">&#9670;&#160;</a></span>Pile() <span class="overload">[1/3]</span></h2>
 
@@ -155,6 +157,12 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >constructeur par recopie </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pile à recopier </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -181,6 +189,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Constructeur, les pointeur sont initialement randomisés </p>
 
 </div>
 </div>
@@ -217,14 +226,24 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >constructeur pour la sauvegarde </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reference</td><td>au deck associé </td></tr>
+    <tr><td class="paramname">vecteur</td><td>de pointeur des tuiles présentes dans la pioche dans la sauvegarde </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ac1568f68e2313f20f57369b1452b5697" name="ac1568f68e2313f20f57369b1452b5697"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1568f68e2313f20f57369b1452b5697">&#9670;&#160;</a></span>~Pile()</h2>
+<a id="a7dfb3afc8fa4d25e4a202641941f3a91" name="a7dfb3afc8fa4d25e4a202641941f3a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dfb3afc8fa4d25e4a202641941f3a91">&#9670;&#160;</a></span>~Pile()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Amalena::Pile::~Pile </td>
@@ -233,7 +252,13 @@ Amis</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<p >destructeur par défaut </p>
 
 </div>
 </div>
@@ -261,6 +286,12 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>pointeur vers une tuile à ajouter à la fin de la pile </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -311,6 +342,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Moyen de nettoyer le vecteur </p>
 
 </div>
 </div>
@@ -328,6 +360,7 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Fonction de distribution </p><dl class="section return"><dt>Renvoie</dt><dd>un pointeur sur une tuile (donne une tuile est retire le pointeur du vecteur) </dd></dl>
 
 </div>
 </div>
@@ -370,6 +403,7 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Renvoie</dt><dd>booleen indiquant si la pile est vide </dd></dl>
 
 </div>
 </div>
@@ -388,6 +422,7 @@ Amis</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >opérateur d'affectation </p>
 
 </div>
 </div>
@@ -434,6 +469,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >reférence au deck associé à la pioche </p>
 
 </div>
 </div>
@@ -456,6 +492,7 @@ Amis</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >Vecteur de pointeur des tuiles disponible dans la pioche </p>
 
 </div>
 </div>
