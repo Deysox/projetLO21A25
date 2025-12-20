@@ -587,43 +587,65 @@ namespace Amaléna{
 
 
 class  GameMemento{
+- game_id : string
+- version : sting
+- riverid : vector<int>
+- pileid vector<int>
 - PlayersName :vector<string>
 - PlayersStone :vector<int>
-- boards :vector<map<pair<int,int>,pair<int, unsigned int>>>
-- nbplayers : size_t
+- boards :json
+- nbplayer : size_t
 - currentplayer : size_t
 - variante : string
-- GameMemento(playersName :vector<string>,PlayersStone : vector<int> boards, nbplayers : size_t,
-currentplayer : size_t, variante : string)
--~GameMemento()
-- get_players_name() : vector<string>
-- set_players_name(playersName : vector<string>) : void
 
-- get_players_stone() : vector<int>
--set_players_stone(playersStone : vector<int>) : void
++ GameMemento(gameid : string,version : string, riverid : vector<int>, pileid: vector<int>,playersName :vector<string>,PlayersStone : vector<int> boards, nbplayer : size_t,
+currentplayer : size_t, variante : string, boards : json)
++ GameMemento()
++~GameMemento()
 
--get_boards() : vector<map<pair<int,int>, pair<int,unsigned int>>>
-- set_boards(boards : vector<map<pair<int,int>, pair<int,unsigned int>>>) : void
++get_version(): string {const}
++ set_version(version : const string&)
 
--get_nbplayer() : size_t
--set_nbplayer(nbplayers : size_t) : void
++get_riverid() : vector<int> {const}
++ set_riverid( riverid : const vector<int>)
 
-- get_currentplayer() : size_t
--set_currentplayer(currentplayer : size_t) : void
++get_pileid(): vector<int> {const}
++ set_pileid(pileid const vector<int>)
 
--get_variante() : string
--set_variante(variante : string) : void
+
++ get_players_name() : vector<string>
++ set_players_name(playersName : vector<string>) : void
+
++ get_players_stone() : vector<int>
++set_players_stone(playersStone : vector<int>) : void
+
++get_boards() : json
++ set_boards(boards : json) : void
+
++get_nbplayer() : size_t
++set_nbplayer(nbplayers : size_t) : void
+
++ get_currentplayer() : size_t
++set_currentplayer(currentplayer : size_t) : void
+
++get_variante() : string
++set_variante(variante : string) : void
+
++ get_game_id (game_id : const string)
 }
 
 
 class SaveManager{
 - gameMemento : GameMemento*
--fromjson(json data) : void
--tojson(): json
-+ savemanager(GameMemento*)
-+~SaveManager()
-+ void save(filename : string)
-+void restore (filename : string)
++ savemanager(g : GameMemento*)
++ savemanager()
++ savemanager( s: const savemanager&)
++ ~savemanager()
++ operator= (s: const savemanager&))
++ void save()
++ void restore (game_id : string)
++ fromjson(json data) : void
++ tojson(): json
 }
 
 
