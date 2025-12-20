@@ -14,11 +14,7 @@ namespace Barnabe {
     /**
      * Représentation graphique d'un plateau du jeu Akropolis sous forme de Widget QT.
      */
-    class BoardQt : public ContainerQt<unordered_map<Position, CellQt*, PositionHasher>> {
-        /**
-         * Plateau à afficher
-         */
-        const Board* board;
+    class BoardQt : public ContainerQt<unordered_map<Position, CellQt*, PositionHasher>,Board> {
     public:
         /**
          * Constructeur de la classe BoardQt
@@ -26,7 +22,7 @@ namespace Barnabe {
          * @param b Plateau à représenter
          * @param s Taille des cases (rayon)
          */
-        BoardQt(QWidget* parent, const Board* b, int s = 40) : ContainerQt(parent,s), board(b) {updateDisplay();}
+        BoardQt(QWidget* parent, const Board* b, int s = 40) : ContainerQt(parent,b,s) {updateDisplay();}
 
         /**
          * Désalloue les CellQt en itérant sur la map
@@ -37,17 +33,6 @@ namespace Barnabe {
          * Création de l'affichage
          */
         void draw() override;
-
-        /**
-         * Accesseur en écriture du plateau à afficher
-         * @param b Plateau à afficher
-         */
-        void setBoard(const Board* b) {board = b;}
-        /**
-         * Accesseur en lecture du plateau à afficher
-         * @return Pointeur vers Board
-         */
-        const Board* getBoard() const {return board;}
 
         /**
          * Verrouille toutes les cases du plateau

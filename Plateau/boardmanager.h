@@ -41,7 +41,7 @@ namespace Barnabe {
          * Destructeur de la classe Board.
          * Désalloue l'espace octroyé au plateau et à la tuile de départ
          */
-        ~BoardManager();
+        virtual ~BoardManager();
 
         /*
          * Commenter ici
@@ -69,7 +69,7 @@ namespace Barnabe {
          * sera ignorée.
          * @returns Nombre de pierres obtenues par le joueur par recouvrement de carrières
          */
-        int place(const Tile* t, const Position& p, const Rotation& r, bool adjacentIgnore = false);
+        virtual int place(const Tile* t, const Position& p, const Rotation& r, bool adjacentIgnore = false);
 
         /*
          * Ici aussi

@@ -18,13 +18,13 @@ namespace Barnabe {
 
     void BoardQt::draw() {
         empty();
-        const Position ctl = board->getCorners().first;
+        const Position ctl = item->getCorners().first;
         const int w = size*2; // Calcul de la largeur
         const int h = std::sqrt(3)*size; // Calcul de la hauteur
         const int x_offset = (ctl.x()-1)*w; // Décalage des positions par rapport au coin supérieur
         const int y_offset = -(ctl.y()+1)*h;
 
-        for (const pair<Position, pair<const Cell*, unsigned int>> p : *board) { // Itération sur les cases du plateau
+        for (const pair<Position, pair<const Cell*, unsigned int>> p : *item) { // Itération sur les cases du plateau
             Position pos = p.first;
             const Cell* cell = p.second.first;
             const unsigned int hght = p.second.second;

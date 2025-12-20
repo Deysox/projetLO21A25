@@ -3,17 +3,42 @@
 //
 #include "../Gestion/gameQt.h"
 #include "../Joueurs/playerQt.h"
+#include "../Plateau/QT/boardqt.h"
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QLabel>
 #include <QFormLayout>
+#include <String>
 using namespace std;
 
 namespace Eloise {
 
-    void PlayerQt::displayBoard() {
-        emit boardDisplay("board");
-    }
+
+    void PlayerQt::displayBoard()
+    {
+         if (!BoardWidget&&!window)
+         {
+             window = new QWidget;
+             QBoxLayout* layout = new QVBoxLayout(window);
+
+             BoardWidget = new BoardQt(window, board.getBoard());
+             layout->addWidget(BoardWidget);
+             window->setWindowTitle(
+        "A vous de jouer " + QString::fromStdString(this->getName()));
+             window->resize(800, 800);
+             window->setAttribute(Qt::WA_DeleteOnClose);
+             window->show();
+         }else
+         {
+             window->setWindowTitle(
+            "A vous de jouer " + QString::fromStdString(this->getName()));
+             BoardWidget->updateDisplay();
+             window->show();
+         }
+         }
+
+
+
 
     void PlayerQt::placeTile(const Tile& tile) {
         QWidget* wparent = qobject_cast<QWidget*>(parent());
