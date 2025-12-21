@@ -59,7 +59,8 @@ namespace Eloise {
                                               1);
         bool ok{}; string s = "";
         QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
-                                             tr("Variante(s)"), QLineEdit::Normal,
+        tr("You may choose to play with one or more modifiers :\n"
+"home, market, barrack, temple, garden\nEnter 0 for disabling all."), QLineEdit::Normal,
                                              "", &ok);
         if (ok && !text.isEmpty())
             s = text.toStdString();
