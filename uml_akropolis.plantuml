@@ -72,7 +72,7 @@ namespace Barnabe {
            + setRotation(const Rotation&)
         }
 
-        BicolorCell --> Cell
+        BicolorCell --|> Cell
         BicolorCell "*" o-- "1" Rotation
 
         abstract Tile {
@@ -104,9 +104,9 @@ namespace Barnabe {
             + calculatePositions(const Position&, Rotation&) : vector<Position> {override}
         }
 
-        StartingTile --> Tile
-        ClassicTile --> Tile
-        AthenaTile --> Tile
+        StartingTile --|> Tile
+        ClassicTile --|> Tile
+        AthenaTile --|> Tile
 
         Tile "1" *-- "1.." Cell
 
@@ -234,7 +234,7 @@ namespace Barnabe {
         Color -- CellQtFull
         Type -- CellQtFull
 
-        CellQtFull --> CellQt
+        CellQtFull --|> CellQt
 
         class CellQtEmpty {
             + CellQtEmpty(QWidget*, const Position&, bool, int)
@@ -243,14 +243,14 @@ namespace Barnabe {
             # endPaintEventActions() {override}
         }
 
-        CellQtEmpty --> CellQt
+        CellQtEmpty --|> CellQt
 
         abstract TileQt {
             + TileQt(QWidget*, const Tile*, int)
             + empty() {override}
         }
 
-        TileQt --> ContainerQt : "ContainerQt<vector<CellQt*>,Tile>"
+        TileQt --|> ContainerQt : "ContainerQt<vector<CellQt*>,Tile>"
         TileQt "*" o-- "1" Tile
 
         class ClassicTileQt {
@@ -260,7 +260,7 @@ namespace Barnabe {
         }
 
         ClassicTileQt "*" o-- "1" ClassicTile
-        ClassicTileQt --> TileQt
+        ClassicTileQt --|> TileQt
 
 
         class BoardQt {
@@ -271,7 +271,7 @@ namespace Barnabe {
             + unlock()
         }
 
-        BoardQt --> ContainerQt : "ContainerQt<unordered_map<Position,CellQt*>,Board, PositionHasher>"
+        BoardQt --|> ContainerQt : "ContainerQt<unordered_map<Position,CellQt*>,Board, PositionHasher>"
         BoardQt "*" o-- "1" Board
         BoardQt "0..1" *-- "*" Position
         BoardQt "1" *-- "1" PositionHasher
