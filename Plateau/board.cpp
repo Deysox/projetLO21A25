@@ -139,26 +139,26 @@ namespace Barnabe {
         const Position ctl = b.getCorners().first;
         const Position cbr = b.getCorners().second;
 
-        const int xindex_end = cbr.x(); // Le passage sur les colonnes se fait de la première à la dernière de gauche à droite
+        const int xindex_end = cbr.x()+1; // Le passage sur les colonnes se fait de la première à la dernière de gauche à droite
         const int yindex_end = cbr.y()-1; // Le passage sur les lignes se fait de haut en bas, avec une itération de plus que
         // le nombre de lignes indiqué par les coordonnées. Les lignes d'affichage console sont à cheval sur plusieurs
         // lignes du plateau hexagonal.
 
         output += "    ";
-        for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
+        for (int xindex = ctl.x()-1; xindex <= xindex_end; xindex++) {
             output += lenStringInt(xindex);
         }
         f << output << "\n";
 
         // A chaque itération, deux lignes de sortie console sont produites.
-        for (int yindex = ctl.y(); yindex >= yindex_end; yindex--) {
+        for (int yindex = ctl.y()+1; yindex >= yindex_end; yindex--) {
             string line1; // Partie haute de la ligne
             string line2; // Partie basse de la ligne
 
             line2 += lenStringInt(yindex);
             line1 += "    ";
 
-            for (int xindex = ctl.x(); xindex <= xindex_end; xindex++) {
+            for (int xindex = ctl.x()-1; xindex <= xindex_end; xindex++) {
                 if (xindex%2 == 0) { // Si le x est pair, les parties haute et basse correspondent à la même cellule
                     const Cell* cellToPlace = b.getCell(xindex,yindex);
                     const unsigned int heightToPlace = b.getHeight(xindex,yindex);

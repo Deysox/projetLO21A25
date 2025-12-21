@@ -79,7 +79,7 @@ namespace Eloise {
                     }
                     {
                         case '2':
-                        cout << "== Resume Game ==\n-- Setup --\n Enter game code\n>> ";
+                        cout << "\n== Resume Game ==\n-- Setup --\nEnter game code\n>> ";
                         string resumption;
                         cin >> resumption;
                         Amalena::savemanager save_manager;

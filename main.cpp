@@ -86,7 +86,7 @@ int main() {
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    Eloise::MenuQt menu;
-    menu.show();
+    Eloise::Menu menu;
+    //menu.show();
     return app.exec();
 }
