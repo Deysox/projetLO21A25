@@ -71,4 +71,14 @@ public:
     }
 };
 
+class FileException : public exception {
+    string message_;
+public:
+    explicit FileException(const string& message) : message_(message) {}
+    [[nodiscard]] const char* what() const noexcept override
+    {
+        return message_.c_str();
+    }
+};
+
 #endif //PROJETLO21A25_EXCEPTIONS_H

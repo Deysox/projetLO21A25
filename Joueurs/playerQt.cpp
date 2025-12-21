@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QLabel>
 #include <QFormLayout>
-#include <String>
+#include <string>
 using namespace std;
 
 namespace Eloise {

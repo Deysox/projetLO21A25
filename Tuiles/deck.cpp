@@ -16,7 +16,7 @@ namespace Eloise {
     map<string, Type> Deck::stringToType = {{"District", Type::DISTRICT},{"Place", Type::PLACE},{"Quarry", Type::QUARRY}};
 
     Deck::Deck(int nb_players_game) {
-        ifstream fichier("../tiles_2.json"); // Lecture du fichier
+        ifstream fichier("tiles_2.json"); // Lecture du fichier
         if (fichier.is_open()){
             json data = json::parse(fichier); // Parsing des données
             fichier.close();
@@ -40,7 +40,7 @@ namespace Eloise {
                 }
             }
         } else {
-            cout << "Error w/ file." << endl;
+            throw FileException("Impossible d'ouvrir le fichier des tuiles.");
         }
     }
 
