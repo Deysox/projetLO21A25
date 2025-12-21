@@ -7,7 +7,7 @@
 
 #include "cellqt.h"
 #include "containerqt.h"
-#include "tile.h"
+#include "../../Tuiles/tile.h"
 
 namespace Barnabe {
     /**
