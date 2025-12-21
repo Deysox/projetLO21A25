@@ -53,13 +53,13 @@ namespace Amalena
         if (in.is_open()) {
             try {
                 in >> data;
-            //évite crash, catch général
+            //évite crash, catch général mais peu précis
             } catch (...) {
                 data = json::object();
             }
             in.close();
         }
-        //games = conteneur de toutes les parties ==> sécurité car il doit exister donc init éventuellement
+        //games = conteneur de toutes les parties ==> sécurité car il doit exister, donc init éventuellement
         if (!data.contains("games") || !data["games"].is_array()) {
             data["games"] = json::array();
         }
