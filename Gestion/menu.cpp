@@ -95,7 +95,7 @@ namespace Eloise {
         //appel à restore() avec pseudo saisi
         Amalena::GameMemento* game_memento = save_manager.restore(game_name);
         if (game_memento) {
-            //little security because instance is unique
+            //sécurité, instance unique
             GameQt::freeInstance();
             //instance de game version qt
             GameQt& game = GameQt::giveInstance(*game_memento);
