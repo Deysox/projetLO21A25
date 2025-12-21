@@ -390,7 +390,7 @@ namespace Eloise {
     Game *-- "*" Player
 
     class GameConsole {
-        - static instanceConsole : GameConsole*
+        - {static} instanceConsole : GameConsole*
         - GameConsole(nb_players: size_t, v: string)
         - GameConsole(game_memento: Amalena::GameMemento)
         + static giveInstance(nb_players: size_t, v: string) : GameConsole&
@@ -415,7 +415,7 @@ namespace Eloise {
     class GameQt {
         - parent : QWidget*
         - riverWindow : Amalena::riverQT*
-        - static instanceQt : GameQt*
+        - {static} instanceQt : GameQt*
         - GameQt(nb_players: size_t, v: string)
         - GameQt(game_memento: Amalena::GameMemento)
         + {static} giveInstance(nb_players: size_t, v: string) : GameQt&
