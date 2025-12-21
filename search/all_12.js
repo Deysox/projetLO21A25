@@ -10,12 +10,11 @@ var searchData=
   ['tileqt_2ecpp_7',['tileqt.cpp',['../d4/d6f/tileqt_8cpp.html',1,'']]],
   ['tileqt_2eh_8',['tileqt.h',['../d0/da5/tileqt_8h.html',1,'']]],
   ['tiles_9',['tiles',['../df/d05/classAmalena_1_1Pile.html#a9afb987e7fc18659001cf755b07f2360',1,'Amalena::Pile::tiles()'],['../dc/d76/classAmalena_1_1River.html#a28deab22d481247aa68dbf909378ce2c',1,'Amalena::River::tiles()'],['../d1/d55/classEloise_1_1Deck.html#a8656aba908c8312aaa2d14825bc7ec4e',1,'Eloise::Deck::tiles()']]],
-  ['tilesjson_2ecpp_10',['tilesjson.cpp',['../d8/d62/tilesjson_8cpp.html',1,'']]],
-  ['tojson_11',['tojson',['../d2/de2/classAmalena_1_1savemanager.html#aa63a14bd72d451c2e877ce60fccc57bd',1,'Amalena::savemanager']]],
-  ['tojsonboard_12',['toJsonBoard',['../d8/d80/classBarnabe_1_1Board.html#a476146ce536e450bd94d4c1e2cd01e33',1,'Barnabe::Board']]],
-  ['tostring_13',['toString',['../dc/d76/classAmalena_1_1River.html#a170fced1c2f61f9ecf90dbfdc7528630',1,'Amalena::River::toString()'],['../d8/d16/classBarnabe_1_1Position.html#a49473ade3c61b688b20dfda66f37f214',1,'Barnabe::Position::toString()'],['../d8/dcb/classBarnabe_1_1Tile.html#a269baf439ba6cb872e2a0ba2a227e6b5',1,'Barnabe::Tile::toString()']]],
-  ['truc_5fsuper_14',['truc_super',['../d2/ddc/test_8h.html#a374793c1d55da98d93e5cae01d903b64',1,'test.h']]],
-  ['type_15',['type',['../d1/dcc/classBarnabe_1_1CellQtFull.html#a2cfb5709308ee497b8dee5a22164ae41',1,'Barnabe::CellQtFull::type()'],['../d0/db0/classBarnabe_1_1Cell.html#a450c9f5e66babe65061e178aa12003e5',1,'Barnabe::Cell::type()']]],
-  ['type_16',['Type',['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82d',1,'Barnabe']]],
-  ['typetostring_17',['typeToString',['../d8/d80/classBarnabe_1_1Board.html#ae1408e3478c0c8689a5071e854fbcdd7',1,'Barnabe::Board::typeToString()'],['../d8/dcb/classBarnabe_1_1Tile.html#ae8b165d6771e73a7aabf227a17f6fc48',1,'Barnabe::Tile::typeToString()']]]
+  ['tojson_10',['tojson',['../d2/de2/classAmalena_1_1savemanager.html#aa63a14bd72d451c2e877ce60fccc57bd',1,'Amalena::savemanager']]],
+  ['tojsonboard_11',['toJsonBoard',['../d8/d80/classBarnabe_1_1Board.html#a476146ce536e450bd94d4c1e2cd01e33',1,'Barnabe::Board']]],
+  ['tostring_12',['toString',['../dc/d76/classAmalena_1_1River.html#a170fced1c2f61f9ecf90dbfdc7528630',1,'Amalena::River::toString()'],['../d8/dcb/classBarnabe_1_1Tile.html#a269baf439ba6cb872e2a0ba2a227e6b5',1,'Barnabe::Tile::toString()'],['../d8/d16/classBarnabe_1_1Position.html#a49473ade3c61b688b20dfda66f37f214',1,'Barnabe::Position::toString()']]],
+  ['truc_5fsuper_13',['truc_super',['../d2/ddc/test_8h.html#a374793c1d55da98d93e5cae01d903b64',1,'test.h']]],
+  ['type_14',['type',['../d1/dcc/classBarnabe_1_1CellQtFull.html#a2cfb5709308ee497b8dee5a22164ae41',1,'Barnabe::CellQtFull::type()'],['../d0/db0/classBarnabe_1_1Cell.html#a450c9f5e66babe65061e178aa12003e5',1,'Barnabe::Cell::type()']]],
+  ['type_15',['Type',['../dd/df6/namespaceBarnabe.html#a9ebe4bdc1d45953096203b37d589a82d',1,'Barnabe']]],
+  ['typetostring_16',['typeToString',['../d8/d80/classBarnabe_1_1Board.html#ae1408e3478c0c8689a5071e854fbcdd7',1,'Barnabe::Board::typeToString()'],['../d8/dcb/classBarnabe_1_1Tile.html#ae8b165d6771e73a7aabf227a17f6fc48',1,'Barnabe::Tile::typeToString()']]]
 ];
