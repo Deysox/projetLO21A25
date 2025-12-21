@@ -47,7 +47,7 @@ namespace Barnabe {
                 // Si l'une des cases recouvertes a une hauteur différente de la hauteur initiale, on renvoie
                 // une exception
                 if (board->getHeight(pos) != initialHeight)
-                    throw PlacementException("Les cases recouvertes ne sont pas de la même hauteur");
+                    throw PlacementException("Recovered cells have different heights");
 
                 // Si l'une des cases recouvertes a un ID différent de la case initiale, on passe le booléen à true.
                 // La contrainte de recouvrement est alors validée.
@@ -59,14 +59,14 @@ namespace Barnabe {
             //  =====/!\ Same tile test un peu bancal et pas très extensible /!\=====
             // Si la contrainte de recouvrement n'est pas validée, on lève une exception
             if (!sameTiletest)
-                throw PlacementException("Les cases recouvertes appartiennent toutes à la même tuile");
+                throw PlacementException("All recovered cells belong to the same tile");
 
 
         } else { // Si l'emplacement de la position initiale est vide
             for (const Position& pos : positions) { // Parcours des positions
                 if (board->getCell(pos) != nullptr) // Si l'un des emplacements n'est pas vide, le placement est
                     // invalide
-                    throw PlacementException("Les cases recouvertes ne sont pas de la même hauteur");
+                    throw PlacementException("Recovered cells have different heights");
             }
         }
 
@@ -81,7 +81,7 @@ namespace Barnabe {
                 }
             }
             if (!adjacentTest)
-                throw PlacementException("La tuile n'est pas adjacente au reste du plateau");
+                throw PlacementException("Tile is not adjacent to the board");
         }
 
 

@@ -17,13 +17,14 @@ namespace Eloise {
         }
     }
     void GameConsole::displayCurrentPlayerInfo() {
-        cout << "Current player : " << *players.at(current_player);
+        cout << "\n" << *players.at(current_player);
     }
     bool GameConsole::actionsPlayer(Amalena::River* river_copy,BoardManager* board_copy) {
         //pour abandonner et sauvegarder la partie
-        cout << "Do you want to save and quit ? (Y/N)\n>> ";
+        cout << "\nDo you want to save and quit ? (Y/N)\n>> ";
         string answer;
         cin >> answer;
+        cout << "\n";
         if (answer == "Y") {
             abandonGame();
             return false;
@@ -149,7 +150,7 @@ namespace Eloise {
         }
     }
     bool GameConsole::realPlayerPlaySoloGame(BoardManager* board_copy,Amalena::River* river_copy){
-        cout << "Do you want to save and quit ? (Y/N)\n>> ";
+        cout << "\nDo you want to save and quit ? (Y/N)\n>> ";
         string answer;
         cin >> answer;
         //dans le cas d'un abandon, on appelle abandonGame() et on s'arrête
