@@ -94,7 +94,7 @@ namespace Amalena
             cout << "Failed to open file" ;
             return nullptr;
         }
-        //on va chercher les données dans le json
+        //parsing
         json data;
         try {
             file >> data;
@@ -119,7 +119,7 @@ namespace Amalena
             }
         }
         //cas où id pas trouvé
-        cout << "Game with id '" << id << "' not found";
+        cout << "Game with pseudo '" << id << "' not found";
         return nullptr;
     }
 }
