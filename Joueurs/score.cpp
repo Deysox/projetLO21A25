@@ -74,7 +74,7 @@ int Marilou::ScoreArchitecte::compute(const Eloise::Player &player,const ScoreVa
 	std::map<Color, int> placesPerColor;
 	int quarries = 0;
 
-	for (const Barnabe::Tiles* t : tiles) {
+	for (const Barnabe::Tile* t : tiles) {
 		if (!t) continue;
 		for (auto it = t->cbegin(); it != t->cend(); ++it) {
 			const Cell* cell = *it;

@@ -418,9 +418,9 @@ namespace Eloise {
         - static instanceQt : GameQt*
         - GameQt(nb_players: size_t, v: string)
         - GameQt(game_memento: Amalena::GameMemento)
-        + static giveInstance(nb_players: size_t, v: string) : GameQt&
-        + static giveInstance(game_memento: Amalena::GameMemento) : GameQt&
-        + static freeInstance()
+        + {static} giveInstance(nb_players: size_t, v: string) : GameQt&
+        + {static} giveInstance(game_memento: Amalena::GameMemento) : GameQt&
+        + {static} freeInstance()
         + addPlayer(name: string)
         + addEachPlayerToGame()
         + displayCurrentPlayerInfo()
@@ -438,7 +438,7 @@ namespace Eloise {
     Game <|-- GameQt
 
     abstract Player {
-        # static stones_distribution : size_t
+        # {static} stones_distribution : size_t
         # name : string
         # board : BoardManager
         # stones : int
@@ -505,9 +505,9 @@ namespace Eloise {
         - boutonReprendreGame : QPushButton*
         - boutonAfficherRegles : QPushButton*
         + MenuQt(parent: QWidget*)
-        # boutonLancerGameClique()
-        # boutonReprendreGameClique()
-        # boutonAfficherReglesClique()
+        - boutonLancerGameClique()
+        - boutonReprendreGameClique()
+        - boutonAfficherReglesClique()
     }
 
     MenuQt *-- "1" Game
@@ -657,9 +657,10 @@ class SaveManager{
 + tojson(): json
 }
 
-
-SaveManager o-- "1..*" GameMemento
-
+SaveManager *-- "1" GameMemento
+Game *-- "1" GameMemento
+Menu *-- "1" SaveManager
+Game *-- "1" SaveManager
 
 }
 
