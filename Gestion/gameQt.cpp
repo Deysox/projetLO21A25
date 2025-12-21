@@ -21,6 +21,7 @@
 #include <QObject>
 #include <QInputDialog>
 #include <string>
+
 namespace Eloise {
     //static attributs init
     GameQt* GameQt::instanceQt = nullptr;

@@ -85,14 +85,16 @@ namespace Eloise {
                         Amalena::savemanager save_manager;
                         //appel à restore() avec le code de partie
                         Amalena::GameMemento* game_memento = save_manager.restore(resumption);
-                        //sécurité, instance unique
-                        GameConsole::freeInstance();
-                        GameConsole& game = GameConsole::giveInstance(*game_memento);
-                        //déroulement partie
-                        game.manageResumeGame();
-                        //affichage score
-                        game.endGame();
-                        GameConsole::freeInstance();
+                        if (game_memento) {
+                            //sécurité, instance unique
+                            GameConsole::freeInstance();
+                            GameConsole& game = GameConsole::giveInstance(*game_memento);
+                            //déroulement partie
+                            game.manageResumeGame();
+                            //affichage score
+                            game.endGame();
+                            GameConsole::freeInstance();
+                        }
                         break;
                     }
                     case '3':
