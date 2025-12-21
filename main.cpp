@@ -85,8 +85,21 @@ int main() {
 #include <QApplication>
 int main(int argc, char* argv[])
 {
-    QApplication app(argc, argv);
-    Eloise::Menu menu;
-    //menu.show();
-    return app.exec();
+    string choice = "0";
+    do {
+        std::cout << "1. Console, 2. Qt >> ";
+        std::cin >> choice;
+        std::cout << "\n\n";
+    } while (choice != "1" && choice != "2");
+    if (choice == "1") {
+        Eloise::Menu menu;
+        return 0;
+    } else {
+        QApplication app(argc, argv);
+        Eloise::MenuQt menu;
+        menu.show();
+        return app.exec();
+    }
+
+
 }

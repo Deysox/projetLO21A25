@@ -1,4 +1,4 @@
-
+set PLANTUML_LIMIT_SIZE=8192
 @startuml
 
 namespace Barnabe {
