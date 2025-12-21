@@ -528,68 +528,83 @@ namespace Eloise {
 
 namespace Marilou {
 
-    struct ScoreVariants {
-        + habitations : bool
-        + marches : bool
-        + casernes : bool
-        + temples : boolclass
-        + jardins : bool
-    }
+  class ScoreVariants {
+    - home : bool = false
+    - market : bool = false
+    - barrack : bool = false
+    - temple : bool = false
+    - garden : bool = false
+  }
 
-    abstract class Score {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  enum ArchitectDifficulty {
+    HIPPODAMOS
+    METAGENES
+    CALLICRATES
+  }
 
-    class ScorePierre {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  abstract class Score {
+    {abstract} + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    abstract class ScoreCouleur {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScorePierre extends Score {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    class ScoreBleu {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScoreArchitecte extends Score {
+    - difficulty : ArchitectDifficulty
+    + ScoreArchitecte(d : ArchitectDifficulty)
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    class ScoreJaune {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  abstract class ScoreCouleur extends Score {
+  }
 
-    class ScoreRouge {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScoreBleu extends ScoreCouleur {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    class ScoreViolet {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScoreJaune extends ScoreCouleur {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    class ScoreVert {
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScoreRouge extends ScoreCouleur {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    class ScoreGeneral {
-        - couleurs : List<ScoreCouleur*>
-        - scorePierre : ScorePierre
-        + ScoreGeneral()
-        + compute(player : Eloise::Player, variants : ScoreVariants) : int
-    }
+  class ScoreViolet extends ScoreCouleur {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    Score <|-- ScorePierre
-    Score <|-- ScoreCouleur
-    Score <|-- ScoreGeneral
+  class ScoreVert extends ScoreCouleur {
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    ScoreCouleur <|-- ScoreBleu
-    ScoreCouleur <|-- ScoreJaune
-    ScoreCouleur <|-- ScoreRouge
-    ScoreCouleur <|-- ScoreViolet
-    ScoreCouleur <|-- ScoreVert
+  class "ScoreGeneral<CONT>" as ScoreGeneral_CONT extends Score {
+    - scores : CONT
+    + ScoreGeneral()
+    + ScoreGeneral(c : CONT)
+    + getContainer() : CONT &
+    + getContainer() : CONT const &
+    + addScore(s : Score *) : void
+    + compute(player : Eloise::Player, variants : ScoreVariants) : int
+  }
 
-    ScoreGeneral o-- ScoreCouleur
-    ScoreGeneral o-- ScorePierre
+  Score <|-- ScorePierre
+  Score <|-- ScoreArchitecte
+  Score <|-- ScoreCouleur
+
+  ScoreCouleur <|-- ScoreBleu
+  ScoreCouleur <|-- ScoreJaune
+  ScoreCouleur <|-- ScoreRouge
+  ScoreCouleur <|-- ScoreViolet
+  ScoreCouleur <|-- ScoreVert
+
+  Score <|-- ScoreGeneral_CONT
+
+  ScoreArchitecte --> ArchitectDifficulty
+  Score ..> ScoreVariants
+  Score ..> "Eloise::Player"
 }
-
-Marilou.Score ..> Eloise.Player
 
 namespace Amaléna{
 
