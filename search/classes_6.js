@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['maxplayerexception_0',['MaxPlayerException',['../d9/def/classMaxPlayerException.html',1,'']]],
-  ['menu_1',['Menu',['../d0/dbf/classEloise_1_1Menu.html',1,'Eloise']]],
-  ['menuqt_2',['MenuQt',['../db/d06/classEloise_1_1MenuQt.html',1,'Eloise']]]
+  ['init_0',['init',['../d2/dfd/classinit.html',1,'']]],
+  ['invalidpositionexception_1',['InvalidPositionException',['../de/d9f/classInvalidPositionException.html',1,'']]],
+  ['iterator_2',['iterator',['../df/d0b/classBarnabe_1_1Board_1_1iterator.html',1,'Barnabe::Board::iterator'],['../da/d6e/classBarnabe_1_1Position_1_1iterator.html',1,'Barnabe::Position::iterator']]]
 ];
