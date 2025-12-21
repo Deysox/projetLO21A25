@@ -198,6 +198,8 @@ namespace Barnabe {
             + getItem() : const Item* {const} {virtual}
         }
 
+        ContainerQt "1" *-- "*" CellQt
+
         abstract CellQt {
             # size : int
             # w : int
@@ -250,12 +252,11 @@ namespace Barnabe {
 
         TileQt --> ContainerQt : "ContainerQt<vector<CellQt*>,Tile>"
         TileQt "*" o-- "1" Tile
-        TileQt *-- "*" CellQt
 
         class ClassicTileQt {
             +ClassicTileQt(QWidget*, const ClassicTile*, int)
             +setItem(const ClassicTile*) {override}
-            +draw() {override}
+            #draw() {override}
         }
 
         ClassicTileQt "*" o-- "1" ClassicTile
@@ -272,7 +273,6 @@ namespace Barnabe {
 
         BoardQt --> ContainerQt : "ContainerQt<unordered_map<Position,CellQt*>,Board, PositionHasher>"
         BoardQt "*" o-- "1" Board
-        BoardQt "0..1" *-- "*" CellQt
         BoardQt "0..1" *-- "*" Position
         BoardQt "1" *-- "1" PositionHasher
 
@@ -528,11 +528,11 @@ namespace Eloise {
 
 namespace Marilou {
 
-    class ScoreVariants {
+    struct ScoreVariants {
         + habitations : bool
         + marches : bool
         + casernes : bool
-        + temples : bool
+        + temples : boolclass
         + jardins : bool
     }
 
