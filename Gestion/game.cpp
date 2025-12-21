@@ -42,13 +42,13 @@ namespace Eloise {
         pile->clearVectorPile();
         river->clearVectorRiver();
     	//ouverture du fichier avec les tuiles
-        ifstream fichier("../tiles_2.json");
+        ifstream fichier("tiles_2.json");
         json data;
         if (fichier.is_open()){
             data = json::parse(fichier);
             fichier.close();
         } else {
-            cout << "Error w/ file." << endl;
+            throw FileException("Impossible d'ouvrir le fichier des tuiles");
         }
     	//ici on va créer les tuiles correspondant aux identifiants récupérés
     	//rivière
