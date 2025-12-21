@@ -29,6 +29,7 @@ namespace Eloise {
         nb_players(game_memento.get_nbplayer()),
         current_player(game_memento.get_currentplayer()),
         variant(game_memento.get_variante()){
+    	//différenciation des deux cas obligatoire
         if (nb_players == 1) {
             deck = new Deck(nb_players+1);
         }
@@ -44,6 +45,7 @@ namespace Eloise {
     	//ouverture du fichier avec les tuiles
         ifstream fichier("tiles_2.json");
         json data;
+    	//parsing
         if (fichier.is_open()){
             data = json::parse(fichier);
             fichier.close();
@@ -56,6 +58,7 @@ namespace Eloise {
         for (auto it=river_ids.begin(); it!=river_ids.end(); ++it) {
             for (const auto& tile : data) {
                 if (tile["id"] == *it) {
+                	//on récupère toutes couleurs et tous les types
                     string t1 = tile["cells"][0]["type"];
                     string t2 = tile["cells"][1]["type"];
                     string t3 = tile["cells"][2]["type"];
@@ -63,15 +66,18 @@ namespace Eloise {
                     string c2 = tile["cells"][1]["color"];
                     string c3 = tile["cells"][2]["color"];
                     ClassicTile* game_tile = new ClassicTile(
+                    	//3 cellules pour créer la tuile
                         Eloise::Deck::stringToColor[c1],Eloise::Deck::stringToType[t1],
                         Eloise::Deck::stringToColor[c2],Eloise::Deck::stringToType[t2],
                         Eloise::Deck::stringToColor[c3],Eloise::Deck::stringToType[t3]
                     );
+                	//ajout à la rivière
                     river->addTilesInRiver(game_tile);
                 }
             }
         }
     	//pile
+    	//même logique
         vector<int> pile_ids = game_memento.get_pileid();
         for (auto it=pile_ids.begin(); it!=pile_ids.end(); ++it) {
             for (const auto& tile : data) {
