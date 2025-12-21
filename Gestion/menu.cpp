@@ -56,9 +56,13 @@ namespace Eloise {
                                               1,
                                               1,
                                               Game::getNbPlayersMax(),
-
                                               1);
-        string s ="variante";
+        bool ok{}; string s = "";
+        QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Variante(s)"), QLineEdit::Normal,
+                                             "", &ok);
+        if (ok && !text.isEmpty())
+            s = text.toStdString();
         if (nb_players != 1) {
 
             GameQt& game = GameQt::giveInstance(nb_players,s);
